@@ -1,0 +1,27 @@
+
+<% if @is_disliked %>
+
+$('#dislike_<%= @post.id%>').html("UnDisLike");
+// noty({text: 'Tweet was Liked', type: 'alert'});
+
+<% else %>
+
+$('#dislike_<%= @post.id%>').html("DisLike");
+//noty({text: 'Tweet was UnLiked', type: 'alert'});
+
+<% end %>
+
+
+<% if @is_liked %>
+
+$('#like_<%= @post.id%>').html("UnLike");
+
+// noty({text: 'Tweet was Liked', type: 'alert'});
+
+<% else %>
+
+$('#like_<%= @post.id%>').html("Like");
+
+//noty({text: 'Tweet was UnLiked', type: 'alert'});
+
+<% end %>

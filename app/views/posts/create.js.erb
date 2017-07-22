@@ -1,0 +1,4 @@
+
+$('#posts').prepend("<%= escape_javascript (render 'newsfeed/post', post: @post) %>");
+$('#post_content').val("");
+console.log("hello there");

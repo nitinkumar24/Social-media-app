@@ -1,0 +1,79 @@
+
+
+  <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
+  
+<li> <%= link_to "Users", users_path %> 
+
+
+
+
+  <%= form_for @post,remote: true do |form| %>
+
+     <%= form.text_area :content %>
+     <div class="actions">
+         <%= form.submit %>
+      </div>
+  <% end %>
+
+
+  <h2>Newsfeed</h2>
+
+  <% @feed.each do |post| %>
+  <div style="width:50% ;border: 2px black solid;">
+  
+  <div id="posts">
+    <%= render 'post', post: post %>
+      
+      <%= form_for @comment do |form| %>
+      
+        <%= form.text_area :content %>
+       <%= hidden_field_tag :post_id, post.id %>
+  <div class="actions">
+      <%= form.submit %>
+ </div>
+  <% end %>
+</div>
+</div>
+
+    <tbody>
+
+    <% @comments.where(post_id: post.id).each do |comment| %>
+      <tr>
+      <td><%= comment.user_id %></td>
+        <td><%= comment.content %></td>
+
+        
+      </tr>
+    <% end %>
+  </tbody>
+
+  <% end %>
+    
+    <br>
+
+  
+
+<div id='load_more'>
+<%= render 'load_more', offset: 10 %>
+</div>
+
+ </div>
+
+
+<script type="text/javascript">
+	$.ajax({url: '/ajax',
+		data: {
+			text: "text"
+		}
+, success: function(data){
+	console.log(data);
+	console.log("request completed");
+},
+error: function(){
+		console.log(arguments);
+
+	console.log("some error");
+}
+
+});
+</script>
