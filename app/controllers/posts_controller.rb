@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @comment=Comment.new
     respond_to do |format|
       if @post.save
         format.html { redirect_to '/', notice: 'Post was successfully created.' }

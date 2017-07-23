@@ -9,7 +9,7 @@ class NewsfeedController < ApplicationController
             @post = Post.new
             @comment=Comment.new
             @comments = Comment.all
-            @feed = current_user.feed.limit(50)
+            @feed = current_user.feed.limit(10)
       }
       format.js{
             offset = params["offset"]

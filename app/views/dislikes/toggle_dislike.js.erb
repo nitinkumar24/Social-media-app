@@ -2,11 +2,15 @@
 <% if @is_disliked %>
 
 $('#dislike_<%= @post.id%>').html("UnDisLike");
+$('#count_dislike_<%= @post.id%>').html(<%=@post.dislikes.count%>);
+
 // noty({text: 'Tweet was Liked', type: 'alert'});
 
 <% else %>
 
 $('#dislike_<%= @post.id%>').html("DisLike");
+$('#count_dislike_<%= @post.id%>').html(<%=@post.dislikes.count%>);
+
 //noty({text: 'Tweet was UnLiked', type: 'alert'});
 
 <% end %>
@@ -15,12 +19,16 @@ $('#dislike_<%= @post.id%>').html("DisLike");
 <% if @is_liked %>
 
 $('#like_<%= @post.id%>').html("UnLike");
+$('#count_like_<%= @post.id%>').html(<%=@post.likes.count%>);
+
 
 // noty({text: 'Tweet was Liked', type: 'alert'});
 
 <% else %>
 
 $('#like_<%= @post.id%>').html("Like");
+$('#count_like_<%= @post.id%>').html(<%=@post.likes.count%>);
+
 
 //noty({text: 'Tweet was UnLiked', type: 'alert'});
 
