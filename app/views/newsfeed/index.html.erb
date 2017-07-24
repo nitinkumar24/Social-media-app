@@ -23,43 +23,33 @@
       </div>
   <% end %>
 
-
+</div>
 
 
 
   <h2>Newsfeed</h2>
 
   
-
+<div id="posts">
   <% @feed.each do |post| %>
   
   
-  <div id="posts">
-  <h3>Post</h3>
+  
+  
     <%= render 'post', post: post %>
       
      
- </div>
-</div>
+ 
 
 
 
     
-    <h3>Comments</h3>
+    
 
-
-    <% @comments.where(post_id: post.id).each do |comment| %>
-      
-      <div id="comments"
-      <%= render 'comment', comment: comment %>
-    </div>
-
-    <% end %>
-  
-
+    
   <% end %>
     
-    
+    </div>
 
   
 <br>

@@ -1,5 +1,6 @@
 
 
 
-$('#comments').prepend("<%= escape_javascript (render 'newsfeed/comment', comment: @comment) %>");
+$('#comments_<%=@comment.post.id%>').prepend("<%= escape_javascript (render 'newsfeed/comment', comment: @comment) %>");
 $('#comment_content').val("");
+console.log("hello comment");
