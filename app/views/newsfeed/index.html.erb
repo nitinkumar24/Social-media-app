@@ -1,13 +1,16 @@
 
 
-  <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
+<!--   <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
   
 <li> <%= link_to "Users", users_path %> 
-
+ -->
 <main>
 
 
 <aside>
+<div class="sidepanel">
+  
+</div>
 </aside>
 
 <section>
@@ -17,8 +20,10 @@
 
   <%= form_for @post,remote: true do |form| %>
 
-     <%= form.text_area :content %>
-     <div class="actions">
+     <%= form.text_area :content ,placeholder: "Hey,What's up"%>
+
+
+     <div style="margin-left: 80%;">
          <%= form.submit %>
       </div>
   <% end %>
@@ -27,7 +32,8 @@
 
 
 
-  <h2>Newsfeed</h2>
+
+ 
 
   
 <div id="posts">
@@ -46,7 +52,7 @@
     
     
 
-    
+
   <% end %>
     
     </div>

@@ -1,0 +1,1 @@
+<%= form.select :user_id, options_for_select([["Select One", ""], "Cell", "Work", "Office", "Home", "Other"]), :class => 'genForm_dropBox' %>

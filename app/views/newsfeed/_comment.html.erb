@@ -1,7 +1,7 @@
  
 
  <% user=User.find_by_id(comment.user_id) %>
-      <td><%= user.email %></td>
+      <td><%= user.try(:name) %></td>
         <td><%= comment.content %></td>
 
         
