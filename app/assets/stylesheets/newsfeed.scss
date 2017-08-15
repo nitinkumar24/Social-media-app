@@ -142,8 +142,8 @@ main {
 
 .newsfeed{
     
-    padding-top:4px;
-    padding-left:4px;
+    padding-top:14px;
+    padding-left:15px;
     
     border-radius: 5px;
     border-bottom:2px solid black;
@@ -151,6 +151,12 @@ main {
     width:500px;
     margin-top:15px;
     color: black;
+      word-wrap:break-word;
+       font-size: 20px;
+    font-weight: normal;
+    line-height: 1.38;
+
+
 }
 .reaction{
     background-color:grey;

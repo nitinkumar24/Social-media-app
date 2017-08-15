@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :likes
   has_many :dislikes
-  validates :content, presence: true, length: {maximum: 140}
+  validates :content, presence: true, length: {maximum: 400}
 
 
 

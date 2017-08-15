@@ -20,7 +20,12 @@
 
   <%= form_for @post,remote: true do |form| %>
 
-     <%= form.text_area :content ,placeholder: "Hey,What's up"%>
+     
+    
+     <p class="emoji-picker-container">
+
+     <%= form.text_area :content ,placeholder: "Hey,What's up",data: { emojiable: true }%>
+     </p> 
      <span>Post as Anonymous </span><%= form.check_box :anonymous %>
 
 

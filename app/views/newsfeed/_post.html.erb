@@ -9,7 +9,7 @@
    <%= image_tag(user.avatar.url(:thumb)) %></li><%= user.try(:name) %> <br>
   
   <% end %>
-  <%= post.content %>
+  <%= content_with_emoji(post.content) %>
   <br>
   <div style="border-top: 1px solid grey;;">
   <%= link_to post.like_string(current_user.id), url_for(controller: 'likes', action: 'toggle_like', post_id: post.id), method: :post,id: "like_#{post.id}" ,remote: true %>
