@@ -3,12 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
-
+# validates :name, presence: true
 has_attached_file :avatar, :styles => { :medium => "1000x00>", :thumb => "40x40#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
- 
- before_create :check_correct_email
+ 	
 
 
 		def feed
@@ -26,10 +25,6 @@ has_attached_file :avatar, :styles => { :medium => "1000x00>", :thumb => "40x40#
 		    save!
 		end
 
-		def check_correct_email
-			domain=self.email.split('@').last
-			puts domain
-
-		end
+		
 
 end

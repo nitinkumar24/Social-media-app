@@ -6,36 +6,43 @@
 
 
   <div class="field">
-    <%= f.label :Name %><br />
-    <%= f.text_field :name, autofocus: true %>
+   
+    <%= f.text_field :name, autofocus: true,placeholder: "Fullname" %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+ 
+    <%= f.email_field :email, autofocus: true ,placeholder: "email"%>
   </div>
-    <%= f.label :College %><br /><select name="city_id" id="city_id">
-  <option value="1">Krishna institute of engineering and technology</option>
-  <option value="2">Abes Institute of Technology </option>
-  <option value="12">HRIT</option>
-  <option value="Aalto University">Aalto University</option>
-  <option value="Abes Engineering college, Ghaziabad">Abes Engineering college, Ghaziabad</option>
-  <option value="ABES IT Group of Institutions, Ghaziabad">ABES IT Group of Institutions, Ghaziabad</option>
- <option value="Army Public School, Dighi Pune">Army Public School, Dighi Pune</option>
-</select>
+    <%= f.label :College %>
+    <select name="college" id="college_id">
+        <option value="Krishna institute of engineering and technology,Ghaziabad">Krishna institute of engineering and technology,Ghaziabad</option>
+        
+</select><br />
+ <%= f.label :Birthday %>
+  <%= date_select :recipient, :birthday, 
+               {
+                :order => [:day, :month, :year], 
+                :start_year => 1980, 
+                :end_year => 2005
+               }, 
+               {:class => "input-mini"}  %>
+<br>
+<input type="radio"  value="male" name="gender"> Male
+  <input type="radio" value="female" name="gender"> Female<br>
 
 
   <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
+    
+   
+    <%= f.password_field :password, autocomplete: "off" ,placeholder: "password"%>
+  </div>
+ <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    
+    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "confirm-password" %>
   </div>
 
   <div class="actions">
