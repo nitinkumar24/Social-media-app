@@ -21,6 +21,7 @@
   <%= form_for @post,remote: true do |form| %>
 
      <%= form.text_area :content ,placeholder: "Hey,What's up"%>
+     <span>Post as Anonymous </span><%= form.check_box :anonymous %>
 
 
      <div style="margin-left: 80%;">
@@ -65,6 +66,13 @@
 
 
 </section>
+<ads>
+<div class="adspanel"></div>
+  
+</ads>
+<chatbox>
+
+</chatbox>
 
 </main>
 

@@ -12,6 +12,7 @@ header {
         	padding-left:50px;
         }
     }
+   
 
     nav {
     	ul{
@@ -76,19 +77,26 @@ main {
 
         div.sidepanel{
         position:relative;
-
         width:60%;
         height:550px;
         margin-top:20px;
         margin-left:30%;
-
         border:1px solid black;
         background-color:#0d112b;;
         }
 	}
 
 	section {
-	flex-grow: 1;
+    flex-grow:1;
+	div.sidepanel{
+        position:relative;
+        width:60%;
+        height:550px;
+        margin-top:20px;
+        margin-left:30%;
+        border:1px solid black;
+        background-color:#0d112b;;
+        }
     	div.createPost{
         width:500px;
         border:0px solid black;
@@ -107,16 +115,29 @@ main {
                     box-shadow: none;
 
     	 	          }
-                      textarea:focus {
-                        height: 200px;
-                        font-size:30px;
-                        }
-
+                      
 
 	}
 
 	}
+    ads{
+    width:150px;
+    div.adspanel{
+        position:relative;
+        
+        height:550px;
+        margin-top:20px;
+        
+        border:1px solid black;
+        background-color:#0d112b;;
+        }
+    }
+    chatbox{
+    width:200px;
+    background-color:grey;
+    }
 }
+
 
 
 .newsfeed{
@@ -128,5 +149,9 @@ main {
     background-color:white;
     width:500px;
     margin-top:15px;
-    color: #920c0c;
+    color: black;
 }
+.reaction{
+    background-color:grey;
+}
+
