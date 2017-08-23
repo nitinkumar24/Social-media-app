@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
- 
+
 
   # GET /resource/sign_up
   def new
@@ -10,18 +10,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-
-     
     build_resource(sign_up_params)
     domain=resource.email.split('@').last
-    collegename=params["college"]
-    college=College.find_by_name(collegename)
-    byebug
-   
+    # collegename=params["college"]
+    # college=College.find_by_name(collegename)
 
-    if college.domain==domain
-      resource.collegename=collegename
-       if resource.save
+    # if college.domain==domain
+      # resource.collegename=collegename
+           if resource.save
             if resource.active_for_authentication?
               set_flash_message :notice, :signed_up if is_navigational_format?
               sign_up(resource_name, resource)
@@ -35,12 +31,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
           respond_with resource
         end
 
-  else
-    return redirect_to '/users/sign_up'
-  end
-    
-    
- 
+  # else
+  #   return redirect_to '/users/sign_up'
+  # end
+
+
+
 
   end
 
@@ -74,10 +70,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-            u.permit(:name,:email,:password,:password_confirmation,:collegename)
+            u.permit(:name,:email,:password,:password_confirmation,:collegename,:birthday,:sex,:batchof)
             end
-            
-    
+
+
   end
   def configure_account_update_params
           devise_parameter_sanitizer.permit(:account_update) do |u|

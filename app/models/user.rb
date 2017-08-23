@@ -11,7 +11,6 @@ has_attached_file :avatar, :styles => { :medium => "1000x00>", :thumb => "40x40#
 
 
 		def feed
-
 		      Post.all.order(created_at: :desc)
 		end
 

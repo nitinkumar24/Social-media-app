@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <title>Sociograms</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <title>S</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-  
+
   <body>
    <% if user_signed_in? %>
-<header>
+<headerbar >
+	<header>
 
-<div class="logo">
-<h1>Sociograms</h1>
-</div>
+		<div class="logo">
+			<h1>Socio_Grams</h1>
+		</div>
 
-<nav>
-<ul>
-<li> <%= link_to "Users", users_path %> </li>
-<li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
-</ul>
-</nav>
+		<nav>
+			<ul>
+			<!-- <li> <%= link_to "Users", users_path %> </li> -->
+			<li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+			</ul>
+		</nav>
 
 
-</header>
+	</header>
 <subheader>
 
 
@@ -43,7 +46,10 @@
 
 
 </subheader>
+</headerbar>
 <% end %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

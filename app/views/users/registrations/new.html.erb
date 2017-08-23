@@ -6,42 +6,53 @@
 
 
   <div class="field">
-   
-    <%= f.text_field :name, autofocus: true,placeholder: "Fullname" %>
+
+    <%= f.text_field :name, autofocus: true,placeholder: "Fullname",required:true %>
   </div>
 
   <div class="field">
- 
-    <%= f.email_field :email, autofocus: true ,placeholder: "email"%>
+
+    <%= f.email_field :email, autofocus: true ,placeholder: "email",required:true%>
   </div>
-    <%= f.label :College %>
+    <!-- <%= f.label :College %>
     <select name="college" id="college_id">
         <option value="Krishna institute of engineering and technology,Ghaziabad">Krishna institute of engineering and technology,Ghaziabad</option>
-        
+        <option value="Abes Engineering college, Ghaziabad">Abes Engineering college, Ghaziabad</option><option value="ABES IT Group of Institutions, Ghaziabad">ABES IT Group of Institutions, Ghaziabad</option>
+
 </select><br />
  <%= f.label :Birthday %>
-  <%= date_select :recipient, :birthday, 
+  <%= date_select :user, :birthday,
                {
-                :order => [:day, :month, :year], 
-                :start_year => 1980, 
+                :order => [:day, :month, :year],
+                :start_year => 1980,
                 :end_year => 2005
-               }, 
+               },
                {:class => "input-mini"}  %>
-<br>
-<input type="radio"  value="male" name="gender"> Male
-  <input type="radio" value="female" name="gender"> Female<br>
 
+<br>
+<%= f.label :Batch_of %>
+<%= f.select :batchof, options_for_select([ "2018", "2019", "2020", "2021", "2022"]), :class => 'genForm_dropBox' %>
+
+<%= f.radio_button(:sex,"male") %>Male
+<%= f.radio_button(:sex,"female") %>Female
+ -->
+
+
+
+<!-- input type="radio"  value="male" name="sex"> Male
+  <input type="radio" value="female" name="sex"> Female<br>
+ -->
 
   <div class="field">
-    
-   
+
+
     <%= f.password_field :password, autocomplete: "off" ,placeholder: "password"%>
   </div>
  <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
   <div class="field">
-    
+
     <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "confirm-password" %>
   </div>
 

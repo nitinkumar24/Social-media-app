@@ -19,15 +19,13 @@
   <div class="createPost">
 
   <%= form_for @post,remote: true do |form| %>
-
-     
-    
      <p class="emoji-picker-container">
+        <%= form.text_area :content ,placeholder: "Hey,What's up",data: { emojiable: true }%>
+     </p>
 
-     <%= form.text_area :content ,placeholder: "Hey,What's up",data: { emojiable: true }%>
-     </p> 
      <%= form.file_field :avatar %>
-     <span>Post as Anonymous </span><%= form.check_box :anonymous %>
+     <span>Anonymous </span>
+     <%= form.check_box :anonymous %>
 
 
      <div style="margin-left: 80%;">
@@ -37,35 +35,17 @@
 
 </div>
 
-
-
-
- 
-
   
 <div id="posts">
-  <% @feed.each do |post| %>
-  
-  
-  
-  
+  <% @feed.each do |post| %>  
     <%= render 'post', post: post %>
-      
-     
- 
-
-
-
-    
-    
-
-
-  <% end %>
-    
-    </div>
+    <% end %>
+</div>
 
   
 <br>
+
+
 <div id='load_more'>
 <%= render 'load_more', offset: 10 %>
 </div>

@@ -29,7 +29,7 @@ class UsersApiController <  ActionController::API
 	end
 
 
-	def sign_in
+	def sign_in 
 		email=params["email"]
 		password=params["password"]
 		user=User.find_by_email(email)

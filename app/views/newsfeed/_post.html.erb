@@ -7,14 +7,14 @@
   <h3>Anonymous</h3>
   <% else %>
    <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %></li><%= user.try(:name) %> <br>
-  
+
   <% end %>
   <%= (post.created_at + (60*330)).strftime(" %B %d,%Y")%>
 <%= (post.created_at + (60*330)).strftime("at %I:%M%p") %><br>
 
 
   <%= content_with_emoji(post.content) %><br>
-  
+
 
   <% if post.avatar.file? %>
  <div style="width: 150px;">
@@ -22,10 +22,10 @@
     </div>
 <% end %>
 
-  
-    
-  
-  
+
+
+
+
   <div style="border-top: 1px solid grey;;">
   <%= link_to post.like_string(current_user.id), url_for(controller: 'likes', action: 'toggle_like', post_id: post.id), method: :post,id: "like_#{post.id}" ,remote: true %>
     <span id="count_like_<%=post.id%>"><%=post.likes.count %></span>
