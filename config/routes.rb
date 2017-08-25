@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :posts, only: [:create, :destroy]
+  resources :posts, only: [:create, :destroy, :edit]
    resources :comments
   get 'home/index'
   get 'newsfeed/index'
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/ajax' => 'newsfeed#ajax'
   post 'likes/toggle_like'
   post 'dislikes/toggle_dislike'
+  
 
 
 

@@ -44,10 +44,16 @@ body{
 }
 
 .emoji-picker-container {
+  background-color: white;
     position: relative;
     display: inline-block;
     width: 500px;
     max-width: 500px;
     z-index: 0;
+    
+
+}
+.emoji-picker-container:hover {
+height: 100px;
 
 }

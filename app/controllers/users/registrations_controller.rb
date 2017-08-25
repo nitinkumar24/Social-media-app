@@ -12,12 +12,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     domain=resource.email.split('@').last
-    # collegename=params["college"]
-    # college=College.find_by_name(collegename)
+    collegename=params["college"]
+    college=College.find_by_name(collegename)
 
-    # if college.domain==domain
-      # resource.collegename=collegename
-           if resource.save
+  if college.domain==domain
+      resource.collegename=collegename
+        if resource.save
             if resource.active_for_authentication?
               set_flash_message :notice, :signed_up if is_navigational_format?
               sign_up(resource_name, resource)
@@ -31,9 +31,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
           respond_with resource
         end
 
-  # else
-  #   return redirect_to '/users/sign_up'
-  # end
+  else
+    return redirect_to '/users/sign_up'
+  end
 
 
 
