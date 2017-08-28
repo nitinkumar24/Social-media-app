@@ -16,24 +16,46 @@
 <section>
 
 
-  <div class="createPost">
+<div class="createPost">
+
+  <div class="imagesection">
+
+      <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" %>
+
+  </div>
+
+
+
+      <div class="input-post">
 
 
   <%= form_for @post,remote: true do |form| %>
-     <p class="emoji-picker-container">
+     <div class="emoji-picker-container">
         <%= form.text_area :content ,placeholder: "Hey,What's up",data: { emojiable: true }%>
-     </p>
+     </div>
 
-     <%= form.file_field :avatar %>
-     <span>Anonymous </span>
+     <div class="postbox-toolbar">
+
+       <div id="upload-pic-dummy" >
+
+         <div class="upload-pic">
+          <%= form.file_field :avatar %>
+        </div>
+
+         <button><i class="fa fa-file-image-o" aria-hidden="true"></i></button>
+       </div>
+       <div class="anonymous">
+     <h3>Anonymous
      <%= form.check_box :anonymous %>
+     </h3>
+ </div>
 
 
-     <div style="margin-left: 80%;">
-         <%= form.submit %>
+         <%= form.submit 'Post', :class => 'postbutton'   %>
       </div>
   <% end %>
 
+</div>
 </div>
 
 
@@ -53,13 +75,13 @@
 
 
 </section>
-<!-- <ads>
+<ads>
 <div class="adspanel"></div>
 
 </ads>
 <chatbox>
 
-</chatbox> -->
+</chatbox>
 
 </main>
 
