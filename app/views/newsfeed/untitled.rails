@@ -1,1 +1,25 @@
 <%= form.select :user_id, options_for_select([["Select One", ""], "Cell", "Work", "Office", "Home", "Other"]), :class => 'genForm_dropBox' %>
+
+
+
+  <%= form_for @comment,remote:true do |form| %>
+      <%= form.text_field :content %>
+      <%= hidden_field_tag :post_id, post.id %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+
+  <% end %>
+
+  <h3>Comments</h3>
+  <div id="comments_<%=post.id%>">
+
+    <% Comment.where(post_id: post.id).each do |comment| %>
+
+
+        <%= render 'comment', comment: comment %>
+
+        <br>
+    <% end %>
+
+  </div>

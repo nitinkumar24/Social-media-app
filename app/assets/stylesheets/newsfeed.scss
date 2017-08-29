@@ -90,156 +90,156 @@ headerbar{
 
 
 main {
-  margin-top:90px;
+  margin-top:80px;
   z-index: 0;
 	display: flex;
-	aside{
-		width: 26%;
+    	aside{
+    		width: 26%;
 
-        div.sidepanel{
+            div.sidepanel{
 
-        width:72%;
-        height:850px;
-        margin-top:20px;
-        margin-left: 14%;
-        margin-right: 14%;
-        border:1px solid black;
-        background-color:#241c1f;
-        }
-	}
+            width:72%;
+            height:850px;
+            margin-top:20px;
+            margin-left: 14%;
+            margin-right: 14%;
+            border:1px solid black;
+            background-color:#241c1f;
+            }
+    	}
 
-	section {
+    	section {
 
-    width: 44%;
-    padding-left: 2%;
-    padding-right: 4%;
-        	div.createPost{
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width:100%;
+        width: 44%;
+        padding-left: 2%;
+        padding-right: 4%;
+            	div.createPost{
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width:100%;
 
-            border-radius: 5px;
-            box-shadow: 0px 0px 6px #666666;
-        	  margin-top:20px;
+                border-radius: 5px;
+                box-shadow: 0px 0px 6px #666666;
+            	  margin-top:20px;
 
-                 div.imagesection{
-                   width: 12%;
-                   padding-left: 8px;
+                     div.imagesection{
+                       width: 12%;
+                       padding-left: 8px;
 
-                      .createpost_image{
-                        width: 55px;
-                        height: 55px;
-                        border-radius: 50%;
-                        margin-bottom: 60px;
-                       }
-                 }
-             div.input-post{
-               width:88%;
-               padding-right: 10px;
+                          .createpost_image{
+                            width: 55px;
+                            height: 55px;
+                            border-radius: 50%;
+                            margin-bottom: 60px;
+                           }
+                     }
+                     div.input-post{
+                       width:88%;
+                       padding-right: 10px;
 
-                div.postbox-toolbar{
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
+                        div.postbox-toolbar{
+                          display: flex;
+                          align-items: center;
+                          justify-content: space-between;
 
-                     div#upload-pic-dummy{
+                             div#upload-pic-dummy{
 
-                      div.upload-pic{
-                          #post_avatar{
-                            width: 100px;
-                          }
+                              div.upload-pic{
+                                  #post_avatar{
+                                    width: 100px;
+                                  }
 
-                          opacity: 0;
-                          cursor: pointer;
-                          position: absolute;
-                          z-index: 2;
-                          }
+                                  opacity: 0;
+                                  cursor: pointer;
+                                  position: absolute;
+                                  z-index: 2;
+                                  }
 
-                           button{
-                             background-color: white;
-                             width: 30px;
-                             border: none;
-                             color: #666;
-                             padding: 3px 5px;
-                             border-radius: 5px;
-                             position: relative;
-                             top: 0;
-                             z-index: 1;
-                             .fa{
-                               font-size: 25px;
-                               color: #7f4449;
+                                   button{
+                                     background-color: white;
+                                     width: 30px;
+                                     border: none;
+                                     color: #666;
+                                     padding: 3px 5px;
+                                     border-radius: 5px;
+                                     position: relative;
+                                     top: 0;
+                                     z-index: 0;
+                                     .fa{
+                                       font-size: 25px;
+                                       color: #7f4449;
 
+
+                                     }
+
+                                   }
+                             }
+                                 div.anonymous{
+
+                                   margin-left: 214px;
+                                   h3{
+                                     font-family: 'Poiret One', cursive;
+                                     font-weight: 700;
+
+                                   }
+                                   #post_anonymous{
+                                     font-size: 50px;
+                                   }
+                                 }
+                                 .postbutton{
+                                     color: white;
+                                     width: 70px;
+                                     height: 28px;
+                                     font-size: 20px;
+                                     background-color: #7f4449;
+                                     border: 0px;
+                                     border-radius: 4px;
+                                 }
+
+                                 .postbutton:hover{
+                                     background-color: #e0245e;
+                                     color: black;
+
+
+                                 }
 
                              }
 
-                           }
-                     }
-                         div.anonymous{
+                  }
 
-                           margin-left: 214px;
-                           h3{
-                             font-family: 'Poiret One', cursive;
-                             font-weight: 700;
-
-                           }
-                           #post_anonymous{
-                             font-size: 50px;
-                           }
-                         }
-                         .postbutton{
-                             color: white;
-                             width: 70px;
-                             height: 28px;
-                             font-size: 20px;
-                             background-color: #7f4449;
-                             border: 0px;
-                             border-radius: 4px;
-                         }
-
-                         .postbutton:hover{
-                             background-color: #e0245e;
-                             color: black;
+    	      }
+            //createPost o
+            div#posts{
+              div.newsfeed{
+                  display: flex;
+                  padding-top:14px;padding-left:0px;
+                  border-radius: 5px;
+                  border-bottom:2px solid black;
+                  box-shadow: 0px 0px 10px #666666;
+                  background-color: white;
+                  width:100%;
+                  font-family: 'Dosis', sans-serif;
+                  margin-top:15px;
+                  color: black;
+                  font-size: 24px;
+                    div.user-image{
+                      width: 12%;
+                    }
+                    div.post-box{
+                      width: 88%;
 
 
-                         }
+                    }
 
-                     }
 
-          }
-
-	      }
-        //createPost o
-        div#posts{
-          div.newsfeed{
-              display: flex;
-              padding-top:14px;padding-left:0px;
-              border-radius: 5px;
-              border-bottom:2px solid black;
-              box-shadow: 0px 0px 10px #666666;
-              background-color: white;
-              width:100%;
-              font-family: 'Dosis', sans-serif;
-              margin-top:15px;
-              color: black;
-              font-size: 24px;
-              div.user-image{
-                width: 12%;
-              }
-              div.post-box{
-                width: 88%;
 
 
               }
+            }
 
-
-
-
-          }
-        }
-
-	}
+    	}
     ads{
     width:25%;
     div.adspanel{
