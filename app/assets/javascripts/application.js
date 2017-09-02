@@ -15,8 +15,14 @@
 //= require jquery
 //= require rails_emoji_picker
 //= require jquery_ujs
+//= require typed
 //= require turbolinks
 //= require_tree .
+
+
+
+
+
 window.load_more_active = false;
     window.offset = 10;
     document.addEventListener('scroll', function(event){
@@ -37,5 +43,3 @@ window.load_more_active = false;
         }
 
     });
-
-  

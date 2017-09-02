@@ -31,7 +31,7 @@ body{
 .emoji-picker-icon {
     position: absolute;
     right: 5px;
-    top:50px;
+    top:8px;
     font-size: 24px;
     opacity: 0.7;
     z-index: 100;
@@ -78,10 +78,10 @@ body{
 .emoji-wysiwyg-editor {
     font-family: sans-serif;
     font-size: 17px;
-    padding: 15px 35px 6px 10px;
+    padding: 10px 35px 6px 10px;
     margin-bottom: 0;
-    min-height: 50px;
-    height: 60px;
+    min-height: 0px;
+    height: 20px;
     max-height: 284px;
     overflow: auto;
     position: relative;
