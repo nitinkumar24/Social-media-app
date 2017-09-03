@@ -213,7 +213,7 @@ main {
     //createPost o
     div#posts{
       div.newsfeed{
-        display: flex;
+
         padding-top:14px;padding-left:0px;
         border-radius: 3px;
         border-bottom:2px solid black;
@@ -224,19 +224,21 @@ main {
         margin-top:15px;
         color: black;
         font-size: 18px;
-        div.user-image{
-          width: 12%;
+        div.user-detail{
+          width:100%;
         }
         div.post-box{
-          width: 88%;
+          width: 100%;
+          color: red;
 
 
         }
 
-
-
-
       }
+      div.newsfeed:hover{
+        box-shadow: 8px 8px 16px 0 rgba(0,0,0,0.2);
+      }
+
     }
 
   }
@@ -265,3 +267,4 @@ main {
 .reaction{
   background-color:grey;
 }
+

@@ -2,7 +2,9 @@
 <!--
 <div id="bar">
 </div> -->
-
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <div id="header-front">
 
   <div class="front-page-logo">
@@ -68,17 +70,16 @@
 
 <style type="text/css">
   #header-front {
-
     display: flex;
     justify-content: space-between;
     background-color:#28a49d;
     /*#469e7b;*/
+    overflow-x:hidden ;
+    overflow-y: hidden;
+   /* background-repeat: no-repeat;
+    background-size: cover;*/
 
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 550px;
-    margin-bottom: 20px;
+
 
     /*margin-top: 50px;*/
   }
@@ -98,6 +99,7 @@
   #typed-sample{
     text-align: center;
     color: wheat;
+    display: none;
   }
   #sign-in-form-section {
     width: 26%;
@@ -115,8 +117,8 @@
     padding-left: 20px;
     margin-top: 50px;
     background-color: none;
-    width: 90%;
-    height: 420px;
+
+
   }
   #user_email{
     font-family: 'Jura', sans-serif;
@@ -132,7 +134,7 @@
   #user_password{
     font-family: 'Jura', sans-serif;
     height: 20px;
-    width: 88%;
+    width: 50%;
     margin-bottom: 15px;
     border: solid 2px #354045;
     font-size: 15px;
@@ -141,7 +143,7 @@
   }
   .login-button{
     font-family: 'Jura', sans-serif;
-    width: 95%;
+    width: 50%;
     margin-top: 5px;
     margin-bottom: 30px;
     font-size: 25px;
@@ -242,44 +244,114 @@
   #forgot:hover{
     color:#CB202D;
   }
-  @media screen and (max-width: 1250px) {
-    #boxes img{
-      width:200px;
-    }
-  }
+  /*@media screen and (max-width: 1250px) {*/
+    /*#boxes img{*/
+      /*width:200px;*/
+    /*}*/
+  /*}*/
 
-  @media screen and (max-width: 1170px) {
+  /*@media screen and (max-width: 1170px) {*/
 
-    #left-box1{
-      height:150px;
-      width:95%;
-      margin-left:30px;
-    }
-    #left-box1:after{
-      clear:both;
-    }
-    #left-box1 img{
-      height:75px;
-      width:150px;
-    }
-    #right-box1{
-      width:100%;
-      position:relative;
-      top:20px;
-      left:30px;
-      height:200px;
-      margin:0 auto;
+    /*#left-box1{*/
+      /*height:150px;*/
+      /*width:95%;*/
+      /*margin-left:30px;*/
+    /*}*/
+    /*#left-box1:after{*/
+      /*clear:both;*/
+    /*}*/
+    /*#left-box1 img{*/
+      /*height:75px;*/
+      /*width:150px;*/
+    /*}*/
+    /*#right-box1{*/
+      /*width:100%;*/
+      /*position:relative;*/
+      /*top:20px;*/
+      /*left:30px;*/
+      /*height:200px;*/
+      /*margin:0 auto;*/
+
+    /*}*/
+    /*quote{*/
+      /*font-size:15px;*/
+    /*}*/
+    /*#gal{*/
+      /*position:relative;*/
+      /*top:20px;*/
+      /*left:15px;*/
+      /*width:95%;*/
+      /*margin:0 auto;*/
+    /*}*/
+  /*}*/
+
+
+  @media screen and (max-width: 1000px) {
+
+    #header-front{
+      flex-direction: column;
 
     }
-    quote{
-      font-size:15px;
+    #typed-sample{
+      text-align: center;
+      color: wheat;
+      display: none;
     }
-    #gal{
-      position:relative;
-      top:20px;
-      left:15px;
-      width:95%;
-      margin:0 auto;
+    .front-page-logo {
+    width: 100%;
+    }
+    #sign-in-form-section {
+      width: 100%;
+      opacity: 1;
+
+      height: auto;
+      /*background-color: blue;*/
+    }
+    .sign-in-form{
+
+    margin-top: 0;
+
+    }
+    h3{
+      margin-top: 0;
+    }
+    #user_email{
+      font-family: 'Jura', sans-serif;
+      margin-top: 20px;
+      height: auto;
+      width: 85%;
+      margin-bottom: 30px;
+      border: solid 2px #354045;
+      font-size: 15px;
+
+      border-radius: 2px;
+
+    }
+    #user_password{
+      font-family: 'Jura', sans-serif;
+      height: 20px;
+      width: 85%;
+      margin-bottom: 15px;
+      border: solid 2px #354045;
+      font-size: 15px;
+      border-radius: 2px;
+    }
+    .login-button{
+      font-family: 'Jura', sans-serif;
+      width: 85%;
+      margin-top: 5px;
+      margin-bottom: 30px;
+      font-size: 25px;
+
+      border-radius: 2px;
+      background-color:#141224;
+      color: wheat;
+      text-decoration:none;
+      text-align:center;
+      border:solid 2px #354045;
+    }
+    .slogans{
+    width: 100%;
     }
   }
 </style>

@@ -5,11 +5,11 @@
       <h3>Anonymous</h3>
   <% else %>
 
-      <div class="user-image">
+      <div class="user-detail">
         <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
-      </div>
 
-      <div class="post-box">
+
+
 
         <%= user.try(:name) %><br>
 
@@ -17,53 +17,53 @@
   <%= (post.created_at + (60*330)).strftime(" %B %d,%Y")%>
   <%= (post.created_at + (60*330)).strftime("at %I:%M%p") %><br>
 
-
-
-
-  <%= content_with_emoji(post.content) %><br>
-
-
-  <% if post.avatar.file? %>
-
-      <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
-
-  <% end %>
-
-
-
-
-
-
-  <div style="border-top: 1px solid grey;;">
-    <%= link_to post.like_string(current_user.id), url_for(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true %>
-    <span id="count_like_<%=post.id%>"><%=post.likes.count %></span>
-
-    <%= link_to post.dislike_string(current_user.id), url_for(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id), method: :post,id: "dislike_#{post.id}" ,remote: true %>
-    <span id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
   </div>
 
-
-  <%= form_for @comment,remote:true do |form| %>
-      <%= form.text_field :content %>
-      <%= hidden_field_tag :post_id, post.id %>
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-
-  <% end %>
-
-  <h3>Comments</h3>
-  <div id="comments_<%=post.id%>">
-
-    <% Comment.where(post_id: post.id).each do |comment| %>
+  <div class="post-box">
+    <%= content_with_emoji(post.content) %><br>
 
 
-        <%= render 'comment', comment: comment %>
+    <% if post.avatar.file? %>
 
-        <br>
+        <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
+
     <% end %>
 
-  </div>
+
+
+
+
+
+    <div style="border-top: 1px solid grey;;">
+      <%= link_to post.like_string(current_user.id), url_for(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true %>
+      <span id="count_like_<%=post.id%>"><%=post.likes.count %></span>
+
+      <%= link_to post.dislike_string(current_user.id), url_for(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id), method: :post,id: "dislike_#{post.id}" ,remote: true %>
+      <span id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
+    </div>
+
+
+    <%= form_for @comment,remote:true do |form| %>
+        <%= form.text_field :content %>
+        <%= hidden_field_tag :post_id, post.id %>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+
+    <% end %>
+
+    <h3>Comments</h3>
+    <div id="comments_<%=post.id%>">
+
+      <% Comment.where(post_id: post.id).each do |comment| %>
+
+
+          <%= render 'comment', comment: comment %>
+
+          <br>
+      <% end %>
+
+    </div>
 
   </div>
 

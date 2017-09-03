@@ -55,7 +55,7 @@ body{
     padding-left: 8px;
     width: 55px;
     height: 55px;
-    border-radius: 50%;
+
 
 }
 
@@ -99,3 +99,8 @@ body{
     word-wrap: break-word;
 }
 
+@media screen and (max-width: 820px) {
+    body{
+        background-color:white ;
+    }
+}
