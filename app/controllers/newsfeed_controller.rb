@@ -30,6 +30,12 @@
         @users = User.all
       end
 
+      def profile
+        user_id=params[:user_id]
+        @user=User.find_by_id(user_id)
+
+      end
+
       def ajax
         render :json => {text: "text"}
       end

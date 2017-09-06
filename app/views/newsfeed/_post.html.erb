@@ -11,7 +11,7 @@
 
 
 
-        <%= user.try(:name) %><br>
+        <%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%><br>
 
   <% end %>
   <%= (post.created_at + (60*330)).strftime(" %B %d,%Y")%>

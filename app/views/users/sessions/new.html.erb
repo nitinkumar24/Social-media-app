@@ -17,6 +17,7 @@
   <div id="sign-in-form-section">
     <div class="sign-in-form">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
           <p style="margin-bottom:10px;padding-top:10px;font-size:25px;font-family: 'Open Sans', sans-serif;color:#1">Sign-In</p>
 
           <%= f.email_field :email, autofocus: true ,placeholder:"Email-address"%>
@@ -70,14 +71,15 @@
 
 <style type="text/css">
   #header-front {
+    height: 600px;
     display: flex;
     justify-content: space-between;
     background-color:#28a49d;
     /*#469e7b;*/
     overflow-x:hidden ;
     overflow-y: hidden;
-   /* background-repeat: no-repeat;
-    background-size: cover;*/
+    /* background-repeat: no-repeat;
+     background-size: cover;*/
 
 
 
@@ -91,15 +93,16 @@
     /*background-color: red;*/
   }
   h3{
-    color: black;
+    color: #141224;
   }
   .typed-cursor{
     display: none;
   }
   #typed-sample{
     text-align: center;
-    color: wheat;
-    display: none;
+    margin-left: 30px;
+    color: #141224;
+
   }
   #sign-in-form-section {
     width: 26%;
@@ -112,10 +115,10 @@
     /*background-color: red;*/
   }
   .sign-in-form{
-    border-radius: 10px;
-    border-bottom:2px solid blanchedalmond;
+    /*border-radius: 10px;*/
+    /*border-bottom:2px solid blanchedalmond;*/
     padding-left: 20px;
-    margin-top: 50px;
+    margin-top: 80px;
     background-color: none;
 
 
@@ -134,21 +137,20 @@
   #user_password{
     font-family: 'Jura', sans-serif;
     height: 20px;
-    width: 50%;
+    width: 88%;
     margin-bottom: 15px;
     border: solid 2px #354045;
-    font-size: 15px;
+    font-size: 25px;
     padding: 10px;
     border-radius: 2px;
   }
   .login-button{
     font-family: 'Jura', sans-serif;
-    width: 50%;
-    margin-top: 5px;
+    width: 94%;
     margin-bottom: 30px;
-    font-size: 25px;
-    padding: 5px;
-    border-radius: 2px;
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 26px;
     background-color:#141224;
     color: wheat;
     text-decoration:none;
@@ -173,14 +175,7 @@
 
 
 
-  .button{
 
-
-    border:solid 2px #657982;
-    border-radius: 4px;
-
-
-  }
 
 
 
@@ -226,7 +221,9 @@
     text-decoration:none;
     color:black;
     font-weight:bold;
-    font-size:21px;
+
+
+
   }
   .link-forgot-password{
     font-size: 18px;
@@ -238,6 +235,8 @@
     font-family: 'Handlee';
   }
   .link-sign-up{
+
+    font-size:21px;
     font-family: 'Jura', sans-serif;
     color: #812323;
   }
@@ -245,44 +244,44 @@
     color:#CB202D;
   }
   /*@media screen and (max-width: 1250px) {*/
-    /*#boxes img{*/
-      /*width:200px;*/
-    /*}*/
+  /*#boxes img{*/
+  /*width:200px;*/
+  /*}*/
   /*}*/
 
   /*@media screen and (max-width: 1170px) {*/
 
-    /*#left-box1{*/
-      /*height:150px;*/
-      /*width:95%;*/
-      /*margin-left:30px;*/
-    /*}*/
-    /*#left-box1:after{*/
-      /*clear:both;*/
-    /*}*/
-    /*#left-box1 img{*/
-      /*height:75px;*/
-      /*width:150px;*/
-    /*}*/
-    /*#right-box1{*/
-      /*width:100%;*/
-      /*position:relative;*/
-      /*top:20px;*/
-      /*left:30px;*/
-      /*height:200px;*/
-      /*margin:0 auto;*/
+  /*#left-box1{*/
+  /*height:150px;*/
+  /*width:95%;*/
+  /*margin-left:30px;*/
+  /*}*/
+  /*#left-box1:after{*/
+  /*clear:both;*/
+  /*}*/
+  /*#left-box1 img{*/
+  /*height:75px;*/
+  /*width:150px;*/
+  /*}*/
+  /*#right-box1{*/
+  /*width:100%;*/
+  /*position:relative;*/
+  /*top:20px;*/
+  /*left:30px;*/
+  /*height:200px;*/
+  /*margin:0 auto;*/
 
-    /*}*/
-    /*quote{*/
-      /*font-size:15px;*/
-    /*}*/
-    /*#gal{*/
-      /*position:relative;*/
-      /*top:20px;*/
-      /*left:15px;*/
-      /*width:95%;*/
-      /*margin:0 auto;*/
-    /*}*/
+  /*}*/
+  /*quote{*/
+  /*font-size:15px;*/
+  /*}*/
+  /*#gal{*/
+  /*position:relative;*/
+  /*top:20px;*/
+  /*left:15px;*/
+  /*width:95%;*/
+  /*margin:0 auto;*/
+  /*}*/
   /*}*/
 
 
@@ -298,7 +297,7 @@
       display: none;
     }
     .front-page-logo {
-    width: 100%;
+      width: 100%;
     }
     #sign-in-form-section {
       width: 100%;
@@ -309,7 +308,7 @@
     }
     .sign-in-form{
 
-    margin-top: 0;
+      margin-top: 0;
 
     }
     h3{
@@ -351,7 +350,7 @@
       border:solid 2px #354045;
     }
     .slogans{
-    width: 100%;
+      width: 100%;
     }
   }
 </style>

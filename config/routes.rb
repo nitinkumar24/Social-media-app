@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/ajax' => 'newsfeed#ajax'
   post 'likes/toggle_like'
   post 'dislikes/toggle_dislike'
+  get 'newsfeed/profile'
   
 
 

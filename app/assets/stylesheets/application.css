@@ -44,12 +44,6 @@ body{
     user-select: none;
 }
 
-.style_image {
-    width:98%;
-    height: 480px;
-    border-radius: 4px;
-    image-resolution:snap;
-}
 
 .profile_image {
     padding-left: 8px;
