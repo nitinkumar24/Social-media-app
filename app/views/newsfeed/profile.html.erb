@@ -1,3 +1,116 @@
-<br><br><br><br><br><br>
 
-<%= @user.name %>
+
+
+
+<div id="wrapper">
+  <div id="left-box"></div>
+
+  <div id="mid-box">
+    <div id="cover">
+      <%= image_tag @user.avatar.url(:medium),:class =>"cover-image" %>
+    </div>
+
+    <div id="dp-box">
+      <%=@user.name%>
+      <%= image_tag @user.avatar.url(:medium),:class =>"pro-image" %>
+      <%=@user.email%>
+    </div>
+    <div>
+
+    </div>
+  </div>
+
+  <div id="right-box">
+
+  </div>
+
+</div>
+
+<style type="text/css">
+  body{
+    margin:0;
+    padding:0;
+    background-color:#FAFAFA;
+  }
+  #head-con{
+    width:100%;
+    height:80px;
+    position:fixed;
+    background-color:white;
+    display: flex;
+    justify-content: space-around;
+    z-index:1;
+    border-bottom:1px solid grey;
+  }
+  #head-con div{
+    font-size:20px;
+    position:relative;
+    top:20px;
+    width:200px;
+  }
+  #head-con a{
+    text-decoration:none;
+    color:black;
+    margin-left:10px;
+  }
+  #left-box{
+    margin-top:10px;
+    width:0;
+    height:900px;
+    background-color:black;
+  }
+  #mid-box{
+    margin-top:10px;
+    width:80%;
+    box-shadow: 0px 0px 3px #666666;
+  }
+  #right-box{
+    margin-top:10px;
+    width:0%;
+    height:900px;
+    background-color:black;
+  }
+  #wrapper{
+    display:flex;
+    justify-content: space-between;
+    z-index:0;
+    margin-top: 49px;
+
+  }
+  #dp-box{
+    position:relative;
+    margin-left:40%;
+    top:-8%;
+  }
+  #dp-box img{
+
+
+  }
+  .pro-image{
+    height: 160px;
+    width: 160px;
+
+    border-radius: 50%;
+  }
+  .cover-image{
+    height: 100%;
+    width: 100%;
+  }
+  #menu-span{
+    display:flex;
+    justify-content: space-around;
+    background-color:white;
+    border:1px solid grey;
+  }
+  #menu-span a{
+    text-decoration:none;
+    color:black;
+    font-size:20px;
+    width:50px;
+  }
+  #cover{
+    background-color: red;
+    height:460px;
+    position:relative;
+  }
+</style>

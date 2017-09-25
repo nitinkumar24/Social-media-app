@@ -27,8 +27,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           respond_with resource, :location => after_sign_up_path_for(resource)
         end
       else
+        return redirect_to '/users/sign_up'
         clean_up_passwords
-        respond_with resource
       end
 
     else

@@ -1,6 +1,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <!--   <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
 
@@ -42,21 +43,26 @@
        <div id="upload-pic-dummy" >
 
          <div class="upload-pic">
-          <%= form.file_field :avatar %>
+          <%= form.file_field :avatar ,id: "imgInp" %><br>
+
         </div>
 
-         <button><img src="https://png.icons8.com/image-file/dusk/64" title="Image File" width="40" height="35"></i></button>
-
+         <i class="fa fa-picture-o  fa-2x" aria-hidden="true"></i>
        </div>
        <div class="anonymous">
      <h3>Anonymous
      <%= form.check_box :anonymous %>
      </h3>
+
  </div>
 
 
          <%= form.submit 'Post', :class => 'postbutton'   %>
       </div>
+            <hr>
+            <div>
+              <img id="blah" src="#" alt="your image" style="width: 200px;height: 150px;">
+            </div>
   <% end %>
 
 </div>
@@ -105,5 +111,24 @@ error: function(){
 }
 
 });
+
+
+
+  function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              $('#blah').attr('src', e.target.result);
+          }
+
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+  $("#imgInp").change(function(){
+      readURL(this);
+  });
+
 
 </script>

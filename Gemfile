@@ -14,7 +14,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'paperclip', '~> 4.1'
 gem 'rails_emoji_picker'
-
+gem "animate-rails"
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

@@ -1,59 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
 
-    <title>S</title>
-    <%= csrf_meta_tags %>
+  <title>Sociograms</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 
-  <body>
-   <% if user_signed_in? %>
-<headerbar >
-	<header>
+<body>
+<% if user_signed_in? %>
+    <headerbar >
+      <header>
 
-		<div class="logo">
-			<h1>Socio_Grams</h1>
-		</div>
+        <div class="logo">
+          <h1><%= link_to "SocioGrams",newsfeed_index_path%>
+          </h1>
+        </div>
 
-		<nav>
-			<ul>
-        <li><%= link_to current_user.name,url_for(controller: 'newsfeed',action: 'profile',user_id:current_user.id) %></li>
-			<li> <%= link_to "Users", users_path %> </li>
-			<li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
-			</ul>
-		</nav>
+        <nav>
+          <ul>
+            <li> <%= link_to "Users", users_path %> </li>
+            <li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+          </ul>
+        </nav>
 
 
-	</header>
+      </header>
 
-<subheader>
-      <nav>
 
-        <ul>
-        <li><h4> Confessions </h4></li>
-        <li><h4>  Memes </h4></li>
-        <li><h4>Stories </h4></li>
-        </ul>
-
-      </nav>
-
-</subheader>
-
-</headerbar>
+    </headerbar>
 
 <% end %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+<p style="position: fixed;top:0;text-align: center;"><%= notice %></p>
+<p style="position: fixed;top:0;text-align: center;"><%= alert %></p>
+<%= yield %>
+</body>
 </html>

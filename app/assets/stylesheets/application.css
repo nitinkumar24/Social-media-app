@@ -13,12 +13,30 @@
  *= require_tree .
   *= require rails_emoji_picker
  *= require_self
+ *= require animate
  */
 
 * {
     padding: 0;
     margin:0;
 }
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+.likelink{
+
+    text-decoration: none;
+}
+
+.faheart{
+    font-size: 24px;
+     color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ff3bcb;
+}
+
+
+
 body{
     background-color: #F3F3F3;
 }
