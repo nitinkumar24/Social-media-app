@@ -12,12 +12,9 @@ class LikesController < ApplicationController
 				@is_liked = false
 			else
 				Like.create(user: current_user, post: @post)
-
 				if dislike
 					dislike.destroy!
 					@is_disliked = false
-					puts "in dislike"
-
 				end
 				@is_liked = true
 			end

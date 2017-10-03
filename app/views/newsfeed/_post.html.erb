@@ -4,23 +4,20 @@
   <% if post.anonymous %>
       <h3>Anonymous</h3>
   <% else %>
-
       <div class="user-detail">
         <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
-
-
-
-
         <%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%><br>
+      </div>
 
   <% end %>
+
   <%= (post.created_at + (60*330)).strftime(" %B %d,%Y")%>
   <%= (post.created_at + (60*330)).strftime("at %I:%M%p") %><br>
 
-  </div>
+
 
   <div class="post-box">
-    <%= content_with_emoji(post.content) %><br>
+    <p><%= content_with_emoji(post.content) %></p>
 
 
     <% if post.avatar.file? %>
