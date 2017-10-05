@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825060243) do
+ActiveRecord::Schema.define(version: 20171005190733) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20170825060243) do
     t.index ["comment_id"], name: "index_likes_on_comment_id"
     t.index ["post_id"], name: "index_likes_on_post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "recipient_id"
+    t.string "noti_type"
+    t.integer "noti_type_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|

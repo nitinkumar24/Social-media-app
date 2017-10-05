@@ -1,0 +1,10 @@
+<h1>Notifications#show</h1>
+<p>Find me in app/views/notifications/show.html.erb</p>
+
+<% @notifications.each do |n| %>
+
+    <% post=Post.find_by_id(n.noti_type_id) %>
+    <br>
+    <%= link_to n.message,post_path(:id=>post.id)%>
+<% end %>
+

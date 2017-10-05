@@ -7,16 +7,20 @@ class LikesController < ApplicationController
 			@post = Post.find(params[:post_id])
 			like = Like.where(user: current_user, post: @post).first
 			dislike = Dislike.where(user: current_user, post: @post).first
+			notification=Notification.where(noti_type_id: @post.id).first
+
 			if like
 				like.destroy!
+				notification.destroy!
 				@is_liked = false
 			else
 				Like.create(user: current_user, post: @post)
+				Notification.create(user_id: current_user.id, recipient_id: @post.user_id, message: current_user.name+" liked your post", noti_type: "post-like", noti_type_id: @post.id)
+				@is_liked = true
 				if dislike
 					dislike.destroy!
 					@is_disliked = false
 				end
-				@is_liked = true
 			end
 
 			respond_to do |format|

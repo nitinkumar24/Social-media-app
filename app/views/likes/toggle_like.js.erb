@@ -1,10 +1,10 @@
 
 <% if @is_liked %>
-$('#like_<%= @post.id%>').addClass("likelink faheart");
+$('#like_<%= @post.id%>').html("Unlike");
 $('#count_like_<%= @post.id%>').html(<%=@post.likes.count%>);
 // noty({text: 'Tweet was Liked', type: 'alert'});
 <% else %>
-$('#like_<%= @post.id%>').html("<i class='fa fa-heart'></i>".html_safe);
+$('#like_<%= @post.id%>').html("Like");
 $('#count_like_<%= @post.id%>').html(<%=@post.likes.count%>);
 //noty({text: 'Tweet was UnLiked', type: 'alert'});
 
