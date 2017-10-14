@@ -1,3 +1,48 @@
 // Place all the styles related to the Notifications controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notification-page {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+
+  .left-panel{
+    width: 25%;
+
+
+  }
+  .notification-show {
+
+
+    width: 50%;
+
+    h3{
+      color: #1D1D1D;
+      padding-left: 2%;
+    }
+    p{
+
+      padding-left: 2%;
+      display: flex;
+      align-items: center;
+      a{
+        padding-left: 2%;
+        width: 98%;
+        font-family: "Helvetica Neue", "Arial", sans-serif;
+        font-size: large;
+        color: #1D1D1D;
+
+
+      }
+      a:hover{
+        color: brown;
+      }
+    }
+
+
+  }
+  .right-panel{
+    width: 25%;
+  }
+}

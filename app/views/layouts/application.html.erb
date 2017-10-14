@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -8,32 +10,62 @@
   <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-  <title>Sociograms</title>
+
+   <title>Sociograms</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <script type="text/javascript">
+      $(document).ready(function(){
+          $("home-link").click(function(){
+              alert("The paragraph was clicked.");
+          });
+      });
+
+      $(document).ready(function(){
+          $("#alert").click(function(){
+              $("#alert").hide();
+          });
+
+      });
+  </script>
+
 </head>
 
 <body>
 <% if user_signed_in? %>
     <headerbar >
       <header>
-        <div class="logo">
-          <h1><%= link_to "SocioGrams",newsfeed_index_path%></h1>
-        </div>
+
         <nav>
           <ul>
+            <li><i class="fa fa-home" aria-hidden="true"></i></li>
+            <li>
+              <a href="/">Home</a></li>
             <li>  <%= link_to "Notifications",notifications_show_path  %></li>
             <li> <%= link_to "Users", users_path %> </li>
             <li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
           </ul>
         </nav>
+        <div class="logo">
+          <%= link_to "SocioGrams",newsfeed_index_path%>
+        </div>
+        <div style="margin-left: 35%;width: 18%">
+        <input type="text" class="searchTerm" placeholder="What are you looking for?">
+
+        </div>
       </header>
     </headerbar>
 <% end %>
 
-<p style="position: fixed;top:0;text-align: center;"><%= notice %></p>
-<p style="position: fixed;top:0;text-align: center;"><%= alert %></p>
+<p id="alert" style="background-color: #e6ecf0;
+    text-align: center;
+    line-height: 35px; style="position: fixed;top:0;text-align: center;"><%= notice %></p>
+<p id="alert" style="background-color: #e6ecf0;
+    text-align: center;
+    line-height: 35px;"><%= alert %></i>
+</p>
 
 <%= yield %>
 

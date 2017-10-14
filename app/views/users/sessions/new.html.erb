@@ -5,23 +5,39 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<div id="header-front" class="animated ">
+<style>
+  body{
+    margin:0px;
+    padding:0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-image:url('https://static.pexels.com/photos/7174/summer-grass.jpg') ;
+    background-repeat: no-repeat;
+    background-size:100% 92vh;
+
+  }
+  @media screen and (max-width: 1000px) {
+
+    body {
+      background-color:black;
+      background-image: none;
+    }
+  }
+</style>
+<div id="header-front-signin" class="animated ">
 
   <div class="front-page-logo">
-    <h3 style="text-align:center;margin-top:65px;font-size:53px;font-family: 'Jura', sans-serif;">Socio_Grams</h3>
-
-
+    <h3 style="" class='animated rollIn'>Socio_Grams</h3>
 
   </div>
 
-  <div id="sign-in-form-section">
-    <div class="sign-in-form "  >
+  <div id="sign-in-form-section" >
+    <div class="sign-in-form"  >
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-          <p style="margin-bottom:10px;padding-top:10px;font-size:25px;font-family: 'Open Sans', sans-serif;color:#1">Sign-In</p>
+          <p class="page-topic">Sign-In</p><hr><br>
 
-          <%= f.email_field :email, autofocus: true ,placeholder:"Email-address"%>
-          <%= f.password_field :password, autocomplete: "off",placeholder:"Password" %>
+          <%= f.email_field :email, autofocus: true ,placeholder:"Email-address",required: true%>
+          <%= f.password_field :password, autocomplete: "off",placeholder:"Password",required: true %>
 
           <br>
           <% if devise_mapping.rememberable? -%>
@@ -33,8 +49,13 @@
           <br>
 
 
+
           <%= f.submit "Log in" ,class:"login-button"%><br>
+          <p style="text-align:center;margin-bottom:10px;">OR</p>
+          <hr>
+          <div style="padding-left: 8px;padding-top: 10px;">
           <%= render "users/shared/links" %>
+          </div>
       <% end %>
 
     </div>
@@ -43,314 +64,6 @@
 
   </div>
 </div>
-
-
-
-
-
-<!-- <div id="content">
-
-
-  <div id="gal">
-    <div id="boxes">
-      <img src="It-is-better-to-live-one-day-as-a-lion-than-a-thousand-days-as-a-lamb..jpg" height="" width="">
-    </div>
-    <div id="boxes">
-      <img src="rock-bottom.jpg" height="" width="">
-    </div>
-    <div id="boxes">
-      <img src="112406-Good-Morning-And-Have-A-Revolutionary-Day.jpg" height="" width="">
-    </div>
-  </div>
+<div class="typed-slogan">
+  <h3 id="typed-sample" style="color: #730E15"></h3>
 </div>
-<div id="f0ooter">
-</div> -->
-
-
-
-
-<style type="text/css">
-  #header-front {
-    height: 600px;
-    display: flex;
-    justify-content: space-between;
-    background-color:#28a49d;
-    /*#469e7b;*/
-    overflow-x:hidden ;
-    overflow-y: hidden;
-    /* background-repeat: no-repeat;
-     background-size: cover;*/
-
-
-
-    /*margin-top: 50px;*/
-  }
-  .front-page-logo {
-    width: 40%;
-    font-size: 25px;
-    color:black;
-
-    /*background-color: red;*/
-  }
-  h3{
-    color: #141224;
-  }
-  .typed-cursor{
-    display: none;
-  }
-  #typed-sample{
-    text-align: center;
-    margin-left: 30px;
-    color: #141224;
-
-  }
-  #sign-in-form-section {
-    width: 26%;
-    opacity: 1;
-
-    /*background-color: blue;*/
-  }
-  .slogans{
-    width: 34%;
-    /*background-color: red;*/
-  }
-  .sign-in-form{
-    /*border-radius: 10px;*/
-    /*border-bottom:2px solid blanchedalmond;*/
-    padding-left: 20px;
-    margin-top: 80px;
-    background-color: none;
-
-
-  }
-  #user_email{
-    font-family: 'Jura', sans-serif;
-    margin-top: 0px;
-    height: 20px;
-    width: 88%;
-    margin-bottom: 15px;
-    border: solid 2px #354045;
-    font-size: 15px;
-    padding: 10px;
-    border-radius: 2px;
-  }
-  #user_password{
-    font-family: 'Jura', sans-serif;
-    height: 20px;
-    width: 88%;
-    margin-bottom: 15px;
-    border: solid 2px #354045;
-    font-size: 25px;
-    padding: 10px;
-    border-radius: 2px;
-  }
-  .login-button{
-    font-family: 'Jura', sans-serif;
-    width: 94%;
-    margin-bottom: 30px;
-    font-size: 22px;
-    padding: 10px;
-    border-radius: 26px;
-    background-color:#141224;
-    color: wheat;
-    text-decoration:none;
-    text-align:center;
-    border:solid 2px #354045;
-  }
-  .remember_me{
-    font-family: 'Jura', sans-serif;
-    font-size: 20px;
-  }
-
-  #bar{
-    position:fixed;
-    top:0;
-    z-index:1;
-    width:100%;
-    height:50px;
-
-    background: black; /* Old browsers */
-
-  }
-
-
-
-
-
-
-
-  #content{
-    margin:0 auto;
-    max-width:1200px;
-    height:1000px;
-  }
-
-
-  #headcont{
-    font-weight:bold;
-    padding:15px;
-    font-size:20px;
-  }
-  quote{
-    font-size:25px;
-    font-weight:bold;
-  }
-  quote:hover{
-    color:#CB202D;
-  }
-  #boxes{
-    margin-top:10px;
-    float:left;
-    background-color:white;
-    margin-left:33px;
-    -webkit-box-shadow: 0 8px 6px -6px black;
-    -moz-box-shadow: 0 8px 6px -6px black;
-    box-shadow: 0 8px 6px -6px black;
-    border-radius:2px;
-    border:0.01px solid grey;
-  }
-  #boxes img{
-    padding:20px;
-    width:250px;
-  }
-  #boxes:first-child{
-    margin-left:0px;
-  }
-  .link-sign-up,.link-forgot-password,.link-confirmation-ins{
-
-    text-decoration:none;
-    color:black;
-    font-weight:bold;
-
-
-
-  }
-  .link-forgot-password{
-    font-size: 18px;
-    font-family: 'Handlee', cursive;
-
-  }
-  .link-confirmation-ins{
-    font-size: 16px;
-    font-family: 'Handlee';
-  }
-  .link-sign-up{
-
-    font-size:21px;
-    font-family: 'Jura', sans-serif;
-    color: #812323;
-  }
-  #forgot:hover{
-    color:#CB202D;
-  }
-  /*@media screen and (max-width: 1250px) {*/
-  /*#boxes img{*/
-  /*width:200px;*/
-  /*}*/
-  /*}*/
-
-  /*@media screen and (max-width: 1170px) {*/
-
-  /*#left-box1{*/
-  /*height:150px;*/
-  /*width:95%;*/
-  /*margin-left:30px;*/
-  /*}*/
-  /*#left-box1:after{*/
-  /*clear:both;*/
-  /*}*/
-  /*#left-box1 img{*/
-  /*height:75px;*/
-  /*width:150px;*/
-  /*}*/
-  /*#right-box1{*/
-  /*width:100%;*/
-  /*position:relative;*/
-  /*top:20px;*/
-  /*left:30px;*/
-  /*height:200px;*/
-  /*margin:0 auto;*/
-
-  /*}*/
-  /*quote{*/
-  /*font-size:15px;*/
-  /*}*/
-  /*#gal{*/
-  /*position:relative;*/
-  /*top:20px;*/
-  /*left:15px;*/
-  /*width:95%;*/
-  /*margin:0 auto;*/
-  /*}*/
-  /*}*/
-
-
-  @media screen and (max-width: 1000px) {
-
-    #header-front{
-      flex-direction: column;
-
-    }
-    #typed-sample{
-      text-align: center;
-      color: wheat;
-      display: none;
-    }
-    .front-page-logo {
-      width: 100%;
-    }
-    #sign-in-form-section {
-      width: 100%;
-      opacity: 1;
-
-      height: auto;
-      /*background-color: blue;*/
-    }
-    .sign-in-form{
-
-      margin-top: 0;
-
-    }
-    h3{
-      margin-top: 0;
-    }
-    #user_email{
-      font-family: 'Jura', sans-serif;
-      margin-top: 20px;
-      height: auto;
-      width: 85%;
-      margin-bottom: 30px;
-      border: solid 2px #354045;
-      font-size: 15px;
-
-      border-radius: 2px;
-
-    }
-    #user_password{
-      font-family: 'Jura', sans-serif;
-      height: 20px;
-      width: 85%;
-      margin-bottom: 15px;
-      border: solid 2px #354045;
-      font-size: 15px;
-      border-radius: 2px;
-    }
-    .login-button{
-      font-family: 'Jura', sans-serif;
-      width: 85%;
-      margin-top: 5px;
-      margin-bottom: 30px;
-      font-size: 25px;
-
-      border-radius: 2px;
-      background-color:#141224;
-      color: wheat;
-      text-decoration:none;
-      text-align:center;
-      border:solid 2px #354045;
-    }
-    .slogans{
-      width: 100%;
-    }
-  }
-</style>

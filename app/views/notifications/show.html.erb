@@ -1,10 +1,19 @@
-<h1>Notifications#show</h1>
-<p>Find me in app/views/notifications/show.html.erb</p>
+<div class="notification-page">
+  <div class="left-panel">
 
-<% @notifications.each do |n| %>
+  </div>
+  <div class="notification-show">
+    <h3>Notifications</h3><hr>
+    <% @notifications.each do |n| %>
+        <% user=User.find_by_id(n.user_id) %>
+        <% post=Post.find_by_id(n.noti_type_id) %>
+        <p><%= image_tag user.avatar.url(:medium),:class =>"profile_image"%>
+        <%= link_to n.message,post_path(:id=>post.id)%> </p><hr>
+    <% end %>
+  </div>
+  <div class="right-panel">
 
-    <% post=Post.find_by_id(n.noti_type_id) %>
-    <br>
-    <%= link_to n.message,post_path(:id=>post.id)%>
-<% end %>
+  </div>
+</div>
+
 

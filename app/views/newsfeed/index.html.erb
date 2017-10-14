@@ -1,6 +1,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <!--   <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
 
@@ -15,13 +16,15 @@
 
   <section>
     <div class="createPost">
-      <div class="imagesection">
+
         <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" %>
-      </div>
+
       <div class="input-post">
         <%= form_for @post,remote: true do |form| %>
             <div class="emoji-picker-container">
-              <%= form.text_area :content ,placeholder: "Hey,What's up",data: { emojiable: true }%>
+              <%= form.text_area :content ,class: "emoji-wysiwyg-editor",placeholder: "Hey,What's up",data: { emojiable: true }%>
+
+
             </div>
             <div class="postbox-toolbar">
               <div id="upload-pic-dummy"   >
@@ -37,7 +40,7 @@
               </div>
               <%= form.submit 'Post', :class => 'postbutton'   %>
             </div>
-            <div>
+            <div style="display: none;">
               <img id="blah" src="#" alt="" style="width:180px;height: 150px;">
             </div>
         <% end %>
@@ -98,6 +101,20 @@
 
     $("#imgInp").change(function(){
         readURL(this);
+    });
+
+    $(document).ready(function() {
+        $("#emojionearea1").emojioneArea({
+
+            pickerPosition: "right",
+            tonesStyle: "bullet",
+            events: {
+                keyup: function (editor, event) {
+                    console.log(editor.html());
+                    console.log(this.getText());
+                }
+            }
+        });
     });
 
 

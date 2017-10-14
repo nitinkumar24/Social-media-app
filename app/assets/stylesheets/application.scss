@@ -1,0 +1,345 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require rails_emoji_picker
+ *= require_self
+ *= require animate
+ */
+
+@import 'rails_emoji_picker';
+
+* {
+    padding: 0;
+    margin:0;
+}
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration:none;
+}
+
+.likelink{
+    text-decoration: none;
+}
+
+.faheart{
+    font-size: 24px;
+     color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ff3bcb;
+}
+
+.emoji {
+    margin: 0px;
+}
+
+.emoji-picker-icon {
+    position: absolute;
+    right: 5px;
+    top:8px;
+    font-size: 24px;
+    opacity: 0.7;
+    z-index: 100;
+    transition: none;
+    color: #0d112b;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.profile_image {
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+}
+
+.emoji-picker-container {
+    margin-top: 10px;
+    background-color: white;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+    border: 2px solid #0d112b;
+    border-radius: 4px;
+    textarea{
+    }
+}
+
+.emoji-wysiwyg-editor:focus{
+
+}
+
+.emoji-wysiwyg-editor {
+    resize: none;
+    font-family: sans-serif;
+    font-size: 17px;
+    padding: 10px 35px 6px 10px;
+    margin-bottom: 0;
+    height: 20px;
+    min-height: 0;
+    overflow: auto;
+    position: relative;
+    -moz-appearance: textfield-multiline;
+    -webkit-appearance: textarea;
+    line-height: 17px;
+    outline: none;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition: border-color ease-in-out 0.15s,box-shadow ease-in-out 0.15s;
+    -webkit-user-select: text;
+    word-wrap: break-word;
+}
+
+#header-front-signin,#header-front-signup{
+  height: 81vh;
+  padding-top: 4vh;
+  display: flex;
+  justify-content: space-between;
+  overflow-x:hidden ;
+  overflow-y: hidden;
+}
+#header-front-signup {
+  height: 100vh;
+  padding: 0;
+}
+
+.front-page-logo {
+  width: 40%;
+  font-size: 25px;
+  color: black;
+  h3 {
+    color: #730E15;
+    text-align:center;
+    margin-top:46px;
+    font-size:53px;
+    font-family: 'Jura', sans-serif;
+  }
+}
+
+.typed-cursor{
+  display: none;
+}
+
+#typed-sample{
+  color: #730E15;
+  font-family: 'Jura', sans-serif;
+  padding-top: 15px;
+  font-size: 40px;
+  text-align: center;
+  margin-left: 100px;
+  color: #141224;
+}
+
+#sign-in-form-section {
+  width: 26%;
+  opacity: 1;
+}
+
+.slogans{
+  width: 34%;
+}
+
+.sign-in-form{
+  margin-top: 60px;
+  background-color: black;
+  padding: 15px;
+  font-size: 20px;
+  color: white;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+
+#user_email{
+  letter-spacing: 1px;
+  font-size: 16px;
+  padding: 3% 0 3% 2%;
+  border-radius: 3px;
+  border: 1px solid black;
+  margin-bottom: 12px;
+  width: 98%;
+}
+
+#user_password,#user_password_confirmation{
+  letter-spacing: 1px;
+  font-size: 16px;
+  padding: 3% 0 3% 2%;
+  border-radius: 3px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  width: 98%;
+}
+
+#user_name{
+  font-size: 16px;
+  padding: 3% 0 3% 2%;
+  margin-top: 12px;
+  border-radius: 3px;
+  border: 1px solid black;
+  margin-bottom: 12px;
+  width: 98%;
+}
+
+.login-button{
+  margin-top: 16px;
+  font-family: 'Jura', sans-serif;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 22px;
+  padding: 10px;
+  background-color:#141224;
+  color: wheat;
+  text-decoration:none;
+  text-align:center;
+  border:solid 2px #354045;
+}
+
+.remember_me{
+  font-family: 'Jura', sans-serif;
+  font-size: 20px;
+}
+
+.input-mini{
+  font-size: 15px;
+}
+
+.link-sign-up,.link-forgot-password,.link-confirmation-ins{
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  font-family: 'Jura', sans-serif;
+}
+.link-forgot-password{
+  font-size: 20px;
+}
+.link-confirmation-ins{
+  font-size: 17px;
+}
+.link-sign-up{
+  font-size:24px;
+}
+#forgot:hover{
+  color:#CB202D;
+}
+
+#error_explanation {
+  width: 95%;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  ul li {
+    font-size: 20px;
+  }
+}
+
+.field_with_errors {
+  background-color: #fafbff;
+  padding: 0;
+  display: block;
+}
+
+.typed-slogan{
+  background-color: white;
+  height: 15vh
+}
+
+@media screen and (max-width: 1000px) {
+
+  #header-front-signin{
+    flex-direction: column;
+    height: 90vh;
+    padding-top: 0;
+  }
+
+  #header-front-signup{
+    flex-direction: column;
+    height: auto;
+    padding-top: 0;
+  }
+
+  .typed-slogan{
+    background-color: white;
+    height: 10vh;
+
+  }
+  #typed-sample{
+    margin-left: 0;
+    padding-top: 0;
+    font-size: 18px;
+    text-align: center;
+    color: wheat;
+
+  }
+  .front-page-logo {
+    width: 100%;
+  }
+  #sign-in-form-section {
+    width: 100%;
+    opacity: 1;
+    height: auto;
+  }
+  .sign-in-form{
+    border: 0;
+    margin-top: 0;
+    opacity: 1;
+  }
+  h3{
+    margin-top: 0;
+  }
+  #user_email{
+    font-family: 'Jura', sans-serif;
+    height: auto;
+    width: 98%;
+    border: solid 2px #354045;
+    font-size: 20px;
+    border-radius: 2px;
+
+  }
+  #user_password{
+    font-family: 'Jura', sans-serif;
+    height: 20px;
+    width: 98%;
+    margin-bottom: 15px;
+    border: solid 2px #354045;
+    font-size: 20px;
+    border-radius: 2px;
+  }
+  .login-button{
+    font-family: 'Jura', sans-serif;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    border-radius: 2px;
+    background-color:#141224;
+    color: wheat;
+    text-decoration:none;
+    text-align:center;
+    border:solid 2px #354045;
+  }
+  .slogans{
+    width: 100%;
+  }
+}
+
+
+.page-topic{
+  margin-bottom:10px;
+  padding-top:10px;
+  font-size:25px;
+  font-family: 'Open Sans', sans-serif;
+  color:white;
+}
+
+

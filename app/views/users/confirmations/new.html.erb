@@ -1,4 +1,23 @@
-<h2>Resend confirmation instructions</h2>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+  body{
+    background-color: #1D1D1D;
+  }
+</style>
+
+    <div class="rc-header">
+      <%= link_to "SocioGrams",newsfeed_index_path%>
+    </div>
+
+<div id="rc">
+  <div id="rc-left"></div>
+  <div id="rc-mid">
+    <p class="page-topic">Resend confirmation instructions</p>
+
+    <div id="rc-form-section">
+
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
@@ -14,3 +33,5 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+  </div>
+</div>

@@ -17,12 +17,12 @@
 
 
   <div class="post-box">
-    <p><%= content_with_emoji(post.content) %></p>
+    <p><%= post.content %></p>
     <% if post.avatar.file? %>
         <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
     <% end %>
 
-    <div style="border-top: 1px solid grey;" >
+    <div style="" >
       <%= link_to post.like_string(current_user.id), url_for(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "likebutton" %>
 
 
