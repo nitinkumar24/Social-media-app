@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
-
+  validates :content, presence: true, length: {maximum: 400}
 
   def liked_by user_id
     Like.where(comment_id: id,user_id: user_id).length>0

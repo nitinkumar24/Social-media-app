@@ -4,7 +4,7 @@ class User < ApplicationRecord
 	devise :database_authenticatable, :registerable,
 				 :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  validates :name, presence: true
+	validates :name, presence: true
 	validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
 
 

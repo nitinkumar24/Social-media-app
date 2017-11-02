@@ -5,6 +5,9 @@
 <br>
 <br>
 <br>
+
+<div style="width: 30%;margin-left: 35%;background-color: white;padding-left: 2%;padding-right: 2%">
+  <h3>Edit Profile</h3>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -12,27 +15,26 @@
             <%= f.file_field :avatar %>
         </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+      <div>
+        <%= f.text_field :name%>
+      </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+
+
+    <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password(leave blank if you don't want to change it)</i>"%>
+
   </div>
 
+
+
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "6 characters minimum" %>
   </div>
 
   <div class="field">
@@ -50,3 +52,6 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+
+</div>

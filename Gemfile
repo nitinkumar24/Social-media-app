@@ -16,6 +16,8 @@ gem 'paperclip', '~> 4.1'
 gem 'rails_emoji_picker'
 gem "animate-rails"
 gem 'emojionearea-rails'
+gem 'rails_autolink'
+gem 'tooltipster-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
@@ -10,8 +11,11 @@
   <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
-   <title>Sociograms</title>
+  <title>Sociograms</title>
+
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -29,7 +33,14 @@
           });
 
       });
+
+
+
   </script>
+
+  <style>
+    .tooltip_templates { display: none; }
+  </style>
 
 </head>
 
@@ -40,32 +51,36 @@
 
         <nav>
           <ul>
-            <li><i class="fa fa-home" aria-hidden="true"></i></li>
+            <li>  <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
             <li>
-              <a href="/">Home</a></li>
-            <li>  <%= link_to "Notifications",notifications_show_path  %></li>
-            <li> <%= link_to "Users", users_path %> </li>
-            <li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+              <%= link_to notifications_show_path do%><i class="fa fa-bell" aria-hidden="true"></i>
+                  Notifications<% end %>
+            </li>
+            <li>  <%= link_to users_path do %><i class="fa fa-user" aria-hidden="true"></i> Users<%end%></li>
+
           </ul>
         </nav>
+
         <div class="logo">
-          <%= link_to "SocioGrams",newsfeed_index_path%>
+          <%= link_to "SocioGrams",newsfeed_index_path,:class=>"animated rollIn"%>
         </div>
-        <div style="margin-left: 35%;width: 18%">
+
+        <div style="position: absolute;left: 68%;width: 18%">
         <input type="text" class="searchTerm" placeholder="What are you looking for?">
 
         </div>
+
       </header>
     </headerbar>
 <% end %>
 
-<p id="alert" style="background-color: #e6ecf0;
-    text-align: center;
-    line-height: 35px; style="position: fixed;top:0;text-align: center;"><%= notice %></p>
-<p id="alert" style="background-color: #e6ecf0;
-    text-align: center;
-    line-height: 35px;"><%= alert %></i>
-</p>
+    <div id="notice" >
+      <%= notice %>
+    </div>
+
+    <div id="alert">
+      <%= alert %>
+    </div>
 
 <%= yield %>
 

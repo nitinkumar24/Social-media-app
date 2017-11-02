@@ -14,9 +14,9 @@ class Post < ApplicationRecord
 
   def like_string user_id
   	if liked_by user_id
-  		return "UnLike"
-  	else
   		return "Like"
+  	else
+  		return "Unlike"
   	end
 
   end
@@ -29,9 +29,9 @@ class Post < ApplicationRecord
 
   def dislike_string user_id
     if disliked_by user_id
-      return "UnDisLike"
-    else
       return "DisLike"
+    else
+      return "UnDisLike"
     end
 
   end

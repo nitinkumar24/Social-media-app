@@ -1,7 +1,13 @@
 
 
+<div class="comments-content">
 <% user=User.find_by_id(comment.user_id) %>
-  <td><%= user.try(:name) %></td>
-  <td><%= comment.content %></td>
 
-        
+<%= image_tag user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
+  <span class="tooltip commenter" data-tooltip-content="#tooltip_content"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
+  </span>
+
+  &ensp;<p><%= comment.content %></p>
+
+</div>
+

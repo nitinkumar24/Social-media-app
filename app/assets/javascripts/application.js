@@ -16,6 +16,7 @@
 //= require rails_emoji_picker
 //= require jquery_ujs
 //= require typed
+//= require tooltipster.bundle.min
 //= require turbolinks
 //= require_tree .
 

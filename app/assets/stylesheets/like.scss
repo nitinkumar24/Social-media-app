@@ -1,3 +1,25 @@
 // Place all the styles related to the Like controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.like-icon,.dislike-icon,.comment,.report{
+  font-size:24px;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: grey;
+}
+
+.like-icon-activated,.dislike-icon-activated{
+  font-size:24px;
+  color: #931743;
+
+}
+.report{
+  -webkit-text-stroke-color: #0b1893;
+}
+
+.response-count{
+  font-size: 20px;
+  color: grey;
+}

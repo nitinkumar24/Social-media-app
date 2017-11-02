@@ -1,14 +1,55 @@
 
 
+<div class="users-page">
+
+  <div class="users">
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <table>
+      <tr class="header">
+        <th style="width:60%;"></th>
+        <th style="width:40%;"></th>
+      </tr>
+    </table>
+
+    <table id="myTable">
+      <% @users.each do |user| %>
+
+          <tr>
+            <td><%= image_tag user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
+            </td>
+            <td> <%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
+            </td>
+
+            <td><%= user.email %></td>
+            <td> <%= user.try(:department) %></td>
+            <td><a href="https://www.w3schools.com">follow</a></td>
+          </tr>
 
 
+      <% end %>
+    </table>
+  </div>
+
+</div>
 
 
-<% @users.each do |user| %>
-<!-- <li class="round-image-50"><%= image_tag(user.avatar.url(:medium)) %></li>
- -->
-<%= user.email %> <%= user.try(:name)%> <%= user.try(:department) %><br>
-
-
-
-<% end %>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

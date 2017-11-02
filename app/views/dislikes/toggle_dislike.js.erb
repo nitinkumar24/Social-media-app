@@ -1,35 +1,17 @@
 
 <% if @is_disliked %>
-
-$('#dislike_<%= @post.id%>').html("UnDisLike");
+$('#dislike_<%= @post.id%>').addClass("dislike-icon-activated").removeClass("dislike-icon");
 $('#count_dislike_<%= @post.id%>').html(<%=@post.dislikes.count%>);
-
-// noty({text: 'Tweet was Liked', type: 'alert'});
-
 <% else %>
-
-$('#dislike_<%= @post.id%>').html("DisLike");
+$('#dislike_<%= @post.id%>').addClass("dislike-icon").removeClass("dislike-icon-activated");
 $('#count_dislike_<%= @post.id%>').html(<%=@post.dislikes.count%>);
-
-//noty({text: 'Tweet was UnLiked', type: 'alert'});
-
 <% end %>
 
 
 <% if @is_liked %>
-
-$('#like_<%= @post.id%>').html("UnLike");
+$('#like_<%= @post.id%>').addClass("like-icon-activated").removeClass("like-icon");
 $('#count_like_<%= @post.id%>').html(<%=@post.likes.count%>);
-
-
-// noty({text: 'Tweet was Liked', type: 'alert'});
-
 <% else %>
-
-$('#like_<%= @post.id%>').html("Like");
+$('#like_<%= @post.id%>').addClass("like-icon").removeClass("like-icon-activated");
 $('#count_like_<%= @post.id%>').html(<%=@post.likes.count%>);
-
-
-//noty({text: 'Tweet was UnLiked', type: 'alert'});
-
 <% end %>

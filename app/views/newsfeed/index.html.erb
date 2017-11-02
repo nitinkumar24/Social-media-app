@@ -11,27 +11,55 @@
 <main>
   <aside>
     <div class="sidepanel">
-    </div>
+      <div class="home-profile">
+        <div id="imgbox">
+          <%= image_tag current_user.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
+        </div>
+        <div id="contentbox">
+          <span class="bigme"><%= current_user.name %></span><br>
+          <!--<span class="smallme"><%= current_user.email %> </span>-->
+        </div>
+      </div>
+      <div id="probox">
+        <div id="flw"><b>Followers</b><br>200</div>
+        <div id="flwe"><b>Followee</b><br>10</div>
+        <div id="totalview"><b>Total Views</b><br>100</div>
+      </div>
+
+      <div class="trending-people">
+
+
+        <h3>Trending People</h3>
+        <li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+        <hr>
+      </div>
+
+      </div>
+
+
   </aside>
 
   <section>
     <div class="createPost">
 
-        <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" %>
+      <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
 
       <div class="input-post">
         <%= form_for @post,remote: true do |form| %>
-            <div class="emoji-picker-container">
-              <%= form.text_area :content ,class: "emoji-wysiwyg-editor",placeholder: "Hey,What's up",data: { emojiable: true }%>
-
-
+            <div class="">
+              <%= form.text_area :content ,class: "post-input",placeholder: "Hey,What's up"%>
             </div>
+
+            <div style="display: none">
+              <img id="blah" src="#"  style="width:180px;height: 150px;">
+            </div>
+
             <div class="postbox-toolbar">
               <div id="upload-pic-dummy"   >
                 <div class="upload-pic">
                   <%= form.file_field :avatar ,id: "imgInp" %><br>
                 </div>
-                <i class="fa fa-picture-o  fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
               </div>
               <div class="anonymous">
                 <h3>Anonymous
@@ -40,9 +68,7 @@
               </div>
               <%= form.submit 'Post', :class => 'postbutton'   %>
             </div>
-            <div style="display: none;">
-              <img id="blah" src="#" alt="" style="width:180px;height: 150px;">
-            </div>
+
         <% end %>
       </div>
     </div>
@@ -68,7 +94,7 @@
 
 </main>
 
-<script type="text/javascript">
+<script>
     $.ajax({url: '/ajax',
         data: {
             text: "text"
@@ -103,19 +129,16 @@
         readURL(this);
     });
 
-    $(document).ready(function() {
-        $("#emojionearea1").emojioneArea({
-
-            pickerPosition: "right",
-            tonesStyle: "bullet",
-            events: {
-                keyup: function (editor, event) {
-                    console.log(editor.html());
-                    console.log(this.getText());
-                }
-            }
-        });
+    $('.tooltip').tooltipster({
+        animation: 'fall',
+        delay: [900, 000],
+        theme: 'tooltipster-shadow',
+        trigger: 'hover',
+        maxWidth: 550,
+        interactive: true
     });
+
+
 
 
 </script>

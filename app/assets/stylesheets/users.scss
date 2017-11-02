@@ -1,0 +1,41 @@
+.users{
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 80px;
+}
+
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 95%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 22px;
+  font-family: 'Jura', sans-serif;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+#myTable td a{
+  color: #730E15;
+}
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}

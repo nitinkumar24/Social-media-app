@@ -23,3 +23,6 @@
     <% end %>
 
   </div>
+
+  <%= (post.created_at + (60*330)).strftime(" %B %d,%Y")%>
+    <%= (post.created_at + (60*330)).strftime("at %I:%M%p") %><br>
