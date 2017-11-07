@@ -1,69 +1,95 @@
 
-<!--
-<div id="bar">
-</div> -->
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
-  body{
-    margin:0px;
-    padding:0px;
-    font-family: 'Source Sans Pro', sans-serif;
-    background-image:url('https://static.pexels.com/photos/7174/summer-grass.jpg') ;
-    background-repeat: no-repeat;
-    background-size:100% 92vh;
 
-  }
-  @media screen and (max-width: 1000px) {
+   body{
+      margin:0px;
+      padding:0px;
+      font-family: 'Source Sans Pro', sans-serif;
+      background: linear-gradient(270deg, #9d8c00, #4c0158, #088b99);
+      background-size: 600% 600% !important;
+      /* -webkit-animation: itlGradient 16s ease infinite; */
+      -moz-animation: itlGradient 16s ease infinite;
+      -o-animation: itlGradient 16s ease infinite;
+      animation: itlGradient 16s ease infinite;
+      background-size:100% 94vh;
 
-    body {
-      background-color:black;
-      background-image: none;
-    }
-  }
+   }
+
+   @-webkit-keyframes itlGradient {
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+   }
+   @-moz-keyframes itlGradient {
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+   }
+   @-o-keyframes itlGradient {
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+   }
+   @keyframes itlGradient {
+      0%{background-position:90% 0%}
+      50%{background-position:11% 100%}
+      100%{background-position:90% 0%}
+   }
+
+   @media screen and (max-width: 1000px) {
+
+      body {
+         /*background-color:black;*/
+         /*background-image: none;*/
+      }
+
+   }
+
 </style>
+
 <div id="header-front-signin" class="animated ">
 
-  <div class="front-page-logo">
-    <h3 style="" class='animated slideInUp'>Socio_Grams</h3>
+   <div class="front-page-logo">
+      <h3 class='animated slideInUp'>Socio_Grams</h3>
+   </div>
 
-  </div>
+   <div id="sign-in-form-section" >
+      <div class="sign-in-form"  >
+         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div id="sign-in-form-section" >
-    <div class="sign-in-form"  >
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+             <p class="page-topic">Sign-In</p><hr><br>
 
-          <p class="page-topic">Sign-In</p><hr><br>
+             <%= f.email_field :email, autofocus: true ,placeholder:"Email-address",required: true%>
+             <%= f.password_field :password, autocomplete: "off",placeholder:"Password",required: true %>
 
-          <%= f.email_field :email, autofocus: true ,placeholder:"Email-address",required: true%>
-          <%= f.password_field :password, autocomplete: "off",placeholder:"Password",required: true %>
+             <br>
+             <% if devise_mapping.rememberable? -%>
 
-          <br>
-          <% if devise_mapping.rememberable? -%>
+                 <%= f.check_box :remember_me %>
+                 <%= f.label :remember_me,class:"remember_me" %>
 
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me,class:"remember_me" %>
-
-          <% end -%>
-          <br>
-
+             <% end -%>
+             <br>
 
 
-          <%= f.submit "Log in" ,class:"login-button"%><br>
-          <p style="text-align:center;margin-bottom:10px;">OR</p>
-          <hr>
-          <div style="padding-left: 8px;padding-top: 10px;">
-          <%= render "users/shared/links" %>
-          </div>
-      <% end %>
 
-    </div>
-  </div>
-  <div class="slogans">
+             <%= f.submit "Log in" ,class:"login-button"%><br>
+             <p style="text-align:center;margin-bottom:10px;">OR</p>
+             <hr>
+             <div style="padding-left: 8px;padding-top: 10px;">
+                <%= render "users/shared/links" %>
+             </div>
+         <% end %>
 
-  </div>
+      </div>
+   </div>
+   <div class="slogans">
+
+   </div>
 </div>
 <div class="typed-slogan">
-  <h3 id="typed-sample" style="color: #730E15"></h3>
+   <h3 id="typed-sample" style="color: #730E15"></h3>
 </div>

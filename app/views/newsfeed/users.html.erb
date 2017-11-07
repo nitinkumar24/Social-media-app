@@ -2,34 +2,50 @@
 
 <div class="users-page">
 
-  <div class="users">
+    <div class="users">
 
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
-    <table>
-      <tr class="header">
-        <th style="width:60%;"></th>
-        <th style="width:40%;"></th>
-      </tr>
-    </table>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        <table>
+            <tr class="header">
+                <th style="width:60%;"></th>
+                <th style="width:40%;"></th>
+            </tr>
+        </table>
 
-    <table id="myTable">
-      <% @users.each do |user| %>
+        <table id="myTable">
+            <% @users.each do |user| %>
 
-          <tr>
-            <td><%= image_tag user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
-            </td>
-            <td> <%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
-            </td>
+                <tr>
+                    <td>
+                        <% if user.avatar? %>
+                        <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
+                        <%end  %>
+                    </td>
+                    <td> <%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
+                    </td>
 
-            <td><%= user.email %></td>
-            <td> <%= user.try(:department) %></td>
-            <td><a href="https://www.w3schools.com">follow</a></td>
-          </tr>
+                    <td><%= user.email %></td>
+                    <td> <%= user.try(:department) %></td>
+                    <td> <% if current_user.can_follow user.id %>
+                            <%= link_to "Follow", url_for(controller: :newsfeed, action: :follow, followee_id: user.id), method: :post %>
+                        <% end %>
+
+                        <% if current_user.can_delete_request user.id %>
+                            <%= link_to "request sent", url_for(controller: :newsfeed, action: :delete_request, followee_id: user.id), method: :post %>
+                        <% end %>
 
 
-      <% end %>
-    </table>
-  </div>
+                        <% if current_user.can_un_follow user.id %>
+                            <%= link_to "unfollow", url_for(controller: :newsfeed, action: :un_follow, followee_id: user.id), method: :post %>
+                        <% end %>
+                    </td>
+
+                </tr>
+
+
+            <% end %>
+        </table>
+    </div>
 
 </div>
 

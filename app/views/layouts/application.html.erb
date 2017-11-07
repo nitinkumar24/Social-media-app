@@ -1,88 +1,117 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <title>Sociograms</title>
 
-  <title>Sociograms</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("home-link").click(function(){
+                alert("The paragraph was clicked.");
+            });
+        });
 
-  <script type="text/javascript">
-      $(document).ready(function(){
-          $("home-link").click(function(){
-              alert("The paragraph was clicked.");
-          });
-      });
+        $(document).ready(function(){
+            $("#alert").click(function(){
+                $("#alert").hide();
+            });
 
-      $(document).ready(function(){
-          $("#alert").click(function(){
-              $("#alert").hide();
-          });
-
-      });
-
+        });
 
 
-  </script>
+    </script>
 
-  <style>
-    .tooltip_templates { display: none; }
-  </style>
+    <style>
+        .tooltip_templates { display: none; }
+    </style>
 
 </head>
 
 <body>
 <% if user_signed_in? %>
     <headerbar >
-      <header>
+        <header>
+            <nav class="left-nav">
+                <ul>
+                    <li>  <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: grey;color: white"></i> Home</a>
+                    </li>
+                    <li><%= link_to "" do%><i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: grey;color: white"></i> Confessions<% end %></li>
+                    <li>
+                        <%= link_to "" do %>
+                            <i class="fa fa-smile-o" aria-hidden="true"></i>
+                            Memes
+                        <%end%>
+                    </li>
+                </ul>
+            </nav>
 
-        <nav>
-          <ul>
-            <li>  <a href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-            <li>
-              <%= link_to notifications_show_path do%><i class="fa fa-bell" aria-hidden="true"></i>
-                  Notifications<% end %>
-            </li>
-            <li>  <%= link_to users_path do %><i class="fa fa-user" aria-hidden="true"></i> Users<%end%></li>
+            <div class="logo">
+                <%= link_to "SocioGrams",newsfeed_index_path,:class=>"animated rollIn"%>
+            </div>
 
-          </ul>
-        </nav>
 
-        <div class="logo">
-          <%= link_to "SocioGrams",newsfeed_index_path,:class=>"animated rollIn"%>
-        </div>
 
-        <div style="position: absolute;left: 68%;width: 18%">
-        <input type="text" class="searchTerm" placeholder="What are you looking for?">
+            <nav class="right-nav">
+                <ul>
+                    <li>
+                        <%= link_to users_path do %>
+                            <i class="fa fa-users" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                                -webkit-text-stroke-color: grey;color: white"></i>
+                        <%end%>
+                    </li>
+                    <li>
+                        <%= link_to notifications_show_path do%>
+                            <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                                -webkit-text-stroke-color: grey;color: white"></i>
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to newsfeed_friendrequests_path do%>
+                            <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                                -webkit-text-stroke-color: grey;color: white"></i>
+                        <% end %>
+                    </li>
 
-        </div>
 
-      </header>
+                </ul>
+            </nav>
+
+            <div style="position: absolute;left: 75%;width: 18%">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?">
+            </div>
+
+
+
+        </header>
     </headerbar>
 <% end %>
 
-    <div id="notice" >
-      <%= notice %>
-    </div>
+<div id="notice" >
+    <%= notice %>
+</div>
 
-    <div id="alert">
-      <%= alert %>
-    </div>
+<div id="alert">
+    <%= alert %>
+</div>
 
 <%= yield %>
 
 </body>
+
 </html>

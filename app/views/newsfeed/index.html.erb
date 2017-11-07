@@ -1,100 +1,105 @@
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<!--   <li><%= link_to('   Logout', destroy_user_session_path, method: :delete  )%></li>
 
-<li> <%= link_to "Users", users_path %>
--->
 
 <main>
-  <aside>
-    <div class="sidepanel">
-      <div class="home-profile">
-        <div id="imgbox">
-          <%= image_tag current_user.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
-        </div>
-        <div id="contentbox">
-          <span class="bigme"><%= current_user.name %></span><br>
-          <!--<span class="smallme"><%= current_user.email %> </span>-->
-        </div>
-      </div>
-      <div id="probox">
-        <div id="flw"><b>Followers</b><br>200</div>
-        <div id="flwe"><b>Followee</b><br>10</div>
-        <div id="totalview"><b>Total Views</b><br>100</div>
-      </div>
-
-      <div class="trending-people">
-
-
-        <h3>Trending People</h3>
-        <li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
-        <hr>
-      </div>
-
-      </div>
-
-
-  </aside>
-
-  <section>
-    <div class="createPost">
-
-      <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
-
-      <div class="input-post">
-        <%= form_for @post,remote: true do |form| %>
-            <div class="">
-              <%= form.text_area :content ,class: "post-input",placeholder: "Hey,What's up"%>
-            </div>
-
-            <div style="display: none">
-              <img id="blah" src="#"  style="width:180px;height: 150px;">
-            </div>
-
-            <div class="postbox-toolbar">
-              <div id="upload-pic-dummy"   >
-                <div class="upload-pic">
-                  <%= form.file_field :avatar ,id: "imgInp" %><br>
+    <aside>
+        <div class="sidepanel">
+            <div class="home-profile">
+                <div id="imgbox">
+                    <%= image_tag current_user.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
                 </div>
-                <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
-              </div>
-              <div class="anonymous">
-                <h3>Anonymous
-                  <%= form.check_box :anonymous %>
-                </h3>
-              </div>
-              <%= form.submit 'Post', :class => 'postbutton'   %>
+                <div id="contentbox">
+                    <span class="bigme"><%= current_user.name %></span><br>
+                </div>
+            </div>
+            <div id="probox">
+                <div id="flw"><b>Followers</b><br>200</div>
+                <div id="flwe"><b>Followee</b><br>10</div>
+                <div id="totalview"><b>Total Views</b><br>100</div>
             </div>
 
-        <% end %>
-      </div>
-    </div>
+            <div class="trending-people">
+                <h3>Trending People</h3>
+                <li>  <%= link_to "Sign Out",destroy_user_session_path,method: :delete %></li>
+                <hr>
+            </div>
 
-    <div id="posts">
-      <% @feed.each do |post| %>
-          <%= render 'post', post: post %>
-      <% end %>
-    </div>
-    <br>
-    <div id='load_more'>
-      <%= render 'load_more', offset: 10 %>
-    </div>
+        </div>
 
-  </section>
 
-  <ads>
-    <div class="adspanel"></div>
-  </ads>
+    </aside>
 
-  <chatbox>
-  </chatbox>
+    <section>
+        <div class="createPost">
+
+            <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
+
+            <div class="input-post">
+                <%= form_for @post,remote: true do |form| %>
+                    <div class="">
+                        <%= form.text_area :content ,class: "post-input",placeholder: "Hey,What's up"%>
+                    </div>
+
+                    <div class="dup-pic">
+                        <img id="blah" src="#"  style="width:180px;height: 150px;">
+                    </div>
+
+                    <div class="postbox-toolbar">
+                        <div id="upload-pic-dummy"   >
+                            <div class="upload-pic">
+                                <%= form.file_field :avatar ,id: "imgInp" %><br>
+                            </div>
+                            <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
+                        </div>
+                        <div class="anonymous">
+                            <h3>Anonymous
+                                <%= form.check_box :anonymous %>
+                            </h3>
+                        </div>
+                        <%= form.submit 'Post', :class => 'postbutton'   %>
+                    </div>
+
+                <% end %>
+            </div>
+        </div>
+
+        <div id="posts">
+            <% @feed.each do |post| %>
+                <%= render 'post', post: post %>
+            <% end %>
+        </div>
+        <br>
+        <div id='load_more'>
+            <%= render 'load_more', offset: 10 %>
+        </div>
+
+    </section>
+
+    <ads>
+        <div class="adspanel"></div>
+    </ads>
+
+    <chatbox>
+    </chatbox>
 
 </main>
 
+<style>
+    .dup-pic{
+        display: none;
+    }
+    .show-pic{
+        display: block;
+    }
+</style>
+
 <script>
+
+
+
     $.ajax({url: '/ajax',
         data: {
             text: "text"
@@ -105,12 +110,9 @@
         },
         error: function(){
             console.log(arguments);
-
             console.log("some error");
         }
     });
-
-
 
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -130,15 +132,23 @@
     });
 
     $('.tooltip').tooltipster({
-        animation: 'fall',
+        animation: 'grow',
         delay: [900, 000],
-        theme: 'tooltipster-shadow',
+        theme: 'tooltipster-punk',
         trigger: 'hover',
         maxWidth: 550,
-        interactive: true
+        interactive: true,
+        position: 'bottom',
+        minWidth: 300
     });
 
+    $(".upload-pic").click(function(){
+        $(".dup-pic").removeClass("dup-pic").addClass("show-pic");
+    });
 
-
+    $('.logo').click(function(){
+        $("html, body").animate({ scrollTop: 0 }, 1000);
+        return false;
+    });
 
 </script>

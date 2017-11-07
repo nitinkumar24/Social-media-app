@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
+comment{
+  display: none;
+}
 .comment-box{
   background-color: #f8f8f8;
   width: 96%;
@@ -66,7 +68,7 @@
   .commenter{
     padding-left: 10px;
     a{
-      color: #571743;
+      color: #434243;
       font-weight: 300;
 
     }

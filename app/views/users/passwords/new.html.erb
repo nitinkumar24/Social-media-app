@@ -1,16 +1,70 @@
-<h2>Forgot your password?</h2>
+<style>
+    body{
+        margin:0px;
+        padding:0px;
+        font-family: 'Source Sans Pro', sans-serif;
+        background: linear-gradient(270deg, #9d8c00, #4c0158, #088b99);
+        background-size: 600% 600% !important;
+        /* -webkit-animation: itlGradient 16s ease infinite; */
+        -moz-animation: itlGradient 16s ease infinite;
+        -o-animation: itlGradient 16s ease infinite;
+        animation: itlGradient 16s ease infinite;
+        background-size:100% 94vh;
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    }
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    @-webkit-keyframes itlGradient {
+        0%{background-position:90% 0%}
+        50%{background-position:11% 100%}
+        100%{background-position:90% 0%}
+    }
+    @-moz-keyframes itlGradient {
+        0%{background-position:90% 0%}
+        50%{background-position:11% 100%}
+        100%{background-position:90% 0%}
+    }
+    @-o-keyframes itlGradient {
+        0%{background-position:90% 0%}
+        50%{background-position:11% 100%}
+        100%{background-position:90% 0%}
+    }
+    @keyframes itlGradient {
+        0%{background-position:90% 0%}
+        50%{background-position:11% 100%}
+        100%{background-position:90% 0%}
+    }
+</style>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+<div id="header-front-signup" class="animated ">
 
-<%= render "users/shared/links" %>
+    <div class="front-page-logo">
+        <h3 style="">Socio_Grams</h3>
+    </div>
+
+    <div id="sign-in-form-section">
+        <%= devise_error_messages! %>
+        <div class="sign-in-form "  >
+            <p class="page-topic">Forgot your password?</p><hr>
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+                <%= devise_error_messages! %>
+
+                <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true %>
+                </div>
+
+                <div class="actions">
+                    <%= f.submit "Send me reset password instructions" ,:class=>"login-button",:style=>"font-size:16px;"%>
+                </div>
+            <% end %>
+            <p style="text-align:center;margin-bottom:10px;">OR</p>
+            <hr>
+            <%= render "users/shared/links" %>
+        </div>
+    </div>
+    <div class="slogans">
+
+    </div>
+
+</div>
+

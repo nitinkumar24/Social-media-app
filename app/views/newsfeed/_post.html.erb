@@ -12,10 +12,12 @@
           <%= current_user.name %>
         </div>
 
-        <%= image_tag user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
+        <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
 
         <div class="username">
-        <div class="tooltip" data-tooltip-content="#tooltip_content"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></div>
+        <div class="tooltip" data-tooltip-content="#tooltip_content">
+          <h2><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></h2>
+        </div>
         </div>
 
         <div class="tooltip_templates">
@@ -50,9 +52,8 @@
     <% end %>
 
     <p><%= post.content %></p>
-    <% if !post.avatar.file? %>
-        <hr>
-    <% end %>
+
+        <hr style="opacity: 0.2">
 
 
     <div class="user-response" >

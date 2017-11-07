@@ -18,7 +18,7 @@ class LikesController < ApplicationController
 				@is_liked = true
 
 				if @post.user_id!=current_user.id
-				Notification.create(user_id: current_user.id, recipient_id: @post.user_id, message: current_user.name + " liked your post", noti_type: "post-like", noti_type_id: @post.id)
+					Notification.create(user_id: current_user.id, recipient_id: @post.user_id, message: current_user.name + " liked your post", noti_type: "post-like", noti_type_id: @post.id)
 				end
 
 				if dislike
@@ -30,8 +30,8 @@ class LikesController < ApplicationController
 
 			respond_to do |format|
 				format.js { }
-
 			end
+
 		end
 	end
 end

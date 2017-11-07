@@ -1,0 +1,237 @@
+
+#header-front-signin,#header-front-signup{
+    height: 85vh;
+    padding-top: 4vh;
+    display: flex;
+    justify-content: space-between;
+    overflow-x:hidden ;
+    overflow-y: hidden;
+}
+#header-front-signup {
+    height: 100vh;
+    padding: 0;
+}
+
+.front-page-logo {
+    width: 40%;
+    font-size: 25px;
+    color: black;
+    h3 {
+        color: white ;//#31a3da;//#730E15;
+        text-align:center;
+        margin-top:46px;
+        font-size:53px;
+        font-family: 'Jura', sans-serif;
+    }
+}
+
+.typed-cursor{
+    display: none;
+}
+
+#typed-sample{
+    color: #730E15;
+    font-family: 'Jura', sans-serif;
+    padding-top: 15px;
+    font-size: 40px;
+    text-align: center;
+    margin-left: 100px;
+    color: #141224;
+}
+
+#sign-in-form-section {
+    width: 26%;
+    opacity: 1;
+}
+
+.slogans{
+    width: 34%;
+}
+
+.sign-in-form{
+    margin-top: 60px;
+    background-color: black;
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    opacity: 0.7;
+    border-radius: 5px;
+}
+
+#user_email{
+    letter-spacing: 1px;
+    font-size: 16px;
+    padding: 3% 0 3% 2%;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin-bottom: 12px;
+    width: 98%;
+}
+
+#user_password,#user_password_confirmation{
+    letter-spacing: 1px;
+    font-size: 16px;
+    padding: 3% 0 3% 2%;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    width: 98%;
+}
+
+#user_name{
+    font-size: 16px;
+    padding: 3% 0 3% 2%;
+    margin-top: 12px;
+    border-radius: 3px;
+    border: 1px solid black;
+    margin-bottom: 12px;
+    width: 98%;
+}
+
+.login-button{
+    margin-top: 16px;
+    font-family: 'Jura', sans-serif;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 22px;
+    padding: 10px;
+    background-color:#141224;
+    color: wheat;
+    text-decoration:none;
+    text-align:center;
+    border:solid 2px #354045;
+}
+
+.remember_me{
+    font-family: 'Jura', sans-serif;
+    font-size: 20px;
+}
+
+.input-mini{
+    font-size: 15px;
+}
+
+.link-sign-up,.link-forgot-password,.link-confirmation-ins{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-family: 'Jura', sans-serif;
+}
+.link-forgot-password{
+    font-size: 20px;
+}
+.link-confirmation-ins{
+    font-size: 17px;
+}
+.link-sign-up{
+    font-size:24px;
+}
+#forgot:hover{
+    color:#CB202D;
+}
+
+#error_explanation {
+    width: 95%;
+    border: 2px solid red;
+    padding: 7px 7px 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    ul li {
+        font-size: 20px;
+    }
+}
+
+.field_with_errors {
+    background-color: #fafbff;
+    padding: 0;
+    display: block;
+}
+
+.typed-slogan{
+    background-color: white;
+    height: 11vh
+}
+
+
+
+@media screen and (max-width: 1000px) {
+
+    #header-front-signin{
+        flex-direction: column;
+        height: 92vh;
+        padding-top: 0;
+    }
+
+    #header-front-signup{
+        flex-direction: column;
+        height: auto;
+        padding-top: 0;
+    }
+
+    .typed-slogan{
+        background-color: white;
+        height: 8vh;
+
+    }
+    #typed-sample{
+        margin-left: 0;
+        align-items: center;
+        font-size: 18px;
+        text-align: center;
+        color: wheat;
+
+    }
+    .front-page-logo {
+        width: 100%;
+    }
+    #sign-in-form-section {
+        width: 100%;
+        opacity: 1;
+        height: auto;
+
+    }
+    .sign-in-form{
+        border: 0;
+        margin-top: 0;
+        opacity: 1;
+        background-color: inherit;
+
+    }
+    h3{
+        margin-top: 0;
+    }
+    #user_email{
+        font-family: 'Jura', sans-serif;
+        height: auto;
+        width: 98%;
+        border: solid 2px #354045;
+        font-size: 20px;
+        border-radius: 2px;
+
+    }
+    #user_password{
+        font-family: 'Jura', sans-serif;
+        height: 20px;
+        width: 98%;
+        margin-bottom: 15px;
+        border: solid 2px #354045;
+        font-size: 20px;
+        border-radius: 2px;
+    }
+    .login-button{
+        font-family: 'Jura', sans-serif;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        font-size: 25px;
+        border-radius: 2px;
+        background-color:#141224;
+        color: wheat;
+        text-decoration:none;
+        text-align:center;
+        border:solid 2px #354045;
+    }
+    .slogans{
+        width: 100%;
+    }
+}

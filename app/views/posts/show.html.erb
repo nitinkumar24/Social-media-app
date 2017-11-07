@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
-<br><br>
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+<!--<br><br>-->
+<!--<p>-->
+  <!--<strong>Content:</strong>-->
+  <!--<%= @post.content %>-->
+<!--</p>-->
 
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
+<!--<p>-->
+  <!--<strong>User:</strong>-->
+  <!--<%= @post.user %>-->
+<!--</p>-->
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<div style="width: 40%;margin-left: 30%;margin-top: 80px;">
+<%= render 'newsfeed/post', post: @post %>
+<div>
+
+
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    <%= link_to 'Back', posts_path %>
