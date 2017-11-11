@@ -18,13 +18,14 @@ main {
             height:850px;
             margin-left: 25%;
             div.home-profile {
-                box-shadow: 0px 0px 3px #666666;
-                padding: 20px;
-                background-color: white;
+                //box-shadow: 0px 0px 3px #666666;
+                padding: 12px;
+                background-color: #fdfdfd;
                 background-image: linear-gradient(49deg,#6166ae, #eb4f6f);
                 color: #fff;
                 display: flex;
                 justify-content: space-between;
+                border: 1px solid grey;
                 img.h-pro-image {
                     width: 80px;
                     height: 80px;
@@ -37,7 +38,14 @@ main {
                     letter-spacing: .04em;
                     font-family: Lato,Helvetica,Arial,sans-serif;
                     .bigme{
-                        font-size: 20px;
+                        font-size: 21px;
+                        font-family: 'Jura', sans-serif;
+
+
+                        }
+                    .bigme a {
+                        color: black;
+
                     }
                     .smallme{
                         font-size: 10px;
@@ -48,15 +56,15 @@ main {
                 box-shadow: 0 0 30px 5px rgba(0,0,0,.22);
             }
             .trending-people{
-                text-align: center;
-                margin-top: 10px;
+                //text-align: center;
+                margin-top: 50px;
                 height: 600px;
                 box-shadow: 0px 0px 3px #666666;
-                padding: 20px;
+                //padding: 20px;
                 background-color: white;
             }
             .trending-people:hover{
-                box-shadow: 0 0 1px 2px #7c2121;
+                //box-shadow: 0 0 1px 2px ;
             }
         }
     }
@@ -158,7 +166,7 @@ main {
         width:28%;
         padding-left: 1%;
         div.adspanel{
-            height: 100%;
+
             width: 80%;
             box-shadow: 0px 0px 3px #666666;
             //background-color:#282C35;

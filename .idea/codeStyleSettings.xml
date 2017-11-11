@@ -22,6 +22,7 @@
           <option name="KEEP_LINE_BREAKS" value="false" />
           <indentOptions>
             <option name="INDENT_SIZE" value="4" />
+            <option name="KEEP_INDENTS_ON_EMPTY_LINES" value="true" />
           </indentOptions>
         </codeStyleSettings>
       </value>

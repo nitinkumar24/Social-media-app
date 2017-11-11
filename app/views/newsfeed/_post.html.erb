@@ -2,152 +2,141 @@
 
 <div class="newsfeed">
 
-  <% user=User.find_by_id(post.user_id) %>
-  <% if post.anonymous %>
-      <h3>Anonymous</h3>
-  <% else %>
-      <div class="user-detail">
+    <% user=User.find_by_id(post.user_id) %>
+    <% if post.anonymous %>
+        <h3>Anonymous</h3>
+    <% else %>
+        <div class="user-detail">
 
-        <div class="dropdown-content">
-          <%= current_user.name %>
-        </div>
+            <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
 
-        <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
+            <div class="username">
+                <div class="tooltip" data-tooltip-content="#tooltip_content">
+                    <h2><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></h2>
+                </div>
+            </div>
 
-        <div class="username">
-        <div class="tooltip" data-tooltip-content="#tooltip_content">
-          <h2><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></h2>
-        </div>
-        </div>
-
-        <div class="tooltip_templates">
-          <span style="height:100px;width:500px" id="tooltip_content">
+            <div class="tooltip_templates">
+                <span style="height:100px;width:500px" id="tooltip_content">
             <%= image_tag user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
-            <b><%= user.try(:name) %></b>
-            <br>
-            <%= user.email %>
+                    <b><%= user.try(:name) %></b><br>
+                    <%= user.email %>
 
-          </span>
+                </span>
+            </div>
+
+            <div class="tooltip" data-tooltip-content="#tooltip_content_ed">
+                <span>
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                </span>
+            </div>
+
+            <div class="tooltip_templates">
+                <div id="#tooltip_content_ed">
+                    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                </div>
+            </div>
+
+
         </div>
 
-        <div class="dropdown">
-          <span>
-            <i class="fa fa-angle-down" aria-hidden="true"></i>
-          </span>
-          <!--<div class="dropdown-contents">-->
-          <!--<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>-->
-
-          <!--</div>-->
-        </div>
-
-      </div>
-
-  <% end %>
-
-
-  <div class="post-box">
-
-    <% if post.avatar.file? %>
-        <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
     <% end %>
 
-    <p><%= post.content %></p>
+
+    <div class="post-box">
+
+        <% if post.avatar.file? %>
+            <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
+        <% end %>
+
+        <p><%= post.content %></p>
 
         <hr style="opacity: 0.2">
 
+        <div class="user-response" >
 
-    <div class="user-response" >
+            <!--like icon-->
+            <div class="like">
+                <% if post.like_string(current_user.id)=="Like" %>
+                    <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
+                        <i class="fa fa-heart"></i>
+                    <% end %>
 
-      <!--like icon-->
-      <div class="like">
-        <% if post.like_string(current_user.id)=="Like" %>
-            <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
-                <i class="fa fa-heart""></i>
-            <% end %>
+                <%else  %>
 
-        <%else  %>
+                    <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                    <% end %>
 
-            <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
-                <i class="fa fa-heart" aria-hidden="true"></i>
-            <% end %>
-
-        <% end %>
-
-
-        <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
+                <% end %>
 
 
-      </div>
-      <!--Dislike icon-->
+                <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
 
-      <div class="dislike">
-        <% if post.dislike_string(current_user.id)=="DisLike" %>
-            <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon-activated" do %>
-                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
 
-            <% end %>
+            </div>
+            <!--Dislike icon-->
 
-        <%else  %>
+            <div class="dislike">
+                <% if post.dislike_string(current_user.id)=="DisLike" %>
+                    <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon-activated" do %>
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
 
-            <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon" do %>
-                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                    <% end %>
 
-            <% end %>
+                <%else  %>
 
-        <% end %>
-        <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
-      </div>
+                    <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon" do %>
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
 
-      <!--comment-icon-->
-      <div class="comment">
-        <i class="fa fa-comments" aria-hidden="true"></i>
-      </div>
+                    <% end %>
 
-      <!--dislike-icon-->
-      <div class="report">
-        <i class="fa fa-times" aria-hidden="true"></i>
-      </div>
+                <% end %>
+                <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
+            </div>
+
+            <!--comment-icon-->
+            <div class="comment">
+                <i class="fa fa-comments" aria-hidden="true"></i>
+            </div>
+
+            <!--dislike-icon-->
+            <div class="report">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div>
+
+
+        </div>
+
 
 
     </div>
 
 
 
-  </div>
+    <comment>
 
-
-
-  <comment>
-
-  <%= form_for @comment,remote:true do |form| %>
-      <div class="comment-box">
-      <%= image_tag current_user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
-        <span>
-        <div class="">
-       <%= form.text_field:content ,:class=>"comment-input",placeholder: "Write a Comment" %>
+        <%= form_for @comment,remote:true do |form| %>
+            <div class="comment-box">
+                <%= image_tag current_user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
+                <span>
+        <div>
+                <%= form.text_field:content ,:class=>"comment-input",placeholder: "Write a Comment" %>
         </div>
         </span>
-      <%= hidden_field_tag :post_id, post.id %>
-     </div>
+                <%= hidden_field_tag :post_id, post.id %>
+            </div>
+        <% end %>
 
 
+        <div id="comments_<%=post.id%>" class="comments">
+            <% Comment.where(post_id: post.id).each do |comment| %>
+                <%= render 'comment', comment: comment %>
+            <% end %>
+        </div>
 
-  <% end %>
-
-
-  <div id="comments_<%=post.id%>" class="comments">
-
-    <% Comment.where(post_id: post.id).each do |comment| %>
-
-
-        <%= render 'comment', comment: comment %>
-
-
-    <% end %>
-
-  </div>
-
-  </comment>
+    </comment>
 
 
 

@@ -9,7 +9,7 @@
 <% @friendrequests.each do | req | %>
 
     <% user=User.where(id: req.sender_id).first%>
-    <%=user.email  %>  wants to follow you
+    <%=user.try(:name)  %>  wants to follow you
     <br>
 
     <%= link_to "accept", url_for(controller: :newsfeed, action: :accept_request, follower_id: req.sender_id), method: :post %>
