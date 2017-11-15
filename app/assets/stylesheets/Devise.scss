@@ -1,5 +1,5 @@
 
-#header-front-signin,#header-front-signup{
+#signin-page,#signup-page{
     height: 85vh;
     padding-top: 4vh;
     display: flex;
@@ -7,7 +7,7 @@
     overflow-x:hidden ;
     overflow-y: hidden;
 }
-#header-front-signup {
+#signup-page {
     height: 100vh;
     padding: 0;
 }
@@ -17,7 +17,7 @@
     font-size: 25px;
     color: black;
     h3 {
-        color: white ;//#31a3da;//#730E15;
+        color: white ;
         text-align:center;
         margin-top:46px;
         font-size:53px;
@@ -25,27 +25,9 @@
     }
 }
 
-.typed-cursor{
-    display: none;
-}
-
-#typed-sample{
-    color: #730E15;
-    font-family: 'Jura', sans-serif;
-    padding-top: 15px;
-    font-size: 40px;
-    text-align: center;
-    margin-left: 100px;
-    color: #141224;
-}
-
 #sign-in-form-section {
     width: 26%;
     opacity: 1;
-}
-
-.slogans{
-    width: 34%;
 }
 
 .sign-in-form{
@@ -57,6 +39,7 @@
     opacity: 0.7;
     border-radius: 5px;
 }
+
 
 #user_email{
     letter-spacing: 1px;
@@ -130,6 +113,16 @@
     color:#CB202D;
 }
 
+.slogans{
+    width: 34%;
+}
+
+.typed-cursor{
+    display: none;
+}
+
+
+
 #error_explanation {
     width: 95%;
     border: 2px solid red;
@@ -152,38 +145,33 @@
     height: 11vh
 }
 
-
+#typed-sample{
+    color: #730E15;
+    font-family: 'Jura', sans-serif;
+    padding-top: 15px;
+    font-size: 40px;
+    text-align: center;
+    margin-left: 100px;
+}
 
 @media screen and (max-width: 1000px) {
 
-    #header-front-signin{
+    #signin-page{
         flex-direction: column;
         height: 92vh;
         padding-top: 0;
     }
 
-    #header-front-signup{
+    #signup-page{
         flex-direction: column;
         height: auto;
         padding-top: 0;
     }
 
-    .typed-slogan{
-        background-color: white;
-        height: 8vh;
-
-    }
-    #typed-sample{
-        margin-left: 0;
-        align-items: center;
-        font-size: 18px;
-        text-align: center;
-        color: wheat;
-
-    }
     .front-page-logo {
         width: 100%;
     }
+
     #sign-in-form-section {
         width: 100%;
         opacity: 1;
@@ -234,4 +222,20 @@
     .slogans{
         width: 100%;
     }
+
+    .typed-slogan{
+        background-color: white;
+        height: 8vh;
+
+    }
+    #typed-sample{
+        margin-left: 0;
+        align-items: center;
+        font-size: 18px;
+        text-align: center;
+        color: wheat;
+
+    }
+
+
 }

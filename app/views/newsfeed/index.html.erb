@@ -15,46 +15,25 @@
                     <span class="bigme"><%= link_to current_user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:current_user.id)%></span><br>
                 </div>
             </div>
+
             <div id="probox">
-                <div id="flw"><b>Followers</b>
+
+                <div id="flw">
+                    <b>Followers</b>
                     <br>
                     <%= current_user.followers(current_user.id) %>
                 </div>
-                <div id="flwe"><b>Following</b><br>
+                <div id="flwe">
+                    <b>Following</b><br>
                     <%= current_user.followee(current_user.id) %>
                 </div>
-                <div id="totalview"><b>Total Views</b><br>100</div>
+                <div id="totalview">
+                    <b>Total Views</b><br>100
+                </div>
+
             </div>
             <hr>
-            <div class="trending-people" style="display: none">
-                <h3 style="text-align: center;font-family: 'Jura', sans-serif;font-size: 21px;padding: 8px">Trending People</h3>
 
-
-                <% @users.each do |u|  %>
-                    <div class="home-profile">
-                        <div id="imgbox">
-                            <%= image_tag u.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
-                        </div>
-                        <div id="contentbox">
-                            <span class="bigme"><%= link_to u.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:u.id)%></span><br>
-                        </div>
-                        <br>
-
-                    </div>
-                    <div id="probox">
-                        <div id="flw"><b>Followers</b>
-                            <br>
-                            <%= u.followers(u.id) %>
-                        </div>
-                        <div id="flwe"><b>Following</b><br>
-                            <%= u.followee(u.id) %>
-                        </div>
-                        <div id="totalview"><b>Total Views</b><br>100</div>
-                    </div>
-
-                <br>
-                <% end  %>
-            </div>
 
         </div>
 
@@ -63,7 +42,6 @@
 
     <section>
         <div class="createPost">
-
             <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
 
             <div class="input-post">
@@ -108,33 +86,12 @@
     </section>
 
     <ads>
-        <div class="adspanel">
-
-            <img src="https://www.codingninjas.in/assets/images/CNLOGO.svg" alt="Smiley face"  width="90%" style="padding-left: 5%">
-            <hr>
-            <img src="http://instacode.xyz/img/icoj_banner_old.png" alt="Smiley face"  width="90%" style="padding-left: 5%;padding-top: 15px;padding-bottom: 10px">
-            <hr>
-            <!--<img src="https://www.codingninjas.in/assets/images/CNLOGO.svg" alt="Smiley face"  width="90%" style="padding-left: 5%; padding-top: 15px"">-->
-            <!--<hr>-->
-            <img src="https://hrcdn.net/hackerrank/assets/brand/h_mark_sm-2b74ffcaf85d7091a6301c30d6c411c5.svg" alt="Smiley face"  width="90%" style="padding-left: 5%;padding-top: 15px">
-        </div>
-
-
     </ads>
 
     <chatbox>
     </chatbox>
 
 </main>
-
-<style>
-    .dup-pic{
-        display: none;
-    }
-    .show-pic{
-        display: block;
-    }
-</style>
 
 <script>
 
@@ -182,9 +139,7 @@
         minWidth: 300
     });
 
-    $(".upload-pic").click(function(){
-        $(".dup-pic").removeClass("dup-pic").addClass("show-pic");
-    });
+
 
     $('.logo').click(function(){
         $("html, body").animate({ scrollTop: 0 }, 1000);
