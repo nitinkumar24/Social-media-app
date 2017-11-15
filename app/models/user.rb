@@ -18,6 +18,56 @@ class User < ApplicationRecord
 		Post.all.order(created_at: :desc)
 	end
 
+	def follow_relation user_id
+		return UserRelations::SELF if id == user_id
+		if FollowMapping.where(:followee_id => user_id, :follower_id => id).length > 0
+			return UserRelations::FOLLOWED
+		elsif Friendrequest.where(:receiver_id => user_id, :sender_id => id).length>0
+			return UserRelations::SENT
+		else
+			puts UserRelations::NOTFOLLOWED
+			return UserRelations::NOTFOLLOWED
+		end
+
+	end
+
+	def can_follow user_id
+		return follow_relation(user_id) == UserRelations::NOTFOLLOWED
+	end
+
+	def can_un_follow user_id
+		return follow_relation(user_id) == UserRelations::FOLLOWED
+	end
+
+	def can_delete_request user_id
+
+		return  follow_relation(user_id) ==UserRelations::SENT
+	end
+
+	def followee_ids
+		FollowMapping.where(follower_id: id).pluck(:followee_id)
+	end
+
+
+	class UserRelations
+		SELF = 0
+		FOLLOWED = 1
+		NOTFOLLOWED = 2
+		SENT =3
+	end
+
+	def followers user_id
+		return count_followers=FollowMapping.where(:followee_id => user_id).length
+	end
+
+	def followee user_id
+		return count_followee=FollowMapping.where(:follower_id => user_id).length
+	end
+
+	def isFollowing
+
+	end
+
 	def generate_access_token
 		generated = SecureRandom.hex
 

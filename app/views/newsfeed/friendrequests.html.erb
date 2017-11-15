@@ -1,0 +1,24 @@
+
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<% @friendrequests.each do | req | %>
+
+    <% user=User.where(id: req.sender_id).first%>
+    <%=user.try(:name)  %>  wants to follow you
+    <br>
+
+    <%= link_to "accept", url_for(controller: :newsfeed, action: :accept_request, follower_id: req.sender_id), method: :post %>
+
+    <br>
+
+
+    <%= link_to "reject", url_for(controller: :newsfeed, action: :reject_request, follower_id: req.sender_id), method: :post %>
+
+
+    <br>
+<% end %>
