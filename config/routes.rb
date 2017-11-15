@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   post 'newsfeed/reject_request'
   
   devise_for :users
-  
+
 end

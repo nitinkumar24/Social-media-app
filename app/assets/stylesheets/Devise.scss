@@ -13,7 +13,7 @@
 }
 
 .front-page-logo {
-    width: 40%;
+    width: 32%;
     font-size: 25px;
     color: black;
     h3 {
@@ -26,7 +26,9 @@
 }
 
 #sign-in-form-section {
-    width: 26%;
+    width: 30%;
+    padding-left: 3%;
+    padding-right: 3%;
     opacity: 1;
 }
 
@@ -40,6 +42,13 @@
     border-radius: 5px;
 }
 
+.form-topic{
+    margin-bottom:10px;
+    padding-top:10px;
+    font-size:25px;
+    font-family: 'Open Sans', sans-serif;
+    color:white;
+}
 
 #user_email{
     letter-spacing: 1px;
@@ -91,7 +100,7 @@
 }
 
 .input-mini{
-    font-size: 15px;
+    font-size: 13px;
 }
 
 .link-sign-up,.link-forgot-password,.link-confirmation-ins{
@@ -114,7 +123,7 @@
 }
 
 .slogans{
-    width: 34%;
+    width: 32%;
 }
 
 .typed-cursor{
@@ -158,6 +167,7 @@
 
     #signin-page{
         flex-direction: column;
+        justify-content: flex-start;
         height: 92vh;
         padding-top: 0;
     }
@@ -170,10 +180,15 @@
 
     .front-page-logo {
         width: 100%;
+        h3{
+            font-size: 44px;
+            margin-top: 30px;
+        }
     }
 
     #sign-in-form-section {
-        width: 100%;
+        width: 98%;
+        padding-left: 1%;
         opacity: 1;
         height: auto;
 
@@ -185,6 +200,13 @@
         background-color: inherit;
 
     }
+    .form-topic {
+        margin-bottom: 4px;
+        padding-top: 18px;
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+    }
     h3{
         margin-top: 0;
     }
@@ -193,7 +215,7 @@
         height: auto;
         width: 98%;
         border: solid 2px #354045;
-        font-size: 20px;
+        font-size: 18px;
         border-radius: 2px;
 
     }
@@ -203,7 +225,7 @@
         width: 98%;
         margin-bottom: 15px;
         border: solid 2px #354045;
-        font-size: 20px;
+        font-size: 18px;
         border-radius: 2px;
     }
     .login-button{
@@ -211,13 +233,19 @@
         width: 100%;
         margin-top: 5px;
         margin-bottom: 10px;
-        font-size: 25px;
+        font-size: 20px;
         border-radius: 2px;
         background-color:#141224;
         color: wheat;
         text-decoration:none;
         text-align:center;
         border:solid 2px #354045;
+    }
+    .link-sign-up {
+        font-size: 20px;
+    }
+    .link-confirmation-ins {
+        font-size: 14px;
     }
     .slogans{
         width: 100%;
