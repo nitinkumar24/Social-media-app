@@ -33,6 +33,11 @@ a, a:active, a:visited, a:focus {
     text-decoration:none;
 }
 
+input {
+    border: none;
+    background: transparent;
+}
+
 
 #alert,#notice{
     width: 100%;

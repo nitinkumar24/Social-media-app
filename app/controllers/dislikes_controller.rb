@@ -15,7 +15,6 @@ class DislikesController < ApplicationController
 			if like
 				like.destroy!
 				@is_liked = false
-				puts "in dislike"
 			end
 		end
 

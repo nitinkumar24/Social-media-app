@@ -57,11 +57,11 @@ class User < ApplicationRecord
 	end
 
 	def followers user_id
-		return count_followers=FollowMapping.where(:followee_id => user_id).length
+		 count_followers=FollowMapping.where(:followee_id => user_id).length
 	end
 
 	def followee user_id
-		return count_followee=FollowMapping.where(:follower_id => user_id).length
+		count_followee=FollowMapping.where(:follower_id => user_id).length
 	end
 
 	def isFollowing

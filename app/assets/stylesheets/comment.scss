@@ -4,22 +4,24 @@
 
 
 comment{
-  display: none;
+  //display: none;
 }
 .comment-box{
-  background-color: #f8f8f8;
+  //background-color: #f8f8f8;
   width: 96%;
   display: flex;
   justify-content: space-between;
-  padding: 10px 2% 10px 2%;
-  border-top: 1px solid grey;
+  padding: 8px 2% 8px 2%;
+  //border-top: 1px solid grey;
   span{
-    width:91%;
+    width:88%;
   }
   .comment-input{
-    width: 92%;
-    border-radius: 25px;
+    width: 90%;
+    //border: 2px solid darkslateblue;
     resize: none;
+      color: #0d112b;
+      border-radius: 10px;
     //font-family: sans-serif;
     font-size: 14px;
     padding: 5px 5% 5px 3%;
@@ -46,8 +48,9 @@ comment{
 }
 .comments{
   padding: 0px 2% 10px 2%;
-  background-color: #efeeee;;
+    //background-color: rgba(248, 184, 184, 0.08);
 }
+
 .comments-content{
   display: flex;
   padding-top: 4px;

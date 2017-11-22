@@ -27,6 +27,9 @@ class NewsfeedController < ApplicationController
     
     end
     
+    
+    
+    
     def users
         domain=current_user.email.split('@').last
         puts domain
@@ -44,6 +47,7 @@ class NewsfeedController < ApplicationController
     
     def friendrequests
         @friendrequests=Friendrequest.where(receiver_id: current_user.id)
+       
     end
     
     
