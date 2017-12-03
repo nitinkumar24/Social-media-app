@@ -7,6 +7,7 @@
 
 <main-page>
     <aside>
+
         <div class="sidepanel">
             <div class="home-profile" style="display: none">
                 <div id="imgbox">
@@ -63,6 +64,7 @@
     </aside>
 
     <section>
+
         <div class="createPost">
 
             <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
@@ -199,5 +201,9 @@
         return false;
     });
     //End-Move to top of the page
+
+    $('.ui.sidebar')
+        .sidebar('toggle')
+    ;
 
 </script>
