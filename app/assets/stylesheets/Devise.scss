@@ -1,7 +1,7 @@
 
 #signin-page,#signup-page{
-    height: 85vh;
-    padding-top: 4vh;
+    height: 90%;
+    padding-top: 5%;
     display: flex;
     justify-content: space-between;
     overflow-x:hidden ;
@@ -16,10 +16,11 @@
     width: 32%;
     font-size: 25px;
     color: black;
+    padding-top: 46px;
     h3 {
         color: white ;
         text-align:center;
-        margin-top:46px;
+        //margin-top:46px;
         font-size:53px;
         font-family: 'Jura', sans-serif;
     }
@@ -27,8 +28,8 @@
 
 #sign-in-form-section {
     width: 30%;
-    padding-left: 3%;
-    padding-right: 3%;
+    padding-left: 2%;
+    padding-right: 2%;
     opacity: 1;
 }
 
@@ -57,7 +58,7 @@
     border-radius: 3px;
     border: 1px solid black;
     margin-bottom: 12px;
-    width: 98%;
+    width: 100%;
     background-color: white;
 }
 
@@ -68,7 +69,7 @@
     border-radius: 3px;
     border: 1px solid black;
     margin-bottom: 10px;
-    width: 98%;
+    width: 100%;
     background-color: white;
 }
 
@@ -111,15 +112,20 @@
     color:white;
     font-weight:bold;
     font-family: 'Jura', sans-serif;
-}
-.link-forgot-password{
-    font-size: 20px;
-}
-.link-confirmation-ins{
-    font-size: 17px;
+    line-height: 1.5em;
 }
 .link-sign-up{
-    font-size:24px;
+    color:indianred;
+}
+.link-forgot-password{
+    font-size: 18px;
+}
+.link-confirmation-ins{
+    font-size: 14px;
+
+}
+.link-sign-up{
+    font-size:20px;
 }
 #forgot:hover{
     color:#CB202D;
@@ -154,7 +160,7 @@
 
 .typed-slogan{
     background-color: white;
-    height: 11vh
+    height: 10%;
 }
 
 #typed-sample{
@@ -190,10 +196,12 @@
     }
 
     #sign-in-form-section {
-        width: 98%;
-        padding-left: 1%;
+        width: 90%;
+        margin-left: 5%;
         opacity: 1;
         height: auto;
+        padding-left: 0;
+        padding-right: 0;
 
     }
     .sign-in-form{
@@ -213,25 +221,18 @@
     h3{
         margin-top: 0;
     }
-    #user_email{
+    #user_email,#user_password{
         font-family: 'Jura', sans-serif;
         height: auto;
-        width: 98%;
-        border: solid 2px #354045;
+        width: 100%;
+        border: solid 2px ;
         font-size: 18px;
-        border-radius: 2px;
+        border-radius: 4px;
         background-color: white;
 
+
     }
-    #user_password{
-        font-family: 'Jura', sans-serif;
-        height: 20px;
-        width: 98%;
-        margin-bottom: 15px;
-        border: solid 2px #354045;
-        font-size: 18px;
-        border-radius: 2px;
-    }
+
     .login-button{
         font-family: 'Jura', sans-serif;
         width: 100%;
@@ -244,6 +245,7 @@
         text-decoration:none;
         text-align:center;
         border:solid 2px #354045;
+
     }
     .link-sign-up {
         font-size: 20px;

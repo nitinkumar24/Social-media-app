@@ -6,7 +6,7 @@ textarea{
     border: none;
 }
 
-main {
+main-page {
     margin-top:68px;
     z-index: 0;
     display: flex;
@@ -14,9 +14,9 @@ main {
         width: 28%;
         padding-right: 1%;
         div.sidepanel{
-            width:75%;
-            height:850px;
-            margin-left: 25%;
+            width: 64%;
+            height: 850px;
+            margin-left: 28%;
             div.home-profile {
                 //box-shadow: 0px 0px 3px #666666;
                 padding: 12px;
@@ -74,29 +74,31 @@ main {
         div.createPost{
             background-color: white;
             display: flex;
-            align-items: center;
+
             justify-content: space-between;
-            width:98%;
-            padding-left: 2%;
+            width:100%;
+
             padding-top: 10px;
             box-shadow: 0px 0px 6px #666666;
 
             .createpost_image{
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
                 border-radius: 50%;
                 margin-bottom: 30px;
+                position: relative;
+                left:10px;
             }
 
             div.input-post{
-                width:87%;
+                width:88%;
                 padding-right:2%;
                 div.postbox-toolbar{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     div#upload-pic-dummy{
-                        width: 54%;
+                        width: 10%;
                         padding-top: 8px;
                         div.upload-pic{
                             opacity: 0;
@@ -127,8 +129,10 @@ main {
                         }
                     }
                     div.anonymous{
-                        width: 25%;
+                        width: 60%;
+
                         h3{
+                            float: right;
                             font-size: 18px;
                             font-family: 'Jura', sans-serif;
                             //font-family: 'Poiret One', cursive;
@@ -140,7 +144,7 @@ main {
                     }
                     .postbutton{
                         color: white;
-                        width: 70px;
+                        width: 20%;
                         height: 28px;
                         font-size: 20px;
                         background-color:#7e2444;
@@ -217,9 +221,10 @@ div#probox{
             }
         }
     }
-    main {
+    main-page {
         aside {
             width: 0;
+            display: none;
             .sidepanel{
                 display: none;
             }
@@ -227,12 +232,23 @@ div#probox{
         section {
             width: 100%;
             padding: 0;
+            div.createPost{
+                .createpost_image{
+                    display: none;
+                }
+                div.input-post{
+                    width: 100%;
+                    padding-right: 2%;
+                    padding-left: 2%;
+                }
+            }
             div#posts div.newsfeed div.post-box div.user-response {
                 width: 100%;
 
             }
         }
         ads {
+            display: none;
             width: 0;
             padding: 0;
         }

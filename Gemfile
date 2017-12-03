@@ -18,6 +18,8 @@ gem "animate-rails"
 gem 'emojionearea-rails'
 gem 'rails_autolink'
 gem 'tooltipster-rails'
+gem 'semantic-ui-sass'
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

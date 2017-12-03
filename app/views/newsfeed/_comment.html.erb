@@ -3,12 +3,30 @@
 <div class="comments-content">
 <% user=User.find_by_id(comment.user_id) %>
 
- <span class="tooltip commenter" data-tooltip-content="#tooltip_content"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
-  </span>
 
-  &ensp;<p><%= comment.content %></p>
-   <span>
-             <i class="fa fa-angle-down" aria-hidden="true"></i>
-   </span>
+
+  <!--&ensp;<p><%= comment.content %></p>-->
+
+
+      <!--<h3 class="ui dividing header">Comments</h3>-->
+      <div class="comment">
+         <a class="avatar">
+            <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
+
+         </a>
+         <div class="content">
+            <a class="author"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></a>
+            <div class="metadata">
+               <span class="date">Today at 5:42PM</span>
+            </div>
+            <div class="text">
+               <%= comment.content %>
+            </div>
+
+         </div>
+      </div>
+
+
 </div>
+
 

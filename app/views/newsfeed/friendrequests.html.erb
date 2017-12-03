@@ -2,23 +2,29 @@
 <br><br>
 <br>
 <br>
-<br>
-<br>
-<br>
 
+<div class="ui cards" >
 <% @friendrequests.each do | req | %>
-
     <% user=User.where(id: req.sender_id).first%>
-    <%=user.try(:name)  %>  wants to follow you
-    <br>
+       <div class="card" style="width: 40%;margin-left: 30%;">
+          <div class="content">
+             <%= image_tag user.avatar.url(:medium),:class =>" right floated mini ui image" %>
+             <div class="header">
+                <%=user.try(:name)  %>
+             </div>
+             <div class="description">
+                <%=user.try(:name)  %>  wants to follow you
+             </div>
+          </div>
+          <div class="extra content">
+             <div class="ui two buttons">
+                <div class="ui basic green button"><%= link_to "accept", url_for(controller: :newsfeed, action: :accept_request, follower_id: req.sender_id), method: :post %></div>
+                <div class="ui basic red button"><%= link_to "reject", url_for(controller: :newsfeed, action: :reject_request, follower_id: req.sender_id), method: :post %>
 
-    <%= link_to "accept", url_for(controller: :newsfeed, action: :accept_request, follower_id: req.sender_id), method: :post %>
+                </div>
+             </div>
+          </div>
+       </div>
 
-    <br>
-
-
-    <%= link_to "reject", url_for(controller: :newsfeed, action: :reject_request, follower_id: req.sender_id), method: :post %>
-
-
-    <br>
 <% end %>
+</div>
