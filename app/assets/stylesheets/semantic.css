@@ -19595,7 +19595,7 @@ ol.ui.horizontal.list li:before,
     transition: color 0.1s ease, border-color 0.1s ease;
     font-size: 1em;
     line-height: 1.2857;
-    resize: vertical;
+    resize: none;
 }
 
 /* line 137, /Users/nitin/.rvm/gems/ruby-2.4.1/gems/semantic-ui-sass-2.2.12.1/app/assets/stylesheets/semantic-ui/collections/_form.scss */

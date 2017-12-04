@@ -3,58 +3,59 @@
 <div class="users-page">
 
    <div class="users">
-      <% @users.each do |user| %>
-
-          <div class="">
-             <% if user.avatar? %>
-                 <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
-             <%end  %>
-
-             <%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
-
-             <%= user.email %>
-
-             <%= user.try(:department) %>
-
-             <% if current_user.can_follow user.id %>
-                 <%= link_to "Follow", url_for(controller: :newsfeed, action: :follow, followee_id: user.id), method: :post, id:"user_#{user.id}" %>
-             <% end %>
-
-             <% if current_user.can_delete_request user.id %>
-                 <%= link_to "request sent", url_for(controller: :newsfeed, action: :delete_request, followee_id: user.id), method: :post %>
-             <% end %>
 
 
-             <% if current_user.can_un_follow user.id %>
-                 <%= link_to "unfollow", url_for(controller: :newsfeed, action: :un_follow, followee_id: user.id), method: :post %>
-             <% end %>
+      <div class="">
 
 
-          </div>
-      <% end %>
+      </div>
+
 
 
    </div>
 
 </div>
 
+<div style="width: 69%;margin-left: 27%;z-index: 0">
+   <div class="ui link cards">
+      <% @users.each do |user| %>
+          <div class="card">
+             <div class="image">
+                <% if user.avatar? %>
+                    <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
+                <%end  %>
+             </div>
+             <div class="content">
+                <div class="header"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
+                </div>
+                <div class="meta">
+                   <a>Friends</a>
+                </div>
+                <div class="description">
+                  Lorem ipsum
+                </div>
+             </div>
+             <div class="extra content">
+      <span class="right floated">
+        Joined in 2013
+      </span>
+                <span>
+        <i class="user icon"></i>
+                   <% if current_user.can_follow user.id %>
+                   <%= link_to "Follow", url_for(controller: :newsfeed, action: :follow, followee_id: user.id), method: :post, id:"user_#{user.id}" %>
+                   <% end %>
+                   <% if current_user.can_delete_request user.id %>
+                       <%= link_to "request sent", url_for(controller: :newsfeed, action: :delete_request, followee_id: user.id), method: :post %>
+                   <% end %>
 
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
+
+                   <% if current_user.can_un_follow user.id %>
+                       <%= link_to "unfollow", url_for(controller: :newsfeed, action: :un_follow, followee_id: user.id), method: :post %>
+                   <% end %>
+      </span>
+             </div>
+          </div>
+      <% end %>
+
+   </div>
+</div>
