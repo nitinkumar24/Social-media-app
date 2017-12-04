@@ -47,57 +47,11 @@ class NewsfeedController < ApplicationController
     
     def friendrequests
         @friendrequests=Friendrequest.where(receiver_id: current_user.id)
-       
+    
     end
+
     
-    
-    def follow
-        followee_id = params[:followee_id]
-        @user = User.find(followee_id)
-        puts @user
-        if current_user.can_follow followee_id
-            puts "in follow"
-            Friendrequest.create(:receiver_id => followee_id,:sender_id => current_user.id)
-            # FollowMapping.create(:followee_id => followee_id, :follower_id => current_user.id)
-        end
-        # respond_to do |format|
-        #     format.js { }
-        # end
-        return redirect_to '/users'
-    end
-    
-    def delete_request
-        followee_id = params[:followee_id]
-        if current_user.can_delete_request followee_id
-            Friendrequest.where(:receiver_id => followee_id, :sender_id => current_user.id).first.destroy
-        else
-        end
-        return redirect_to '/users'
-    end
-    
-    def un_follow
-        followee_id = params[:followee_id]
-        if current_user.can_un_follow followee_id
-            FollowMapping.where(:followee_id => followee_id, :follower_id => current_user.id).first.destroy
-        else
-        end
-        return redirect_to '/users'
-    end
-    
-    
-    
-    def accept_request
-        follower_id = params[:follower_id]
-        FollowMapping.create(:followee_id => current_user.id, :follower_id => follower_id)
-        Friendrequest.where(:receiver_id => current_user.id, :sender_id => follower_id).first.destroy
-        return redirect_to '/users'
-    end
-    
-    def reject_request
-        follower_id = params[:follower_id]
-        Friendrequest.where(:receiver_id => current_user.id, :sender_id => follower_id).first.destroy
-        return redirect_to '/users'
-    end
+
     
     
     def ajax

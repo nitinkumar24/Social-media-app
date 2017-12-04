@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   post 'dislikes/toggle_dislike'
   post '/users_api/sign_in'
   post 'users_api/sign_up'
-  post 'newsfeed/follow'
+  post 'friendrequests/toggle_follow_request'
   post 'newsfeed/un_follow'
   post 'newsfeed/delete_request'
-  post 'newsfeed/accept_request'
-  post 'newsfeed/reject_request'
+  post 'friendrequests/accept_request'
+  post 'friendrequests/reject_request'
   
   devise_for :users
 

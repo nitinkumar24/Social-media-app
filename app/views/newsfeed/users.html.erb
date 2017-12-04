@@ -16,7 +16,7 @@
 
 </div>
 
-<div style="width: 69%;margin-left: 27%;z-index: 0">
+<div style="width: 69%;margin-left: 19%;z-index: 0">
    <div class="ui link cards">
       <% @users.each do |user| %>
           <div class="card">
@@ -29,10 +29,10 @@
                 <div class="header"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
                 </div>
                 <div class="meta">
-                   <a>Friends</a>
+                   <%= user.email %>
                 </div>
                 <div class="description">
-                  Lorem ipsum
+                   Lorem ipsum
                 </div>
              </div>
              <div class="extra content">
@@ -40,18 +40,20 @@
         Joined in 2013
       </span>
                 <span>
-        <i class="user icon"></i>
+
+
                    <% if current_user.can_follow user.id %>
-                   <%= link_to "Follow", url_for(controller: :newsfeed, action: :follow, followee_id: user.id), method: :post, id:"user_#{user.id}" %>
-                   <% end %>
-                   <% if current_user.can_delete_request user.id %>
-                       <%= link_to "request sent", url_for(controller: :newsfeed, action: :delete_request, followee_id: user.id), method: :post %>
+                       <%= link_to "Follow", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post, id:"user_#{user.id}",remote: true %>
                    <% end %>
 
-
-                   <% if current_user.can_un_follow user.id %>
-                       <%= link_to "unfollow", url_for(controller: :newsfeed, action: :un_follow, followee_id: user.id), method: :post %>
+                      <% if current_user.can_delete_request user.id %>
+                       <%= link_to "Requested", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post ,id:"user_#{user.id}", remote: true  %>
                    <% end %>
+
+                      <% if current_user.can_un_follow user.id %>
+                       <%= link_to "unfollow", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post,id:"user_#{user.id}", remote: true  %>
+                   <% end %>
+
       </span>
              </div>
           </div>

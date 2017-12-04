@@ -17,9 +17,9 @@
              </div>
           </div>
           <div class="extra content">
-             <div class="ui two buttons">
-                <div class="ui basic green button"><%= link_to "accept", url_for(controller: :newsfeed, action: :accept_request, follower_id: req.sender_id), method: :post %></div>
-                <div class="ui basic red button"><%= link_to "reject", url_for(controller: :newsfeed, action: :reject_request, follower_id: req.sender_id), method: :post %>
+             <div class="ui two buttons" id="request_<%= req.id%>">
+                <div class="ui basic green button"><%= link_to "accept", url_for(controller: :friendrequests, action: :accept_request, follower_id: req.sender_id,req_id: req.id), method: :post,remote: true %></div>
+                <div class="ui basic red button"><%= link_to "reject", url_for(controller: :friendrequests, action: :reject_request, follower_id: req.sender_id,req_id: req.id), method: :post, remote: true  %>
 
                 </div>
              </div>

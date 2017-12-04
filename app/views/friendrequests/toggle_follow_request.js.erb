@@ -1,0 +1,5 @@
+<% if @is_sent %>
+   $('#user_<%= @user.id%>').html("Requested")
+<% else %>
+   $('#user_<%= @user.id%>').html("Follow")
+<% end %>
