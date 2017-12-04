@@ -1,4 +1,8 @@
 
 $('#posts').prepend("<%= escape_javascript (render 'newsfeed/post', post: @post) %>");
 $('#post_content').val("");
+
+    $("#imgInp").val('');
+    $(".dup-pic").css("display","none");
+
 console.log("hello there");

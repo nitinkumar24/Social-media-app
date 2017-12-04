@@ -79,12 +79,11 @@
                        </div>
                     </div>
 
-                    <!--<div class="dup-pic" style="display: none">-->
-                        <!--<img id="blah" src="#"  style="width:180px;height: 150px;">-->
-                    <!--</div>-->
                    <div class="dup-pic" style="display: none;padding-top: 10px">
-
                       <img id="blah" src="#"  style="border-radius: 10px;width: 150px;height: 150px;">
+                      <div style="position: relative;top: -127px;display: inline;left: -25px;">
+                      <i class="fa fa-times cancel-pic" aria-hidden="true"></i>
+                      </div>
                    </div>
                     <div class="postbox-toolbar">
                         <div id="upload-pic-dummy"   >
@@ -186,6 +185,16 @@
     });
     //End-image preview before upload
 
+    $(".cancel-pic").click(function () {
+        $("#imgInp").val('');
+        $(".dup-pic").css("display","none");
+
+        console.log("hi");
+
+    });
+
+
+
     $('.tooltip').tooltipster({
         animation: 'grow',
         delay: [900, 000],
@@ -202,8 +211,5 @@
     });
     //End-Move to top of the page
 
-    $('.ui.sidebar')
-        .sidebar('toggle')
-    ;
 
 </script>
