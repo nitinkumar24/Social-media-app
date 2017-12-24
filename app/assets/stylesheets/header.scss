@@ -73,14 +73,36 @@ headerbar{
         nav.right-nav {
             position: absolute;
             left: 60%;
-            ul {
-                li a:hover {
-                    border-bottom: none;
-                    color: #3f5080;
-                }
-            }
+            margin-left: 0;
+
+
         }
     }
 
 
+}
+
+@media screen and (max-width: 1000px) {
+
+
+    headerbar {
+        header {
+
+            .logo {
+                display: none;
+            }
+            .searchTerm {
+                display: none;
+            }
+            nav.right-nav {
+                position: fixed;
+                 bottom: 0;
+                left: 0;
+                background:white;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,.07);
+                border-top: 2px solid #730E15;
+
+            }
+        }
+    }
 }
