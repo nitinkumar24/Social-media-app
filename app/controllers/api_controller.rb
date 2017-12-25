@@ -10,5 +10,5 @@ class ApiController < ActionController::API
 		}
 
 		render json: data, status: status
-
+    end
 end

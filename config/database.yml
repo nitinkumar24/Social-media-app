@@ -25,6 +25,6 @@ test:
 
 production:
   <<: *default
-  database: twitter_final_production
-   +  username: pgUser
-   +  password: pgPassword
+  database: sociograms_production
+  username: sociograms
+  password: <%= ENV['sociograms_DATABASE_PASSWORD'] %>
