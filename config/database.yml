@@ -23,6 +23,6 @@ test:
 
 production:
   <<: *default
-  database: sociograms_production
-  username: pguser
-  password: pguser
+  database: sociograms_developement
+  username: sociograms
+  password: <%= ENV['SOCIOGRAMS_DATABASE_PASSWORD'] %>
