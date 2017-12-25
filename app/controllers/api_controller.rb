@@ -10,9 +10,7 @@ class ApiController < ActionController::API
 		}
 
 		render json: data, status: status
-<<<<<<< HEAD
+
 	end
-=======
-    
->>>>>>> acff4f31dd49ff3429d45e04eefc3cce34c6f9b6
+
 end
