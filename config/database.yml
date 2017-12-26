@@ -11,7 +11,10 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
+  host: localhost
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
   database: sociograms_development
 
 # Warning: The database defined as "test" will be erased and
