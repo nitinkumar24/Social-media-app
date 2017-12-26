@@ -1,0 +1,35 @@
+I, [2017-12-26T08:43:33.869181 #15276]  INFO -- : Refreshing Gem list
+I, [2017-12-26T08:43:35.849148 #15276]  INFO -- : listening on addr=/home/ubuntu/sociograms/shared/sockets/unicorn.sock fd=11
+I, [2017-12-26T08:43:35.849273 #15276]  INFO -- : worker=0 spawning...
+I, [2017-12-26T08:43:35.850570 #15276]  INFO -- : worker=1 spawning...
+I, [2017-12-26T08:43:35.851153 #15279]  INFO -- : worker=0 spawned pid=15279
+I, [2017-12-26T08:43:35.851273 #15279]  INFO -- : worker=0 ready
+I, [2017-12-26T08:43:35.852134 #15276]  INFO -- : master process ready
+I, [2017-12-26T08:43:35.856162 #15282]  INFO -- : worker=1 spawned pid=15282
+I, [2017-12-26T08:43:35.856295 #15282]  INFO -- : worker=1 ready
+I, [2017-12-26T08:44:41.660221 #15276]  INFO -- : reaped #<Process::Status: pid 15279 exit 0> worker=0
+I, [2017-12-26T08:44:41.660300 #15276]  INFO -- : reaped #<Process::Status: pid 15282 exit 0> worker=1
+I, [2017-12-26T08:44:41.660359 #15276]  INFO -- : master complete
+I, [2017-12-26T08:44:50.173067 #15396]  INFO -- : Refreshing Gem list
+I, [2017-12-26T08:44:52.096752 #15396]  INFO -- : unlinking existing socket=/home/ubuntu/sociograms/shared/sockets/unicorn.sock
+I, [2017-12-26T08:44:52.096891 #15396]  INFO -- : listening on addr=/home/ubuntu/sociograms/shared/sockets/unicorn.sock fd=11
+I, [2017-12-26T08:44:52.096972 #15396]  INFO -- : worker=0 spawning...
+I, [2017-12-26T08:44:52.098331 #15396]  INFO -- : worker=1 spawning...
+I, [2017-12-26T08:44:52.098917 #15399]  INFO -- : worker=0 spawned pid=15399
+I, [2017-12-26T08:44:52.099040 #15399]  INFO -- : worker=0 ready
+I, [2017-12-26T08:44:52.099886 #15396]  INFO -- : master process ready
+I, [2017-12-26T08:44:52.104205 #15402]  INFO -- : worker=1 spawned pid=15402
+I, [2017-12-26T08:44:52.104333 #15402]  INFO -- : worker=1 ready
+I, [2017-12-26T09:06:45.221756 #15396]  INFO -- : reaped #<Process::Status: pid 15399 exit 0> worker=0
+I, [2017-12-26T09:06:45.221841 #15396]  INFO -- : reaped #<Process::Status: pid 15402 exit 0> worker=1
+I, [2017-12-26T09:06:45.221892 #15396]  INFO -- : master complete
+I, [2017-12-26T09:07:01.689153 #16203]  INFO -- : Refreshing Gem list
+I, [2017-12-26T09:07:03.635645 #16203]  INFO -- : unlinking existing socket=/home/ubuntu/sociograms/shared/sockets/unicorn.sock
+I, [2017-12-26T09:07:03.635808 #16203]  INFO -- : listening on addr=/home/ubuntu/sociograms/shared/sockets/unicorn.sock fd=11
+I, [2017-12-26T09:07:03.635898 #16203]  INFO -- : worker=0 spawning...
+I, [2017-12-26T09:07:03.637231 #16203]  INFO -- : worker=1 spawning...
+I, [2017-12-26T09:07:03.637809 #16206]  INFO -- : worker=0 spawned pid=16206
+I, [2017-12-26T09:07:03.637938 #16206]  INFO -- : worker=0 ready
+I, [2017-12-26T09:07:03.638877 #16203]  INFO -- : master process ready
+I, [2017-12-26T09:07:03.644328 #16209]  INFO -- : worker=1 spawned pid=16209
+I, [2017-12-26T09:07:03.644478 #16209]  INFO -- : worker=1 ready
