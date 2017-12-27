@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :memes
+  get 'memes/index'
+
   resources :posts, only: [:create, :destroy, :edit, :show]
   resources :comments
   
