@@ -8,7 +8,7 @@
     overflow-y: hidden;
 }
 #signup-page {
-    height: 100vh;
+    height: 90%;
     padding: 0;
 }
 
@@ -80,7 +80,7 @@
     border-radius: 3px;
     border: 1px solid black;
     margin-bottom: 12px;
-    width: 98%;
+    width: 100%;
     background-color: white;
 }
 
@@ -101,6 +101,7 @@
 .remember_me{
     font-family: 'Jura', sans-serif;
     font-size: 20px;
+    color: white;
 }
 
 .input-mini{
@@ -173,36 +174,43 @@
 }
 
 @media screen and (max-width: 1000px) {
-
     #signin-page{
         flex-direction: column;
         justify-content: flex-start;
-        height: 92vh;
+        height: 100%;
         padding-top: 0;
+        background-color: white;
     }
 
     #signup-page{
         flex-direction: column;
         height: auto;
         padding-top: 0;
+        background-color: white;
     }
 
     .front-page-logo {
         width: 100%;
         padding-top: 0;
+        background-color: white;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
         h3{
-            font-size: 44px;
+            color: #730E15;
+            font-size: 34px;
             margin-top: 30px;
+            height: 48px;
         }
     }
 
     #sign-in-form-section {
         width: 90%;
         margin-left: 5%;
+        margin-top: 50px;
         opacity: 1;
         height: auto;
-        padding-left: 0;
-        padding-right: 0;
+        box-shadow: 0 20px 10px 0 rgba(0, 0, 0, 0.07);
+        border: 2px solid #721615;
+        border-radius: 6px;
 
     }
     .sign-in-form{
@@ -210,6 +218,8 @@
         margin-top: 0;
         opacity: 1;
         background-color: inherit;
+        padding: 5px;
+
 
     }
     .form-topic {
@@ -217,7 +227,7 @@
         padding-top: 18px;
         font-size: 20px;
         font-family: 'Open Sans', sans-serif;
-        color: white;
+        color: black;
     }
     h3{
         margin-top: 0;
@@ -237,30 +247,38 @@
     .login-button{
         font-family: 'Jura', sans-serif;
         width: 100%;
-        margin-top: 5px;
+        margin-top: 10px;
         margin-bottom: 10px;
+        padding: 6px;
         font-size: 20px;
         border-radius: 2px;
-        background-color:#141224;
-        color: wheat;
+        background-color:white;
+        color: #730E15;
         text-decoration:none;
         text-align:center;
-        border:solid 2px #354045;
+        border:solid 2px #730E15;
 
     }
-    .link-sign-up {
+    .link-sign-up,.link-confirmation-ins,.link-forgot-password {
         font-size: 20px;
+        color: black;
     }
-    .link-confirmation-ins {
-        font-size: 14px;
+    .link-confirmation-ins{
+        font-size: 16px;
+    }
+    .remember_me{
+        font-family: 'Jura', sans-serif;
+        font-size: 20px;
+        color: black;
     }
     .slogans{
         width: 100%;
     }
 
     .typed-slogan{
-        background-color: white;
-        height: 8vh;
+        display: none;
+        //background-color: white;
+        //height: 8vh;
 
     }
     #typed-sample{

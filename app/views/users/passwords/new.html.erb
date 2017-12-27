@@ -8,7 +8,7 @@
         /* -webkit-animation: itlGradient 16s ease infinite; */
         -moz-animation: itlGradient 16s ease infinite;
         -o-animation: itlGradient 16s ease infinite;
-        animation: itlGradient 16s ease infinite;
+        /*animation: itlGradient 16s ease infinite;*/
         background-size:100% 94vh;
 
     }
@@ -44,13 +44,13 @@
     <div id="sign-in-form-section">
         <%= devise_error_messages! %>
         <div class="sign-in-form "  >
-            <p class="page-topic">Forgot your password?</p><hr>
+            <p class="page-topic">Forgot your password?</p>
             <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
                 <%= devise_error_messages! %>
 
                 <div class="field">
-                    <%= f.label :email %><br />
-                    <%= f.email_field :email, autofocus: true %>
+
+                    <%= f.email_field :email, autofocus: true, placeholder: "E-mail" %>
                 </div>
 
                 <div class="actions">
