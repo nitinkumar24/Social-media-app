@@ -1,0 +1,5 @@
+<%unless @followers.nil? %>
+    <% @followers.each do |f| %>
+        <%= f.follower_id %>
+    <% end %>
+<% end %>

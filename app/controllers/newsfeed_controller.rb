@@ -8,6 +8,7 @@ class NewsfeedController < ApplicationController
                 @post = Post.new
                 @comment=Comment.new
                 @comments = Comment.all
+
                 @feed = current_user.feed.limit(10)
                 
             }
@@ -26,8 +27,11 @@ class NewsfeedController < ApplicationController
         end
     
     end
-    
-    
+
+    def followers
+        @followers = FollowMapping.where(:followee_id => current_user.id)
+        puts @followers
+    end
     
     
     def users
@@ -50,10 +54,6 @@ class NewsfeedController < ApplicationController
     
     end
 
-    
-
-    
-    
     def ajax
         render :json => {text: "text"}
     end

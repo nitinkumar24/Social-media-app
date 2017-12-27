@@ -51,16 +51,21 @@
                         <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                             -webkit-text-stroke-color: grey;color: white"></i> Home</a>
                     </li>
-                    <li><%= link_to "" do%>
-                            <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                                -webkit-text-stroke-color: grey;color: white"></i> Confessions<% end %>
-                    </li>
-                    <li>
-                        <%= link_to "" do %>
-                            <i class="fa fa-smile-o" aria-hidden="true"></i>
-                            Memes
-                        <%end%>
-                    </li>
+                   <li>
+                      <%= link_to notifications_show_path do%>
+                          <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                              -webkit-text-stroke-color: grey;color: white"></i>
+                          Notifications
+                      <% end %>
+                   </li>
+                   <li>
+                      <%= link_to newsfeed_friendrequests_path do%>
+                          <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                              -webkit-text-stroke-color: grey;color: white"></i>
+                          Requests
+                      <% end %>
+                   </li>
+
 
                 </ul>
             </nav>
@@ -73,31 +78,20 @@
 
             <nav class="right-nav">
                 <ul>
-                   <!--<li>-->
-                      <!--<i class="fa fa-search" aria-hidden="true"></i>-->
-                   <!--</li>-->
-                    <li>
+                   <li>
+                      <%= link_to newsfeed_profile_path(user_id:current_user.id) do %>
+                          <%=  current_user.try(:name)%>
+                      <%end%>
+                   <li>
                         <%= link_to users_path do %>
                             <i class="fa fa-users" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                                 -webkit-text-stroke-color: grey;color: white"></i>
                             Users
                         <%end%>
-                    </li>
-                    <li>
-                        <%= link_to notifications_show_path do%>
-                            <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                                -webkit-text-stroke-color: grey;color: white"></i>
-                            Notifications
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to newsfeed_friendrequests_path do%>
 
-                            <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                                -webkit-text-stroke-color: grey;color: white"></i>
-                            Requests
-                        <% end %>
                     </li>
+
+
                     <li>
                         <%= link_to "Sign Out",destroy_user_session_path,method: :delete %>
                     </li>

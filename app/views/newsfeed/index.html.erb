@@ -41,11 +41,12 @@
               </div>
               <div class="content">
                  <a class="header"><%= link_to current_user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:current_user.id)%></a>
-                 <div class="meta">
-                    <span class="date">Joined in 2013</span>
-                 </div>
+
+                 <!--<div class="meta">-->
+                    <!--<span class="date">Joined in 2013</span>-->
+                 <!--</div>-->
                  <div class="description">
-                    Kristy is an art director living in New York.
+                    <%= current_user.about %>
                  </div>
               </div>
               <div class="extra content">
@@ -86,12 +87,7 @@
                       </div>
                    </div>
                     <div class="postbox-toolbar">
-                        <div id="upload-pic-dummy"   >
-                            <div class="upload-pic">
-                                <%= form.file_field :avatar ,id: "imgInp" %><br>
-                            </div>
-                            <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
-                        </div>
+
                         <div class="anonymous">
                             <h3 >Anonymous
                                 <%= form.check_box :anonymous %>

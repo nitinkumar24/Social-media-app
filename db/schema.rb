@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102062002) do
+ActiveRecord::Schema.define(version: 20171227163254) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20171102062002) do
     t.string "sex"
     t.integer "batchof"
     t.string "relationstatus"
+    t.string "about"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

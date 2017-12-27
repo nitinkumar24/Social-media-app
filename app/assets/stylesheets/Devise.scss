@@ -73,7 +73,7 @@
     background-color: white;
 }
 
-#user_name{
+#user_name,#user_about{
     font-size: 16px;
     padding: 3% 0 3% 2%;
     margin-top: 12px;
@@ -232,7 +232,7 @@
     h3{
         margin-top: 0;
     }
-    #user_email,#user_password{
+    #user_email,#user_password,#user_about{
         font-family: 'Jura', sans-serif;
         height: auto;
         width: 100%;

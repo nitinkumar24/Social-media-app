@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'newsfeed/profile'
   get 'notifications/show'
   get 'newsfeed/friendrequests'
+  get 'newsfeed/followers'
   root to: 'newsfeed#index'
   
   post 'likes/toggle_like'
