@@ -1,133 +1,79 @@
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 
 
 <main-page>
-    <aside>
+   <aside>
+      <div class="sidepanel">
+         <%= render 'sidepanel' %>
+      </div>
+   </aside>
 
-        <div class="sidepanel">
-            <div class="home-profile" style="display: none">
-                <div id="imgbox">
-                    <%= image_tag current_user.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
-                </div>
-                <div id="contentbox">
-                    <span class="bigme"><%= link_to current_user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:current_user.id)%></span><br>
-                </div>
-            </div>
-
-            <div id="probox" style="display: none">
-
-                <div id="flw">
-                    <b>Followers</b>
-                    <br>
-                    <%= current_user.followers(current_user.id) %>
-                </div>
-                <div id="flwe">
-                    <b>Following</b><br>
-                    <%= current_user.followee(current_user.id) %>
-                </div>
-                <div id="totalview">
-                    <b>Total Views</b><br>100
-                </div>
-
-            </div>
-
-           <div class="ui card">
-              <div class="image">
-                 <%= image_tag current_user.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
-              </div>
-              <div class="content">
-                 <a class="header"><%= link_to current_user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:current_user.id)%></a>
-                 <div class="meta">
-                    <span class="date">Joined in 2013</span>
-                 </div>
-                 <div class="description">
-                    Kristy is an art director living in New York.
-                 </div>
-              </div>
-              <div class="extra content">
-                 <a>
-                    <i class="user icon"></i>
-                    <%= current_user.followers(current_user.id) %>
-                 </a>
-              </div>
-           </div>
-
-
-
-        </div>
-
-
-    </aside>
-
-    <section>
-
-        <div class="createPost">
-
-            <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
-
-            <div class="input-post">
-                <%= form_for @post,remote: true do |form| %>
-                    <div class="">
-                       <div class="ui form">
-                          <div class="field">
-                             <textarea rows="2" name="post[content]" id="post_content" placeholder="Hey,Let Your friends know that you're alive."></textarea>
-                          </div>
-                       </div>
-                    </div>
-
-                   <div class="dup-pic" style="display: none;padding-top: 10px">
-                      <img id="blah" src="#"  style="border-radius: 10px;width: 150px;height: 150px;">
-                      <div style="position: relative;top: -127px;display: inline;left: -25px;">
-                      <i class="fa fa-times cancel-pic" aria-hidden="true"></i>
+   <section>
+      <div class="createPost">
+         <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
+         <div class="input-post">
+            <%= form_for @post,remote: true do |form| %>
+                <div class="">
+                   <div class="ui form">
+                      <div class="field">
+                         <textarea rows="2" name="post[content]" id="post_content" placeholder="Hey,Let Your friends know that you're alive."></textarea>
                       </div>
                    </div>
-                    <div class="postbox-toolbar">
-                        <div id="upload-pic-dummy"   >
-                            <div class="upload-pic">
-                                <%= form.file_field :avatar ,id: "imgInp" %><br>
-                            </div>
-                            <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
-                        </div>
-                        <div class="anonymous">
-                            <h3 >Anonymous
-                                <%= form.check_box :anonymous %>
-                            </h3>
+                </div>
 
-                        </div>
-                        <%= form.submit 'Post', :class => 'postbutton'   %>
-                    </div>
+                <div class="dup-pic" style="display: none;padding-top: 10px">
+                   <img id="blah" src="#"  style="border-radius: 10px;width: 150px;height: 150px;">
+                   <div style="position: relative;top: -127px;display: inline;left: -25px;">
+                      <i class="fa fa-times cancel-pic" aria-hidden="true"></i>
+                   </div>
+                </div>
+                <div class="postbox-toolbar">
+                   <div id="upload-pic-dummy"   >
+                      <div class="upload-pic">
+                         <%= form.file_field :avatar ,id: "imgInp" %><br>
+                      </div>
+                      <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
+                   </div>
+                   <div class="anonymous">
+                      <h3 >Anonymous
+                         <%= form.check_box :anonymous %>
+                      </h3>
 
-                <% end %>
+                   </div>
+                   <%= form.submit 'Post', :class => 'postbutton'   %>
+                </div>
 
-            </div>
-
-        </div>
-
-
-
-        <div id="posts">
-
-            <% @feed.each do |post| %>
-                <%= render 'post', post: post %>
             <% end %>
-        </div>
-        <br>
-        <div id='load_more'>
-            <%= render 'load_more', offset: 10 %>
-        </div>
 
-    </section>
+         </div>
 
-    <ads>
-       <div class="ui half page test ad" data-text="Ads"></div>
-    </ads>
+      </div>
 
-    <chatbox>
-    </chatbox>
+
+
+      <div id="posts">
+
+         <% @feed.each do |post| %>
+             <%= render 'post', post: post %>
+         <% end %>
+      </div>
+      <br>
+      <div id='load_more'>
+         <%= render 'load_more', offset: 10 %>
+      </div>
+
+   </section>
+
+   <ads>
+      <div class="ui half page test ad" data-text="Ads"></div>
+   </ads>
+
+   <chatbox>
+   </chatbox>
 
 </main-page>
 
@@ -149,34 +95,15 @@
         }
     });
 
-
-//
-//    $(".upload-pic").click(function(){
-//
-//            $(".dup-pic").css("display","block");
-//        var i =$( "#blah" ).attr( "src" );
-//        if(i === "#")
-//        {
-//            console.log(i);
-//        }
-//    });
-
-
-
-
-
     //image preview before upload
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function (e) {
                 $('#blah').attr('src', e.target.result);
             }
-
             reader.readAsDataURL(input.files[0]);
             $(".dup-pic").css("display","block");
-
         }
     }
 
@@ -193,8 +120,6 @@
 
     });
 
-
-
     $('.tooltip').tooltipster({
         animation: 'grow',
         delay: [900, 000],
@@ -204,7 +129,7 @@
     });
 
 
-   //Move to top of the page
+    //Move to top of the page
     $('.logo').click(function(){
         $("html, body").animate({ scrollTop: 0 }, 1000);
         return false;
