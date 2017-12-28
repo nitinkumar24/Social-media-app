@@ -3,36 +3,13 @@
         margin:0px;
         padding:0px;
         font-family: 'Source Sans Pro', sans-serif;
-        background: linear-gradient(270deg, #9d8c00, #4c0158, #088b99);
         background-size: 600% 600% !important;
-        /* -webkit-animation: itlGradient 16s ease infinite; */
-        -moz-animation: itlGradient 16s ease infinite;
-        -o-animation: itlGradient 16s ease infinite;
-        /*animation: itlGradient 16s ease infinite;*/
+
         background-size:100% 94vh;
 
     }
 
-    @-webkit-keyframes itlGradient {
-        0%{background-position:90% 0%}
-        50%{background-position:11% 100%}
-        100%{background-position:90% 0%}
-    }
-    @-moz-keyframes itlGradient {
-        0%{background-position:90% 0%}
-        50%{background-position:11% 100%}
-        100%{background-position:90% 0%}
-    }
-    @-o-keyframes itlGradient {
-        0%{background-position:90% 0%}
-        50%{background-position:11% 100%}
-        100%{background-position:90% 0%}
-    }
-    @keyframes itlGradient {
-        0%{background-position:90% 0%}
-        50%{background-position:11% 100%}
-        100%{background-position:90% 0%}
-    }
+
 </style>
 
 <div id="signup-page" class="animated ">
@@ -44,8 +21,7 @@
     <div id="sign-in-form-section">
         <%= devise_error_messages! %>
         <div class="sign-in-form "  >
-            <p class="page-topic"><i class="fa fa-user" aria-hidden="true"></i>
-
+            <p class="form-topic"><i class="fa fa-user" aria-hidden="true"></i>
                Sign up</p><hr>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -62,7 +38,13 @@
                 <div class="field">
                     <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirm-password" %>
                 </div>
-                <div style="height: 34px;background-color: white;padding-top: 10px;border-radius: 3px;margin-bottom: 10px">
+                <div style="border: 1px solid black;
+                    /* color: black; */
+                    height: 34px;
+                    background-color: white;
+                    padding-top: 6px;
+                    border-radius: 3px;
+                    margin-bottom: 10px;">
                     <span style="color: black;padding-left: 2%">Birthday :</span>
                     <%= date_select :user, :birthday,
                                     {:start_year => 1980,
@@ -71,15 +53,15 @@
                                     {:class => "input-mini"}  %>
                     <br>
                 </div>
-                <%= f.radio_button(:sex,"male") %><i class="fa fa-male" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 10px;"></i>
-                <%= f.radio_button(:sex,"female") %><i class="fa fa-female" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 14px;"></i>
+                <%= f.radio_button(:sex,"male") %><i class="fa fa-male" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 10px;color: #721615"></i>
+                <%= f.radio_button(:sex,"female") %><i class="fa fa-female" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 14px;color: #721615"></i>
 
                 <div class="actions">
                     <%= f.submit "Create Account" ,class:"login-button" %>
                 </div>
             <% end %>
-            <p style="text-align:center;margin-bottom:10px;">OR</p>
-            <hr>
+           <p style="text-align:center;margin-bottom:10px;color: black">OR</p>
+           <hr>
             <%= render "users/shared/links" %>
         </div>
     </div>
