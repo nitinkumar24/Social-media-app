@@ -1,6 +1,6 @@
 class NewsfeedController < ApplicationController
     
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
     
     def index
         respond_to do |format|
@@ -26,9 +26,12 @@ class NewsfeedController < ApplicationController
         end
     
     end
-    
-    
-    
+
+    def memes
+
+    end
+
+
     
     def users
         domain=current_user.email.split('@').last
@@ -50,10 +53,6 @@ class NewsfeedController < ApplicationController
     
     end
 
-    
-
-    
-    
     def ajax
         render :json => {text: "text"}
     end
