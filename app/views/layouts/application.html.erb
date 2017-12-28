@@ -125,7 +125,7 @@
         </header>
     </headerbar>
 <% end %>
-
+<% if user_signed_in? %>
 <div id="notice" >
     <%= notice %>
 </div>
@@ -133,7 +133,7 @@
 <div id="alert">
     <%= alert %>
 </div>
-
+<% end  %>
 <%= yield %>
 
 
