@@ -1,8 +1,8 @@
 
-$('#posts').append('<%= j render('post')%>');
+$('#posts').append('<%= j render(@posts)%>');
 console.log("g");
-<% if @feed.next_page %>
-$('.pagination').replaceWith('<%= j will_paginate(@feed) %>');
+<% if @posts.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@posts) %>');
 <% else %>
 $('.pagination').remove();
 <% end %>

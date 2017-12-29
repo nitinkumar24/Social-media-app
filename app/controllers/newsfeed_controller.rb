@@ -9,10 +9,34 @@ class NewsfeedController < ApplicationController
                 @post = Post.new
                 @comment = Comment.new
                 @comments = Comment.all
-                @feed = Post.paginate(:page => params[:page], :per_page => 7)
+                @posts = Post.paginate(:page => params[:page], :per_page => 14)
+                @hi = "hi"
+                puts "lawda lhsan"
+                puts "lawda lhsan"
+                puts "lawda lhsan"
+                puts "lawda lhsan"
+                puts "lawda lhsan"
+                puts "lawda lhsan"
+                puts "lawda lhsan"
+                puts "lawda lhsan"
+
+
+
                 # Post.order(created_at: :desc).page(params[:page])
             }
-            format.js {   }
+            format.js {
+                @comment = Comment.new
+                @comments = Comment.all
+                @posts = Post.paginate(:page => params[:page], :per_page => 14)
+                puts "madarchod"
+                puts "madarchod"
+                puts "madarchod"
+                puts "madarchod"
+                puts "madarchod"
+                puts "madarchod"
+                puts "madarchod"
+                puts "madarchod"
+            }
         end
     
     end
