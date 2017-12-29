@@ -5,37 +5,18 @@ class NewsfeedController < ApplicationController
     def index
         respond_to do |format|
             format.html{
-
                 @post = Post.new
                 @comment = Comment.new
                 @comments = Comment.all
-                @posts = Post.paginate(:page => params[:page], :per_page => 14)
-                @hi = "hi"
-                puts "lawda lhsan"
-                puts "lawda lhsan"
-                puts "lawda lhsan"
-                puts "lawda lhsan"
-                puts "lawda lhsan"
-                puts "lawda lhsan"
-                puts "lawda lhsan"
-                puts "lawda lhsan"
-
-
-
+                @posts = Post.paginate(:page => params[:page], :per_page => 14).order(created_at: :desc)
                 # Post.order(created_at: :desc).page(params[:page])
             }
             format.js {
                 @comment = Comment.new
                 @comments = Comment.all
-                @posts = Post.paginate(:page => params[:page], :per_page => 14)
+                @posts = Post.paginate(:page => params[:page], :per_page => 14).order(created_at: :desc)
                 puts "madarchod"
-                puts "madarchod"
-                puts "madarchod"
-                puts "madarchod"
-                puts "madarchod"
-                puts "madarchod"
-                puts "madarchod"
-                puts "madarchod"
+
             }
         end
     

@@ -6,12 +6,12 @@ jQuery ->
     x = []
 
     $(window).scroll ->
-      if  $(window).scrollTop() > $(document).height() - $(window).height() - 10
+      if  $(window).scrollTop() > $(document).height() - $(window).height() - 50
         url = $('.pagination .next_page').attr('href')
         if url
           if url not in x
             x.push url
-            $('.paagination').text("Fetching more products...")
+            $('.pagination').text("Fetching more products...")
             $.getScript(url);
 
     $(window).scroll()
