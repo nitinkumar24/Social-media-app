@@ -41,8 +41,8 @@
     margin: 0em 0em;
     max-width: 650px;
 }
-.ui.dropdown .menu {
-
+.ui.dropdown {
+    height:20px;
 
 }
 
@@ -77,6 +77,10 @@ a, a:active, a:visited, a:focus,a:hover {
 input {
     border: none;
     background: transparent;
+}
+textarea {
+    box-sizing: border-box;
+    resize: none;
 }
 #search{
     border: 1px solid black;

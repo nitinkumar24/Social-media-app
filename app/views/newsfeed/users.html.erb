@@ -2,8 +2,27 @@
 <div style="width: 69%;margin-left: 19%;z-index: 0;margin-top: 100px;">
    <%= form_tag users_path, :method => 'get', :id => "products_search" do %>
        <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "Search", :name => nil %>
+
+       <div class="wrap">
+          <div class="search">
+             <input type="text" class="searchTerm" name="search" placeholder="Search your college budies">
+             <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+             </button>
+          </div>
+       </div>
+
+           <select id="department" name="department">
+              <option disabled selected value="0"> -- select Branch -- </option>
+              <option value="CSE">CSE</option>
+              <option value="1">ME</option>
+              <option value="1">ECE</option>
+              <option value="1">EN</option>
+              <option value="1">EI</option>
+              <option value="1">IT</option>
+
+           </select>
+
        </p>
    <% end %>
    <div id="users">

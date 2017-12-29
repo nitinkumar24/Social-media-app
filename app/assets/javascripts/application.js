@@ -34,3 +34,8 @@ $(function() {
         return false;
     });
 });
+
+var textarea = document.querySelector('textarea');
+
+textarea.addEventListener('keydown', autosize);
+

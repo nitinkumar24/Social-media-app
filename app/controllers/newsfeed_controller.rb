@@ -23,10 +23,10 @@ class NewsfeedController < ApplicationController
     def users
         respond_to do |format|
             format.html{
-                @users = User.search(params[:search]).order(name: :desc).paginate(:per_page => 2,:page => params[:page])
+                @users = User.search(params[:search],params[:department]).order(name: :desc).paginate(:per_page => 15,:page => params[:page])
             }
             format.js{
-                @users = User.search(params[:search]).order(name: :desc).paginate(:per_page => 2,:page => params[:page])
+                @users = User.search(params[:search]).order(name: :desc).paginate(:per_page => 15,:page => params[:page])
             }
         end
     end
