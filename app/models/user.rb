@@ -13,6 +13,13 @@ class User < ApplicationRecord
 
 
 
+    def self.search(search)
+        if search
+            where('name LIKE ?', "%#{search}%")
+        else
+            all
+        end
+    end
 
 	def feed
 		Post.all.order(created_at: :desc).page(params[:page])

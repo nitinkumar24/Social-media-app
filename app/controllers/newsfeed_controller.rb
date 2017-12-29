@@ -1,7 +1,7 @@
 class NewsfeedController < ApplicationController
-    
+
     before_action :authenticate_user!
-    
+
     def index
         respond_to do |format|
             format.html{
@@ -16,21 +16,21 @@ class NewsfeedController < ApplicationController
                 @comments = Comment.all
                 @posts = Post.paginate(:page => params[:page], :per_page => 14).order(created_at: :desc)
                 puts "madarchod"
-
             }
         end
-    
     end
-    
-    
-    
-    
+
     def users
-        domain=current_user.email.split('@').last
-        puts domain
-        @users = User.all.order(name: :desc)
+        respond_to do |format|
+            format.html{
+                @users = User.search(params[:search]).order(name: :desc).paginate(:per_page => 2,:page => params[:page])
+            }
+            format.js{
+                @users = User.search(params[:search]).order(name: :desc).paginate(:per_page => 2,:page => params[:page])
+            }
+        end
     end
-    
+
     def profile
         @posts=Post.where(user_id:params[:user_id]).order(created_at: :DESC)
         @comment=Comment.new
@@ -38,17 +38,17 @@ class NewsfeedController < ApplicationController
         user_id=params[:user_id]
         @user=User.find_by_id(user_id)
     end
-    
-    
+
+
     def friendrequests
         @friendrequests=Friendrequest.where(receiver_id: current_user.id)
-    
+
     end
 
-    
 
-    
-    
+
+
+
     def ajax
         render :json => {text: "text"}
     end
