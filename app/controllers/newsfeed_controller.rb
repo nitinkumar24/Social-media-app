@@ -5,24 +5,14 @@ class NewsfeedController < ApplicationController
     def index
         respond_to do |format|
             format.html{
+
                 @post = Post.new
-                @comment=Comment.new
+                @comment = Comment.new
                 @comments = Comment.all
-                @feed = current_user.feed.limit(10)
-                
+                @feed = Post.paginate(:page => params[:page], :per_page => 7)
+                # Post.order(created_at: :desc).page(params[:page])
             }
-            format.js{
-                offset = params["offset"]
-                if offset
-                    offset = offset.to_i
-                else
-                    offset = 0
-                end
-                
-                @new_offset = offset + 10
-                @show_load_more = offset < current_user.feed.count
-                @feed = current_user.feed.offset(offset).limit(10)
-            }
+            format.js {   }
         end
     
     end

@@ -48,23 +48,16 @@
                 </div>
 
             <% end %>
-
          </div>
-
       </div>
-
-
 
       <div id="posts">
-
          <% @feed.each do |post| %>
-             <%= render 'post', post: post %>
+             <%= render 'post', post: post%>
          <% end %>
+         <%= will_paginate @feed %>
       </div>
       <br>
-      <div id='load_more'>
-         <%= render 'load_more', offset: 10 %>
-      </div>
 
    </section>
 

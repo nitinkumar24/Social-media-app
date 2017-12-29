@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
 
 	def feed
-		Post.all.order(created_at: :desc)
+		Post.all.order(created_at: :desc).page(params[:page])
 	end
 
 	def follow_relation user_id

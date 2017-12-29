@@ -1,14 +1,8 @@
 
-
-<% @feed.each do |post| %>
-$('#posts').append("<%= escape_javascript (render 'newsfeed/post', post: post) %>");
-<% end %>
-
-
-window.offset = <%= @new_offset %>;
-window.load_more_active = false;
-<% unless @show_load_more %>
-
-$('#load_more').hide();
-
+$('#posts').append('<%= j render('post')%>');
+console.log("g");
+<% if @feed.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@feed) %>');
+<% else %>
+$('.pagination').remove();
 <% end %>
