@@ -1,4 +1,4 @@
-
+$('#count_comments_<%=@comment.post.id%>').html(<%=@comment.post.comments.count%>);
 $('#comments_<%=@comment.post.id%>').prepend("<%= escape_javascript (render 'newsfeed/comment', comment: @comment) %>").addClass("ui threaded comments");
-$('#comment_content').val("");
+$('#comment-input').val("");
 console.log("hello comment");

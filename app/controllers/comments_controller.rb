@@ -1,76 +1,91 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+    before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
-  # GET /comments
-  # GET /comments.json
-  # def index
-  #   @comments = Comment.all
-  # end
+    # GET /comments
+    # GET /comments.json
+    # def index
+    #   @comments = Comment.all
+    # end
 
-  # GET /comments/1
-  # GET /comments/1.json
-  # def show
-  # end
+    # GET /comments/1
+    # GET /comments/1.json
+    # def show
+    # end
 
-  # GET /comments/new
-  # def new
-  #   @comment = Comment.new
-  # end
+    # GET /comments/new
+    # def new
+    #   @comment = Comment.new
+    # end
 
-  # GET /comments/1/edit
-  # def edit
-  # end
+    # GET /comments/1/edit
+    # def edit
+    # end
 
-  # POST /comments
-  # POST /comments.json
-  def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
-    @comment.post_id=params[:post_id]
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to'/', notice: 'Comment was successfully created.' }
-        format.js{  }
-        format.json { render :show, status: :created, location: @comment }
-      else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    # POST /comments
+    # POST /comments.json
+    def create
+        @comment = Comment.new(comment_params)
+        @comment.user_id = current_user.id
+        @comment.post_id=params[:post_id]
+        respond_to do |format|
+            if @comment.save
+                format.html { redirect_to'/', notice: 'Comment was successfully created.' }
+                format.js{  }
+                format.json { render :show, status: :created, location: @comment }
+            else
+                format.html { render :new }
+                format.json { render json: @comment.errors, status: :unprocessable_entity }
+            end
+        end
     end
-  end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
-  def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
+    # PATCH/PUT /comments/1
+    # PATCH/PUT /comments/1.json
+    def update
+        if kabil_update
+            respond_to do |format|
+                if @comment.update(comment_params)
+                    format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+                    format.json { render :show, status: :ok, location: @comment }
+                else
+                    format.html { render :edit }
+                    format.json { render json: @comment.errors, status: :unprocessable_entity }
+                end
+            end
+        end
     end
-  end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
-  def destroy
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+    # DELETE /comments/1
+    # DELETE /comments/1.json
+    def destroy
+        if kabil_delete
+            @comment.destroy
+            respond_to do |format|
+                format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
+                format.json { head :no_content }
+                format.js{
+
+                }
+            end
+        end
     end
-  end
 
-  private
+    private
+
+    def kabil_delete
+        @comment.user.id == current_user.id or @comment.post.user.id == current_user.id
+    end
+
+    def kabil_update
+        @comment.user.id == current_user.id
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+        @comment = Comment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content)
+        params.require(:comment).permit(:content)
     end
 end

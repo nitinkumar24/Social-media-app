@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     # DELETE /posts/1
     # DELETE /posts/1.json
     def destroy
-        if @post.user.id == current_user.id
+        if kabil
             @post.destroy!
             respond_to do |format|
                 format.html { redirect_to '/', notice: 'Post was successfully destroyed.' }
@@ -64,7 +64,7 @@ class PostsController < ApplicationController
     end
 
     def update
-        if @post.user.id == current_user.id
+        if kabil
             respond_to do |format|
                 if @post.update(post_params)
                     format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -82,7 +82,6 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
         @post = Post.find(params[:id])
-
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -90,5 +89,8 @@ class PostsController < ApplicationController
         params.require(:post).permit(:content, :user_id,:anonymous,:avatar)
     end
 
+    def kabil
+        return @post.user.id == current_user.id
+    end
 
 end

@@ -17,12 +17,12 @@
             <a class="author"><%= link_to user.try(:name).split(' ').first, url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></a>
             <div class="metadata">
                <span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
-               <% if comment.user.id == current_user.id %>
+               <% if comment.user.id == current_user.id or comment.post.user.id == current_user.id %>
 
                             <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
-
+                       <% if comment.user.id == current_user.id %>
                             <%= link_to 'Edit', edit_comment_path(comment) %>
-
+                        <% end %>
                <% end %>
             </div>
 

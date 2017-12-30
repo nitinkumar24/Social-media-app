@@ -12,7 +12,6 @@
  *
 
  *= require_tree .
-
  *= require rails_emoji_picker
  *= require tooltipster.bundle.min
  *= require plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min
@@ -71,9 +70,12 @@ body{
 }
 a, a:active, a:visited, a:focus,a:hover {
     text-decoration:none;
-    color: none ;
-}
 
+}
+a:hover {
+
+    text-decoration: none;
+}
 input {
     border: none;
     background: transparent;
