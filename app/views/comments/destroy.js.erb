@@ -1,9 +1,9 @@
+
+$('#comment_<%= @comment.id%>').css("display","none");
+$('#count_comments_<%=@comment.post.id%>').html(<%=@comment.post.comments.count%>);
 noty({
     text: 'Comment deleted succesfully',
     theme: 'metroui',
     type: 'alert',
     layout: 'bottomCenter'
 });
-
-$('#comment_<%= @comment.id%>').css("display","none");
-$('#count_comments_<%=@comment.post.id%>').html(<%=@comment.post.comments.count%>);

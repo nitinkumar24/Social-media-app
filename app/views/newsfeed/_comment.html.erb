@@ -1,11 +1,11 @@
 
+<div class="ui threaded comments" id="comment_<%=comment.id%>">
+   <div class="comments-content">
+      <% user = comment.user %>
 
-<div class="comments-content">
-<% user = comment.user %>
 
 
-
-  <!--&ensp;<p><%= comment.content %></p>-->
+      <!--&ensp;<p><%= comment.content %></p>-->
 
 
       <div class="comment">
@@ -19,10 +19,10 @@
                <span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
                <% if comment.user.id == current_user.id or comment.post.user.id == current_user.id %>
 
-                            <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
-                       <% if comment.user.id == current_user.id %>
-                            <%= link_to 'Edit', edit_comment_path(comment) %>
-                        <% end %>
+                   <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+                   <% if comment.user.id == current_user.id %>
+                       <%= link_to 'Edit', edit_comment_path(comment) %>
+                   <% end %>
                <% end %>
             </div>
 
@@ -35,6 +35,7 @@
       </div>
 
 
+   </div>
+
+
 </div>
-
-
