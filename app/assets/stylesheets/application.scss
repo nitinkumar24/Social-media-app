@@ -99,8 +99,10 @@ textarea {
     line-height: 35px;
     font-family: 'Jura', sans-serif;
 }
-ul#noty_topCenter_layout_container.i-am-new{
-    top:80px;
+textarea::placeholder {
+    color: #7e2444;
+    font-size: 14px;
+    font-family: 'Jura', sans-serif;
 }
 .likelink{
     text-decoration: none;
