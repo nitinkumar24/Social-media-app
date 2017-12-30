@@ -1,45 +1,42 @@
 
-<div class="newsfeed">
+<div class="newsfeed" id="post_<%= post.id %>">
 
-   <% user=User.find_by_id(post.user_id) %>
-   <% if post.anonymous %>
-       <h3>Anonymous</h3>
-   <% else %>
-       <div class="user-detail">
-
+   <% user=post.user %>
+   <div class="user-detail">
+      <% if not post.anonymous %>
           <%= image_tag user.avatar.url(:medium),:class =>"profile_image",:alt=>"" %>
-
           <div class="username">
              <div class="tooltip" data-tooltip-content="#tooltip_content">
-                <h2 style="width: 60%"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></h2>
+                <h2 style="width: 60%"><%= link_to user.try(:name).split(' ').first, url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></h2>
              </div>
           </div>
 
-          <div class="tooltip_templates">
-                <span style="height:100px;width:500px" id="tooltip_content2">
-            <%= image_tag user.avatar.url(:medium),:class =>"profile_image" ,:alt=>"hi"%>
-                   <b><%= user.try(:name) %></b><br>
-                   <%= user.email %>
-
-                </span>
+      <% else %>
+          <div class="username">
+             <div class="tooltip" data-tooltip-content="#tooltip_content">
+                <h2 class="user-annonymous" style="width: 60%">Anonymous</h2>
+             </div>
           </div>
+      <%end %>
 
-          <% if post.user.id == current_user.id %>
-              <div class="ui dropdown">
-                 <i class="dropdown icon"></i>
-                 <div class="menu">
-                    <div class="item"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-                    <div class="item">
-                       <%= link_to 'Edit', edit_post_path(post) %>
-                    </div>
+      <% if post.user.id == current_user.id %>
+          <div class="ui dropdown">
+             <i class="dropdown icon"></i>
+             <div class="menu">
+                <div class="item">
+                   <%= link_to 'Delete', post, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+                </div>
+                <div class="item">
+                   <%= link_to 'Edit', edit_post_path(post) %>
+                </div>
 
-                 </div>
-              </div>
-          <% end %>
+             </div>
+          </div>
+      <% end %>
 
-       </div>
+   </div>
 
-   <% end %>
+
 
 
    <div class="post-box">
@@ -49,47 +46,33 @@
       <% end %>
 
       <p><%= post.content %></p>
-
       <hr style="opacity: 0.2">
-
       <div class="user-response" >
 
          <!--like icon-->
          <div class="like">
             <% if post.like_string(current_user.id)=="Like" %>
-                <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
+                <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id,  type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
                     <i class="fa fa-fa-thumbs-up"></i>
                 <% end %>
-
             <%else  %>
-
                 <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
                     <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                 <% end %>
-
             <% end %>
-
-
             <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
-
-
          </div>
-         <!--Dislike icon-->
 
+         <!--Dislike icon-->
          <div class="dislike">
             <% if post.dislike_string(current_user.id)=="DisLike" %>
                 <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon-activated" do %>
                     <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-
                 <% end %>
-
-            <%else  %>
-
+            <% else  %>
                 <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon" do %>
                     <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-
                 <% end %>
-
             <% end %>
             <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
          </div>
@@ -100,6 +83,8 @@
             <span class="response-count" id="count_comments_<%=post.id%>"><%=post.comments.count %></span>
          </div>
 
+
+
       </div>
 
       <div style="display: none">
@@ -108,19 +93,14 @@
          <%= form_for @comment,remote:true do |form| %>
              <div class="comment-box">
 
-                <span style="border: 1px solid #7e2444;border-radius: 22px">
+                <span style="border-radius: 22px">
                     <div>
-
-                       <textarea data-autoresize rows="2" style="width: 80%;
-                           border-radius: 18px;
-                           height: 35px;padding: 5px 0 0 10px" name="comment[content]" placeholder=""></textarea>
-
+                       <textarea data-autoresize rows="2" style="width: 80%;border-radius: 18px;height: 35px;padding: 5px 0 0 10px" name="comment[content]" placeholder=""></textarea>
                        <%= hidden_field_tag :post_id, post.id %>
                        <but style="margin-right: 5%;">
-                       <%= button_tag(type: "submit", class: "postbutton",:style => "padding-right:3%;width: 20% ;background: none;border: none;
-}") do %>
-    <i class="fa fa-arrow-right" aria-hidden="true" style="color: #7e2444;"></i>
-<% end %>
+                       <%= button_tag(type: "submit", class: "postbutton",:style => "padding-right:3%;width: 20% ;background: none;border: none;}") do %>
+                           <i class="fa fa-arrow-right" aria-hidden="true" style="color: #7e2444;"></i>
+                       <% end %>
                         </but>
                     </div>
                 </span>
@@ -131,7 +111,6 @@
 
          <hr style="opacity: 0.2">
 
-
          <div id="comments_<%=post.id%>" class="comments" >
             <% Comment.where(post_id: post.id).each do |comment| %>
                 <div class="ui threaded comments">
@@ -141,15 +120,7 @@
          </div>
 
       </div>
-
-
-
    </div>
-
-
-
-
-
 
 </div>
 

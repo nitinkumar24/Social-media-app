@@ -38,7 +38,7 @@ div.newsfeed{
             padding-top: 0px;
             div {
                 width: 90%;
-                a {
+                a ,.user-annonymous{
                     font-family: 'Jura', sans-serif;
                     font-weight: 200;
                     padding-top: 0px;
@@ -51,6 +51,7 @@ div.newsfeed{
                 a:hover {
                     text-decoration: underline;
                 }
+
             }
         }
     }

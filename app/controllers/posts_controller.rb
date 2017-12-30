@@ -48,6 +48,9 @@ class PostsController < ApplicationController
             respond_to do |format|
                 format.html { redirect_to '/', notice: 'Post was successfully destroyed.' }
                 format.json { head :no_content }
+                format.js{
+
+                }
             end
         else
             redirect_to '/', notice: 'that was not cool'
@@ -72,10 +75,7 @@ class PostsController < ApplicationController
                 end
             end
         else
-
             redirect_to '/', notice: 'that was not cool'
-
-
         end
     end
     private

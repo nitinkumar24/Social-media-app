@@ -8,6 +8,7 @@ class NewsfeedController < ApplicationController
                 @post = Post.new
                 @comment = Comment.new
                 @comments = Comment.all
+
                 @posts = Post.paginate(:page => params[:page], :per_page => 14).order(created_at: :desc)
                 # Post.order(created_at: :desc).page(params[:page])
             }

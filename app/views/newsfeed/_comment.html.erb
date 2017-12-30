@@ -1,24 +1,32 @@
 
 
 <div class="comments-content">
-<% user=User.find_by_id(comment.user_id) %>
+<% user = comment.user %>
 
 
 
   <!--&ensp;<p><%= comment.content %></p>-->
 
 
-      <!--<h3 class="ui dividing header">Comments</h3>-->
       <div class="comment">
          <a class="avatar">
             <%= image_tag user.avatar.url(:medium),:class =>"profile_image",:alt=>"" %>
 
          </a>
          <div class="content">
-            <a class="author"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></a>
+            <a class="author"><%= link_to user.try(:name).split(' ').first, url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></a>
             <div class="metadata">
-               <span class="date">Today at 5:42PM</span>
+               <span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
+               <% if comment.user.id == current_user.id %>
+
+                            <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+
+                            <%= link_to 'Edit', edit_comment_path(comment) %>
+
+               <% end %>
             </div>
+
+
             <div class="text">
                <%= comment.content %>
             </div>
