@@ -18,22 +18,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("home-link").click(function(){
-                alert("The paragraph was clicked.");
-            });
-        });
 
-        $(document).ready(function(){
-            $("#alert").click(function(){
-                $("#alert").hide();
-            });
-
-        });
-
-
-    </script>
    <% if Rails.env.production? %>
        <script type="text/javascript">
            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -52,6 +37,30 @@
 </head>
 
 <body>
+<% if notice %>
+    <script type="text/javascript">
+        noty({text: '<%= notice %>',
+            type: 'alert',
+            theme: 'metroui',
+            layout: 'topCenter'
+        });
+    </script>
+<% end %>
+
+
+<% if alert %>
+    <script type="text/javascript">
+        noty({
+            text: '<%= alert %>',
+            type: 'error',
+            theme: 'metroui',
+            layout: 'topCenter'
+        });
+    </script>
+<% end %>
+
+
+
 <% if user_signed_in? %>
     <headerbar >
         <header>
@@ -125,15 +134,7 @@
         </header>
     </headerbar>
 <% end %>
-<% if user_signed_in? %>
-<div id="notice" >
-    <%= notice %>
-</div>
 
-<div id="alert">
-    <%= alert %>
-</div>
-<% end  %>
 <%= yield %>
 
 

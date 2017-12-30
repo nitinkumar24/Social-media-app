@@ -1,3 +1,9 @@
+noty({
+    text: 'Post was Created',
+    theme: 'metroui',
+    type: 'alert',
+    layout: 'bottomCenter'
+});
 
 $('#posts').prepend("<%= escape_javascript (render 'post', post: @post) %>");
 $('#post_content').val("");

@@ -18,6 +18,7 @@
 //= require typed
 //= require tooltipster.bundle.min
 //= require turbolinks
+//= require jquery.noty.packaged.min.js
 //= require_tree .
 
 // Loads all Semantic javascripts
@@ -39,3 +40,13 @@ var textarea = document.querySelector('textarea');
 
 textarea.addEventListener('keydown', autosize);
 
+$.noty.defaults.theme = 'relax';
+Noty.overrideDefaults({
+    layout   : 'topRight',
+    theme    : 'mint',
+    closeWith: ['click', 'button'],
+    animation: {
+        open : 'animated fadeInRight',
+        close: 'animated fadeOutRight'
+    }
+});

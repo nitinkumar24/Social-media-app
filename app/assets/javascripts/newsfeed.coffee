@@ -6,11 +6,10 @@ jQuery ->
     x = []
 
     $(window).scroll ->
-      if  $(window).scrollTop() > $(document).height() - $(window).height() - 50
+      if  $(window).scrollTop() > $(document).height() - $(window).height() - 30
         url = $('.pagination .next_page').attr('href')
         console.log(url);
         if url
-
           x.push url
           $('.pagination').text("Hold on").css("text-align","center")
           $.getScript(url);
