@@ -33,8 +33,6 @@ class PostsController < ApplicationController
                 format.json { render json: @post.errors, status: :unprocessable_entity }
             end
         end
-
-
     end
 
     # PATCH/PUT /posts/1
@@ -50,7 +48,6 @@ class PostsController < ApplicationController
                 format.html { redirect_to '/', notice: 'Post was successfully destroyed.' }
                 format.json { head :no_content }
                 format.js{
-
                 }
             end
         else
@@ -91,7 +88,7 @@ class PostsController < ApplicationController
     end
 
     def kabil
-        return @post.user.id == current_user.id
+        @post.user.id == current_user.id
     end
 
 end

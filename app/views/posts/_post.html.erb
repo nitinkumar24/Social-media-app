@@ -116,7 +116,7 @@
          <div id="comments_<%=post.id%>" class="comments" >
             <% Comment.where(post_id: post.id).each do |comment| %>
 
-                   <%= render 'newsfeed/comment', comment: comment %>
+                   <%= render 'comments/comment', comment: comment %>
 
             <% end %>
          </div>

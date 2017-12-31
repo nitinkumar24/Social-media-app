@@ -1,5 +1,5 @@
 $('#count_comments_<%=@comment.post.id%>').html(<%=@comment.post.comments.count%>);
-$('#comments_<%=@comment.post.id%>').prepend("<%= escape_javascript (render 'newsfeed/comment', comment: @comment) %>").addClass("ui threaded comments");
+$('#comments_<%=@comment.post.id%>').prepend("<%= escape_javascript (render 'comments/comment', comment: @comment) %>").addClass("ui threaded comments");
 $('.comment-input').val("").css("height","30px");
 
 

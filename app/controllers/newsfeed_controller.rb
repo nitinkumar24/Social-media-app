@@ -1,5 +1,4 @@
 class NewsfeedController < ApplicationController
-
     before_action :authenticate_user!
 
     def index
@@ -22,11 +21,9 @@ class NewsfeedController < ApplicationController
         @posts = Post.where(flavour: :confession).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
         respond_to do |format|
             format.html{
-
                 # Post.order(created_at: :desc).page(params[:page])
             }
             format.js {
-
             }
         end
     end
@@ -42,24 +39,10 @@ class NewsfeedController < ApplicationController
         end
     end
 
-    def profile
-        @posts=Post.where(user_id:params[:user_id]).order(created_at: :DESC)
-        @comment=Comment.new
-        @comments = Comment.all
-        byebug
-        user_id=params[:user_id]
-        @user=User.find_by_id(user_id)
-    end
-
-
     def friendrequests
         @friendrequests=Friendrequest.where(receiver_id: current_user.id)
 
     end
-
-
-
-
 
     def ajax
         render :json => {text: "text"}
