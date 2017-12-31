@@ -19,6 +19,22 @@
         <%= f.text_field :name%>
       </div>
 
+       <select id="relationstatus" name="user[relationstatus]">
+          <option disabled selected value>Relation status</option>
+          <option value="Single">Single</option>
+          <option value="Taken">Taken</option>
+          <option value="Alone">Forever Alone</option>
+       </select>
+
+       <select id="sex" name="user[sex]">
+          <option disabled selected value>Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Others">Others</option>
+       </select>
+
+       <textarea data-autoresize rows="2" style="width: 80%;border-radius: 18px;height: 30px;padding: 5px 0 0 20px" name="user[about]"  placeholder="Tell us something about you"></textarea>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

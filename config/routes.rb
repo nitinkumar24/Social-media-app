@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   resources :comments
   
   get 'newsfeed/index'
-  get 'newsfeed/confessions'
+  get '/confessions' => 'newsfeed#confessions'
   get '/users' => 'newsfeed#users'
   get '/ajax' => 'newsfeed#ajax'
-  get 'newsfeed/profile'
+
   get 'notifications/show'
   get 'newsfeed/friendrequests'
+  get '/profile/show'
+
+  get '/:id', :to => "profile#show"
   root to: 'newsfeed#index'
   
   post 'likes/toggle_like'

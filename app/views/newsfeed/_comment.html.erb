@@ -14,7 +14,10 @@
 
          </a>
          <div class="content">
-            <a class="author"><%= link_to user.try(:name).split(' ').first, url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%></a>
+            <a class="author">
+               <%= render 'profile/profile_link' ,user: user %>
+
+            </a>
             <div class="metadata">
                <span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
                <% if comment.user.id == current_user.id or comment.post.user.id == current_user.id %>

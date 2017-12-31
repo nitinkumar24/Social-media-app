@@ -12,6 +12,9 @@ class User < ApplicationRecord
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     has_many :posts
 
+    def to_param
+        [id, name.parameterize].join("-")
+    end
 
     def self.search(search)
 
@@ -75,8 +78,8 @@ class User < ApplicationRecord
         count_followee=FollowMapping.where(:follower_id => user_id).length
     end
 
-    def isFollowing
-
+    def is_following user_id
+        FollowMapping.where(:followee_id => user_id, :follower_id => self.id).length > 0
     end
 
     def generate_access_token

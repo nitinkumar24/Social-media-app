@@ -7,7 +7,9 @@
              <%end  %>
           </div>
           <div class="content">
-             <div class="header"><%= link_to user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:user.id)%>
+             <div class="header">
+                <%= render 'profile/profile_link' ,user: user %>
+
              </div>
              <div class="meta">
                 <%= user.email %>

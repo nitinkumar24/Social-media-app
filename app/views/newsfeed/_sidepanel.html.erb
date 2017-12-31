@@ -3,12 +3,14 @@
       <%= image_tag current_user.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
    </div>
    <div class="content">
-      <a class="header"><%= link_to current_user.try(:name), url_for(controller:'newsfeed',action: 'profile',method: "get",user_id:current_user.id)%></a>
+      <a class="header">
+         <%= render 'profile/profile_link' ,user: current_user %>
+      </a>
       <div class="meta">
-         <span class="date">Joined in 2013</span>
+         <span class="date">Joined on <%= current_user.created_at.strftime("%d %b ") %></span>
       </div>
       <div class="description">
-         Kristy is an art director living in New York.
+         <%= current_user.about %>
       </div>
    </div>
    <div class="extra content">

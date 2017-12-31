@@ -46,6 +46,7 @@ class NewsfeedController < ApplicationController
         @posts=Post.where(user_id:params[:user_id]).order(created_at: :DESC)
         @comment=Comment.new
         @comments = Comment.all
+        byebug
         user_id=params[:user_id]
         @user=User.find_by_id(user_id)
     end
