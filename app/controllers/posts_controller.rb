@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     # POST /posts.json
     def create
         @post = Post.new(post_params)
+
         @post.user_id = current_user.id
         @comment=Comment.new
         respond_to do |format|
@@ -86,7 +87,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-        params.require(:post).permit(:content, :user_id,:anonymous,:avatar)
+        params.require(:post).permit(:content, :user_id,:anonymous,:avatar, :flavour)
     end
 
     def kabil

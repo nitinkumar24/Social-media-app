@@ -13,20 +13,21 @@ class User < ApplicationRecord
     has_many :posts
 
 
-    def self.search(search,department)
-        if search == ""
-            search = "90"
-        end
+    def self.search(search)
+
         if search
-            where('name LIKE ?', "%#{search}%").or where('department LIKE ?', "%#{department}%" )
+            where('name LIKE ?', "%#{search}%" )
         else
             all
         end
     end
 
     def feed
-        Post.all.order(created_at: :desc).page(params[:page])
+        users = followee_ids
+        users << id
+        Post.includes(:user, :likes).where(user_id: users, flavour: "feed").order(created_at: :desc)
     end
+
 
     def follow_relation user_id
         return UserRelations::SELF if id == user_id

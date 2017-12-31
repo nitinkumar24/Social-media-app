@@ -20,28 +20,17 @@
                 <div class="">
                    <div class="ui form">
                       <div class="field">
-                         <textarea rows="2" name="post[content]" id="post_content" placeholder="Hey,Let Your friends know that you're alive."></textarea>
+                         <textarea rows="2" name="post[content]" id="post_content" placeholder="Hey, Tell us a secret"></textarea>
                       </div>
                    </div>
                 </div>
 
-                <div class="dup-pic" style="display: none;padding-top: 10px">
-                   <img id="blah" src="#"  style="border-radius: 10px;width: 150px;height: 150px;">
-                   <div style="position: relative;top: -127px;display: inline;left: -25px;">
-                      <i class="fa fa-times cancel-pic" aria-hidden="true"></i>
-                   </div>
-                </div>
                 <div class="postbox-toolbar">
-                   <div id="upload-pic-dummy"   >
-                      <div class="upload-pic">
-                         <%= form.file_field :avatar ,id: "imgInp" %><br>
-                      </div>
-                      <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
-                   </div>
+
                    <div class="anonymous">
                       <h3 >Anonymous
                          <%= form.check_box :anonymous %>
-                         <%= form.hidden_field :flavour , value: "feed"  %>
+                         <%= form.hidden_field :flavour , value: "confession"  %>
 
                       </h3>
 
@@ -55,7 +44,7 @@
 
       <div id="posts">
 
-             <%= render @posts %>
+         <%= render @posts %>
 
          <%= will_paginate @posts %>
       </div>
