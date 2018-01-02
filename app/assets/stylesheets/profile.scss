@@ -130,41 +130,41 @@ body{
 
 @media screen and (max-width: 1000px) {
 
-    .pp-sidepanel{
+    .pp-sidepanel {
         width: 0;
         display: none;
     }
 
-    #mid-box{
+    #mid-box {
         margin-top: 10px;
         width: 100%;
         margin-left: 5%;
         padding-top: 10px;
     }
-    #dp-box{
-        position:relative;
+    #dp-box {
+        position: relative;
         padding-left: 0%;
         display: flex;
         padding-bottom: 35px;
         /*border-bottom: 1px solid grey;*/
-        img{
+        img {
             height: 100px;
             width: 100px;
             border-radius: 50%;
         }
     }
-    .pp-info{
+    .pp-info {
         width: 90%;
         padding-left: 3%;
         padding-top: 0px;
-        div{
+        div {
             width: 80%;
             padding-top: 0px;
         }
     }
 
-}
-.pp-posts{
-    width: 96%;
-    margin-left: 0%;
+    .pp-posts {
+        width: 96%;
+        margin-left: 2%;
+    }
 }

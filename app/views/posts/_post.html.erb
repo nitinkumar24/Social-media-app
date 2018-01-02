@@ -55,7 +55,7 @@
          <div class="like">
             <% if post.like_string(current_user.id)=="Like" %>
                 <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id,  type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
-                    <i class="fa fa-fa-thumbs-up"></i>
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                 <% end %>
             <%else  %>
                 <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
