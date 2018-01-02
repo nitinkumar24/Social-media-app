@@ -17,10 +17,10 @@
             <div style="">
                <div id="probox">
                   <div id="flw"><b>Followers</b><br>
-                     <%= @user.followers(current_user.id) %>
+                     <%= @user.followers(@user.id) %>
                   </div>
                   <div id="flwe"><b>Following</b><br>
-                     <%= @user.followee(current_user.id) %>
+                     <%= @user.followee(@user.id) %>
                   </div>
                </div>
 
