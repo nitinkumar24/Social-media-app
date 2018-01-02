@@ -130,6 +130,11 @@ body{
 
 @media screen and (max-width: 1000px) {
 
+    .pp-sidepanel{
+        width: 0;
+        display: none;
+    }
+
     #mid-box{
         margin-top: 10px;
         width: 100%;
@@ -158,4 +163,8 @@ body{
         }
     }
 
+}
+.pp-posts{
+    width: 96%;
+    margin-left: 0%;
 }
