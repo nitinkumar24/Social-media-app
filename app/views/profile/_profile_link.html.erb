@@ -1,1 +1,1 @@
-<%= link_to user.try(:name),profile_show_path(id:user.id)%>
+<%= link_to user.try(:name).capitalize ,profile_show_path(id:user.id)%>
