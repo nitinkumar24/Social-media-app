@@ -8,37 +8,13 @@
       margin:0px;
       padding:0px;
       font-family: 'Source Sans Pro', sans-serif;
-      background: linear-gradient(270deg, #9d8c00, #4c0158, #088b99);
       background-size: 600% 600% !important;
-      /* -webkit-animation: itlGradient 16s ease infinite; */
       -moz-animation: itlGradient 16s ease infinite;
       -o-animation: itlGradient 16s ease infinite;
-      /*animation: itlGradient 16s ease infinite;*/
       background-size:100% 94vh;
 
-
    }
 
-   @-webkit-keyframes itlGradient {
-      0%{background-position:90% 0%}
-      50%{background-position:11% 100%}
-      100%{background-position:90% 0%}
-   }
-   @-moz-keyframes itlGradient {
-      0%{background-position:90% 0%}
-      50%{background-position:11% 100%}
-      100%{background-position:90% 0%}
-   }
-   @-o-keyframes itlGradient {
-      0%{background-position:90% 0%}
-      50%{background-position:11% 100%}
-      100%{background-position:90% 0%}
-   }
-   @keyframes itlGradient {
-      0%{background-position:90% 0%}
-      50%{background-position:11% 100%}
-      100%{background-position:90% 0%}
-   }
 
 </style>
 
@@ -49,17 +25,12 @@
    </div>
 
    <div id="sign-in-form-section" >
-      <div class="sign-in-form"  >
+      <div class="sign-in-form "  >
          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
              <p class="form-topic"><i class="fa fa-sign-in" aria-hidden="true"></i>
                 Sign-In</p><hr style="color: #721615"><br>
-             <% unless user_signed_in? %>
 
-                 <span style="color: red;padding-bottom:5px " ><%= notice %></span>
-                 <span style="color: red;padding-bottom:5px "><%= alert %></span>
-
-                 <% end  %>
              <%= f.email_field :email, autofocus: true ,placeholder:"Email",required: true%>
              <%= f.password_field :password, autocomplete: "off",placeholder:"Password",required: true %>
 

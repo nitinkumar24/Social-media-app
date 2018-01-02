@@ -18,35 +18,35 @@
 //= require typed
 //= require tooltipster.bundle.min
 //= require turbolinks
+//= require jquery.noty.packaged.min.js
 //= require_tree .
 
 // Loads all Semantic javascripts
 //= require semantic-ui
 
 
-
-$(document).ready(function() {
-
-
-    window.load_more_active = false;
-    window.offset = 10;
-    document.addEventListener('scroll', function (event) {
-
-        if (!window.load_more_active) {
-            if (window.scrollMaxY - event.pageY < 50) {
-                window.load_more_active = true;
-                $.ajax({
-                    url: '/',
-                    type: 'GET',
-                    dataType: 'script',
-                    data: {
-                        offset: window.offset,
-                        format: 'js'
-                    }
-                });
-            }
-        }
-
+$(function() {
+    $("#users , #users .pagination ").on("click", 'th a' ,'a', function() {
+        $.getScript(this.href);
+        return false;
     });
+    $("#products_search input").keyup(function() {
+        $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+        return false;
+    });
+});
 
+var textarea = document.querySelector('textarea');
+
+textarea.addEventListener('keydown', autosize);
+
+$.noty.defaults.theme = 'relax';
+Noty.overrideDefaults({
+    layout   : 'topRight',
+    theme    : 'mint',
+    closeWith: ['click', 'button'],
+    animation: {
+        open : 'animated fadeInRight',
+        close: 'animated fadeOutRight'
+    }
 });

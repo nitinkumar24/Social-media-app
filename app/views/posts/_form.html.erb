@@ -1,3 +1,4 @@
+<br>
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -12,16 +13,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content, id: :post_content %>
+    <%= form.text_field :content, id: :post_content, id:"user_email" %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :post_user_id %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="anonymous" style="display: flex;float: right">
+       <h3 >Anonymous
+          <%= form.check_box :anonymous %>
+       </h3>
+       <div class="actions">
+          <%= form.submit 'Update Post', :style => "border:2px solid black;padding:5px;float:right;border-radius:5px;margin-left:5px"   %>
+       </div>
+    </div>
+
 <% end %>

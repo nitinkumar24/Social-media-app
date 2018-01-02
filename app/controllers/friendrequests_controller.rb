@@ -26,9 +26,14 @@ class FriendrequestsController < ApplicationController
         @req_id = params[:req_id]
         FollowMapping.create(:followee_id => current_user.id, :follower_id => follower_id)
         Friendrequest.where(:receiver_id => current_user.id, :sender_id => follower_id).first.destroy
-       respond_to do |format|
-           format.js
-       end
+        puts current_user.followers_count
+        current_user.followers_count += 1
+        current_user.save
+
+        puts "masweferf"
+        respond_to do |format|
+            format.js
+        end
     end
 
     def reject_request

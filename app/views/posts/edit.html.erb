@@ -1,6 +1,12 @@
-<h1>Editing Post</h1>
+<% if @post.user.id == current_user.id %>
 
-<%= render 'form', post: @post %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+    <div style="width: 40%;margin-left: 30%;margin-top: 80px;">
+       <%= render 'form', post: @post %>
+       <div>
+
+
+
+<% else %>
+ "You should not belong here"
+<% end  %>

@@ -12,7 +12,6 @@
  *
 
  *= require_tree .
-
  *= require rails_emoji_picker
  *= require tooltipster.bundle.min
  *= require plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min
@@ -33,6 +32,17 @@
 }
 .ui.comments .comment .metadata > :last-child {
     /* margin-right: 0em; */
+}
+.comments {
+    padding: 0px 2% 0px 2%;
+}
+.ui.comments {
+    margin: 0em 0em;
+    max-width: 650px;
+}
+.ui.dropdown {
+    height:20px;
+
 }
 
 /* line 78, /Users/nitin/.rvm/gems/ruby-2.4.1/gems/semantic-ui-sass-2.2.12.1/app/assets/stylesheets/semantic-ui/globals/_site.scss */
@@ -60,14 +70,24 @@ body{
 }
 a, a:active, a:visited, a:focus,a:hover {
     text-decoration:none;
-    color: none ;
-}
 
+}
+a:hover {
+
+    text-decoration: none;
+}
 input {
     border: none;
     background: transparent;
 }
-
+textarea {
+    box-sizing: border-box;
+    resize: none;
+}
+#search{
+    border: 1px solid black;
+    width: 100%;
+}
 
 #alert,#notice{
     width: 100%;
@@ -78,6 +98,17 @@ input {
     text-align: center;
     line-height: 35px;
     font-family: 'Jura', sans-serif;
+}
+textarea::placeholder {
+    color: #555;;
+    font-size: 14px;
+    font-family: Lato, sans-serif;
+}
+
+input::placeholder {
+    color: #7e2444;
+    font-size: 16px;
+    font-family: Lato, sans-serif;
 }
 
 .likelink{
@@ -156,6 +187,10 @@ input {
     word-wrap: break-word;
 }
 
+div {
+    animation-duration: 1s;
+    animation-name: slidein;
+}
 
 
 

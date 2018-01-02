@@ -1,57 +1,70 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div style="width: 30%;margin-left: 35%;background-color: white;padding-left: 2%;padding-right: 2%">
-  <h3>Edit Profile</h3>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-            <%= f.file_field :avatar %>
-        </div>
-
-      <div>
-        <%= f.text_field :name%>
-      </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
+<div class="edit-profile-page">
+   <h2>Edit <%= resource_name.to_s.humanize %></h2>
+   <br>
 
 
-    <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password(leave blank if you don't want to change it)</i>"%>
+   <div style="" class="edit-profile">
+      <h3>Edit Profile</h3>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
 
-  </div>
+          <div class="field">
+             <%= f.file_field :avatar %>
+          </div>
+
+          <div>
+             <%= f.text_field :name%>
+          </div>
+          <div style="padding-bottom: 10px;width: 100%">
+             <select id="relationstatus" name="user[relationstatus]">
+                <option disabled selected value>Relation status</option>
+                <option value="Single">Single</option>
+                <option value="Taken">Taken</option>
+                <option value="Alone">Forever Alone</option>
+             </select>
+
+             <select id="sex" name="user[sex]">
+                <option disabled selected value>Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+             </select>
+          </div>
+          <textarea data-autoresize rows="2"  name="user[about]" id="user_about"  placeholder="Tell us something about you"></textarea>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="field">
+
+
+             <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password(leave blank if you don't want to change)</i>"%>
+
+          </div>
 
 
 
-  <div class="field">
+          <div class="field">
 
-    <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "6 characters minimum" %>
-  </div>
+             <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "6 characters minimum" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+          <div class="field">
+            <i>(we need your current password to confirm your changes)</i><br />
+             <%= f.password_field :current_password, autocomplete: "off",placeholder: "Current password" %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+          <div class="actions">
+             <%= f.submit "Update", :class => "login-button" %>
+          </div>
+      <% end %>
 
 
+
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class => "login-button" %></p>
+
+
+
+   </div>
 </div>

@@ -28,6 +28,7 @@ gem 'turbolinks', '~> 5'
 gem 'typedjq-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 
 

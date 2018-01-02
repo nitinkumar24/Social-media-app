@@ -1,0 +1,32 @@
+<div class="ui link cards">
+   <% @users.each do |user| %>
+       <% if user.confirmed? %>
+       <div class="card">
+          <div class="image">
+             <% if user.avatar? %>
+                 <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
+             <%end  %>
+          </div>
+          <div class="content">
+             <div class="header">
+                <%= render 'profile/profile_link' ,user: user %>
+
+             </div>
+             <div class="meta">
+                <%= user.email %>
+             </div>
+             <div class="description">
+               <%= user.about %>
+             </div>
+          </div>
+          <div class="extra content">
+      <span class="right floated">
+        Joined in 2013
+      </span>
+           <%= render 'follow_link', user: user %>
+          </div>
+       </div>
+   <% end %>
+       <% end %>
+
+</div>

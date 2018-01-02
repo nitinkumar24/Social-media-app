@@ -1,8 +1,13 @@
+noty({
+    text: 'Post was Created',
+    theme: 'metroui',
+    type: 'alert',
+    layout: 'bottomCenter'
+});
 
-$('#posts').prepend("<%= escape_javascript (render 'newsfeed/post', post: @post) %>");
+$('#posts').prepend("<%= escape_javascript (render 'post', post: @post) %>");
 $('#post_content').val("");
 
     $("#imgInp").val('');
     $(".dup-pic").css("display","none");
 
-console.log("hello there");

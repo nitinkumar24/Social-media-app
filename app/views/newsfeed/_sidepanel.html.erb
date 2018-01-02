@@ -1,0 +1,22 @@
+<div class="ui card">
+   <div class="image">
+      <%= image_tag current_user.avatar.url(:medium),:class =>"h-pro-image",:alt=>""%>
+   </div>
+   <div class="content">
+      <a class="header">
+         <%= render 'profile/profile_link' ,user: current_user %>
+      </a>
+      <div class="meta">
+         <span class="date">Joined on <%= current_user.created_at.strftime("%d %b ") %></span>
+      </div>
+      <div class="description">
+         <%= current_user.about %>
+      </div>
+   </div>
+   <div class="extra content">
+      <a>
+         <i class="user icon"></i>
+         <%= current_user.followers(current_user.id) %>
+      </a>
+   </div>
+</div>

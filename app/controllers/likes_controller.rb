@@ -16,7 +16,7 @@ class LikesController < ApplicationController
             Like.create(user: current_user, post: @post)
             @is_liked = true
             
-            if @post.user_id!=current_user.id
+            unless @post.user_id == current_user.id
                 Notification.create(user_id: current_user.id, recipient_id: @post.user_id, message: current_user.name + " liked your post", noti_type: "post-like", noti_type_id: @post.id)
             end
             
