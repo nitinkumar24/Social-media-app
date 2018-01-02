@@ -1,23 +1,29 @@
+<div class="users-page">
 
-<div style="width: 69%;margin-left: 19%;z-index: 0;margin-top: 100px;">
-   <%= form_tag users_path, :method => 'get', :id => "products_search" do %>
-       <p>
 
-       <div class="wrap">
-          <div class="search">
-             <input type="text" class="searchTerm" name="search" placeholder="Search your college budies">
-             <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-             </button>
+
+   <div>
+
+         <%= form_tag users_path, :method => 'get', :id => "products_search" do %>
+
+          <div class="search-bar" >
+             <div class="wrap">
+                <div class="search">
+                   <input type="text" class="searchTerm" name="search" placeholder="Search for your college buddies">
+                   <button type="submit" class="searchButton">
+                      <i class="fa fa-search"></i>
+                   </button>
+                </div>
+             </div>
           </div>
-       </div>
 
 
 
-       </p>
-   <% end %>
-   <div id="users">
-      <%= render 'users' %>
-   </div>
-   <%= will_paginate @users %>
+         <% end %>
+         <div id="users">
+            <%= render 'users' %>
+         </div>
+         <%= will_paginate @users %>
+         </div>
+
 </div>

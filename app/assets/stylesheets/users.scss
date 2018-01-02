@@ -4,6 +4,15 @@ body{
     background: #f2f2f2;
     font-family: 'Open Sans', sans-serif;
 }
+.users-page{
+    width: 68%;
+    margin-left: 12%;
+    margin-top: 70px;
+    .search-bar{
+        width: 80%;
+        margin-bottom: 40px;
+    }
+}
 
 .search {
     width: 100%;
@@ -11,13 +20,14 @@ body{
 }
 
 .searchTerm {
-    width: 80%;
-    border: 3px solid #721615;
+    width: 90%;
+    border-bottom: 1px solid grey;
     padding: 15px;
     height: 20px;
-    border-radius: 5px;
     outline: none;
-    color: #721615;
+    color: #7f90b6;
+    font-size: 25px;
+    font-family: Lato, sans-serif;
 }
 
 .searchTerm:focus{
@@ -27,13 +37,28 @@ body{
 .searchButton {
     position: absolute;
     width: 40px;
-    height: 36px;
-    //border: 1px solid #00B4CC;
-    background: #721615;
+    height: 30px;
+    /* background: #721615; */
     text-align: center;
-    color: #fff;
+    color: #192955;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 17px;
 }
 
+@media screen and (max-width: 1000px) {
+    .users-page{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 70px;
+        .search-bar{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        #users{
+            width: 80%;
+            margin-left: 10%;
+        }
+    }
+
+}

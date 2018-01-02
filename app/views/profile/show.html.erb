@@ -1,11 +1,46 @@
 
-
 <div id="wrapper">
    <div id="mid-box">
-
       <div id="dp-box">
          <%= image_tag @user.avatar.url(:medium),:class =>"pro-image" %>
+         <div class="pp-info">
+            <p class="pp-name"><%=@user.name%>
+               <span class="pp-follow">
+                  <% if @user.id==current_user.id %>
+                      <%=link_to "Edit Profile",edit_user_registration_path%>
+                  <% else  %>
+                      <%= render 'newsfeed/follow_link', user: @user %>
+                  <%end  %>
+               </span>
+            </p>
 
+            <div style="">
+               <div id="probox">
+                  <div id="flw"><b>Followers</b><br>
+                     <%= current_user.followers(current_user.id) %>
+                  </div>
+                  <div id="flwe"><b>Following</b><br>
+                     <%= current_user.followee(current_user.id) %>
+                  </div>
+               </div>
+
+            </div>
+
+            <hr style="opacity: 0.3">
+
+            <span class="pp-email" style="font-family: 'Jura', sans-serif">
+               <%=@user.email%>
+            </span>
+            <br>
+            <span class="pp-email" style="font-family: 'Jura', sans-serif">
+               <%=@user.department%>
+            </span>
+            <span class="pp-email" style="font-family: 'Jura', sans-serif">
+               <%=@user.about%>
+            </span>
+
+
+         </div>
 
       </div>
       <hr style="opacity: 0.3">
@@ -14,31 +49,28 @@
          <div class="pp-sidepanel">
             <div class="pictures" style="display: flex;width: 100%;text-align:center;flex-direction: column;box-shadow: 0px 0px 3px #666666;">
                <h3 style="background-color: #efeeee;font-family: 'Jura', sans-serif;padding: 8px">Photos</h3>
-               <% @posts.each do |pic|%>
-
-                   <div >
-                      <% if pic.avatar? %>
-                          <%= image_tag pic.avatar.url(:medium),:class =>"pic-gal-image" %>
-                      <% end  %>
+               <% unless @posts.nil? %>
+                   <% @posts.each do |pic|%>
+                       <div >
+                          <% if pic.avatar? %>
+                              <%= image_tag pic.avatar.url(:medium),:class =>"pic-gal-image" %>
+                          <% end  %>
+                       </div>
+                   <% end  %>
                    </div>
-               <% end  %>
+                   </div>
 
+                   <div class="pp-posts">
+                      <div id="posts">
 
-            </div>
-         </div>
+                         <%= render @posts %>
 
-         <div class="pp-posts">
-            <div id="posts">
+                         <%= will_paginate @posts  %>
 
-               <%= render @posts %>
-
-               <%= will_paginate @posts  %>
-
-
-            </div>
-         </div>
-
-      </div>
+               <% end %>
+               </div>
+               </div>
+               </div>
 
 
    </div>
@@ -47,127 +79,3 @@
 
 </div>
 
-<style type="text/css">
-   body{
-      margin:0;
-      padding:0;
-      background-color:#FAFAFA;
-   }
-
-   .pic-gal-image{
-      width: 100%;
-   }
-   #left-box{
-      margin-top:10px;
-      width:0;
-      height:900px;
-      background-color:black;
-   }
-
-   #mid-box{
-      margin-top:10px;
-      width:65%;
-      margin-left: 5%;
-      padding-top: 55px;
-      /*box-shadow: 0px 0px 3px #666666;*/
-   }
-   #right-box{
-      margin-top:10px;
-      margin-left: 2%;
-      width:20%;
-      height:900px;
-      /*background-color:black;*/
-   }
-   #wrapper{
-      display:flex;
-      background-color: white;
-
-      /*justify-content: space-between;*/
-      z-index:0;
-      margin-top: 49px;
-
-   }
-   #dp-box{
-      position:relative;
-      padding-left: 5%;
-      display: flex;
-      padding-bottom: 55px;
-      /*border-bottom: 1px solid grey;*/
-   }
-   #dp-box img{
-
-
-   }
-   .pp-info{
-      width: 85%;
-      padding-left: 7%;
-      padding-top: 15px;
-   }
-
-   .pp-name{
-      font-family: 'Jura', sans-serif;
-      font-size: 36px;
-   }
-   .pp-email{
-      font-size: 14px;
-   }
-   .pp-follow{
-
-      font-size: 24px;
-      padding: 0 30px 0 30px;
-      /*background-color: #7e2444;*/
-      border: 1px solid #730E15;
-      border-radius: 4px;
-      /*color: #7e2444;*/
-
-   }
-   .pp-follow a{
-      color:  #7e2444;;
-   }
-   .pp-follow:hover{
-      background-color: #7e2444;
-   }
-   .pp-follow a:hover{
-      color:  white;;
-   }
-
-   .pro-image{
-      height: 200px;
-      width: 200px;
-      border-radius: 50%;
-
-
-   }
-   .cover-image{
-      height: 100%;
-      width: 100%;
-   }
-   #menu-span{
-      display:flex;
-      justify-content: space-around;
-      background-color:white;
-      border:1px solid grey;
-   }
-   #menu-span a{
-      text-decoration:none;
-      color:black;
-      font-size:20px;
-      width:50px;
-   }
-
-   .profile-posts{
-      display: flex;
-      padding-top: 20px;
-      /*background-color: #730E15;*/
-   }
-   .pp-sidepanel{
-      width:38% ;
-      /*background-color: #730E15;*/
-
-   }
-   .pp-posts{
-      width: 60%;
-      margin-left: 2%;
-   }
-
-</style>

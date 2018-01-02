@@ -1,3 +1,161 @@
 // Place all the styles related to the profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+    margin:0;
+    padding:0;
+    background-color:#FAFAFA;
+}
+
+.pic-gal-image{
+    width: 100%;
+}
+#left-box{
+    margin-top:10px;
+    width:0;
+    height:900px;
+    background-color:black;
+}
+
+#mid-box{
+    margin-top:10px;
+    width:65%;
+    margin-left: 5%;
+    padding-top: 55px;
+    /*box-shadow: 0px 0px 3px #666666;*/
+}
+#right-box{
+    margin-top:10px;
+    margin-left: 2%;
+    width:20%;
+    height:900px;
+    /*background-color:black;*/
+}
+#wrapper{
+    display:flex;
+    background-color: white;
+
+    /*justify-content: space-between;*/
+    z-index:0;
+    margin-top: 49px;
+
+}
+#dp-box{
+    position:relative;
+    padding-left: 5%;
+    display: flex;
+    padding-bottom: 55px;
+    /*border-bottom: 1px solid grey;*/
+}
+#dp-box img{
+
+
+}
+.pp-info{
+    width: 85%;
+    padding-left: 7%;
+    padding-top: 15px;
+    div{
+        width: 50%;
+        padding-top: 0px;
+    }
+}
+
+.pp-name{
+    font-family: 'Jura', sans-serif;
+    font-size: 36px;
+}
+.pp-email{
+    font-size: 14px;
+}
+.pp-follow{
+
+    font-size: 24px;
+    padding: 0 30px 0 30px;
+    /*background-color: #7e2444;*/
+    border: 1px solid #730E15;
+    border-radius: 4px;
+    /*color: #7e2444;*/
+
+}
+.pp-follow a{
+    color:  #7e2444;;
+}
+.pp-follow:hover{
+    background-color: #7e2444;
+}
+.pp-follow a:hover{
+    color:  white;;
+}
+
+.pro-image{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+
+
+}
+.cover-image{
+    height: 100%;
+    width: 100%;
+}
+#menu-span{
+    display:flex;
+    justify-content: space-around;
+    background-color:white;
+    border:1px solid grey;
+}
+#menu-span a{
+    text-decoration:none;
+    color:black;
+    font-size:20px;
+    width:50px;
+}
+
+.profile-posts{
+    display: flex;
+    padding-top: 20px;
+    /*background-color: #730E15;*/
+}
+.pp-sidepanel{
+    width:38% ;
+    /*background-color: #730E15;*/
+
+}
+.pp-posts{
+    width: 60%;
+    margin-left: 2%;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+    #mid-box{
+        margin-top: 10px;
+        width: 100%;
+        margin-left: 5%;
+        padding-top: 10px;
+    }
+    #dp-box{
+        position:relative;
+        padding-left: 0%;
+        display: flex;
+        padding-bottom: 35px;
+        /*border-bottom: 1px solid grey;*/
+        img{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+    }
+    .pp-info{
+        width: 90%;
+        padding-left: 3%;
+        padding-top: 0px;
+        div{
+            width: 80%;
+            padding-top: 0px;
+        }
+    }
+
+}
