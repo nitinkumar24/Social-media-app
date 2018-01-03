@@ -95,7 +95,7 @@ Rails.application.configure do
           port:                 587,
           domain:               'gmail.com',
           user_name:            'admin@sociograms.in',
-          password:             'n9c7GsuiT69',
+          password:             'n9c7GsuiT869',
           authentication:       :plain,
           enable_starttls_auto: true
   }
