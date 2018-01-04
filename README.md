@@ -1,4 +1,4 @@
-Clone repo.
+Clone repo.\n
 Go to project directory.
 run (bundle install)
 run (rake db:migrate)
