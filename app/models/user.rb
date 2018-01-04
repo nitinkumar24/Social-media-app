@@ -6,11 +6,23 @@ class User < ApplicationRecord
 
     validates :name, presence: true
     validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
-
-
-    has_attached_file :avatar, :styles => { :medium => "1000x00>", :thumb => "40x40#" }, :default_url => "/images/:style/missing.png"
-    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     has_many :posts, dependent: :destroy
+
+
+    has_attached_file :avatar, :styles => { :thumb => '50x50', :medium => '1000x1000'}, :default_url => "/images/:style/missing.png"
+    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+    crop_attached_file :avatar
+
+
+
+
+
+
+
+    def avatar_geometry(style = :original)
+        @geometry ||= {}
+        @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
+    end
 
     def update_with_password(params, *options)
         current_password = params.delete(:current_password)
@@ -112,5 +124,6 @@ class User < ApplicationRecord
         self.access_token = generated
         save!
     end
+
 
 end

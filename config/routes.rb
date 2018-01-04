@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   post 'newsfeed/delete_request'
   post 'friendrequests/accept_request'
   post 'friendrequests/reject_request'
-  
+
   devise_for :users
 
 end

@@ -31,7 +31,9 @@ gem 'unicorn'
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 
-
+gem 'mini_magick'
+gem 'rails-assets-jcrop', source: 'https://rails-assets.org'
+gem  'papercrop'
 
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
