@@ -2,7 +2,9 @@ noty({
     text: 'Post was Created',
     theme: 'metroui',
     type: 'alert',
-    layout: 'bottomCenter'
+    layout: 'topCenter',
+    timeout: 1000
+
 });
 
 $('#posts').prepend("<%= escape_javascript (render 'post', post: @post) %>");
