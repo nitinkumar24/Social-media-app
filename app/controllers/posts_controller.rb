@@ -1,32 +1,17 @@
 class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-    # GET /posts
-    # GET /posts.json
-
-
-    # GET /posts/1
-    # GET /posts/1.json
-
-
-    # GET /posts/new
-
-
-    # GET /posts/1/edit
-
-
-    # POST /posts
-    # POST /posts.json
     def create
+        puts post_params
         @post = Post.new(post_params)
-
         @post.user_id = current_user.id
+        check_anonymous_avatar_create
         @comment=Comment.new
         respond_to do |format|
+
             if @post.save
                 format.html { redirect_to '/', notice: 'Post was successfully created.' }
                 format.js {   }
-
                 format.json { render :show, status: :created, location: @post }
             else
                 format.html { render 'newsfeed/index' }
@@ -35,12 +20,7 @@ class PostsController < ApplicationController
         end
     end
 
-    # PATCH/PUT /posts/1
-    # PATCH/PUT /posts/1.json
 
-
-    # DELETE /posts/1
-    # DELETE /posts/1.json
     def destroy
         if kabil
             @post.destroy!
@@ -65,6 +45,7 @@ class PostsController < ApplicationController
         if kabil
             respond_to do |format|
                 if @post.update(post_params)
+                    check_anonymous_avatar_update
                     format.html { redirect_to @post, notice: 'Post was successfully updated.' }
                     format.json { render :show, status: :ok, location: @post }
                 else
@@ -91,4 +72,44 @@ class PostsController < ApplicationController
         @post.user.id == current_user.id
     end
 
+    def check_anonymous_avatar_create
+        if @post.anonymous and @post.avatar?
+            puts @post.avatar.destroy
+            puts @post.avatar
+        end
+    end
+
+    def check_anonymous_avatar_update
+        if @post.anonymous and @post.avatar?
+            @post.anonymous = false
+            @post.save
+            puts @post.anonymous
+        end
+    end
+
 end
+
+
+# GET /posts
+# GET /posts.json
+
+
+# GET /posts/1
+# GET /posts/1.json
+
+
+# GET /posts/new
+
+
+# GET /posts/1/edit
+
+
+# POST /posts
+# POST /posts.json
+
+# PATCH/PUT /posts/1
+# PATCH/PUT /posts/1.json
+
+
+# DELETE /posts/1
+# DELETE /posts/1.json
