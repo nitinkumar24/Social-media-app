@@ -1,0 +1,15 @@
+.edit-picture{
+    margin-left: 35%;
+    width: 30%;
+    margin-top: 60px;
+    margin-bottom: 100px;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .edit-picture{
+        margin-left: 5%;
+        width: 90%;
+        margin-top: 100px;
+    }
+}

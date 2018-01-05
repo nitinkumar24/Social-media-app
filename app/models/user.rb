@@ -9,7 +9,7 @@ class User < ApplicationRecord
     has_many :posts, dependent: :destroy
 
 
-    has_attached_file :avatar, :styles => { :thumb => '50x50', :medium => '1000x1000'}, :default_url => "/images/:style/missing.png"
+    has_attached_file :avatar, :styles => { :thumb => '50x50', :medium => '1000x1000', :small => '500x500'}, :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     crop_attached_file :avatar
 
