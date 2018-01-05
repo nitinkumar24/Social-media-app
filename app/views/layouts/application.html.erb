@@ -62,7 +62,11 @@
     </script>
 <% end %>
 
-
+<script>
+    $(window).on('turbolinks:load', function() {
+        $(".loader").fadeOut("slow");
+    });
+</script>
 
 <% if user_signed_in? %>
     <headerbar >
@@ -137,6 +141,7 @@
         </header>
     </headerbar>
 <% end %>
+<div class="loader"></div>
 
 <%= yield %>
 
