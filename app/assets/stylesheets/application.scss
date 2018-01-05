@@ -206,10 +206,11 @@ div {
 
 .loader {
     position: fixed;
-    left: 0px;
-    top: 0px;
+    left: 0%;
+    top: 0%;
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: url('https://cdn.dribbble.com/users/86680/screenshots/1929159/flickoffdribbble.gif') 50% 50% no-repeat rgb(249,249,249);
+    background: url('https://cdn.dribbble.com/users/682556/screenshots/2753197/rainbow_poop.gif') 50% 50% no-repeat rgb(249,249,249);
+    background-size: 50%;
 }
