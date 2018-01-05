@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'notifications/show'
   get 'newsfeed/friendrequests'
   get '/profile/show'
+  get 'profile/edit_picture'
 
   get '/:id', :to => "profile#show"
   root to: 'newsfeed#index'
@@ -25,6 +26,6 @@ Rails.application.routes.draw do
   post 'friendrequests/accept_request'
   post 'friendrequests/reject_request'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
 
 end
