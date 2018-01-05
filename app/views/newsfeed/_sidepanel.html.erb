@@ -13,10 +13,14 @@
          <%= current_user.about %>
       </div>
    </div>
-   <div class="extra content">
+   <div class="extra content" data-turbolinks="false">
       <a>
-         <i class="user icon"></i>
-         <%= current_user.followers(current_user.id) %>
+
+
+         <%if  current_user.avatar? %>
+             <%= link_to "Doesn't look great, Crop picture",profile_edit_picture_path%>
+
+         <% end %>
       </a>
    </div>
 </div>

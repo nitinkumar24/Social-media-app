@@ -1,5 +1,6 @@
 
-      <%= form_for(@user, as: @user, url: registration_path(@user), html: { method: :put }) do |f| %>
+
+<%= form_for(@user, as: @user, url: registration_path(@user), html: { method: :put }) do |f| %>
 
 
           <div class="field">
@@ -16,9 +17,5 @@
              <%= f.submit "Update", :class => "login-button" %>
           </div>
       <% end %>
-
-
-   </div>
-</div>
 
 
