@@ -59,6 +59,12 @@ p {
 .ui.card {
     margin: 0em 0em;
 }
+
+.ui.cards > .card > .image:not(.ui) > img,
+.ui.card > .image:not(.ui) > img {
+    height: 300px;
+}
+
 * {
     padding: 0;
     margin:0;
