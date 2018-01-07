@@ -5,7 +5,7 @@ class NewsfeedController < ApplicationController
         @post = Post.new
         @comment = Comment.new
         @comments = Comment.all
-        @posts = current_user.feed.where(flavour: "feed").paginate(:page => params[:page], :per_page => 7)
+        @posts = current_user.feed.where(flavour: "feed").paginate(:page => params[:page], :per_page => 6)
         respond_to do |format|
             format.html{
             }

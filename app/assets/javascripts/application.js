@@ -19,6 +19,7 @@
 //= require tooltipster.bundle.min
 //= require turbolinks
 //= require jquery.noty.packaged.min.js
+
 //= require papercrop
 
 //= require jcrop

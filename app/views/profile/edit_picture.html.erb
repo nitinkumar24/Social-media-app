@@ -1,3 +1,5 @@
+
+
 <div class="edit-picture">
 
 <%= form_for(@user, as: @user, url: registration_path(@user), html: { method: :put }) do |f| %>
@@ -7,16 +9,20 @@
               <%= f.crop_preview :avatar, :width => 150 %>
           <% end %>
 
-
           <div class="actions">
              <%= f.submit "Update picture", :class => "login-button" %>
           </div>
       <% end %>
 
 </div>
+<div class="loader">
+
+</div>
 
 <script>
-    $( document ).ready(function() {
-        console.log( "ready!" );
+
+    $(window).on('turbolinks:load', function() {
+        $(".loader").fadeOut(900);
     });
+
 </script>
