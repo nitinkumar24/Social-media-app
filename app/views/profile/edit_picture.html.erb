@@ -2,17 +2,17 @@
 
 <div class="edit-picture">
 
-<%= form_for(@user, as: @user, url: registration_path(@user), html: { method: :put }) do |f| %>
+   <%= form_for(@user, as: @user, url: registration_path(@user), html: { method: :put }) do |f| %>
 
-          <% if current_user.avatar? %>
-              <%= f.cropbox :avatar, :width => 300 %>
-              <%= f.crop_preview :avatar, :width => 150 %>
-          <% end %>
+       <% if current_user.avatar? %>
+           <%= f.cropbox :avatar, :width => 300 %>
+           <%= f.crop_preview :avatar, :width => 150 %>
+       <% end %>
 
-          <div class="actions">
-             <%= f.submit "Update picture", :class => "login-button" %>
-          </div>
-      <% end %>
+       <div class="actions">
+          <%= f.submit "Update picture", :class => "login-button" %>
+       </div>
+   <% end %>
 
 </div>
 <div class="loader">

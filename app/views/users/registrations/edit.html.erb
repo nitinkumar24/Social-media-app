@@ -17,6 +17,24 @@
           <div>
              <%= f.text_field :name%>
           </div>
+          <div style="border: 1px solid black;
+              /* color: black; */
+              height: 34px;
+              background-color: white;
+              padding-top: 6px;
+              border-radius: 3px;
+              margin-bottom: 10px;">
+             <span style="color: black;padding-left: 2%">Birthday :</span>
+             <%= date_select :user, :birthday,
+                             {:start_year => 1980,
+                              :end_year => 2005
+                             },
+                             {:class => "input-mini"}  %>
+             <br>
+          </div>
+          <%= f.radio_button(:sex,"male") %><i class="fa fa-male" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 10px;color: #721615"></i>
+          <%= f.radio_button(:sex,"female") %><i class="fa fa-female" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 14px;color: #721615"></i>
+
           <div style="padding-bottom: 10px;width: 100%">
              <select id="relationstatus" name="user[relationstatus]">
                 <option disabled selected value>Relation status</option>
