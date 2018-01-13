@@ -95,8 +95,11 @@ Rails.application.configure do
           port:                 465,
           user_name:            'admin@sociograms.in',
           password:             'c7n9zoho875',
-          authentication:       :plain,
-          enable_starttls_auto: true
+          authentication:       :login,
+          ssl:                    true,
+          enable_starttls_auto:   true,
+
+
   }
 
 end

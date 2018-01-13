@@ -58,13 +58,15 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'gmail.com',
-    user_name:            'railsmtesting@gmail.com',
-    password:             'nitin241196r',
-    authentication:       :plain,
-    enable_starttls_auto: true
+          address:              'smtp.zoho.com',
+          port:                 465,
+          user_name:            'admin@sociograms.in',
+          password:             'c7n9zoho875',
+          authentication:       :login,
+          ssl:                    true,
+          enable_starttls_auto:   true,
+
+
   }
 
 end
