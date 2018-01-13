@@ -19,7 +19,7 @@
 //= require tooltipster.bundle.min
 //= require turbolinks
 //= require jquery.noty.packaged.min.js
-
+//= require social-share-button
 //= require papercrop
 
 //= require jcrop

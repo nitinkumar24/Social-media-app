@@ -91,11 +91,10 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'sociograms.in', port: 80 }
 
   config.action_mailer.smtp_settings = {
-          address:              'smtp.gmail.com',
-          port:                 587,
-          domain:               'gmail.com',
+          address:              'smtp.zoho.com',
+          port:                 465,
           user_name:            'admin@sociograms.in',
-          password:             'n9c7GsuiT869',
+          password:             'c7n9zoho875',
           authentication:       :plain,
           enable_starttls_auto: true
   }

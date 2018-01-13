@@ -22,6 +22,7 @@ gem 'rails_emoji_picker'
 gem 'sass-rails', '~> 5.0'
 gem 'semantic-ui-sass'
 gem "sentry-raven"
+gem 'social-share-button'
 gem 'sqlite3'
 gem 'therubyracer'
 gem 'tooltipster-rails'

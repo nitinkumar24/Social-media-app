@@ -16,7 +16,7 @@
  *= require tooltipster.bundle.min
  *= require plugins/tooltipster/sideTip/themes/tooltipster-sideTip-punk.min
  *= require jcrop
-
+ *= require social-share-button
  *= require_self
  *= require animate
 
@@ -50,7 +50,7 @@
 /* line 78, /Users/nitin/.rvm/gems/ruby-2.4.1/gems/semantic-ui-sass-2.2.12.1/app/assets/stylesheets/semantic-ui/globals/_site.scss */
 
 h3:last-child,h3:First-child{
-     margin-top: none;
+    margin-top: none;
 }
 
 p {
