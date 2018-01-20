@@ -13,49 +13,12 @@
 
    <section>
       <div class="createPost">
-         <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
-         <div class="input-post">
-            <%= form_for @post,remote: true do |form| %>
-                <div class="">
-                   <div class="ui form">
-                      <div class="field">
-                         <textarea rows="2" name="post[content]" id="post_content" placeholder="Hey,Let Your friends know that you're alive."></textarea>
-                      </div>
-                   </div>
-                </div>
-
-                <div class="dup-pic" style="display: none;padding-top: 10px">
-                   <img id="blah" src="#"  style="border-radius: 10px;width: 150px;height: 150px;">
-                   <div style="position: relative;top: -127px;display: inline;left: -25px;">
-                      <i class="fa fa-times cancel-pic" aria-hidden="true"></i>
-                   </div>
-                </div>
-                <div class="postbox-toolbar">
-                   <div id="upload-pic-dummy"   >
-                      <div class="upload-pic">
-                         <%= form.file_field :avatar ,id: "imgInp" %><br>
-                      </div>
-                      <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
-                   </div>
-                   <div class="anonymous">
-                      <h3 >Anonymous
-                         <%= form.check_box :anonymous %>
-                         <%= form.hidden_field :flavour , value: "feed"  %>
-
-                      </h3>
-
-                   </div>
-                   <%= form.submit 'Post', :class => 'postbutton'   %>
-                </div>
-
-            <% end %>
-
-         </div>
+         <%= render 'post_form' %>
       </div>
 
       <div id="posts">
 
-             <%= render @posts %>
+         <%= render @posts %>
 
          <%= will_paginate @posts %>
       </div>

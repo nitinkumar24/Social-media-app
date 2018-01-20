@@ -27,8 +27,7 @@ class PostsController < ApplicationController
             respond_to do |format|
                 format.html { redirect_to '/', notice: 'Post was successfully destroyed.' }
                 format.json { head :no_content }
-                format.js{
-                }
+                format.js{ }
             end
         else
             redirect_to '/', notice: 'that was not cool'
@@ -57,6 +56,7 @@ class PostsController < ApplicationController
             redirect_to '/', notice: 'that was not cool'
         end
     end
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

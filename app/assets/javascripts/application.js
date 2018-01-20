@@ -43,14 +43,3 @@ $(function() {
 var textarea = document.querySelector('textarea');
 
 textarea.addEventListener('keydown', autosize);
-
-$.noty.defaults.theme = 'relax';
-Noty.overrideDefaults({
-    layout   : 'topRight',
-    theme    : 'mint',
-    closeWith: ['click', 'button'],
-    animation: {
-        open : 'animated fadeInRight',
-        close: 'animated fadeOutRight'
-    }
-});
