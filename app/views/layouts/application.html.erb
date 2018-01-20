@@ -116,23 +116,25 @@
                            -webkit-text-stroke-color: grey;color: white"></i>
                    <% end %>
                 </li>
-                <li>
 
-                   <li class="ui dropdown dropdown-option">
-                      <i class="fa fa-caret-down "></i>
+                <li class="" >
+                   <div class="ui simple dropdown  item ">
+                      <span class="text"><%= current_user.name %></span>
+                      <i class="dropdown icon" style="margin-left: 0"></i>
                       <div class="menu">
-
-                         <div class="item">
-                            <i class="trash icon"></i>
-                            Delete account
-                         </div>
-                         <div class="divider"></div>
 
 
                          <div class="item"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></div>
+
+                         <div class="divider"></div>
+
+
+                         <div class="item">Cancellations</div>
                       </div>
-                   </li>
+                   </div>
+
                 </li>
+
 
 
              </ul>
