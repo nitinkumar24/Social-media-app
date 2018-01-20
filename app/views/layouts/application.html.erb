@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
 
-    <title>Sociograms</title>
 
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+   <%= csrf_meta_tags %>
+   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 
    <% if Rails.env.production? %>
@@ -32,8 +32,8 @@
 
 
    <style>
-        .tooltip_templates { display: none; }
-    </style>
+      .tooltip_templates { display: none; }
+   </style>
 
 </head>
 
@@ -66,75 +66,75 @@
 
 <% if user_signed_in? %>
     <headerbar >
-        <header>
-            <nav class="left-nav">
-                <ul>
-                    <li>
-                        <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                            -webkit-text-stroke-color: grey;color: white"></i><span> Home </span></a>
-                    </li>
-                    <li><%= link_to confessions_path do%>
-                            <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                                -webkit-text-stroke-color: grey;color: white"></i> Confessions<% end %>
-                    </li>
-                    <li>
-                        <%= link_to "" do %>
-                            <i class="fa fa-smile-o" aria-hidden="true"></i>
-                            Memes
-                        <%end%>
-                    </li>
+       <header>
+          <nav class="left-nav">
 
-                </ul>
-            </nav>
+             <ul>
+                <li>
+                   <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                       -webkit-text-stroke-color: grey;color: white"></i><span> Home </span></a>
+                </li>
+                <li>
+                   <%= link_to confessions_path do%>
+                       <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                           -webkit-text-stroke-color: grey;color: white"></i> Confessions <% end %>
+                </li>
+                <li>
+                   <%= link_to "" do %>
+                       <i class="fa fa-smile-o" aria-hidden="true"></i>Memes <%end%>
+                </li>
+             </ul>
 
-            <div class="logo">
-                <%= link_to "SocioGrams",newsfeed_index_path,:class=>"animated rollIn"%>
-            </div>
+          </nav>
 
-
-
-            <nav class="right-nav">
-                <ul>
-                   <!--<li>-->
-                      <!--<i class="fa fa-search" aria-hidden="true"></i>-->
-                   <!--</li>-->
-                    <li>
-                        <%= link_to users_path do %>
-                            <i class="fa fa-users" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                                -webkit-text-stroke-color: grey;color: white"></i>
-                            Users
-                        <%end%>
-                    </li>
-                    <li>
-                        <%= link_to notifications_show_path do%>
-                            <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                                -webkit-text-stroke-color: grey;color: white"></i>
-                            Notifications
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to newsfeed_friendrequests_path do%>
-
-                            <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                                -webkit-text-stroke-color: grey;color: white"></i>
-                            Requests
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to "Sign Out",destroy_user_session_path,method: :delete %>
-                    </li>
-
-
-                </ul>
-            </nav>
-
-            <div style="position: absolute;left: 75%;width: 18%;display: none">
-                <input type="text" class="searchTerm" placeholder="What are you looking for?">
-            </div>
+          <div class="logo">
+             <%= link_to "SocioGrams",newsfeed_index_path,:class=>"animated rollIn"%>
+          </div>
 
 
 
-        </header>
+          <nav class="right-nav">
+             <ul>
+                <!--<li>-->
+                <!--<i class="fa fa-search" aria-hidden="true"></i>-->
+                <!--</li>-->
+                <li>
+                   <%= link_to users_path do %>
+                       <i class="fa fa-users" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                           -webkit-text-stroke-color: grey;color: white"></i>
+                       Users
+                   <%end%>
+                </li>
+                <li>
+                   <%= link_to notifications_show_path do%>
+                       <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                           -webkit-text-stroke-color: grey;color: white"></i>
+                       Notifications
+                   <% end %>
+                </li>
+                <li>
+                   <%= link_to newsfeed_friendrequests_path do%>
+
+                       <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                           -webkit-text-stroke-color: grey;color: white"></i>
+                       Requests
+                   <% end %>
+                </li>
+                <li>
+                   <%= link_to "Sign Out",destroy_user_session_path,method: :delete %>
+                </li>
+
+
+             </ul>
+          </nav>
+
+          <div style="position: absolute;left: 75%;width: 18%;display: none">
+             <input type="text" class="searchTerm" placeholder="What are you looking for?">
+          </div>
+
+
+
+       </header>
     </headerbar>
 <% end %>
 

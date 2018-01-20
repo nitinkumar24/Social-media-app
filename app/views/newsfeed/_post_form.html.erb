@@ -15,20 +15,20 @@
              <i class="fa fa-times cancel-pic" aria-hidden="true"></i>
           </div>
        </div>
+
        <div class="postbox-toolbar">
-          <div id="upload-pic-dummy"   >
+          <div id="upload-pic-dummy">
              <div class="upload-pic">
                 <%= form.file_field :avatar ,id: "imgInp" %><br>
              </div>
              <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
           </div>
+
           <div class="anonymous">
              <h3 >Anonymous
                 <%= form.check_box :anonymous %>
                 <%= form.hidden_field :flavour , value: "feed"  %>
-
              </h3>
-
           </div>
           <%= form.submit 'Post', :class => 'postbutton'   %>
        </div>
