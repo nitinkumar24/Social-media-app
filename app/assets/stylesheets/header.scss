@@ -68,12 +68,51 @@ headerbar{
                 }
                 li a:visited{
                 }
+                li.dropdown-option{
+                    a{
+                        display: block;
+                        color: #2b2929;
+                        font-size: 20px;
+                        text-align: center;
+                        padding: 0px 8px;
+                        text-decoration: none;
+                        font-family: 'Jura', sans-serif;
+                        letter-spacing: -0.05em;
+                    }
+                }
             }
         }
         nav.right-nav {
             position: absolute;
-            left: 60%;
+            right: 15%;
             margin-left: 0;
+            height: 56px;
+
+            ul{
+                display: flex;
+                align-items: center;
+                li{
+                    list-style: none;
+                    text-decoration: none;
+                    padding-left: 10px;
+                }
+                li a {
+                    display: block;
+                    color: #730E15;//#64b0ec;
+                    font-size: 20px;
+                    text-align: center;
+                    padding: 15px 8px;
+                    text-decoration: none;
+                    font-family: 'Jura', sans-serif;
+                    letter-spacing: -0.05em;
+                }
+                li a:hover{
+                    border-bottom: 0 solid #730E15;
+                    color: #3f5080;
+                }
+                li a:visited{
+                }
+            }
 
 
         }
