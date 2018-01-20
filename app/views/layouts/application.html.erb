@@ -62,6 +62,11 @@
     </script>
 <% end %>
 
+<script>
+    $('.ui.dropdown')
+        .dropdown();
+</script>
+
 
 
 <% if user_signed_in? %>
@@ -117,32 +122,30 @@
                    <% end %>
                 </li>
 
-                <li class="" >
-                   <div class="ui simple dropdown  item ">
-                      <span class="text"><%= current_user.name %></span>
-                      <i class="dropdown icon" style="margin-left: 0"></i>
-                      <div class="menu">
-
-
-                         <div class="item"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></div>
-
-                         <div class="divider"></div>
-
-
-                         <div class="item">Cancellations</div>
-                      </div>
-                   </div>
-
-                </li>
 
 
 
              </ul>
+
+             <div class="" style="padding-left: 10px" >
+                <div class="ui dropdown pointing ">
+                   <%= current_user.name.capitalize %>
+                   <i class="dropdown icon" style="margin-left: 0"></i>
+                   <div class="menu">
+                      <div class="item"> <%=link_to "Edit Profile",edit_user_registration_path%></div>
+                      <div class="item"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></div>
+                   </div>
+                </div>
+
+             </div>
+
+
+
+
+
+
           </nav>
 
-          <div style="position: absolute;left: 75%;width: 18%;display: none">
-             <input type="text" class="searchTerm" placeholder="What are you looking for?">
-          </div>
 
 
 

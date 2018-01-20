@@ -87,6 +87,8 @@ headerbar{
             right: 15%;
             margin-left: 0;
             height: 56px;
+            display: flex;
+            align-items: center;
 
             ul{
                 display: flex;
