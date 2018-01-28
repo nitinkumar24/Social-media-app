@@ -5,7 +5,7 @@ class User < ApplicationRecord
            :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
     validates :name, presence: true
-    validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
+    # validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
     has_many :posts, dependent: :destroy
 
 
