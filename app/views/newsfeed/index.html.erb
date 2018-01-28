@@ -42,20 +42,21 @@
 <script>
 
 
-
     $.ajax({url: '/ajax',
         data: {
-            text: "text"
+            mode: sessionStorage.getItem('mode')
         }
         , success: function(data){
             console.log(data);
             console.log("request completed");
+
         },
         error: function(){
             console.log(arguments);
             console.log("some error");
         }
     });
+
 
     //image preview before upload
     function readURL(input) {

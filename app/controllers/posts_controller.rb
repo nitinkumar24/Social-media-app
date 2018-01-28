@@ -2,6 +2,8 @@ class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
 
     def create
+
+        puts "hi"
         puts post_params
         @post = Post.new(post_params)
         @post.user_id = current_user.id

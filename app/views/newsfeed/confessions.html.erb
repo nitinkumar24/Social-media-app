@@ -6,6 +6,7 @@
 
 
 <main-page>
+
    <aside>
       <div class="sidepanel">
          <%= render 'sidepanel' %>
@@ -64,21 +65,7 @@
 <script>
 
 
-
-    $.ajax({url: '/ajax',
-        data: {
-            text: "text"
-        }
-        , success: function(data){
-            console.log(data);
-            console.log("request completed");
-        },
-        error: function(){
-            console.log(arguments);
-            console.log("some error");
-        }
-    });
-
+    console.log(data);
     //image preview before upload
     function readURL(input) {
         if (input.files && input.files[0]) {

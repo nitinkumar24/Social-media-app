@@ -65,6 +65,9 @@
 <script>
     $('.ui.dropdown')
         .dropdown();
+    sessionStorage.setItem('_mode', 'open');
+    var data = sessionStorage.getItem('_mode');
+
 </script>
 
 <%= render 'newsfeed/header' %>
