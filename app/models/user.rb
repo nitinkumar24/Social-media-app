@@ -15,10 +15,6 @@ class User < ApplicationRecord
 
 
 
-
-
-
-
     def avatar_geometry(style = :original)
         @geometry ||= {}
         @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
@@ -68,27 +64,26 @@ class User < ApplicationRecord
     def follow_relation user_id
         return UserRelations::SELF if id == user_id
         if FollowMapping.where(:followee_id => user_id, :follower_id => id).length > 0
-            return UserRelations::FOLLOWED
+             UserRelations::FOLLOWED
         elsif Friendrequest.where(:receiver_id => user_id, :sender_id => id).length>0
             return UserRelations::SENT
         else
             puts UserRelations::NOTFOLLOWED
-            return UserRelations::NOTFOLLOWED
+             UserRelations::NOTFOLLOWED
         end
 
     end
 
     def can_follow user_id
-        return follow_relation(user_id) == UserRelations::NOTFOLLOWED
+         follow_relation(user_id) == UserRelations::NOTFOLLOWED
     end
 
     def can_un_follow user_id
-        return follow_relation(user_id) == UserRelations::FOLLOWED
+         follow_relation(user_id) == UserRelations::FOLLOWED
     end
 
     def can_delete_request user_id
-
-        return  follow_relation(user_id) ==UserRelations::SENT
+          follow_relation(user_id) ==UserRelations::SENT
     end
 
     def followee_ids
