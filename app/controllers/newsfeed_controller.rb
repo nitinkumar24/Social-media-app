@@ -2,19 +2,20 @@ class NewsfeedController < ApplicationController
 
 
     def index
-        cookies[:_modes] = rand(10...42)
-        puts cookies[:_modes]
-        puts "mcbc"
-        @post = Post.new
-        @comment = Comment.new
-        @comments = Comment.all
-        @posts = current_user.feed.where(flavour: "feed").paginate(:page => params[:page], :per_page => 6)
-        respond_to do |format|
-            format.html{
-            }
-            format.js {
-            }
-        end
+        #
+
+            puts "mcbc"
+            @post = Post.new
+            @comment = Comment.new
+            @comments = Comment.all
+            @posts = current_user.feed.where(flavour: "feed").paginate(:page => params[:page], :per_page => 6)
+            respond_to do |format|
+                format.html{
+                }
+                format.js {
+                }
+            end
+
     end
 
     def confessions
