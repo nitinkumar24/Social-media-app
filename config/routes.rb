@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  
   resources :posts, only: [:create, :destroy, :edit, :show, :update]
   resources :comments
   

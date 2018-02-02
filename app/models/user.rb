@@ -13,7 +13,7 @@ class User < ApplicationRecord
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     crop_attached_file :avatar
 
-
+ 
 
     def avatar_geometry(style = :original)
         @geometry ||= {}
@@ -119,6 +119,15 @@ class User < ApplicationRecord
         self.access_token = generated
         save!
     end
-
+     def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |current_user|
+      current_user.provider = auth.provider
+      current_user.uid = auth.uid
+      current_user.name = auth.info.name
+      current_user.oauth_token = auth.credentials.token
+      current_user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      current_user.save!
+    end
+  end
 
 end
