@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/create'
 
   get 'sessions/destroy'
-  get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
+  
   
   resources :posts, only: [:create, :destroy, :edit, :show, :update]
   resources :comments
@@ -32,6 +31,6 @@ Rails.application.routes.draw do
   post 'friendrequests/accept_request'
   post 'friendrequests/reject_request'
 
-  devise_for :users, :controllers => { :registrations => :registrations }
+  devise_for :users, :controllers => { :registrations => :registrations,  :callbacks => "users/omniauth_callbacks"}
 
 end

@@ -2,8 +2,7 @@ class User < ApplicationRecord
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable, :confirmable
-
+           :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:google_oauth2]
     validates :name, presence: true
     # validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
     has_many :posts, dependent: :destroy
@@ -119,15 +118,16 @@ class User < ApplicationRecord
         self.access_token = generated
         save!
     end
-     def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |current_user|
-      current_user.provider = auth.provider
-      current_user.uid = auth.uid
-      current_user.name = auth.info.name
-      current_user.oauth_token = auth.credentials.token
-      current_user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      current_user.save!
-    end
-  end
+    def self.from_omniauth(access_token)
+  data = access_token.info
+  user = User.where(:email => data["email"]).first
+
+  unless user
+    password = Devise.friendly_token[0,20]
+    user = User.create(name: data["name"], email: data["email"],
+      password: password, password_confirmation: password
+    )
+  end 
+end
 
 end
