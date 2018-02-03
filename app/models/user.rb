@@ -133,8 +133,8 @@ class User < ApplicationRecord
             user.password_confirmation =  password
             if data.image?
                 user.avatar = URI.parse(data.image)
-                user.avatar_file_name = data.image.to_s
-                user.avatar_content_type = "image/png"
+                user.avatar_file_name = "photo"
+                user.avatar_content_type = "image/jpeg"
             end
             user.skip_confirmation!
             user.save
