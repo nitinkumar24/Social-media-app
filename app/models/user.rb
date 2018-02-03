@@ -123,12 +123,19 @@ class User < ApplicationRecord
     def self.from_omniauth(access_token)
         data = access_token.info
         user = User.where(:email => data["email"]).first
-        puts user
+
         unless user
             password = Devise.friendly_token[0,20]
-            user = User.create(name: data["name"], email: data["email"],
-                               password: password, password_confirmation: password
-            )
+            user = User.new
+            user.name = data["name"]
+            user.email =  data["email"]
+            user.password = password
+            user.password_confirmation =  password
+            if data.image?
+                user.avatar = URI.parse(data.image)
+                user.avatar_file_name = data.image.to_s
+                user.avatar_content_type = "image/png"
+            end
             user.skip_confirmation!
             user.save
         end
