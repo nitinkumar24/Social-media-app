@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authenticate_user!
     before_action :set_raven_context
-    before_action :check_mode
+
+
+    before_action :check_user_mode
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) do |user_params|
@@ -23,16 +25,24 @@ class ApplicationController < ActionController::Base
         Raven.extra_context(params: params.to_unsafe_h, url: request.url)
     end
 
-    def check_mode
-        cookies[:_mode] = rand(10...42)
-        if controller_name != 'sessions'
+    def check_user_mode
+        # cookies[:_mode] = rand(10...42)
+        puts controller_name
+        if controller_name != 'mode'
+            @modes = UserMode.where(user_id: current_user.id)
             if not cookies[:_mode].nil?
-                puts "hello"
+                unless UserMode.where(user_id: current_user.id,mode: cookies[:_mode]).length > 0
+                    render 'mode/select' , modes: @modes
+                end
             else
-                render 'newsfeed/mode'
+                puts @modes
+                render 'mode/select' , modes: @modes
             end
+            puts "after mode"
         end
 
     end
+
+
 
 end

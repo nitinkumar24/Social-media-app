@@ -1,0 +1,15 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Mode#select</h1>
+<p>Find me in app/views/mode/select.html.erb</p>
+<% @modes.each do |f| %>
+
+    <%= f.mode  %>
+<% end %>
+
+
+<%= link_to "open",mode_set_mode_path(name: "open"), method: :post %>
+<%= link_to "kiet.edu",mode_set_mode_path(name: "kiet.edu"), method: :post %>
