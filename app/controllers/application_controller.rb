@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
     # protect_from_forgery with: :exception
     before_action :configure_permitted_parameters, if: :devise_controller?
+    before_action :authenticate_user!
     before_action :set_raven_context
+    before_action :set_mode
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) do |user_params|
@@ -19,4 +21,9 @@ class ApplicationController < ActionController::Base
         Raven.user_context(id: session[:current_user_id]) # or anything else in session
         Raven.extra_context(params: params.to_unsafe_h, url: request.url)
     end
+
+    def set_mode
+        @alpha = true
+    end
+
 end

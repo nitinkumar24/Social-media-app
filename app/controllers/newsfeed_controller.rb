@@ -1,7 +1,10 @@
 class NewsfeedController < ApplicationController
-    before_action :authenticate_user!
+
 
     def index
+        cookies[:_modes] = rand(10...42)
+        puts cookies[:_modes]
+        puts "mcbc"
         @post = Post.new
         @comment = Comment.new
         @comments = Comment.all

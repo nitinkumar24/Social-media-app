@@ -2,20 +2,16 @@ class User < ApplicationRecord
     # Include default devise modules. Others available are:
     # :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable, :confirmable
-
+           :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:google_oauth2]
     validates :name, presence: true
-    validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
+    # validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
     has_many :posts, dependent: :destroy
 
 
     has_attached_file :avatar, :styles => { :thumb => '50x50', :medium => '1000x1000', :small => '500x500'}, :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     crop_attached_file :avatar
-
-
-
-
+    devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
 
 
@@ -68,27 +64,26 @@ class User < ApplicationRecord
     def follow_relation user_id
         return UserRelations::SELF if id == user_id
         if FollowMapping.where(:followee_id => user_id, :follower_id => id).length > 0
-            return UserRelations::FOLLOWED
+            UserRelations::FOLLOWED
         elsif Friendrequest.where(:receiver_id => user_id, :sender_id => id).length>0
             return UserRelations::SENT
         else
             puts UserRelations::NOTFOLLOWED
-            return UserRelations::NOTFOLLOWED
+            UserRelations::NOTFOLLOWED
         end
 
     end
 
     def can_follow user_id
-        return follow_relation(user_id) == UserRelations::NOTFOLLOWED
+        follow_relation(user_id) == UserRelations::NOTFOLLOWED
     end
 
     def can_un_follow user_id
-        return follow_relation(user_id) == UserRelations::FOLLOWED
+        follow_relation(user_id) == UserRelations::FOLLOWED
     end
 
     def can_delete_request user_id
-
-        return  follow_relation(user_id) ==UserRelations::SENT
+        follow_relation(user_id) ==UserRelations::SENT
     end
 
     def followee_ids
@@ -125,5 +120,26 @@ class User < ApplicationRecord
         save!
     end
 
+    def self.from_omniauth(access_token)
+        data = access_token.info
+        user = User.where(:email => data["email"]).first
+
+        unless user
+            password = Devise.friendly_token[0,20]
+            user = User.new
+            user.name = data["name"]
+            user.email =  data["email"]
+            user.password = password
+            user.password_confirmation =  password
+            if data.image?
+                user.avatar = URI.parse(data.image)
+                user.avatar_file_name = "photo"
+                user.avatar_content_type = "image/jpeg"
+            end
+            user.skip_confirmation!
+            user.save
+        end
+        user
+    end
 
 end

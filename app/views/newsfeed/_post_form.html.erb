@@ -28,6 +28,8 @@
              <h3 >Anonymous
                 <%= form.check_box :anonymous %>
                 <%= form.hidden_field :flavour , value: "feed"  %>
+                <!--<%=form.hidden_field :flavour ,:id=>"email_field" %>-->
+
              </h3>
           </div>
           <%= form.submit 'Post', :class => 'postbutton'   %>
@@ -36,3 +38,9 @@
    <% end %>
 
 </div>
+<script type="text/javascript">
+    var my_email= "my@email.com"
+    $(document).ready(function(){
+        $("#email_field").val(data);
+    });
+</script>
