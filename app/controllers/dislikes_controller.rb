@@ -1,7 +1,5 @@
 class DislikesController < ApplicationController
 
-	before_action :authenticate_user!
-
 	def toggle_dislike
 		@post = Post.find(params[:post_id])
 		dislike = Dislike.where(user: current_user, post: @post).first

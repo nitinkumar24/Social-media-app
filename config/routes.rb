@@ -31,6 +31,6 @@ Rails.application.routes.draw do
   post 'friendrequests/accept_request'
   post 'friendrequests/reject_request'
 
-  devise_for :users, :controllers => { :registrations => :registrations,  :callbacks => "users/omniauth_callbacks"}
+  devise_for :users, :controllers => { :registrations => :registrations,  :omniauth_callbacks => "users/omniauth_callbacks"}
 
 end
