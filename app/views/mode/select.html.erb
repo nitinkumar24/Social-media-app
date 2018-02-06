@@ -3,13 +3,12 @@
 <br>
 <br>
 <br>
-<h1>Mode#select</h1>
-<p>Find me in app/views/mode/select.html.erb</p>
-<% @modes.each do |f| %>
+<h1>Which mode?</h1>
 
-    <%= f.mode  %>
+<% @modes.each do |f| %>
+    <%= link_to f.mode,mode_set_mode_path(name: f.mode), method: :post  %>
 <% end %>
 
-
-<%= link_to "open",mode_set_mode_path(name: "open"), method: :post %>
-<%= link_to "kiet.edu",mode_set_mode_path(name: "kiet.edu"), method: :post %>
+<% if @has_open_mode.length == 0  %>
+    <%= link_to "Add open Mode",mode_add_open_mode_path(name: "open"), method: :post %>
+<% end %>

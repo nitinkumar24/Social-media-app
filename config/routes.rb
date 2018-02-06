@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/users' => 'newsfeed#users'
   get '/ajax' => 'newsfeed#ajax'
   post 'mode/set_mode'
+  post 'mode/add_open_mode'
   get 'notifications/show'
   get 'newsfeed/friendrequests'
   get '/profile/show'

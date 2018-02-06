@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authenticate_user!
     before_action :set_raven_context
-
-
     before_action :check_user_mode
 
     def configure_permitted_parameters
@@ -27,18 +25,16 @@ class ApplicationController < ActionController::Base
 
     def check_user_mode
         # cookies[:_mode] = rand(10...42)
+        allowed_controllers = ["mode","sessions","registrations",]
         puts controller_name
-        if controller_name != 'mode'
-            @modes = UserMode.where(user_id: current_user.id)
+        unless allowed_controllers.include? controller_name
             if not cookies[:_mode].nil?
                 unless UserMode.where(user_id: current_user.id,mode: cookies[:_mode]).length > 0
-                    render 'mode/select' , modes: @modes
+                    redirect_to '/mode/select'
                 end
             else
-                puts @modes
-                render 'mode/select' , modes: @modes
+                redirect_to '/mode/select'
             end
-            puts "after mode"
         end
 
     end
