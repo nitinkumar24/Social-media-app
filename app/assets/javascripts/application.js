@@ -21,7 +21,7 @@
 //= require jquery.noty.packaged.min.js
 //= require social-share-button
 //= require papercrop
-
+//= require typeahead
 //= require jcrop
 //= require_tree .
 

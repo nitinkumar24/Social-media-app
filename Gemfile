@@ -19,6 +19,7 @@ gem "puma"
 gem 'rails', '~> 5.1.2'
 gem 'rails_autolink'
 gem 'rails_emoji_picker'
+gem 'searchkick'
 gem 'sass-rails', '~> 5.0'
 gem 'semantic-ui-sass'
 gem "sentry-raven"

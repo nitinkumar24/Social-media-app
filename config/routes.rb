@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'search/user'
+
+  get 'search/autocomplete'
+
   resources :posts, only: [:create, :destroy, :edit, :show, :update]
   resources :comments
   

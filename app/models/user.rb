@@ -7,14 +7,14 @@ class User < ApplicationRecord
     # validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
     has_many :posts, dependent: :destroy
 
-
     has_attached_file :avatar, :styles => { :thumb => '50x50', :medium => '1000x1000', :small => '500x500'}, :default_url => "/images/:style/missing.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     crop_attached_file :avatar
     devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
+    searchkick word_start: [:name,]
 
-
+    #searchkick for searching the user
 
     def avatar_geometry(style = :original)
         @geometry ||= {}
@@ -44,15 +44,6 @@ class User < ApplicationRecord
 
     def to_param
         [id, name.parameterize].join("-")
-    end
-
-    def self.search(search)
-
-        if search
-            where('name LIKE ?', "%#{search}%" )
-        else
-            all
-        end
     end
 
     def feed

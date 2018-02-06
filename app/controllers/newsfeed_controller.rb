@@ -29,16 +29,6 @@ class NewsfeedController < ApplicationController
         end
     end
 
-    def users
-        respond_to do |format|
-            format.html{
-                @users = User.search(params[:search]).order(name: :desc).paginate(:per_page => 15,:page => params[:page])
-            }
-            format.js{
-                @users = User.search(params[:search]).order(name: :desc).paginate(:per_page => 15,:page => params[:page])
-            }
-        end
-    end
 
     def friendrequests
         @friendrequests=Friendrequest.where(receiver_id: current_user.id)

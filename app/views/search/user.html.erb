@@ -1,0 +1,29 @@
+<div class="users-page">
+
+
+
+   <div>
+
+      <%= form_tag search_user_path, :method => 'get' do %>
+
+          <div class="search-bar" >
+             <div class="wrap">
+                <div class="search">
+                   <input type="text" class="searchTerm form-control typeahead" id="article_search" name="query" placeholder="Search for your college buddies">
+                   <button type="submit" class="searchButton">
+                      <i class="fa fa-search"></i>
+                   </button>
+                </div>
+             </div>
+          </div>
+
+
+
+      <% end %>
+      <div id="users">
+         <%= render 'users' %>
+      </div>
+
+   </div>
+
+</div>
