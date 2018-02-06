@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
     def check_user_mode
         # cookies[:_mode] = rand(10...42)
-        allowed_controllers = ["mode","sessions","registrations",]
+        allowed_controllers = ["mode","sessions","registrations","omniauth_callbacks"]
         puts controller_name
         unless allowed_controllers.include? controller_name
             if not cookies[:_mode].nil?

@@ -124,7 +124,6 @@ class User < ApplicationRecord
     def self.from_omniauth(access_token)
         data = access_token.info
         user = User.where(:email => data["email"]).first
-
         unless user
             password = Devise.friendly_token[0,20]
             user = User.new
@@ -132,13 +131,20 @@ class User < ApplicationRecord
             user.email =  data["email"]
             user.password = password
             user.password_confirmation =  password
+            user.skip_confirmation!
+            user.save
+            open_emails = ["gmail.com","outlook.com","yahoo.com","hotmail.com"]
+            user_mail_domain = user.email.split("@").last
+            if open_emails.include? user_mail_domain
+                UserMode.create(user_id: user.id, mode: "open")
+            else
+                UserMode.create(user_id: user.id, mode: user_mail_domain)
+            end
             if data.image?
                 user.avatar = URI.parse(data.image)
                 user.avatar_file_name = "photo"
                 user.avatar_content_type = "image/jpeg"
             end
-            user.skip_confirmation!
-            user.save
         end
         user
     end
