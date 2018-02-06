@@ -15,6 +15,7 @@ class User < ApplicationRecord
 
 
 
+
     def avatar_geometry(style = :original)
         @geometry ||= {}
         @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))

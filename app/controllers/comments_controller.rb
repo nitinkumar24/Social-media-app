@@ -79,6 +79,7 @@ class CommentsController < ApplicationController
     def kabil_update
         @comment.user.id == current_user.id
     end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
         @comment = Comment.find(params[:id])
@@ -88,4 +89,5 @@ class CommentsController < ApplicationController
     def comment_params
         params.require(:comment).permit(:content)
     end
+
 end

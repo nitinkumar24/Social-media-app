@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authenticate_user!
     before_action :set_raven_context
-    before_action :set_mode
+    before_action :check_user_mode
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) do |user_params|
@@ -17,13 +17,28 @@ class ApplicationController < ActionController::Base
 
     private
 
+    # sentry
     def set_raven_context
         Raven.user_context(id: session[:current_user_id]) # or anything else in session
         Raven.extra_context(params: params.to_unsafe_h, url: request.url)
     end
 
-    def set_mode
-        @alpha = true
+    def check_user_mode
+        # cookies[:_mode] = rand(10...42)
+        allowed_controllers = ["mode","sessions","registrations",]
+        puts controller_name
+        unless allowed_controllers.include? controller_name
+            if not cookies[:_mode].nil?
+                unless UserMode.where(user_id: current_user.id,mode: cookies[:_mode]).length > 0
+                    redirect_to '/mode/select'
+                end
+            else
+                redirect_to '/mode/select'
+            end
+        end
+
     end
+
+
 
 end

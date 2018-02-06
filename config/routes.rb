@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  get 'sessions/create'
 
-  get 'sessions/destroy'
-  
-  
+
+
+
   resources :posts, only: [:create, :destroy, :edit, :show, :update]
   resources :comments
   
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
   get '/confessions' => 'newsfeed#confessions'
   get '/users' => 'newsfeed#users'
   get '/ajax' => 'newsfeed#ajax'
-
+  get 'mode/select'
   get 'notifications/show'
   get 'newsfeed/friendrequests'
   get '/profile/show'
@@ -26,6 +25,8 @@ Rails.application.routes.draw do
   post '/users_api/sign_in'
   post 'users_api/sign_up'
   post 'friendrequests/toggle_follow_request'
+  post 'mode/set_mode'
+  post 'mode/add_open_mode'
   post 'newsfeed/un_follow'
   post 'newsfeed/delete_request'
   post 'friendrequests/accept_request'
