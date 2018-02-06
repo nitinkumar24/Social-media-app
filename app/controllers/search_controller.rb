@@ -26,6 +26,7 @@ class SearchController < ApplicationController
                 load: false,
                 misspellings: {below: 5}
         })
+
     end
 
 end

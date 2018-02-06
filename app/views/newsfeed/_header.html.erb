@@ -29,7 +29,15 @@
              <ul>
                 <li>
 
-                   <i class="fa fa-search" aria-hidden="true"></i>
+
+
+                   <%= form_tag search_user_path, :method => 'get' do %>
+                                <input type="text" class=" form-control typeahead" id="article_search" name="query" placeholder="Search for your college buddies">
+                                <button type="submit" class="">
+                                   <i class="fa fa-search"></i>
+                                </button>
+
+                   <% end %>
                 </li>
                 <li>
                    <%= link_to search_user_path do %>
