@@ -1,6 +1,9 @@
 <% if user_signed_in? %>
     <headerbar >
        <header>
+          <div class="logo">
+             <%= link_to "S",newsfeed_index_path,:class=>"animated rollIn"%>
+          </div>
           <nav class="left-nav">
 
              <ul>
@@ -22,9 +25,7 @@
           </nav>
 
 
-          <div class="logo">
-             <%= link_to "SocioGrams",newsfeed_index_path,:class=>"animated rollIn"%>
-          </div>
+
           <nav class="right-nav">
              <ul>
                 <li>

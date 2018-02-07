@@ -13,10 +13,7 @@ headerbar{
         box-shadow: 0 2px 4px 0 rgba(0,0,0,.07);
         border-top: 2px solid #730E15;
         div.logo {
-            width: 20%;
-            position: absolute;
-            left: 40%;
-            right: 40%;
+            margin-left: 10%;
             text-align: center;
             a {
                 font-weight: 800;
@@ -44,7 +41,6 @@ headerbar{
         }
         nav.left-nav,nav.right-nav {
             height: 56px;
-            margin-left: 7%;
             ul{
                 display: flex;
                 align-items: center;
