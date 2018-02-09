@@ -5,6 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-20.times do
-User.last.destroy!
+30.times do
+
+    user = User.new
+    a = SecureRandom.hex
+    user.name = Devise.friendly_token[0,10]
+    user.email = Devise.friendly_token[0,10] + "@kiet.edu"
+    password = Devise.friendly_token[0,20]
+    user.password = password
+    user.password_confirmation =  password
+    user.skip_confirmation!
+    user.save
+
+
 end

@@ -10,6 +10,7 @@ gem "animate-rails"
 gem 'coffee-rails', '~> 4.2'
 gem 'emojionearea-rails'
 gem 'devise'
+
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-fileupload-rails'
 gem 'jquery-rails'

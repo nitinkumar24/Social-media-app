@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
 
-  get 'search/user'
+  get 'search/users'
 
   get 'search/autocomplete'
 

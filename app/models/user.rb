@@ -17,6 +17,16 @@ class User < ApplicationRecord
 
     #searchkick for searching the user
 
+    def self.aggs_search(params,uisc_ids)
+        query = params[:query].presence || '*'
+        conditions = {}
+        conditions[:id] = uisc_ids
+        conditions[:sex] = params[:gender] if params[:gender].present?
+        conditions[:department] = params[:department] if params[:department].present?
+        users = User.search query,fields:[:name], where: conditions
+        users
+    end
+
     def avatar_geometry(style = :original)
         @geometry ||= {}
         @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
@@ -115,6 +125,7 @@ class User < ApplicationRecord
 
     def self.from_omniauth(access_token)
         data = access_token.info
+        puts data
         user = User.where(:email => data["email"]).first
         unless user
             password = Devise.friendly_token[0,20]

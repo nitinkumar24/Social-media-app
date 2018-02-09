@@ -12,7 +12,6 @@ class NewsfeedController < ApplicationController
             format.js {
             }
         end
-
     end
 
     def confessions

@@ -32,7 +32,7 @@
 
 
 
-                   <%= form_tag search_user_path, :method => 'get' do %>
+                   <%= form_tag search_users_path, :method => 'get' do %>
                                 <input type="text" class=" form-control typeahead" id="article_search" name="query" placeholder="Search for your college buddies">
                                 <button type="submit" class="">
                                    <i class="fa fa-search"></i>
@@ -41,7 +41,7 @@
                    <% end %>
                 </li>
                 <li>
-                   <%= link_to search_user_path do %>
+                   <%= link_to search_users_path do %>
                        <i class="fa fa-users" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                            -webkit-text-stroke-color: grey;color: white"></i>
                    <%end%>
@@ -75,10 +75,6 @@
                 </div>
 
              </div>
-
-
-
-
 
 
           </nav>
