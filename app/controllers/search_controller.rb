@@ -10,9 +10,7 @@ class SearchController < ApplicationController
             conditions[:id] = uisc_ids
             conditions[:sex] = params[:gender] if params[:gender].present?
             conditions[:department] = params[:department] if params[:department].present?
-
             @users = User.search query,fields:[:name], where: conditions, page: params[:page], per_page: 10
-
             format.html{
 
             }

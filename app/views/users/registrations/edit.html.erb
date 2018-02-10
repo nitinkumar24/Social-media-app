@@ -50,7 +50,7 @@
                 <option value="Others">Others</option>
              </select>
           </div>
-          <textarea data-autoresize rows="2"  name="user[about]" id="user_about"  placeholder="Tell us something about you"></textarea>
+          <%= f.text_field :about%>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
