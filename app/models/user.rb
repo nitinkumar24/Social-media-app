@@ -18,7 +18,6 @@ class User < ApplicationRecord
     searchkick word_start: [:name,]
 
     #searchkick for searching the user
-
     def self.aggs_search(params,uisc_ids)
         query = params[:query].presence || '*'
         conditions = {}
@@ -34,6 +33,8 @@ class User < ApplicationRecord
         @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
     end
 
+
+    # DONT NEED PASSWORD FOR UPDATING PROFILE
     def update_with_password(params, *options)
         current_password = params.delete(:current_password)
 
@@ -125,6 +126,8 @@ class User < ApplicationRecord
         save!
     end
 
+
+    # GMAIL LOGIN
     def self.from_omniauth(access_token)
         data = access_token.info
         puts data

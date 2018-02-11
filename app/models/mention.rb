@@ -1,12 +1,14 @@
 class Mention
+
     attr_reader :mentionable
     include Rails.application.routes.url_helpers
 
     def self.all(letters)
         return Mention.none unless letters.present?
         # You should bring this user query into your User model as a scope
-        users = User.limit(5).where('name like ?',"#{letters}%").compact
+        users = User.limit(10).where('username like ?',"#{letters}%").compact
         users.map do |user|
+            puts user.name
             {  name: user.username,real_name: user.name, image: user.avatar(:thumb)}     #beacuse at.who js is responding to name only thats why sending username in name field
         end
     end
@@ -42,7 +44,7 @@ class Mention
             puts mentionable
             link_to_user_profile = host + "/" + mentionable.username + "/"      #hard_coded
             text.gsub(/@#{mentionable.username}/i,
-                      "[**#{mentionable.name}**](#{link_to_user_profile})")
+                      "[**@#{mentionable.username}**](#{link_to_user_profile})")
         end
     end
 end
