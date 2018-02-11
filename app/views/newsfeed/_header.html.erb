@@ -2,7 +2,8 @@
     <headerbar >
        <header>
           <div class="logo">
-             <%= link_to "S",newsfeed_index_path,:class=>"animated rollIn"%>
+             <!--<%= link_to "S",newsfeed_index_path,:class=>"animated rollIn"%>-->
+             <img src="https://vedantjain0087.github.io/ui/pp.jpeg" style="border-radius:50%;" height="30">
           </div>
           <nav class="left-nav">
 
@@ -33,10 +34,14 @@
 
 
                    <%= form_tag search_users_path, :method => 'get' do %>
-                                <input type="text" class=" form-control typeahead" id="article_search" name="query" placeholder="Search for your college buddies">
-                                <button type="submit" class="">
-                                   <i class="fa fa-search"></i>
-                                </button>
+                       <div class="ui icon input"  style="">
+                          <input type="text" name="query" class="typeahead" placeholder="Search">
+
+                          <button class="ui button" style="background:#7e2444;color:white;display: none">
+
+                          </button>
+
+                       </div>
 
                    <% end %>
                 </li>

@@ -4,89 +4,238 @@
 
 
    <div style="" class="edit-profile">
-      <h3>Edit Profile</h3>
+      <h3 style="text-align: center">Edit Your Profile</h3>
       <%= form_for(@user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
+          <div class="ui grid">
 
-          <div class="field">
-             <%= f.file_field :avatar   %>
-          </div>
+             <div class="four wide column">
+                <div class="ui vertical fluid tabular menu">
+                   <a class="item active a">
+                      Basic Info
+                   </a>
+                   <a class="item b">
+                      Password
+                   </a>
+                   <a class="item c">
+                      Education
+                   </a>
+                   <a class="item d">
+                      Address
+                   </a>
+                   <a class="item e">
+                      Delete Account
+                   </a>
+                </div>
+             </div>
+
+             <div class="eight wide stretched column">
+                <div class="ui segment ca">
+                   <div class="ui form">
+                      <div class="field">
+                         <label>Name</label>
+                         <%= f.text_field :name%>
+                      </div>
+
+                      <%= f.radio_button(:sex,"male") %><i class="fa fa-male" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 10px;padding-bottom: 10px;color: #721615"></i>
+                      <%= f.radio_button(:sex,"female") %><i class="fa fa-female" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 14px;color: #721615"></i>
+
+                      <div class="field">
+                         <label>About Yourself</label>
+                         <%= f.text_field :about%>
+
+                      </div>
+                      <div class="field">
+                         <label>RelationShip Status</label>
+                         <div class="ui selection dropdown">
+                            <input type="hidden" name="user[relationstatus]">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Select</div>
+                            <div class="menu">
+                               <div class="item" data-value="Single">Single</div>
+                               <div class="item" data-value="Taken">Taken</div>
+                               <div class="item" data-value="Forever Alone">Forever Alone</div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="field">
+                         <label>Birthday</label>
+                         <%= date_select :user, :birthday,{:class => "input-mini"}  %>
+                      </div>
+                      <button class="ui button" style="background:#7e2444;color:white">
+                         Save Changes
+                      </button>
+                   </div>
+                </div>
+                <div class="ui segment cb">
+                   <div class="ui form">
+                      <div class="field">
+                         <label>Old Password</label>
+                         <i>(we need your current password to confirm your changes)</i><br />
+                         <%= f.password_field :current_password, autocomplete: "off",placeholder: "Current password" %>
+                      </div>
+                      <div class="field">
+                         <label>New Password</label>
+                         <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password(leave blank if you don't want to change)</i>"%>
+                      </div>
+                      <div class="field">
+                         <label>Confirm New Password</label>
+                         <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "6 characters minimum" %>
+                      </div>
+                      <button class="ui button" style="background:#7e2444;color:white">
+                         Submit
+                      </button>
+                   </div>
+                </div>
+                <div class="ui segment cc">
+                   <div class="ui form">
+                      <div class="field">
+                         <label>College Name</label>
+                         <input type="text" name="" placeholder="Enter Your College Name">
+                      </div>
+                      <div class="field">
+                         <label>Department</label>
+                         <input type="text" name="" placeholder="Enter Department">
+                      </div>
+
+                      <button class="ui button" style="background:#7e2444;color:white">
+                         Submit
+                      </button>
+                   </div>
+                </div>
+                <div class="ui segment cd">
+                   <div class="ui form">
+                      <div class="field">
+                         <label>Current Address</label>
+                         <input type="text" name="" placeholder="Enter Current Address">
+                      </div>
+                      <div class="field">
+                         <label>Hometown</label>
+                         <input type="text" name="" placeholder="Enter Hometown">
+                      </div>
+                      <button class="ui button" style="background:#7e2444;color:white">
+                         Submit
+                      </button>
+                   </div>
+                </div>
 
 
-
-          <div>
-             <%= f.text_field :name%>
-          </div>
-          <div style="border: 1px solid black;
-              /* color: black; */
-              height: 34px;
-              background-color: white;
-              padding-top: 6px;
-              border-radius: 3px;
-              margin-bottom: 10px;">
-             <span style="color: black;padding-left: 2%">Birthday :</span>
-             <%= date_select :user, :birthday,
-                             {:start_year => 1980,
-                              :end_year => 2005
-                             },
-                             {:class => "input-mini"}  %>
-             <br>
-          </div>
-          <%= f.radio_button(:sex,"male") %><i class="fa fa-male" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 10px;color: #721615"></i>
-          <%= f.radio_button(:sex,"female") %><i class="fa fa-female" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 14px;color: #721615"></i>
-
-          <div style="padding-bottom: 10px;width: 100%">
-             <select id="relationstatus" name="user[relationstatus]">
-                <option disabled selected value>Relation status</option>
-                <option value="Single">Single</option>
-                <option value="Taken">Taken</option>
-                <option value="Alone">Forever Alone</option>
-             </select>
-
-             <select id="sex" name="user[sex]">
-                <option disabled selected value>Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
-             </select>
-          </div>
-          <%= f.text_field :about%>
-
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-          <% end %>
-
-          <div class="field">
+                <div class="field" style="display: none">
+                   <%= f.file_field :avatar   %>
+                </div>
 
 
-             <%= f.password_field :password, autocomplete: "off" ,placeholder: "Password(leave blank if you don't want to change)</i>"%>
-
-          </div>
-
-
-
-          <div class="field">
-
-             <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "6 characters minimum" %>
-          </div>
-
-          <div class="field">
-            <i>(we need your current password to confirm your changes)</i><br />
-             <%= f.password_field :current_password, autocomplete: "off",placeholder: "Current password" %>
-          </div>
-
-          <div class="actions">
-             <%= f.submit "Update", :class => "login-button" %>
-          </div>
+                <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                <% end %>
       <% end %>
 
+      <div class="ui segment ce">
+         <div class="ui form">
+            <div class="field">
+               <label>Delete your account permanently</label>
+
+               <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class => "ui button",:style=>"background:#7e2444;color:white" %>
+
+            </div>
+         </div>
+      </div>
+      </div>
 
 
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class => "login-button" %></p>
 
 
 
+      </div>
    </div>
-</div>
 
 
+
+   <style type="text/css">
+      body{
+         font-family: 'Quicksand', sans-serif;
+         letter-spacing: 1px;
+      }
+      .item{
+         font-family: 'Quicksand', sans-serif;
+
+      }
+      /*Nahi kaam krr rha
+
+      @media only screen and (max-width: 500px) {
+        nonmobile{
+           visibility: hidden;
+         }
+
+
+         */
+      }
+
+   </style>
+   <script>
+       $('document').ready(function(){
+           $('.me').hide();
+       });
+   </script>
+   <script>
+       $('.ui .item').on('click', function() {
+           $('.ui .item').removeClass('active');
+           $(this).addClass('active');
+           $('.custom').removeClass('active');
+       });
+   </script>
+   <script>
+       //On document show the first tabular
+       $('document').ready(function(){
+           $('.ui .segment').hide();
+           $('.ca').show();
+       });
+       //end of it
+
+       // showing the individual elememnts
+       $('.a').click(function(){
+           $('.ui .segment').hide();
+           $('.ca').show();
+       });
+       //end of it
+
+       // showing the individual elememnts
+       $('.b').click(function(){
+           $('.ui .segment').hide();
+           $('.cb').show();
+       });
+       //end of it
+
+       // showing the individual elememnts
+       $('.c').click(function(){
+           $('.ui .segment').hide();
+           $('.cc').show();
+       });
+       //end of it
+
+       // showing the individual elememnts
+       $('.d').click(function(){
+           $('.ui .segment').hide();
+           $('.cd').show();
+       });
+       //end of it
+
+       // showing the individual elememnts
+       $('.e').click(function(){
+           $('.ui .segment').hide();
+           $('.ce').show();
+       });
+       //end of it
+   </script>
+   <script>
+       //check checkbox
+       $('.ui.radio.checkbox').checkbox();
+   </script>
+   <script>
+       //Dropdown
+       $('.ui.dropdown')
+           .dropdown();
+   </script>
+   <script>
+       $('.ui.checkbox').checkbox();
+   </script>
