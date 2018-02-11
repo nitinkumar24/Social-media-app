@@ -13,6 +13,8 @@ class User < ApplicationRecord
     crop_attached_file :avatar
     devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
+
+
     searchkick word_start: [:name,]
 
     #searchkick for searching the user
@@ -53,8 +55,8 @@ class User < ApplicationRecord
         result
     end
 
-    def to_param
-        [id, name.parameterize].join("-")
+    def to_param  # overridden
+        username
     end
 
     def feed
@@ -132,22 +134,35 @@ class User < ApplicationRecord
             user = User.new
             user.name = data["name"]
             user.email =  data["email"]
+            username = data["email"].split("@").first
+            tested_username =username.gsub!(/[^0-9A-Za-z]/, '')
+
+            if tested_username.nil?
+                user.username = username
+            else
+                user.username = tested_username
+            end
+
             user.password = password
             user.password_confirmation =  password
             user.skip_confirmation!
             user.save
+
             open_emails = ["gmail.com","outlook.com","yahoo.com","hotmail.com"]
             user_mail_domain = user.email.split("@").last
+
             if open_emails.include? user_mail_domain
                 UserMode.create(user_id: user.id, mode: "open")
             else
                 UserMode.create(user_id: user.id, mode: user_mail_domain)
             end
+
             if data.image?
                 user.avatar = URI.parse(data.image)
                 user.avatar_file_name = "photo"
                 user.avatar_content_type = "image/jpeg"
             end
+
         end
         user
     end

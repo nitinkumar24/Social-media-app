@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
 
 
+  get 'mentions', to: 'search#mentions'
+
+
   get 'search/users'
 
   get 'search/autocomplete'

@@ -22,6 +22,7 @@
 //= require social-share-button
 //= require papercrop
 //= require typeahead
+//= require jquery.atwho
 //= require jcrop
 //= require_tree .
 

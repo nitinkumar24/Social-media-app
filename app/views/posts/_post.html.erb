@@ -47,7 +47,7 @@
           <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
       <% end %>
 
-      <p><%= auto_link(post.content) %></p>
+      <p><%= markdown(post.content) %></p>
       <hr style="opacity: 0.2">
       <div class="user-response" >
 

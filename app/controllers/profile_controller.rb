@@ -5,7 +5,7 @@ class ProfileController < ApplicationController
     end
 
     def show
-        @user=User.find_by_id(params[:id])
+        @user=User.find_by_username(params[:id])
         if @user.id == current_user.id
             @posts = Post.where(user_id:params[:id]).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
             @comment=Comment.new
@@ -15,7 +15,6 @@ class ProfileController < ApplicationController
             @comment=Comment.new
             @comments = Comment.all
         end
-
     end
 
 end

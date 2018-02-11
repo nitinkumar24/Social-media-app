@@ -1,5 +1,11 @@
 class SearchController < ApplicationController
 
+    def mentions
+        respond_to do |format|
+            format.json { render :json => Mention.all(params[:q]) }
+        end
+    end
+
     def users
         respond_to do |format|
             user_in_same_mode =  UserMode.search cookies[:_mode],fields: [:mode]

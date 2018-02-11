@@ -7,6 +7,11 @@ class Post < ApplicationRecord
   has_attached_file :avatar, styles: { medium: "1920x1080>", thumb: "420x200>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  after_create :add_mentions
+
+  def add_mentions
+      Mention.create_from_text(self)
+  end
 
   def liked_by user_id
   	Like.where(post_id: id, user_id: user_id).length > 0

@@ -1,1 +1,4 @@
-<%= link_to user.try(:name).capitalize ,profile_show_path(id:user.id)%>
+<% username = user.username %>
+<% url = "/" +username %>
+<%= link_to user.try(:name).capitalize ,url%>
+<!--Bad url method-->

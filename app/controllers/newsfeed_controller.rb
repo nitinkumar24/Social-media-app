@@ -33,6 +33,8 @@ class NewsfeedController < ApplicationController
         @friendrequests=Friendrequest.where(receiver_id: current_user.id)
     end
 
+
+
     def ajax
         render :json => {text: "text"}
     end

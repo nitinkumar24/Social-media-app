@@ -92,6 +92,8 @@ GEM
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     gemoji (3.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -101,6 +103,7 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-atwho-rails (1.5.4)
     jquery-fileupload-rails (0.4.7)
       actionpack (>= 3.1)
       railties (>= 3.1)
@@ -200,6 +203,7 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    redcarpet (3.4.0)
     ref (2.0.0)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -286,7 +290,9 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   emojionearea-rails
+  friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
+  jquery-atwho-rails
   jquery-fileupload-rails
   jquery-rails
   letter_opener
@@ -301,6 +307,7 @@ DEPENDENCIES
   rails-assets-jcrop!
   rails_autolink
   rails_emoji_picker
+  redcarpet
   sass-rails (~> 5.0)
   searchkick
   selenium-webdriver
