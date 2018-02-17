@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
 
 
-    searchkick word_start: [:name,]
+    searchkick word_start: [:name,:username]
 
     #searchkick for searching the user
     def self.aggs_search(params,uisc_ids)
@@ -24,7 +24,7 @@ class User < ApplicationRecord
         conditions[:id] = uisc_ids
         conditions[:sex] = params[:gender] if params[:gender].present?
         conditions[:department] = params[:department] if params[:department].present?
-        users = User.search query,fields:[:name], where: conditions
+        users = User.search query,fields:[:name], where: conditions , match: :word_start
         users
     end
 
@@ -97,9 +97,7 @@ class User < ApplicationRecord
     end
 
     def follower_ids
-        puts "in f"
-        puts @current_mode
-        FollowMapping.where(followee_id: id,:mode => @current_mode).pluck(:follower_id)
+        FollowMapping.where(followee_id: id, :mode => @current_mode).pluck(:follower_id)
     end
 
     class UserRelations
@@ -121,14 +119,17 @@ class User < ApplicationRecord
         FollowMapping.where(:followee_id => user_id, :follower_id => self.id).length > 0
     end
 
-    def mention(letters)
-        return User.none unless letters.present?
-        puts "no"
-        puts follower_ids
-        puts "yes"
-
+    def mention(query)
+        return User.none unless query.present?
+        # conditions = {}
+        # conditions[:id] = follower_ids
+        # users = User.search query,fields:[:username], where: conditions               #will use after partial search in es
         # You should bring this user query into your User model as a scope
-        users = User.limit(10).where('username like ?',"#{letters}%").compact
+
+        username_like_users = User.limit(10).where('username like ?',"#{query}%" ).pluck(:id)
+        ids =  username_like_users & follower_ids
+        puts ids
+        users = User.where(id: ids)                                                     #this need to be removed bacuse extra query
         users.map do |user|
             puts user.name
             {  name: user.username,real_name: user.name, image: user.avatar(:thumb)}     #beacuse at.who js is responding to name only thats why sending username in name field
