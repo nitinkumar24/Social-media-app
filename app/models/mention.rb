@@ -3,15 +3,13 @@ class Mention
     attr_reader :mentionable
     include Rails.application.routes.url_helpers
 
-
-
     def self.create_from_text(post)
         puts post
         puts "in text"
         potential_matches = post.content.scan(/@\w+/i)
         puts potential_matches
         potential_matches.uniq.map do |match|
-            mention = Mention.create_from_match(match)
+            mention = Mention.create_from_match(match,post.user_id)
             puts mention
             next unless mention
             post.update_attributes!(content: mention.markdown_string(post.content))
@@ -20,9 +18,11 @@ class Mention
         end.compact
     end
 
-    def self.create_from_match(match)
+    def self.create_from_match(match,self_id)
         user = User.find_by(username: match.delete('@'))
-        UserMention.new(user) if user.present?
+        is_follower = FollowMapping.where(:followee_id => self_id, :follower_id => user.id).length > 0     #this need to be accessed form user class
+
+        UserMention.new(user) if user.present? and is_follower
     end
 
     def initialize(mentionable)
