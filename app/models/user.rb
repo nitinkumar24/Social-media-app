@@ -69,9 +69,9 @@ class User < ApplicationRecord
 
     def follow_relation user_id
         return UserRelations::SELF if id == user_id
-        if FollowMapping.where(:followee_id => user_id, :follower_id => id).length > 0
+        if FollowMapping.where(:followee_id => user_id, :follower_id => id,:mode => @current_mode).length > 0
             UserRelations::FOLLOWED
-        elsif Friendrequest.where(:receiver_id => user_id, :sender_id => id).length>0
+        elsif Friendrequest.where(:receiver_id => user_id, :sender_id => id,:mode => @current_mode).length>0
             return UserRelations::SENT
         else
             puts UserRelations::NOTFOLLOWED
@@ -93,11 +93,13 @@ class User < ApplicationRecord
     end
 
     def followee_ids
-        FollowMapping.where(follower_id: id).pluck(:followee_id)
+        FollowMapping.where(follower_id: id,:mode => @current_mode).pluck(:followee_id)
     end
 
     def follower_ids
-        FollowMapping.where(followee_id: id).pluck(:follower_id)
+        puts "in f"
+        puts @current_mode
+        FollowMapping.where(followee_id: id,:mode => @current_mode).pluck(:follower_id)
     end
 
     class UserRelations
@@ -121,6 +123,10 @@ class User < ApplicationRecord
 
     def mention(letters)
         return User.none unless letters.present?
+        puts "no"
+        puts follower_ids
+        puts "yes"
+
         # You should bring this user query into your User model as a scope
         users = User.limit(10).where('username like ?',"#{letters}%").compact
         users.map do |user|

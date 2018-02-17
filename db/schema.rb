@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211090253) do
+ActiveRecord::Schema.define(version: 20180217114303) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20180211090253) do
     t.integer "followee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mode"
   end
 
   create_table "friendrequests", force: :cascade do |t|
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180211090253) do
     t.integer "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mode"
   end
 
   create_table "likes", force: :cascade do |t|
