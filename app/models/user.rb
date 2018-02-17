@@ -96,6 +96,9 @@ class User < ApplicationRecord
         FollowMapping.where(follower_id: id).pluck(:followee_id)
     end
 
+    def follower_ids
+        FollowMapping.where(followee_id: id).pluck(:follower_id)
+    end
 
     class UserRelations
         SELF = 0
@@ -114,6 +117,16 @@ class User < ApplicationRecord
 
     def is_following user_id
         FollowMapping.where(:followee_id => user_id, :follower_id => self.id).length > 0
+    end
+
+    def mention(letters)
+        return User.none unless letters.present?
+        # You should bring this user query into your User model as a scope
+        users = User.limit(10).where('username like ?',"#{letters}%").compact
+        users.map do |user|
+            puts user.name
+            {  name: user.username,real_name: user.name, image: user.avatar(:thumb)}     #beacuse at.who js is responding to name only thats why sending username in name field
+        end
     end
 
     def generate_access_token

@@ -2,7 +2,7 @@ class SearchController < ApplicationController
 
     def mentions
         respond_to do |format|
-            format.json { render :json => Mention.all(params[:q]) }
+            format.json { render :json => current_user.mention(params[:q]) }
         end
     end
 

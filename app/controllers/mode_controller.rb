@@ -14,7 +14,7 @@ class ModeController < ApplicationController
         cookies[:_mode] = params[:name]
         @modes = UserMode.where(user_id: current_user.id)
         if UserMode.where(user_id: current_user.id,mode: cookies[:_mode]).length > 0
-            redirect_to '/'
+            redirect_to '/', notice: 'Currently browsing in ' +cookies[:_mode] + " mode"
         else
             redirect_to '/mode/select' , modes: @modes
         end
