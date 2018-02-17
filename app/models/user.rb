@@ -126,7 +126,7 @@ class User < ApplicationRecord
         # users = User.search query,fields:[:username], where: conditions               #will use after partial search in es
         # You should bring this user query into your User model as a scope
 
-        username_like_users = User.limit(10).where('username like ?',"#{query}%" ).pluck(:id)
+        username_like_users = User.limit(10).where('username like ? OR name LIKE ?',"#{query}%","#{query}%").pluck(:id)
         ids =  username_like_users & follower_ids
         puts ids
         users = User.where(id: ids)                                                     #this need to be removed bacuse extra query
