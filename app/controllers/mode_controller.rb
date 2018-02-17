@@ -7,7 +7,7 @@ class ModeController < ApplicationController
 
     def add_open_mode
         UserMode.create(user_id: current_user.id,mode: "open")
-        redirect_to '/mode/select'
+        redirect_to '/mode/select', notice: 'successfully added open mode.Enjoy'
     end
 
     def set_mode

@@ -3,7 +3,16 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authenticate_user!
     before_action :set_raven_context
+    before_action :set_variables
     before_action :check_user_mode
+
+
+    def set_variables
+        @current_mode = cookies[:_mode]
+        puts "in set"
+        puts @current_mode
+    end
+
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) do |user_params|
@@ -24,19 +33,20 @@ class ApplicationController < ActionController::Base
     end
 
     def check_user_mode
-        # cookies[:_mode] = rand(10...42)
+        puts "in check"
+        puts @current_mode
         allowed_controllers = ["mode","sessions","registrations","omniauth_callbacks"]
         puts controller_name
         unless allowed_controllers.include? controller_name
-            if not cookies[:_mode].nil?
-                unless UserMode.where(user_id: current_user.id,mode: cookies[:_mode]).length > 0
+            if not @current_mode.nil?
+                unless UserMode.where(user_id: current_user.id,mode: @current_mode).length > 0
                     redirect_to '/mode/select'
                 end
             else
                 redirect_to '/mode/select'
             end
-        end
 
+        end
     end
 
 
