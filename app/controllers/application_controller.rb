@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
         @current_mode = cookies[:_mode]
         puts "in set"
         puts @current_mode
+
     end
 
 
@@ -38,6 +39,7 @@ class ApplicationController < ActionController::Base
         allowed_controllers = ["mode","sessions","registrations","omniauth_callbacks"]
         puts controller_name
         unless allowed_controllers.include? controller_name
+            current_user.current_mode(cookies[:_mode])
             if not @current_mode.nil?
                 unless UserMode.where(user_id: current_user.id,mode: @current_mode).length > 0
                     redirect_to '/mode/select'
