@@ -63,7 +63,7 @@ class User < ApplicationRecord
     def feed
         users = followee_ids
         users << id
-        Post.includes(:user, :likes, :dislikes, :comments).where(user_id: users, flavour: "feed").order(created_at: :desc)
+        Post.includes(:user, :likes, :dislikes, :comments).where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc)
     end
 
 

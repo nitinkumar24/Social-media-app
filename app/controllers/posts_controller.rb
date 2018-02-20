@@ -7,6 +7,7 @@ class PostsController < ApplicationController
         puts post_params
         @post = Post.new(post_params)
         @post.user_id = current_user.id
+        @post.mode = @current_mode
         check_anonymous_avatar_create
         @comment=Comment.new
         respond_to do |format|
