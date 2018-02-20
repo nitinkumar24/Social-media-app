@@ -4,7 +4,7 @@ class NewsfeedController < ApplicationController
     def index
         @post = Post.new
         @comment = Comment.new
-
+        @reply = Reply.new
         @posts = current_user.feed.paginate(:page => params[:page], :per_page => 6)
         respond_to do |format|
             format.html{

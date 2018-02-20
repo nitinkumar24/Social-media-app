@@ -27,6 +27,8 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id
         @comment.post_id=params[:post_id]
+        @reply=Reply.new
+
         respond_to do |format|
             if @comment.save
                 format.html { redirect_to'/', notice: 'Comment was successfully created.' }

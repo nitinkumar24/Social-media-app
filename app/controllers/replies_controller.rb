@@ -25,10 +25,12 @@ class RepliesController < ApplicationController
   # POST /replies.json
   def create
     @reply = Reply.new(reply_params)
-
+    @reply.user_id = current_user.id
+    @reply.comment_id=params[:comment_id]
     respond_to do |format|
       if @reply.save
         format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
+        format.js {}
         format.json { render :show, status: :created, location: @reply }
       else
         format.html { render :new }

@@ -3,11 +3,6 @@
    <div class="comments-content">
       <% user = comment.user %>
 
-
-
-      <!--&ensp;<p><%= comment.content %></p>-->
-
-
       <div class="comment">
          <a class="avatar">
             <%= image_tag user.avatar.url(:medium),:class =>"profile_image",:alt=>"" %>
@@ -32,6 +27,35 @@
 
             <div class="text">
                <%= comment.content %>
+
+               <%= comment.replies.count %>
+            </div>
+
+            <%= form_for @reply,remote:true do |form| %>
+                <div class="comment-box">
+
+                <span style="border-radius: 22px">
+                    <div>
+                       <textarea data-autoresize rows="2" style="width: 80%;border-radius: 18px;height: 30px;padding: 5px 0 0 20px" name="reply[content]" class="reply-input" placeholder="Add a Reply"></textarea>
+                       <%= hidden_field_tag :comment_id, comment.id %>
+                       <but style="margin-right: 5%;">
+                       <%= button_tag(type: "submit", class: "postbutton",:style => "padding-right:3%;width: 20% ;background: none;border: none;}") do %>
+                           <i class="fa fa-arrow-right" aria-hidden="true" style="color: #7e2444;"></i>
+                       <% end %>
+                        </but>
+                    </div>
+                </span>
+
+                </div>
+
+            <% end %>
+
+            <div id="replies_<%=comment.id%>" class="replies" >
+               <%  comment.replies.each do |reply| %>
+
+                   <%= render 'replies/reply', reply: reply %>
+
+               <% end %>
             </div>
 
          </div>
