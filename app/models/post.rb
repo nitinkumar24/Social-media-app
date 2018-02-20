@@ -13,6 +13,11 @@ class Post < ApplicationRecord
       Mention.create_from_text(self)
   end
 
+  def can_edit_or_delete user
+      self.user_id == user.id
+
+  end
+
   def liked_by user_id
   	Like.where(post_id: id, user_id: user_id).length > 0
   end

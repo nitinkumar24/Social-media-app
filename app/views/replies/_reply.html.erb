@@ -1,5 +1,5 @@
 
-<div class="ui threaded comments" id="comment_<%=reply.id%>">
+<div class="ui threaded comments" id="reply_<%=reply.id%>">
    <div class="comments-content">
       <% user = reply.user %>
 
@@ -15,7 +15,7 @@
             </a>
             <div class="metadata">
                <span class="date"><%= reply.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
-               <% if reply.user.id == current_user.id or reply.post.user.id == current_user.id %>
+               <% if reply.user.id == current_user.id or reply.post.user.id == current_user.id or reply.comment.user.id == current_user.id %>
 
                    <%= link_to 'Delete', reply, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
                    <% if reply.user.id == current_user.id %>

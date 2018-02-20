@@ -21,7 +21,7 @@
           </div>
       <%end %>
 
-      <% if post.user.id == current_user.id %>
+      <% if post.can_edit_or_delete current_user %>
           <div class="ui dropdown">
              <i class="dropdown icon"></i>
              <div class="menu">

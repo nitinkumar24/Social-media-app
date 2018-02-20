@@ -59,6 +59,7 @@ class RepliesController < ApplicationController
     @reply.destroy
     respond_to do |format|
       format.html { redirect_to replies_url, notice: 'Reply was successfully destroyed.' }
+      format.js{}
       format.json { head :no_content }
     end
   end
