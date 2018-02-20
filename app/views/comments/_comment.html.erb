@@ -13,12 +13,12 @@
             </a>
             <div class="metadata">
                <span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
-               <% if comment.user.id == current_user.id or comment.post.user.id == current_user.id %>
-
+               <% if comment.can_delete current_user %>
                    <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
-                   <% if comment.user.id == current_user.id %>
-                       <%= link_to 'Edit', edit_comment_path(comment) %>
-                   <% end %>
+
+               <% end %>
+               <% if comment.can_update current_user %>
+                   <%= link_to 'Edit', edit_comment_path(comment) %>
                <% end %>
             </div>
 

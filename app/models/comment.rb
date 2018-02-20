@@ -4,27 +4,11 @@ class Comment < ApplicationRecord
   has_many :replies, dependent: :destroy
   validates :content, presence: true, length: {maximum: 400}
 
-  def liked_by user_id
-    Like.where(comment_id: id,user_id: user_id).length>0
+  def can_delete user
+      self.user_id == user.id or self.post.user_id == user.id
   end
 
-  def like_string user_id
-      if liked_by user_id
-        return "unlike"
-      else
-        return "like"
+    def can_update user
+        self.user_id == user.id
     end
-  end
-
-  def disliked_by user_id
-    Dislike.where(comment_id: id,user_id: user_id).length>0
-  end
-
-  def dislike_string user_id
-    if disliked_by user_id
-      return "undislike"
-    else
-      return "dislike"
-    end
-  end
 end

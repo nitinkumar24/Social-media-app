@@ -13,9 +13,8 @@ class Post < ApplicationRecord
       Mention.create_from_text(self)
   end
 
-  def can_edit_or_delete user
+  def can_update_or_delete user
       self.user_id == user.id
-
   end
 
   def liked_by user_id

@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 
 
     def destroy
-        if @post.can_edit_or_delete current_user
+        if @post.can_update_or_delete current_user
             @post.destroy!
             respond_to do |format|
                 format.html { redirect_to '/', notice: 'Post was successfully destroyed.' }
@@ -70,7 +70,7 @@ class PostsController < ApplicationController
         params.require(:post).permit(:content, :user_id,:anonymous,:avatar, :flavour)
     end
 
-   
+
     def check_anonymous_avatar_create
         if @post.anonymous and @post.avatar?
             puts @post.avatar.destroy
