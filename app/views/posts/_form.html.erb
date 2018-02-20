@@ -1,5 +1,5 @@
 <br>
-<%= form_with(model: post, local: true) do |form| %>
+<%=form_for @post,remote: true do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -13,14 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :content, id: :post_content, id:"user_email" %>
+    <%= form.text_field :content, id:"user_email" %>
   </div>
 
 
     <div class="anonymous" style="display: flex;float: right">
-       <h3 >Anonymous
-          <%= form.check_box :anonymous %>
-       </h3>
+
        <div class="actions">
           <%= form.submit 'Update Post', :style => "border:2px solid black;padding:5px;float:right;border-radius:5px;margin-left:5px"   %>
        </div>

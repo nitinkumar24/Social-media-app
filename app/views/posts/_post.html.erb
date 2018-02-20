@@ -29,7 +29,7 @@
                    <%= link_to 'Delete', post, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
                 </div>
                 <div class="item">
-                   <%= link_to 'Edit', edit_post_path(post) %>
+                   <%= link_to 'Edit', edit_post_path(post),remote:true %>
                 </div>
 
              </div>
@@ -47,7 +47,17 @@
           <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
       <% end %>
 
-      <p><%= markdown(post.content) %></p>
+
+      <div id="post_form_<%= post.id  %>">
+      </div>
+      <div id="post_orig_content_<%= post.id  %>">
+         <%= markdown(post.content) %>
+      </div>
+
+
+
+
+
       <hr style="opacity: 0.2">
       <div class="user-response" >
 

@@ -1,0 +1,3 @@
+$('#post_form_<%= @post.id %>').append("<%= escape_javascript (render 'form', post: @post) %>").css('display','block');
+$('#post_orig_content_<%= @post.id %>').css('display','none');
+console.log($("#post_content_<%= @post.id%>"));

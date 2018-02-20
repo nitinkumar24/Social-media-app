@@ -36,18 +36,23 @@ class PostsController < ApplicationController
         end
     end
 
-
-    def show
-        @comment=Comment.new
-        @comments = Comment.all
+    def edit
+        puts "hellllo"
+        puts @post
+        respond_to do |format|
+            format.js {   }
+        end
     end
 
+
+
     def update
-        if @post.can_edit_or_delete current_user
+        if @post.can_update_or_delete current_user
             respond_to do |format|
                 if @post.update(post_params)
                     check_anonymous_avatar_update
                     format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+                    format.js{ }
                     format.json { render :show, status: :ok, location: @post }
                 else
                     format.html { render :edit }
