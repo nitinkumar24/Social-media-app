@@ -15,12 +15,13 @@
             </a>
             <div class="metadata">
                <span class="date"><%= reply.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
-               <% if reply.user.id == current_user.id or reply.post.user.id == current_user.id or reply.comment.user.id == current_user.id %>
+               <% if reply.can_delete current_user %>
 
                    <%= link_to 'Delete', reply, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
-                   <% if reply.user.id == current_user.id %>
-                       <%= link_to 'Edit', edit_reply_path(reply) %>
-                   <% end %>
+
+               <% end %>
+               <% if reply.can_update current_user %>
+                   <%= link_to 'Edit', edit_reply_path(reply) %>
                <% end %>
             </div>
 
