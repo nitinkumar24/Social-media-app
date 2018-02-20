@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :replies
   get 'mentions', to: 'search#mentions'
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217114303) do
+ActiveRecord::Schema.define(version: 20180220095356) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -97,6 +97,16 @@ ActiveRecord::Schema.define(version: 20180217114303) do
     t.datetime "avatar_updated_at"
     t.string "flavour"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.string "content"
+    t.integer "user_id"
+    t.integer "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_replies_on_comment_id"
+    t.index ["user_id"], name: "index_replies_on_user_id"
   end
 
   create_table "user_modes", force: :cascade do |t|

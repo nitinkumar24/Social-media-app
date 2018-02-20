@@ -20,7 +20,9 @@ class Mention
 
     def self.create_from_match(match,self_id)
         user = User.find_by(username: match.delete('@'))
-        is_follower = FollowMapping.where(:followee_id => self_id, :follower_id => user.id).length > 0     #this need to be accessed form user class
+        puts "hi"
+        puts @current_mode
+        is_follower = FollowMapping.where(:followee_id => self_id, :follower_id => user.id,:mode => @current_mode).length > 0     #this need to be accessed form user class
 
         UserMention.new(user) if user.present? and is_follower
     end

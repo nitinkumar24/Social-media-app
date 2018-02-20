@@ -3,7 +3,7 @@ class ApplicationRecord < ActiveRecord::Base
 
     def current_mode cookie_mode
         @current_mode = cookie_mode
-        puts "kya"
+        puts @current_mode
     end
 
 end

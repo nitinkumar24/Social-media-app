@@ -63,7 +63,7 @@ class User < ApplicationRecord
     def feed
         users = followee_ids
         users << id
-        Post.includes(:user, :likes).where(user_id: users, flavour: "feed").order(created_at: :desc)
+        Post.includes(:user, :likes, :dislikes, :comments).where(user_id: users, flavour: "feed").order(created_at: :desc)
     end
 
 
@@ -108,15 +108,15 @@ class User < ApplicationRecord
     end
 
     def followers user_id
-        count_followers=FollowMapping.where(:followee_id => user_id).length
+        count_followers=FollowMapping.where(:followee_id => user_id,:mode => @current_mode).length
     end
 
     def followee user_id
-        count_followee=FollowMapping.where(:follower_id => user_id).length
+        count_followee=FollowMapping.where(:follower_id => user_id,:mode => @current_mode).length
     end
 
     def is_following user_id
-        FollowMapping.where(:followee_id => user_id, :follower_id => self.id).length > 0
+        FollowMapping.where(:followee_id => user_id, :follower_id => self.id,:mode => @current_mode).length > 0
     end
 
     def mention(query)
