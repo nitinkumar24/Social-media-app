@@ -122,6 +122,7 @@ class User < ApplicationRecord
     end
 
     def mention(query)
+        puts @current_mode
         return User.none unless query.present?
         # conditions = {}
         # conditions[:id] = follower_ids

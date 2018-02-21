@@ -11,18 +11,14 @@ class ModeController < ApplicationController
     end
 
     def set_mode
-        puts "in set_mode"
-        cookies[:_mode] = params[:name]
-        user = current_user
-        user.current_mode = params[:name]
-        user.save
-
-        puts current_user.name
         @modes = UserMode.where(user_id: current_user.id)
         if UserMode.where(user_id: current_user.id,mode: params[:name]).length > 0
-            redirect_to '/', notice: 'Currently browsing in ' +cookies[:_mode] + " mode"
+            user = current_user
+            user.current_mode = params[:name]
+            user.save
+            redirect_to '/', notice: 'Currently browsing in ' +params[:name] + " mode"
         else
-            redirect_to '/mode/select' , modes: @modes
+            redirect_to '/mode/select' , notice: 'Please select a valid mode',modes: @modes
         end
     end
 

@@ -3,8 +3,10 @@ class Mention
     attr_reader :mentionable
     include Rails.application.routes.url_helpers
 
+
     def self.create_from_text(post)
         puts post
+        @current_mode = post.mode               #this need to be solved
         puts "in text"
         potential_matches = post.content.scan(/@\w+/i)
         puts potential_matches
@@ -22,6 +24,7 @@ class Mention
         user = User.find_by(username: match.delete('@'))
         puts "hi"
         puts @current_mode
+
         is_follower = FollowMapping.where(:followee_id => self_id, :follower_id => user.id,:mode => @current_mode).length > 0     #this need to be accessed form user class
 
         UserMention.new(user) if user.present? and is_follower
