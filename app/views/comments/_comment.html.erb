@@ -24,7 +24,7 @@
 
 
             <div class="text">
-               <%= comment.content %>
+               <%= markdown(comment.content) %>
             </div>
 
             <%= render 'replies/reply_form', comment: comment %>

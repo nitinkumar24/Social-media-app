@@ -6,7 +6,7 @@ class Mention
 
     def self.create_from_text(post)
         puts post
-        @current_mode = post.mode               #this need to be solved
+        @current_mode = post.user.current_mode               #this need to be solved
         puts "in text"
         potential_matches = post.content.scan(/@\w+/i)
         puts potential_matches

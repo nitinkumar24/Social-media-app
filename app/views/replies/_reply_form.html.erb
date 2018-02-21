@@ -3,7 +3,7 @@
 
                 <span style="border-radius: 22px">
                     <div>
-                       <textarea data-autoresize rows="2" style="width: 80%;border-radius: 18px;height: 30px;padding: 5px 0 0 20px" name="reply[content]" class="reply-input" placeholder="Add a Reply"></textarea>
+                       <textarea data-autoresize rows="2" style="width: 80%;border-radius: 18px;height: 30px;padding: 5px 0 0 20px" name="reply[content]" class="reply-input" id="reply_form" placeholder="Add a Reply"></textarea>
                        <%= hidden_field_tag :comment_id, comment.id %>
                        <but style="margin-right: 5%;">
                        <%= button_tag(type: "submit", class: "postbutton",:style => "padding-right:3%;width: 20% ;background: none;border: none;}") do %>
