@@ -18,7 +18,10 @@ class NewsfeedController < ApplicationController
         @post = Post.new
         @comment = Comment.new
         @comments = Comment.all
-        @posts = Post.where(flavour: :confession).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
+        @posts = Post.where(flavour: :confession)
+                         .paginate(:page => params[:page], :per_page => 7)
+                         .order(created_at: :desc)
+
         respond_to do |format|
             format.html{
                 # Post.order(created_at: :desc).page(params[:page])
