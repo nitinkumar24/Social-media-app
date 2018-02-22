@@ -107,11 +107,10 @@
 
          <hr style="opacity: 0.2">
 
-
          <div id="comments_<%=post.id%>" class="comments" >
             <%  post.comments.each do |comment| %>
 
-                   <%= render 'comments/comment', comment: comment %>
+                <%= render 'comments/comment', comment: comment %>
 
             <% end %>
          </div>

@@ -33,6 +33,16 @@ class User < ApplicationRecord
         @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
     end
 
+    def profile_link user
+        puts user
+        puts "lol"
+        host = Rails.env.development? ? 'http://localhost:3000' : 'sociograms.in'
+
+        link_to_user_profile = host + "/" + user.username + "/"      #hard_coded
+        result = "[**@#{user.username}**](#{link_to_user_profile})"
+        result
+    end
+
 
     # DONT NEED PASSWORD FOR UPDATING PROFILE
     def update_with_password(params, *options)

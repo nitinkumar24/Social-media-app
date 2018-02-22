@@ -1,17 +1,8 @@
 <p id="notice"><%= notice %></p>
-<!--<br><br>-->
-<!--<p>-->
-  <!--<strong>Content:</strong>-->
-  <!--<%= @post.content %>-->
-<!--</p>-->
 
-<!--<p>-->
-  <!--<strong>User:</strong>-->
-  <!--<%= @post.user %>-->
-<!--</p>-->
 
 <div style="width: 40%;margin-left: 30%;margin-top: 80px;">
-<%  post = @post %>
+   <%  post = @post_to_show %>
 
 
    <div class="newsfeed" id="post_<%= post.id %>">
@@ -123,11 +114,13 @@
             <hr style="opacity: 0.2">
 
             <div id="comments_<%=post.id%>" class="comments" >
-               <%  post.comments.each do |comment| %>
 
-                   <%= render 'comments/comment', comment: comment %>
 
-               <% end %>
+                   <% @comment_to_show.flatten.each do |comment| %>
+                       <%= render 'comments/comment', comment: comment %>
+                   <% end %>
+
+
             </div>
 
          </div>
@@ -137,43 +130,39 @@
 </div>
 
 
-   <script>
+<script>
 
 
-       $('.ui.dropdown')
-           .dropdown()
-       ;
+    $('.ui.dropdown')
+        .dropdown()
+    ;
 
-       var acc = document.getElementsByClassName("comment");
-       var i;
+    var acc = document.getElementsByClassName("comment");
+    var i;
 
-       for (i = 0; i < acc.length; i++) {
-           acc[i].onclick = function(){
-               this.classList.toggle("active");
-               var div = this.parentElement;
-               var comment_panel=div.nextElementSibling
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+            this.classList.toggle("active");
+            var div = this.parentElement;
+            var comment_panel=div.nextElementSibling
 
 //            console.log(div.nextElementSibling);
-               if (comment_panel.style.display === "block") {
-                   comment_panel.style.display = "none";
-               } else {
-                   comment_panel.style.display = "block";
-               }
-           }
-       }
+            if (comment_panel.style.display === "block") {
+                comment_panel.style.display = "none";
+            } else {
+                comment_panel.style.display = "block";
+            }
+        }
+    }
 
-       jQuery.each(jQuery('textarea[data-autoresize]'), function() {
-           var offset = this.offsetHeight - this.clientHeight;
+    jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+        var offset = this.offsetHeight - this.clientHeight;
 
-           var resizeTextarea = function(el) {
-               jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
-           };
-           jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
-       });
+        var resizeTextarea = function(el) {
+            jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+        };
+        jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+    });
 
-   </script>
+</script>
 
-
-
-   <!--<%= link_to 'Edit', edit_post_path(@post) %>-->
-    <!--<%= link_to 'Back', posts_path %>-->

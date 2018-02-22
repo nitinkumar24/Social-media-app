@@ -34,6 +34,7 @@ class Mention
 
     def self.send_notification(object, recipient_user, current_user)
         object_name =  object.class.name
+
         if object_name == "Post"
             puts "lasd"
             Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
@@ -42,6 +43,7 @@ class Mention
                                 noti_type_id: object.id,
                                 mode:current_user.current_mode)
         end
+
         if object_name == "Comment"
             puts "comment"
             Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
@@ -50,6 +52,7 @@ class Mention
                                 noti_type_id: object.id,
                                 mode:current_user.current_mode)
         end
+
         if object_name == "Reply"
             puts "reply"
             Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,

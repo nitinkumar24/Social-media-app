@@ -45,6 +45,12 @@ class PostsController < ApplicationController
         end
     end
 
+    def show
+        puts "in show"
+        @comment = Comment.new
+        @reply = Reply.new
+    end
+
 
 
     def update

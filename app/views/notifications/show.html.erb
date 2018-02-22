@@ -1,20 +1,30 @@
 <div class="notification-page">
-    <div class="left-panel" style="box-shadow: none">
+   <div class="left-panel" style="box-shadow: none">
 
-    </div>
-    <div class="notification-show">
-        <h3 style="color: #362121;">Notifications</h3>
-        <hr style="opacity: 0.3">
+   </div>
+   <div class="">
+      <h3 style="color: #362121;">Notifications</h3>
+      <hr style="opacity: 0.3">
 
 
-        <%  if @notifications.length == 0 %>
-            <p>No Notifications yet</p>
-        <% end %>
+      <%  if @notifications.length == 0 %>
+          <p>No Notifications yet</p>
+      <% end %>
+      <% @notifications.each do |n| %>
 
-    </div>
-    <div class="right-panel">
+          <span>
+             <%=  markdown(n.message)%>
+             <%= link_to "View", notifications_view_path(noti_type: n.noti_type,noti_type_id: n.noti_type_id) %>
+          </span>
+          <br>
 
-    </div>
+      <% end %>
+
+
+   </div>
+   <div class="right-panel">
+
+   </div>
 </div>
 
 
