@@ -10,10 +10,11 @@ class Reply < ApplicationRecord
         comment_owner_id = self.comment.user_id
         post_owner_id = self.comment.post.user_id
         current_user= self.user
+        link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
 
         unless comment_owner_id == current_user.id
             Notification.create(user_id: current_user.id, recipient_id: comment_owner_id,
-                                message: current_user.name + " replied on your comment",
+                                message: link_to_actor_profile + " replied on your comment",
                                 noti_type: "comment-reply",
                                 noti_type_id: self.id,
                                 mode:current_user.current_mode)
@@ -23,7 +24,7 @@ class Reply < ApplicationRecord
 
         unless  post_owner_id == current_user.id
             Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
-                                message: current_user.name + "replied on a comment of your post",
+                                message: link_to_actor_profile + "replied on a comment of your post",
                                 noti_type: "comment-reply",
                                 noti_type_id: self.id,
                                 mode:current_user.current_mode)

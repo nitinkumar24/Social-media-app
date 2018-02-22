@@ -34,11 +34,12 @@ class Mention
 
     def self.send_notification(object, recipient_user, current_user)
         object_name =  object.class.name
+        link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
 
         if object_name == "Post"
             puts "lasd"
             Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
-                                message: current_user.name + "mentioned you in a post",
+                                message: link_to_actor_profile + "mentioned you in a post",
                                 noti_type: "post-mention",
                                 noti_type_id: object.id,
                                 mode:current_user.current_mode)
@@ -47,7 +48,7 @@ class Mention
         if object_name == "Comment"
             puts "comment"
             Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
-                                message: current_user.name + "mentioned you in a comment",
+                                message: link_to_actor_profile + "mentioned you in a comment",
                                 noti_type: "comment-mention",
                                 noti_type_id: object.id,
                                 mode:current_user.current_mode)
@@ -56,7 +57,7 @@ class Mention
         if object_name == "Reply"
             puts "reply"
             Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
-                                message: current_user.name + "mentioned you in a reply",
+                                message: link_to_actor_profile + "mentioned you in a reply",
                                 noti_type: "reply-mention",
                                 noti_type_id: object.id,
                                 mode:current_user.current_mode)
