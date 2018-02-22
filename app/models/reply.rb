@@ -11,22 +11,23 @@ class Reply < ApplicationRecord
         post_owner_id = self.comment.post.user_id
         current_user= self.user
 
-        unless post_owner_id == current_user.id or comment_owner_id == current_user.id
+        unless comment_owner_id == current_user.id
             Notification.create(user_id: current_user.id, recipient_id: comment_owner_id,
                                 message: current_user.name + " replied on your comment",
                                 noti_type: "comment-reply",
                                 noti_type_id: self.id,
                                 mode:current_user.current_mode)
-            unless  post_owner_id == comment_owner_id
-                Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
-                                    message: current_user.name + "replied on a comment of your post",
-                                    noti_type: "comment-reply",
-                                    noti_type_id: self.id,
-                                    mode:current_user.current_mode)
-            end
+
 
         end
 
+        unless  post_owner_id == current_user.id
+            Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
+                                message: current_user.name + "replied on a comment of your post",
+                                noti_type: "comment-reply",
+                                noti_type_id: self.id,
+                                mode:current_user.current_mode)
+        end
 
     end
 
@@ -36,14 +37,16 @@ class Reply < ApplicationRecord
         post_owner_id = self.comment.post.user_id
         current_user= self.user
 
-        unless post_owner_id == current_user.id or comment_owner_id == current_user.id
+        unless comment_owner_id == current_user.id
             notification1 = Notification.where(noti_type_id: self.id,recipient_id: comment_owner_id).first
             notification1.destroy!
-            unless post_owner_id == comment_owner_id
-                notification2 = Notification.where(noti_type_id: self.id,recipient_id: post_owner_id).first
-                notification2.destroy!
-            end
         end
+
+        unless post_owner_id == current_user.id
+            notification2 = Notification.where(noti_type_id: self.id,recipient_id: post_owner_id).first
+            notification2.destroy!
+        end
+
 
         puts "delte"
     end
