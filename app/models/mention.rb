@@ -42,6 +42,22 @@ class Mention
                                 noti_type_id: object.id,
                                 mode:current_user.current_mode)
         end
+        if object_name == "Comment"
+            puts "comment"
+            Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
+                                message: current_user.name + "mentioned you in a comment",
+                                noti_type: "comment-mention",
+                                noti_type_id: object.id,
+                                mode:current_user.current_mode)
+        end
+        if object_name == "Reply"
+            puts "reply"
+            Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
+                                message: current_user.name + "mentioned you in a reply",
+                                noti_type: "reply-mention",
+                                noti_type_id: object.id,
+                                mode:current_user.current_mode)
+        end
 
     end
 
