@@ -4,6 +4,33 @@ class Comment < ApplicationRecord
   has_many :replies, dependent: :destroy
   validates :content, presence: true, length: {maximum: 400}
   after_create :add_mentions
+  after_create :create_notification
+  after_destroy :delete_notification
+
+  def create_notification
+      puts "testing"
+      post_owner_id = self.post.user_id
+      current_user= self.user
+      unless post_owner_id == current_user.id
+          Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
+                              message: current_user.name + " commented on your post",
+                              noti_type: "post-comment",
+                              noti_type_id: self.id,
+                              mode:current_user.current_mode)
+      end
+      puts self.id
+  end
+
+  def delete_notification
+      puts "delte"
+      post_owner_id = self.post.user_id
+      current_user= self.user
+      unless post_owner_id == current_user.id
+          notification = Notification.where(noti_type_id: self.id,noti_type: "post-comment").first
+          notification.destroy!
+      end
+      puts self.id
+  end
 
   def add_mentions
       Mention.create_from_text(self)

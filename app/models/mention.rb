@@ -4,18 +4,19 @@ class Mention
     include Rails.application.routes.url_helpers
 
 
-    def self.create_from_text(post)
-        puts post
-        @current_mode = post.user.current_mode               #this need to be solved
+    def self.create_from_text(object)               #object can be post , comment or reply
+        puts object
+        @current_mode = object.user.current_mode               #this need to be solved
         puts "in text"
-        potential_matches = post.content.scan(/@\w+/i)
+        potential_matches = object.content.scan(/@\w+/i)
         puts potential_matches
         potential_matches.uniq.map do |match|
-            mention = Mention.create_from_match(match,post.user_id)
+            mention = Mention.create_from_match(match,object.user_id)
             puts mention
             next unless mention
-            post.update_attributes!(content: mention.markdown_string(post.content))
+            object.update_attributes!(content: mention.markdown_string(object.content))
             # You could fire an email to the user here with ActionMailer
+            Mention.send_notification(object)
             mention
         end.compact
     end
@@ -29,6 +30,13 @@ class Mention
 
         UserMention.new(user) if user.present? and is_follower
     end
+
+    def self.send_notification(object)
+        puts object.class.name
+
+    end
+
+
 
 
 
