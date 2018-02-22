@@ -4,35 +4,44 @@ class Mention
     include Rails.application.routes.url_helpers
 
 
-    def self.create_from_text(object)               #object can be post , comment or reply
+    def self.create_from_text(object)               #object can be post ,comment or reply
         puts object
-        @current_mode = object.user.current_mode               #this need to be solved
+        current_user = object.user
+        @current_mode = current_user.current_mode               #this need to be solved
         puts "in text"
         potential_matches = object.content.scan(/@\w+/i)
         puts potential_matches
         potential_matches.uniq.map do |match|
             mention = Mention.create_from_match(match,object.user_id)
-            puts mention
+            recipient_user =  mention.mentionable                   #jisko mention kia h
             next unless mention
             object.update_attributes!(content: mention.markdown_string(object.content))
             # You could fire an email to the user here with ActionMailer
-            Mention.send_notification(object)
+            Mention.send_notification(object, recipient_user, current_user)         #sending notification to mentioned user
             mention
         end.compact
     end
 
-    def self.create_from_match(match,self_id)
+    def self.create_from_match(match,current_user_id)
         user = User.find_by(username: match.delete('@'))
         puts "hi"
         puts @current_mode
 
-        is_follower = FollowMapping.where(:followee_id => self_id, :follower_id => user.id,:mode => @current_mode).length > 0     #this need to be accessed form user class
+        is_follower = FollowMapping.where(:followee_id => current_user_id, :follower_id => user.id,:mode => @current_mode).length > 0     #this need to be accessed form user class
 
         UserMention.new(user) if user.present? and is_follower
     end
 
-    def self.send_notification(object)
-        puts object.class.name
+    def self.send_notification(object, recipient_user, current_user)
+        object_name =  object.class.name
+        if object_name == "Post"
+            puts "lasd"
+            Notification.create(user_id: current_user.id, recipient_id: recipient_user.id,
+                                message: current_user.name + "mentioned you in a post",
+                                noti_type: "post-mention",
+                                noti_type_id: object.id,
+                                mode:current_user.current_mode)
+        end
 
     end
 
