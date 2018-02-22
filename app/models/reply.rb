@@ -12,25 +12,17 @@ class Reply < ApplicationRecord
         current_user= self.user
 
         unless post_owner_id == current_user.id or comment_owner_id == current_user.id
-            if post_owner_id == comment_owner_id
-                Notification.create(user_id: current_user.id, recipient_id: comment_owner_id,
-                                    message: current_user.name + " replied on your comment",
-                                    noti_type: "comment-reply",
-                                    noti_type_id: self.id,
-                                    mode:current_user.current_mode)
-            else
-                Notification.create(user_id: current_user.id, recipient_id: comment_owner_id,
-                                    message: current_user.name + " replied on your comment",
-                                    noti_type: "comment-reply",
-                                    noti_type_id: self.id,
-                                    mode:current_user.current_mode)
-
+            Notification.create(user_id: current_user.id, recipient_id: comment_owner_id,
+                                message: current_user.name + " replied on your comment",
+                                noti_type: "comment-reply",
+                                noti_type_id: self.id,
+                                mode:current_user.current_mode)
+            unless  post_owner_id == comment_owner_id
                 Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
                                     message: current_user.name + "replied on a comment of your post",
                                     noti_type: "comment-reply",
                                     noti_type_id: self.id,
                                     mode:current_user.current_mode)
-
             end
 
         end
@@ -45,17 +37,14 @@ class Reply < ApplicationRecord
         current_user= self.user
 
         unless post_owner_id == current_user.id or comment_owner_id == current_user.id
-            if post_owner_id == comment_owner_id
-                notification1 = Notification.where(noti_type_id: self.id,recipient_id: comment_owner_id).first
-                notification1.destroy!
-            else
-                notification1 = Notification.where(noti_type_id: self.id,recipient_id: comment_owner_id).first
-                notification1.destroy!
+            notification1 = Notification.where(noti_type_id: self.id,recipient_id: comment_owner_id).first
+            notification1.destroy!
+            unless post_owner_id == comment_owner_id
                 notification2 = Notification.where(noti_type_id: self.id,recipient_id: post_owner_id).first
                 notification2.destroy!
             end
-
         end
+
         puts "delte"
     end
 
