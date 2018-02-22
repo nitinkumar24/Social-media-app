@@ -12,7 +12,8 @@ class Like < ApplicationRecord
          Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
                              message: current_user.name + " liked your post",
                              noti_type: "post-like",
-                             noti_type_id: self.id)
+                             noti_type_id: self.id,
+                             mode:current_user.current_mode)
      end
       puts self.id
   end
@@ -22,7 +23,7 @@ class Like < ApplicationRecord
       post_owner_id = self.post.user_id
       current_user= self.user
       unless post_owner_id == current_user.id
-          notification = Notification.where(noti_type_id: self.id).first
+          notification = Notification.where(noti_type_id: self.id,noti_type: "post-like").first
           notification.destroy!
       end
       puts self.id

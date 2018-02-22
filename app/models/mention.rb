@@ -30,6 +30,8 @@ class Mention
         UserMention.new(user) if user.present? and is_follower
     end
 
+
+
     def initialize(mentionable)
         @mentionable = mentionable
     end
