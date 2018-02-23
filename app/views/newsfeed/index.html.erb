@@ -11,7 +11,7 @@
       </div>
    </aside>
 
-   <section>
+   <section class="">
       <div class="createPost">
          <%= render 'posts/post_form' %>
       </div>
@@ -39,20 +39,20 @@
 <script>
 
 
-    $.ajax({url: '/ajax',
-        data: {
-            mode: sessionStorage.getItem('mode')
-        }
-        , success: function(data){
-            console.log(data);
-            console.log("request completed");
-
-        },
-        error: function(){
-            console.log(arguments);
-            console.log("some error");
-        }
-    });
+//    $.ajax({url: '/ajax',
+//        data: {
+//            mode: sessionStorage.getItem('mode')
+//        }
+//        , success: function(data){
+//            console.log(data);
+//            console.log("request completed");
+//
+//        },
+//        error: function(){
+//            console.log(arguments);
+//            console.log("some error");
+//        }
+//    });
 
 
     //image preview before upload

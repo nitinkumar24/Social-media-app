@@ -1,6 +1,6 @@
 ready = ->
     $('#typed-sample').typed
-        strings: [" Don't let your college memories die... ","Connect with your college buddies..." ]
+        strings: [" Be Awesome and Explore SocioGrams ","Connect with your buddies..." ,"Not for Hookups"]
 
         loop: true
         typeSpeed:40

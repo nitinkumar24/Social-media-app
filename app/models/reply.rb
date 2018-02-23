@@ -22,7 +22,7 @@ class Reply < ApplicationRecord
 
         end
 
-        unless  post_owner_id == current_user.id
+        unless  post_owner_id == current_user.id or comment_owner_id == post_owner_id
             Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
                                 message: link_to_actor_profile + "replied on a comment of your post",
                                 noti_type: "comment-reply",
@@ -39,12 +39,12 @@ class Reply < ApplicationRecord
         current_user= self.user
 
         unless comment_owner_id == current_user.id
-            notification1 = Notification.where(noti_type_id: self.id,recipient_id: comment_owner_id).first
+            notification1 = Notification.where(noti_type_id: self.id,recipient_id: comment_owner_id,noti_type: "comment-reply").first
             notification1.destroy!
         end
 
-        unless post_owner_id == current_user.id
-            notification2 = Notification.where(noti_type_id: self.id,recipient_id: post_owner_id).first
+        unless  post_owner_id == current_user.id or comment_owner_id == post_owner_id
+            notification2 = Notification.where(noti_type_id: self.id,recipient_id: post_owner_id,noti_type: "comment-reply").first
             notification2.destroy!
         end
 

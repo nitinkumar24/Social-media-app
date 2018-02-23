@@ -97,6 +97,12 @@ textarea {
     box-sizing: border-box;
     resize: none;
 }
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: transparent;
+    background-image: none;
+    color: rgb(0, 0, 0);
+}
 #search{
     border: 1px solid black;
     width: 100%;
