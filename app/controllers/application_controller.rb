@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
 
     def check_user_mode
         puts "in check"
-        allowed_controllers = ["mode","sessions","registrations","omniauth_callbacks"]
+        allowed_controllers = ["mode","sessions","registrations","confirmations","passwords","omniauth_callbacks"]
         puts controller_name
         unless allowed_controllers.include? controller_name
             puts "beta"

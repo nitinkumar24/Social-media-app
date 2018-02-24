@@ -1,13 +1,10 @@
 div.createPost{
     background-color: white;
     display: flex;
-
     justify-content: space-between;
-    width:100%;
-
+    width: 100%;
     padding-top: 10px;
-    box-shadow: 0px 0px 6px #666666;
-
+    box-shadow: 0px 0px 1px #e5e5e5;
     .createpost_image{
         width: 40px;
         height: 40px;

@@ -12,11 +12,12 @@ main-page {
     display: flex;
     aside{
         width: 28%;
-        padding-right: 1%;
+        padding-left: 8%;
+        position: fixed;
         div.sidepanel{
-            width: 64%;
+            width: 100%;
             height: 850px;
-            margin-left: 28%;
+
             div.home-profile {
                 //box-shadow: 0px 0px 3px #666666;
                 padding: 12px;
@@ -69,9 +70,8 @@ main-page {
         }
     }
     section {
-        width: 40%;
-        padding: 0 1% 0 1%;
-
+        width: 38%;
+        margin-left: 31%;
 
         div#posts{
             margin-top: 10px;
@@ -79,8 +79,17 @@ main-page {
 
     }
     ads{
-        width:28%;
-        padding-left: 1%;
+        width: 31%;
+        padding-left: 3%;
+        padding-right: 8%;
+        position: fixed;
+        right: 0;
+        .ui.test.ad {
+            box-shadow: 0px 0px 1px #d7d2d4;
+            /* border: 1px solid; */
+            position: relative;
+            background: #ffffff;
+        }
         div.adspanel{
 
             width: 80%;
@@ -142,8 +151,9 @@ div#probox{
             }
         }
         section {
-            width: 100%;
+            width: 96%;
             padding: 0;
+            margin-left: 2%;
             div.createPost{
                 .createpost_image{
                     display: none;
