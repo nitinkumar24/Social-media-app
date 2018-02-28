@@ -28,7 +28,49 @@
    </section>
 
    <ads>
-      <div class="ui half page test ad" data-text="Ads"></div>
+
+
+          <% user= User.last %>
+          <div class="ui half page test ad">
+             <p>New to SocioGrams</p>
+
+             <div class="ui feed divider new_users">
+                <% @new_users.each do |user| %>
+                <div class="event">
+                   <div class="label">
+                      <%= image_tag user.avatar.url(:medium) %>
+                   </div>
+                   <div class="content">
+                      <div class="summary">
+                         <a class="user">
+                            <%= render 'profile/profile_link' ,user: user %>
+                         </a>@<%= user.username %>
+
+                      </div>
+                      <div class="meta">
+                         <a class="like">
+                       <span>
+                   <% if current_user.can_follow user.id %>
+                       <%= link_to "Follow", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post, id:"user_#{user.id}",remote: true %>
+                   <% end %>
+
+                          <% if current_user.can_delete_request user.id %>
+                       <%= link_to "Requested", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post ,id:"user_#{user.id}", remote: true  %>
+                   <% end %>
+
+                          <% if current_user.can_un_follow user.id %>
+                       <%= link_to "unfollow", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post,id:"user_#{user.id}", remote: true  %>
+                   <% end %>
+
+      </span>
+                         </a>
+                      </div>
+                   </div>
+                </div>
+                <% end %>
+             </div>
+          </div>
+
    </ads>
 
    <chatbox>
@@ -39,20 +81,20 @@
 <script>
 
 
-//    $.ajax({url: '/ajax',
-//        data: {
-//            mode: sessionStorage.getItem('mode')
-//        }
-//        , success: function(data){
-//            console.log(data);
-//            console.log("request completed");
-//
-//        },
-//        error: function(){
-//            console.log(arguments);
-//            console.log("some error");
-//        }
-//    });
+    //    $.ajax({url: '/ajax',
+    //        data: {
+    //            mode: sessionStorage.getItem('mode')
+    //        }
+    //        , success: function(data){
+    //            console.log(data);
+    //            console.log("request completed");
+    //
+    //        },
+    //        error: function(){
+    //            console.log(arguments);
+    //            console.log("some error");
+    //        }
+    //    });
 
 
     //image preview before upload

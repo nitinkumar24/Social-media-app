@@ -6,6 +6,7 @@ class NewsfeedController < ApplicationController
         @comment = Comment.new
         @reply = Reply.new
         @posts = current_user.feed.paginate(:page => params[:page], :per_page => 6)
+        @new_users = User.all
         respond_to do |format|
             format.html{
             }
