@@ -1,25 +1,65 @@
-<h2>Change your password</h2>
+<style>
+   body{
+      margin:0px;
+      padding:0px;
+      font-family: 'Source Sans Pro', sans-serif;
+      background: url("http://localhost:3000/system/posts/avatars/000/000/021/medium/final1.png?1518359191");
+   }
+</style>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+<div id="signup-page" class="animated ">
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
+   <div class="signinPageLeft">
+      <h3 class=''>Socio_Grams</h3>
+   </div>
+   <div id="sign-in-form-section">
+      <%= devise_error_messages! %>
+      <div class="sign-in-form "  >
+         <p class="form-topic"><i class="fa fa-sign-in" aria-hidden="true"></i>
+            Change your password</p><hr style="color: #721615"><br>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
+         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
 
-<%= render "users/shared/links" %>
+             <%= f.hidden_field :reset_password_token %>
+
+             <div class="field">
+                <%= f.label :password, "New password" %><br />
+                <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                <% end %>
+                <br>
+                <%= f.password_field :password, autofocus: true, autocomplete: "off",placeholder: "New password",class:"user_password_field" %>
+             </div>
+
+             <div class="field">
+                <%= f.label :password_confirmation, "Confirm new password" %><br />
+                <br>
+                <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirm-password",class:"user_password_field"%>
+             </div>
+
+
+                <%= f.submit "Change my password",class:"login-button" %>
+
+         <% end %>
+         <p style="text-align:center;margin-bottom:10px;">OR</p>
+         <hr>
+         <%= render "users/shared/links" %>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+
+      </div>
+   </div>
+
+</div>
+

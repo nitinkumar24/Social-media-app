@@ -11,16 +11,13 @@
     //background-color:  #088b99;
 
 }
-#signup-page {
-    height: 90%;
-    padding: 0;
-}
+
 
 .signinPageLeft {
-    width: 60%;
+    width: 58%;
     font-size: 25px;
     color: black;
-    padding-left: 5%;
+    padding-left: 10%;
     h3 {
         color: white ;
 
@@ -30,18 +27,15 @@
 }
 
 #sign-in-form-section {
-    width: 40%;
+    width: 42%;
     padding-left: 0%;
-    padding-right: 12%;
+    padding-right: 13%;
     opacity: 1;
 }
 
 .sign-in-form{
-
-
     font-size: 20px;
     color: white;
-
     border-radius: 5px;
 }
 
@@ -68,7 +62,7 @@
     }
 }
 
-.user_email_field,.user_password_field{
+.user_email_field,.user_password_field, .user_name_field{
     letter-spacing: 1px;
     font-size: 16px;
     padding: 4% 0 3% 3%;
@@ -127,7 +121,7 @@
     font-size: 13px;
 }
 
-.link-sign-up,.link-forgot-password,.link-confirmation-ins{
+.link-sign-up,.link-forgot-password,.link-confirmation-ins,.link-login{
     text-decoration:none;
     color:white;
     font-weight:bold;
@@ -142,6 +136,9 @@
     font-size: 14px;
 }
 .link-sign-up{
+    font-size:23px;
+}
+.link-login{
     font-size:23px;
 }
 #forgot:hover{
@@ -223,7 +220,7 @@
         flex-direction: column;
         height: auto;
         padding-top: 0;
-        background-color: white;
+
     }
 
     .signinPageLeft{

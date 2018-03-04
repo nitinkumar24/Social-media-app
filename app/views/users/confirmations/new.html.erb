@@ -4,70 +4,56 @@
 
 
     <style>
-        body{
-            margin:0px;
-            padding:0px;
-            font-family: 'Source Sans Pro', sans-serif;
-            background-size: 600% 600% !important;
-            /* -webkit-animation: itlGradient 16s ease infinite; */
-            -moz-animation: itlGradient 16s ease infinite;
-            -o-animation: itlGradient 16s ease infinite;
-            /*animation: itlGradient 16s ease infinite;*/
-            background-size:100% 94vh;
-        }
+       body{
+          margin:0px;
+          padding:0px;
+          font-family: 'Source Sans Pro', sans-serif;
+          background: url("http://localhost:3000/system/posts/avatars/000/000/021/medium/final1.png?1518359191");
+       }
 
-        @-webkit-keyframes itlGradient {
-            0%{background-position:90% 0%}
-            50%{background-position:11% 100%}
-            100%{background-position:90% 0%}
-        }
-        @-moz-keyframes itlGradient {
-            0%{background-position:90% 0%}
-            50%{background-position:11% 100%}
-            100%{background-position:90% 0%}
-        }
-        @-o-keyframes itlGradient {
-            0%{background-position:90% 0%}
-            50%{background-position:11% 100%}
-            100%{background-position:90% 0%}
-        }
-        @keyframes itlGradient {
-            0%{background-position:90% 0%}
-            50%{background-position:11% 100%}
-            100%{background-position:90% 0%}
-        }
     </style>
 
     <div id="signup-page" class="animated ">
 
-        <div class="front-page-logo">
-            <h3 style="">Socio_Grams</h3>
-        </div>
+       <div class="signinPageLeft">
+          <h3 class=''>Socio_Grams</h3>
+       </div>
 
         <div id="sign-in-form-section">
             <%= devise_error_messages! %>
             <div class="sign-in-form "  >
-                <p class="page-topic">Resend confirmtion instructions</p>
+               <p class="form-topic"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                  Resend confirmtion instructions</p><hr style="color: #721615"><br>
+
                 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
                     <%= devise_error_messages! %>
 
-                    <div class="field">
 
-                        <%= f.email_field :email, autofocus: true, placeholder: "E-mail", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-                    </div>
 
-                    <div class="actions">
+                        <%= f.email_field :email, autofocus: true, placeholder: "E-mail", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),class:"user_email_field" %>
+
                         <%= f.submit "Send" ,:class=>"login-button",:style=>"font-size:16px;"%>
-                    </div>
+
                 <% end %>
                 <p style="text-align:center;margin-bottom:10px;">OR</p>
                 <hr>
                 <%= render "users/shared/links" %>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+
             </div>
         </div>
-        <div class="slogans">
 
-        </div>
 
     </div>
 
