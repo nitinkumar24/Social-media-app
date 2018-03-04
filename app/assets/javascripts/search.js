@@ -18,14 +18,15 @@ ready = function() {
         .done(function() { console.log('success!'); })
         .fail(function() { console.log('err!'); });
 
+    document.addEventListener("turbolinks:load", function() {
     $('.typeahead').typeahead(null, {
         name: 'engine',
         displayKey: 'name',
         source: engine.ttAdapter()
 
     });
+    });
     console.log("sjkdfbjew");
 }
 
-$(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).on('ready', ready);
