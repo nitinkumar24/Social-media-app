@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     def create
         puts post_params
         user_followers =  current_user.followers current_user.id
-        if post_params['anonymous'].to_i != 0 and  user_followers < 5            #Check if user has less than 5 followers and posting annonymously
+        if post_params['anonymous'] != "0" and  user_followers < 5            #Check if user has less than 5 followers and posting annonymously
             @post = nil
         else
             @post = Post.new(post_params)
