@@ -2,8 +2,7 @@ class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
 
     def create
-
-        puts "hi"
+        puts 'hi'
         puts post_params
         @post = Post.new(post_params)
         @post.user_id = current_user.id
@@ -17,6 +16,7 @@ class PostsController < ApplicationController
                 format.js {   }
                 format.json { render :show, status: :created, location: @post }
             else
+                format.js { render json: @post.errors, status: :unprocessable_entity }
                 format.html { render 'newsfeed/index' }
                 format.json { render json: @post.errors, status: :unprocessable_entity }
             end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     end
 
     def edit
-        puts "hellllo"
+        puts 'hellllo'
         puts @post
         respond_to do |format|
             format.js {   }
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
     end
 
     def show
-        puts "in show"
+        puts 'in show'
         @comment = Comment.new
         @reply = Reply.new
     end

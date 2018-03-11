@@ -6,13 +6,17 @@ class ProfileController < ApplicationController
 
     def show
         @user=User.find_by_username(params[:id])
+        @new_users = User.all
+
         if @user.id == current_user.id
-            @posts = Post.where(user_id:params[:id]).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
+            @posts = Post.where(user_id:@user.id).paginate(:page => params[:page], :per_page =>7).order(created_at: :desc)
             @comment=Comment.new
+            @reply=Reply.new
             @comments = Comment.all
         elsif current_user.is_following @user.id
-            @posts = Post.where(user_id:params[:id], anonymous:false).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
+            @posts = Post.where(user_id:@user.id, anonymous:false).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
             @comment=Comment.new
+            @reply=Reply.new
             @comments = Comment.all
         end
     end

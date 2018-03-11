@@ -29,20 +29,20 @@
 // Loads all Semantic javascripts
 //= require semantic-ui
 
-
-$(function() {
-    $("#users , #users .pagination ").on("click", 'th a' ,'a', function() {
-        $.getScript(this.href);
-        return false;
-    });
-    $("#products_search input").keyup(function() {
-        $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
-        return false;
-    });
-});
-
-var textarea = document.querySelector('textarea');
-
-textarea.addEventListener('keydown', autosize);
-
-
+//
+// $(function() {
+//     $("#users , #users .pagination ").on("click", 'th a' ,'a', function() {
+//         $.getScript(this.href);
+//         return false;
+//     });
+//     $("#products_search input").keyup(function() {
+//         $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+//         return false;
+//     });
+// });
+//
+// var textarea = document.querySelector('textarea');
+//
+// textarea.addEventListener('keydown', autosize);
+//
+//

@@ -22,6 +22,9 @@
     </inspection_tool>
     <inspection_tool class="RailsChecklist01" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="RubyInterpreter" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RubyResolve" enabled="false" level="WARNING" enabled_by_default="false">
+      <option name="warnImplicitResults" value="false" />
+    </inspection_tool>
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />
