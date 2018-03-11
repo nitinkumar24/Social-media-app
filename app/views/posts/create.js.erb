@@ -1,4 +1,16 @@
 
+
+<% if @post.nil? %>
+noty({
+    text: 'Oops! You have less than 5 followers',
+    theme: 'metroui',
+    type: 'alert',
+    layout: 'topCenter',
+    timeout: 1000
+
+});
+
+<% else %>
 noty({
     text: 'Post was Created',
     theme: 'metroui',
@@ -9,8 +21,9 @@ noty({
 });
 
 $('#posts').prepend("<%= escape_javascript (render 'post', post: @post) %>");
+
+$("#imgInp").val('');
+$(".dup-pic").css("display","none");
+
+<% end %>
 $('#post_content').val("");
-
-    $("#imgInp").val('');
-    $(".dup-pic").css("display","none");
-

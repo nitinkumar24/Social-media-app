@@ -2,23 +2,27 @@ class PostsController < ApplicationController
     before_action :set_post, only: [:show, :edit, :update, :destroy]
 
     def create
-        puts 'hi'
         puts post_params
-        @post = Post.new(post_params)
-        @post.user_id = current_user.id
-        @post.mode = @current_mode
-        check_anonymous_avatar_create
-        @comment=Comment.new
-        respond_to do |format|
+        user_followers =  current_user.followers current_user.id
+        if post_params['anonymous'].to_i != 0 and  user_followers < 5            #Check if user has less than 5 followers and posting annonymously
+            @post = nil
+        else
+            @post = Post.new(post_params)
+            @post.user_id = current_user.id
+            @post.mode = @current_mode      #set post mode to user current_mode
+            check_anonymous_avatar_create   #Check if user is uploading a pic annonymously
+            @comment=Comment.new
+            respond_to do |format|
 
-            if @post.save
-                format.html { redirect_to '/', notice: 'Post was successfully created.' }
-                format.js {   }
-                format.json { render :show, status: :created, location: @post }
-            else
-                format.js { render json: @post.errors, status: :unprocessable_entity }
-                format.html { render 'newsfeed/index' }
-                format.json { render json: @post.errors, status: :unprocessable_entity }
+                if @post.save
+                    format.html { redirect_to '/', notice: 'Post was successfully created.' }
+                    format.js {   }
+                    format.json { render :show, status: :created, location: @post }
+                else
+                    format.js { render json: @post.errors, status: :unprocessable_entity }
+                    format.html { render 'newsfeed/index' }
+                    format.json { render json: @post.errors, status: :unprocessable_entity }
+                end
             end
         end
     end

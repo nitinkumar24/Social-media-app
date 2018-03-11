@@ -120,7 +120,7 @@ class User < ApplicationRecord
     end
 
     def followers user_id
-        count_followers=FollowMapping.where(:followee_id => user_id,:mode => @current_mode).length
+         FollowMapping.where(:followee_id => user_id,:mode => @current_mode).length
     end
 
     def followee user_id
