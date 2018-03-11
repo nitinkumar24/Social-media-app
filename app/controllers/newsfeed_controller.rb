@@ -56,7 +56,6 @@ class NewsfeedController < ApplicationController
     end
 
 
-
     def ajax
         render :json => {text: "text"}
     end
