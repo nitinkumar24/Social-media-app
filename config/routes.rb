@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   
   get 'newsfeed/index'
   get '/confessions' => 'newsfeed#confessions'
+  get '/memes' => 'newsfeed#memes'
+
   get '/users' => 'newsfeed#users'
   get '/ajax' => 'newsfeed#ajax'
   get 'mode/select'

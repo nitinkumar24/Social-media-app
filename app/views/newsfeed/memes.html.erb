@@ -1,10 +1,119 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Confessions</title>
+</head>
 
 
-<h1 style="text-align: center">Bas kuch din aur.</h1>
+<main-page>
+
+   <aside>
+      <div class="sidepanel">
+         <%= render 'sidepanel' %>
+      </div>
+   </aside>
+
+
+   <section>
+
+          <div class="createPost">
+             <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
+             <div class="input-post">
+                <%= form_for @post,remote: true do |form| %>
+                    <div class="">
+                       <div class="ui form">
+                          <div class="field">
+                             <textarea rows="2" name="post[content]" id="post_content" placeholder="Kuch MayMay daalo yaar"></textarea>
+                          </div>
+                       </div>
+                    </div>
+
+                    <div class="dup-pic" style="display: none;padding-top: 10px">
+                       <img id="blah" src=""  style="border-radius: 10px;width: 150px;height: 150px;">
+                       <div style="position: relative;top: -127px;display: inline;left: -25px;">
+                          <i class="fa fa-times cancel-pic" aria-hidden="true"></i>
+                       </div>
+                    </div>
+
+
+
+                    <div class="postbox-toolbar">
+                       <div id="upload-pic-dummy">
+                          <div class="upload-pic">
+                             <%= form.file_field :avatar ,id: "imgInp" %><br>
+                          </div>
+                          <i class="fa fa-picture-o  fa-2x image-icon" aria-hidden="true"></i>
+                       </div>
+                       <%= form.hidden_field :anonymous , value: "0"  %>
+                       <%= form.hidden_field :flavour , value: "meme"  %>
+                       <span id="characters"></span>
+
+                       <%= form.submit 'Post', :class => 'postbutton' , id: 'create_post_submit'  %>
+                    </div>
+
+                <% end %>
+             </div>
+          </div>
+
+          <div id="posts">
+
+             <%= render @posts %>
+
+             <%= will_paginate @posts %>
+          </div>
+          <br>
+
+          </section>
+
+      <ads>
+         <div class="ui half page test ad" data-text="Ads"></div>
+      </ads>
+
+      <chatbox>
+      </chatbox>
+
+      </main-page>
+
+<script>
+
+
+    //image preview before upload
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+            $(".dup-pic").css("display","block");
+        }
+    }
+
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+    //End-image preview before upload
+
+    $(".cancel-pic").click(function () {
+        $("#imgInp").val('');
+        $(".dup-pic").css("display","none");
+
+        console.log("hi");
+
+    });
+
+    $('.tooltip').tooltipster({
+        animation: 'grow',
+        delay: [900, 000],
+        trigger: 'click',
+        position: 'bottom',
+
+    });
+
+
+    //Move to top of the page
+
+    //End-Move to top of the page
+
+
+</script>

@@ -3,10 +3,8 @@ class PostsController < ApplicationController
 
     def create
         puts post_params
-        user_followers =  current_user.followers current_user.id
-        if post_params['anonymous'] != "0" and  user_followers < 5            #Check if user has less than 5 followers and posting annonymously
-            @post = nil
-        else
+        # unless post_params['anonymous'] != "0" and  user_followers > 5            #Check if user has less than 5 followers and posting annonymously
+        if can_create
             @post = Post.new(post_params)
             @post.user_id = current_user.id
             @post.mode = @current_mode      #set post mode to user current_mode
@@ -41,6 +39,7 @@ class PostsController < ApplicationController
         end
     end
 
+
     def edit
         puts 'hellllo'
         puts @post
@@ -48,6 +47,7 @@ class PostsController < ApplicationController
             format.js {   }
         end
     end
+
 
     def show
         puts 'in show'
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
         if @post.can_update_or_delete current_user
             respond_to do |format|
                 if @post.update(post_params)
-                    check_anonymous_avatar_update
+                    check_anonymous_avatar_create
                     format.html { redirect_to @post, notice: 'Post was successfully updated.' }
                     format.js{ }
                     format.json { render :show, status: :ok, location: @post }
@@ -75,6 +75,7 @@ class PostsController < ApplicationController
         end
     end
 
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -87,18 +88,25 @@ class PostsController < ApplicationController
     end
 
 
-    def check_anonymous_avatar_create
-        if @post.anonymous and @post.avatar?
-            puts @post.avatar.destroy
-            puts @post.avatar
+    def can_create
+        result = true
+        user_followers =  current_user.followers current_user.id
+
+        if post_params['anonymous'] != "0"
+            if user_followers > 5
+                result = false
+            end
+            if post_params['flavour'] == "meme"
+                result = false
+            end
         end
+        result
     end
 
-    def check_anonymous_avatar_update
+
+    def check_anonymous_avatar_create
         if @post.anonymous and @post.avatar?
             @post.anonymous = false
-            @post.save
-            puts @post.anonymous
         end
     end
 
