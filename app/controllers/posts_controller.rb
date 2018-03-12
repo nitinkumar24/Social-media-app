@@ -93,7 +93,7 @@ class PostsController < ApplicationController
         user_followers =  current_user.followers current_user.id
 
         if post_params['anonymous'] != "0"
-            if user_followers > 5
+            if user_followers < 5
                 result = false
             end
             if post_params['flavour'] == "meme"
