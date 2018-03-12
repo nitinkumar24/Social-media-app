@@ -108,8 +108,12 @@
             }
             reader.readAsDataURL(input.files[0]);
             $(".dup-pic").css("display","block");
+            $('#post_anonymous').attr('checked', false); // Unchecks it
+            $("#post_anonymous").attr("disabled", true);
+
         }
     }
+
 
     $("#imgInp").change(function(){
         readURL(this);
@@ -119,24 +123,9 @@
     $(".cancel-pic").click(function () {
         $("#imgInp").val('');
         $(".dup-pic").css("display","none");
-
+        $("#post_anonymous").attr("disabled", false);
         console.log("hi");
 
     });
-
-    $('.tooltip').tooltipster({
-        animation: 'grow',
-        delay: [900, 000],
-        trigger: 'click',
-        position: 'bottom',
-
-    });
-
-
-
-    //Move to top of the page
-
-    //End-Move to top of the page
-
 
 </script>
