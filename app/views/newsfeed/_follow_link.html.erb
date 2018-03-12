@@ -1,6 +1,6 @@
-<span>
+<span class="follow_button">
    <% if current_user.can_follow user.id %>
-       <%= button_to "Follow", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post, id:"user_#{user.id}",remote: true  %>
+       <%= button_to "Follow", url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post, id:"user_#{user.id}",class:"button", remote: true  %>
    <% end %>
 
    <% if current_user.can_delete_request user.id %>

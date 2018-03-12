@@ -2,13 +2,25 @@
     height: 50%;
 }
 .ui.cards > .card > .image:not(.ui) > img, .ui.card > .image:not(.ui) > img{
-    margin: 20px;
+    margin: 10px;
     padding: 0;
     height: 50%;
     margin-left: 25%;
     width: 50%;
     border-radius: 50%;
 }
-.ui.cards > .card > .content, .ui.card > .content {
+.follow_button{
     text-align: center;
+    .button{
+        color: white;
+        border-radius: 4px;
+        background-color: #7e2444;
+        text-align: center;
+        width: 70%;
+        padding: 5px;
+        margin-bottom: 21px;
+        font-size: 17px;
+        font-family: 'Jura', sans-serif;
+        letter-spacing: 1px;
+    }
 }
