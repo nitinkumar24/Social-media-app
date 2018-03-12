@@ -13,34 +13,47 @@
                       <button class="ui button" style="background:none;color:black;padding: 10px">
                          <i class="search link icon"></i>
                       </button>
-
-                   </div>
-                   <div class="ui form">
-
-                      <div class="ui selection dropdown">
-                         <input type="hidden" name="gender">
-                         <i class="dropdown icon"></i>
-                         <div class="default text">Gender</div>
-                         <div class="menu">
-                            <div class="item" data-value="M">Male</div>
-                            <div class="item" data-value="F">Female</div>
-                         </div>
-                      </div>
-
-
-                      <div class="ui selection dropdown">
-                         <input type="hidden" name="department">
-                         <i class="dropdown icon"></i>
-                         <div class="default text">Department</div>
-                         <div class="menu">
-                            <div class="item" data-value="CSE">CSE</div>
-                            <div class="item" data-value="ME">ME</div>
-                            <div class="item" data-value="ECE">ECE</div>
-
-                         </div>
+                      <div class="" id="filter-toggle" style="    align-items: center;font-size: 24px;color: #232020;display: flex;padding-right: 11px;">
+                         <i class="fa fa-filter" aria-hidden="true"></i>
                       </div>
                    </div>
 
+
+
+                   <div class="filters">
+
+                      <div class="ui form">
+
+                         <div class="ui selection dropdown">
+                            <input type="hidden" name="gender">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Gender</div>
+                            <div class="menu">
+                               <div class="item" data-value="M">Male</div>
+                               <div class="item" data-value="F">Female</div>
+                            </div>
+                         </div>
+
+
+                         <div class="ui selection dropdown">
+                            <input type="hidden" name="department">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Department</div>
+                            <div class="menu">
+                               <div class="item" data-value="CSE">CSE</div>
+                               <div class="item" data-value="ME">ME</div>
+                               <div class="item" data-value="ECE">ECE</div>
+
+                            </div>
+                         </div>
+
+                         <button class="ui button" style="background:#7e2444;color:white;font-family: 'Jura', sans-serif;
+                             letter-spacing: 1px;margin-top: 10px">
+                            Apply Filters
+                         </button>
+
+                      </div>
+                   </div>
 
                 </div>
              </div>
@@ -54,13 +67,20 @@
 
    </div>
    <ads>
-   <div class="ui half page test ad">
-      Advertise your brand here
-      Advertise your brand here
-      Advertise your brand here
-      Advertise your brand here
-      Advertise your brand here
+      <div class="ui half page test ad">
+         Advertise your brand here
+         Advertise your brand here
+         Advertise your brand here
+         Advertise your brand here
+         Advertise your brand here
 
-   </div>
+      </div>
    </ads>
-</main-page>>
+</main-page>
+
+<script>
+    //For toogling the filter
+    $("#filter-toggle").click(function(){
+        $(".filters").slideToggle();
+    });
+</script>

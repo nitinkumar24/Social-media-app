@@ -1,27 +1,34 @@
+<% if @users.length == 0 %>
+    <h3>Oops! No result found</h3>
+
+    <h5>Koi baat ni, kisi aur ko dhoond lo</h5>
+<% end %>
+
 <div class="ui four doubling cards">
+
    <% @users.each do |user| %>
        <% if user.confirmed? %>
-       <div class="card">
-          <div class="image">
-             <% if user.avatar? %>
-                 <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
-             <%end  %>
-          </div>
-          <div class="content">
-             <div class="header">
-                <%= render 'profile/profile_link' ,user: user %>
+           <div class="card">
+              <div class="image">
+                 <% if user.avatar? %>
+                     <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
+                 <%end  %>
+              </div>
+              <div class="content">
+                 <div class="header">
+                    <%= render 'profile/profile_link' ,user: user %>
 
-             </div>
-             <div class="meta">
-                <%= user.email %>
-             </div>
-             <div class="description">
-               <%= user.about %>
-             </div>
-          </div>
-           <%= render 'newsfeed/follow_link', user: user %>
-       </div>
-   <% end %>
+                 </div>
+                 <div class="meta">
+                    <%= user.email %>
+                 </div>
+                 <div class="description">
+                    <%= user.about %>
+                 </div>
+              </div>
+              <%= render 'newsfeed/follow_link', user: user %>
+           </div>
        <% end %>
+   <% end %>
 
 </div>

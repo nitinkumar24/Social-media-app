@@ -13,6 +13,9 @@ main-page {
         .search-bar {
             width: 80%;
             margin-bottom: 40px;
+            .filters{
+                display: none;
+            }
         }
         .ui.icon {
             display: flex;
