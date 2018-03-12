@@ -1,4 +1,4 @@
-<div class="ui three stackable link cards">
+<div class="ui four doubling cards">
    <% @users.each do |user| %>
        <% if user.confirmed? %>
        <div class="card">
@@ -20,9 +20,7 @@
              </div>
           </div>
           <div class="extra content">
-      <span class="right floated">
-        Joined in 2013
-      </span>
+
            <%= render 'newsfeed/follow_link', user: user %>
           </div>
        </div>

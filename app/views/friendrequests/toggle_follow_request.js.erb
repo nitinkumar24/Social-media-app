@@ -1,5 +1,6 @@
 <% if @is_sent %>
-   $('#user_<%= @user.id%>').html("Requested")
+$('#user_<%= @user.id%>').attr('value', 'Requested');
+
 <% else %>
-   $('#user_<%= @user.id%>').html("Follow")
+$('#user_<%= @user.id%>').attr('value', 'Follow');
 <% end %>
