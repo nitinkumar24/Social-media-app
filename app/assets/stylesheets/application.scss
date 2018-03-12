@@ -87,6 +87,9 @@ p {
     letter-spacing: 0.04em;
 }
 
+.ui.selection.dropdown{
+    min-width: 0;
+}
 * {
     padding: 0;
     margin:0;

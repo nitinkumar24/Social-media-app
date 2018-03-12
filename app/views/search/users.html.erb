@@ -1,8 +1,5 @@
-<div class="users-page">
-
-
-
-   <div>
+<main-page>
+   <div class="users-page">
 
       <%= form_tag search_users_path, :method => 'get' do %>
 
@@ -13,22 +10,22 @@
                    <div class="ui icon input"  style="">
                       <input type="text" name="query" class="typeahead" placeholder="Search">
 
-                      <button class="ui button" style="background:#7e2444;color:white">
+                      <button class="ui button" style="background:none;color:black;padding: 10px">
                          <i class="search link icon"></i>
                       </button>
 
                    </div>
                    <div class="ui form">
 
-                         <div class="ui selection dropdown">
-                            <input type="hidden" name="gender">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">Gender</div>
-                            <div class="menu">
-                               <div class="item" data-value="M">Male</div>
-                               <div class="item" data-value="F">Female</div>
-                            </div>
+                      <div class="ui selection dropdown">
+                         <input type="hidden" name="gender">
+                         <i class="dropdown icon"></i>
+                         <div class="default text">Gender</div>
+                         <div class="menu">
+                            <div class="item" data-value="M">Male</div>
+                            <div class="item" data-value="F">Female</div>
                          </div>
+                      </div>
 
 
                       <div class="ui selection dropdown">
@@ -56,5 +53,14 @@
       </div>
 
    </div>
+   <ads>
+   <div class="ui half page test ad">
+      Advertise your brand here
+      Advertise your brand here
+      Advertise your brand here
+      Advertise your brand here
+      Advertise your brand here
 
-</div>
+   </div>
+   </ads>
+</main-page>>
