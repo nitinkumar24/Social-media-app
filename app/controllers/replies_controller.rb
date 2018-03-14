@@ -19,6 +19,14 @@ class RepliesController < ApplicationController
 
     # GET /replies/1/edit
     def edit
+        puts 'hellllo'
+        puts 'hellllo'
+        unless @reply.can_update current_user
+            @reply = nil
+        end
+        respond_to do |format|
+            format.js {   }
+        end
     end
 
     # POST /replies
@@ -46,9 +54,11 @@ class RepliesController < ApplicationController
             respond_to do |format|
                 if @reply.update(reply_params)
                     format.html { redirect_to @reply, notice: 'Reply was successfully updated.' }
+                    format.js {   }
                     format.json { render :show, status: :ok, location: @reply }
                 else
                     format.html { render :edit }
+                    format.js {   }
                     format.json { render json: @reply.errors, status: :unprocessable_entity }
                 end
             end

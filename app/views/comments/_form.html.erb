@@ -1,5 +1,5 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
+<%=form_for @comment,remote: true do |form| %>
+    <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
@@ -15,8 +15,15 @@
     <%= form.label :content %>
     <%= form.text_field :content, id: :comment_content %>
   </div>
-
+    <h3 class="cancel_edit">cancel</h3>
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+<script>
+    $( ".cancel_edit" ).click(function() {
+        console.log($("#comment_orig_content_<%= @comment.id %>").css("display","block"));
+        console.log($( this ).parent()[0]);
+        console.log($( this ).parent().remove());
+    });
+</script>

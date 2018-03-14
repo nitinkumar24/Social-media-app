@@ -18,14 +18,16 @@
 
                <% end %>
                <% if comment.can_update current_user %>
-                   <%= link_to 'Edit', edit_comment_path(comment) %>
+                   <%= link_to 'Edit', edit_comment_path(comment),remote:true %>
                <% end %>
             </div>
 
-
-            <div class="text">
+            <div id="comment_form_<%= comment.id  %>">
+            </div>
+            <div id="comment_orig_content_<%= comment.id  %>">
                <%= markdown(comment.content) %>
             </div>
+
 
             <%= render 'replies/reply_form', comment: comment %>
 

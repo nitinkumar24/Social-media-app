@@ -41,6 +41,16 @@ class CommentsController < ApplicationController
         end
     end
 
+    def edit
+        puts 'hellllo'
+        unless @comment.can_update current_user
+            @comment = nil
+        end
+        respond_to do |format|
+            format.js {   }
+        end
+    end
+
     # PATCH/PUT /comments/1
     # PATCH/PUT /comments/1.json
     def update
@@ -48,9 +58,11 @@ class CommentsController < ApplicationController
             respond_to do |format|
                 if @comment.update(comment_params)
                     format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+                    format.js{ }
                     format.json { render :show, status: :ok, location: @comment }
                 else
                     format.html { render :edit }
+                    format.js{ }
                     format.json { render json: @comment.errors, status: :unprocessable_entity }
                 end
             end

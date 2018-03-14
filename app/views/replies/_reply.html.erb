@@ -21,16 +21,17 @@
 
                <% end %>
                <% if reply.can_update current_user %>
-                   <%= link_to 'Edit', edit_reply_path(reply) %>
+                   <%= link_to 'Edit', edit_reply_path(reply), remote:true %>
                <% end %>
             </div>
 
 
-            <div class="text">
-               <%= markdown(reply.content) %>
-
-
+            <div id="reply_form_<%= reply.id  %>">
             </div>
+            <div id="reply_orig_content_<%= reply.id  %>">
+               <%= markdown(reply.content) %>
+            </div>
+
 
 
 

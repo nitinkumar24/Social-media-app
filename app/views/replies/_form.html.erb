@@ -1,5 +1,5 @@
-<%= form_with(model: reply, local: true) do |form| %>
-  <% if reply.errors.any? %>
+<%=form_for @reply,remote: true do |form| %>
+    <% if reply.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reply.errors.count, "error") %> prohibited this reply from being saved:</h2>
 
@@ -15,18 +15,19 @@
     <%= form.label :content %>
     <%= form.text_field :content, id: :reply_content %>
   </div>
+    <h3 class="cancel_edit">cancel</h3>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :reply_user_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :comment_id %>
-    <%= form.text_field :comment_id, id: :reply_comment_id %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>
+    $( ".cancel_edit" ).click(function() {
+        console.log($("#reply_orig_content_<%= @reply.id %>").css("display","block"));
+        console.log($( this ).parent()[0]);
+        console.log($( this ).parent().remove());
+    });
+</script>
