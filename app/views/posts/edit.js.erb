@@ -1,3 +1,15 @@
-$('#post_form_<%= @post.id %>').append("<%= escape_javascript (render 'form', post: @post) %>").css('display','block');
-$('#post_orig_content_<%= @post.id %>').css('display','none');
-console.log($("#post_content_<%= @post.id%>"));
+<% if @post.nil? %>
+noty({
+    text: 'Karna kya chahte ho bhai',
+    theme: 'metroui',
+    type: 'alert',
+    layout: 'topCenter',
+    timeout: 1000
+
+});
+<% else %>
+if ($('#post_form_<%= @post.id %>').find( "form" ).length == 0) {
+    $('#post_form_<%= @post.id %>').append("<%= escape_javascript (render 'form', post: @post) %>").css('display', 'block');
+    $('#post_orig_content_<%= @post.id %>').css('display', 'none');
+}
+<% end %>

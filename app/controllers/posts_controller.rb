@@ -42,7 +42,9 @@ class PostsController < ApplicationController
 
     def edit
         puts 'hellllo'
-        puts @post
+        unless @post.can_update_or_delete current_user
+            @post = nil
+        end
         respond_to do |format|
             format.js {   }
         end
