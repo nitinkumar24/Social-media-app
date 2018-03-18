@@ -68,18 +68,18 @@ div.createPost{
                 }
             }
             .postbutton{
-                color: white;
+                color: #7e2444;
                 width: 20%;
                 height: 28px;
                 font-size: 20px;
-                background-color:#7e2444;
-                border: 0px;
+                background-color:white;
+                border: 1px solid;
                 border-radius: 4px;
                 font-family: 'Jura', sans-serif;
             }
 
             .postbutton:hover{
-                background-color: #162180;
+                background-color: #7e2444;
                 color: white;
             }
         }

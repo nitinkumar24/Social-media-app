@@ -1,0 +1,10 @@
+$('#reply_form_<%= @reply.id %>').find( "form" ).remove();
+$('#reply_orig_content_<%= @reply.id %>').css('display','block').html('<%= @reply.content %>');
+noty({
+    text: 'Reply has been successfully updated',
+    theme: 'metroui',
+    type: 'alert',
+    layout: 'topCenter',
+    timeout: 1000
+
+});

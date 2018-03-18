@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
     def create
         puts post_params
-        # unless post_params['anonymous'] != "0" and  user_followers > 5            #Check if user has less than 5 followers and posting annonymously
         if can_create
             @post = Post.new(post_params)
             @post.user_id = current_user.id

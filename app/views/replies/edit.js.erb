@@ -1,0 +1,15 @@
+<% if @reply.nil? %>
+noty({
+    text: 'Karna kya chahte ho bhai',
+    theme: 'metroui',
+    type: 'alert',
+    layout: 'topCenter',
+    timeout: 1000
+
+});
+<% else %>
+if ($('#reply_form_<%= @reply.id %>').find( "form" ).length == 0) {
+    $('#reply_form_<%= @reply.id %>').append("<%= escape_javascript (render 'form', reply: @reply) %>").css('display', 'block');
+    $('#reply_orig_content_<%= @reply.id %>').css('display', 'none');
+}
+<% end %>

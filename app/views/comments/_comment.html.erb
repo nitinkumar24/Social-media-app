@@ -12,14 +12,27 @@
                <%= render 'profile/profile_link' ,user: user %>
             </a>
             <div class="metadata">
-               <span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
-               <% if comment.can_delete current_user %>
-                   <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+               <!--<span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>-->
 
-               <% end %>
-               <% if comment.can_update current_user %>
-                   <%= link_to 'Edit', edit_comment_path(comment),remote:true %>
-               <% end %>
+               <div class="ui dropdown">
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                     <div class="item">
+                        <% if comment.can_delete current_user %>
+                            <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+                        <% end %>
+                     </div>
+                     <div class="item">
+                        <% if comment.can_update current_user %>
+                            <%= link_to 'Edit', edit_comment_path(comment),remote:true %>
+                        <% end %>
+                     </div>
+
+                  </div>
+               </div>
+
+
+
             </div>
 
             <div id="comment_form_<%= comment.id  %>">
@@ -28,17 +41,18 @@
                <%= markdown(comment.content) %>
             </div>
 
+            <a class="reply">Reply</a>
+            <div style="display: none">
+               <%= render 'replies/reply_form', comment: comment %>
 
-            <%= render 'replies/reply_form', comment: comment %>
+               <div id="replies_<%=comment.id%>" class="replies" >
 
-            <div id="replies_<%=comment.id%>" class="replies" >
+                  <%  comment.replies.each do |reply| %>
+                      <%= render 'replies/reply', reply: reply %>
+                  <% end %>
 
-               <%  comment.replies.each do |reply| %>
-                   <%= render 'replies/reply', reply: reply %>
-               <% end %>
-
+               </div>
             </div>
-
          </div>
       </div>
 
@@ -47,3 +61,25 @@
 
 
 </div>
+<script>
+    $('.ui.dropdown')
+        .dropdown()
+    ;
+
+    var acc = document.getElementsByClassName("reply");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function(){
+
+            var comment_panel=this.nextElementSibling
+
+//            console.log(div.nextElementSibling);
+            if (comment_panel.style.display === "block") {
+                comment_panel.style.display = "none";
+            } else {
+                comment_panel.style.display = "block";
+            }
+        }
+    }
+</script>

@@ -1,0 +1,10 @@
+$('#comment_form_<%= @comment.id %>').find( "form" ).remove();
+$('#comment_orig_content_<%= @comment.id %>').css('display','block').html('<%= @comment.content %>');
+noty({
+    text: 'Comment has been successfully updated',
+    theme: 'metroui',
+    type: 'alert',
+    layout: 'topCenter',
+    timeout: 1000
+
+});

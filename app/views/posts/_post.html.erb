@@ -43,16 +43,14 @@
 
    <div class="post-box">
 
-      <% if post.avatar.file? %>
-          <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
-      <% end %>
-
-
       <div id="post_form_<%= post.id  %>">
       </div>
       <div id="post_orig_content_<%= post.id  %>">
          <%= markdown(post.content) %>
       </div>
+      <% if post.avatar.file? %>
+          <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
+      <% end %>
 
 
 
@@ -151,8 +149,9 @@
         var offset = this.offsetHeight - this.clientHeight;
 
         var resizeTextarea = function(el) {
-            jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+            jQuery(el).css('height', '30px').css('height', el.scrollHeight + offset);
         };
+
         jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
     });
 
