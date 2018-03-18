@@ -4,64 +4,80 @@
 
 
 comment{
-  //display: none;
+    //display: none;
 }
 .comment-box{
-  //background-color: #f8f8f8;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0% 8px 3%;
-  //border-top: 1px solid grey;
-  span{
-    width:98%;
-      border: 1px solid  #cfcfcf;
-      div{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
+    //background-color: #f8f8f8;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0% 8px 3%;
+    //border-top: 1px solid grey;
+    span{
+        width:98%;
+        border: 1px solid  #cfcfcf;
+        div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-      }
-  }
-  .comment-input{
-}
+        }
+    }
+    .comment-input{
+    }
 
 }
 .comments{
-  padding: 0px 2% 10px 2%;
+    padding: 0px 1% 10px 2%;
     //background-color: rgba(248, 184, 184, 0.08);
 }
 
 .comments-content{
-  display: flex;
-  padding-top: 4px;
-  //border-bottom: 1px solid green;
-  //padding-bottom: 10px;
-
-  p{
-    width: 68%;
-    padding-left:2px ;
-    //padding-top: 2px;
-    font-family: 'Jura', sans-serif;
-    word-wrap: break-word;
-    //letter-spacing: .05em;
-
-
-  }
-
-  .commenter{
-    padding-left: 10px;
-    a{
-      color: #434243;
-      font-weight: 300;
+    display: flex;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    .comment{
+        width: 100%;
+        .avatar{
+            margin: 0;
+            img{
+                border-radius: 50%;
+            }
+        }
+        .metadata{
+            float: right;
+        }
 
     }
-    a:hover{
-      text-decoration: underline;
+
+
+
+    .commenter{
+        padding-left: 10px;
+        a{
+            color: #434243;
+            font-weight: 300;
+
+        }
+        a:hover{
+            text-decoration: underline;
+        }
     }
-  }
-  div.comments-content:last-child {
-    border: none;
-  }
+    div.comments-content:last-child {
+        border: none;
+    }
+    p{
+        width: 100%;
+        padding-left:0px ;
+        //padding-top: 2px;
+        font-family: 'Jura', sans-serif;
+        word-wrap: break-word;
+        color: black;
+        font-size: 16px;
+
+    }
+    .reply{
+        font-size: 13px;
+    }
 
 }

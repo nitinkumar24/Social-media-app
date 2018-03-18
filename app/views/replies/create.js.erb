@@ -1,4 +1,4 @@
-$('#replies_<%=@reply.comment.id%>').prepend("<%= escape_javascript (render 'replies/reply', reply: @reply) %>").addClass("ui threaded comments");
-$('.comment-input').val("").css("height","30px");
+$('#replies_<%=@reply.comment.id%>').prepend("<%= escape_javascript (render 'replies/reply', reply: @reply) %>");
+$('.reply-input').val("").css("height","30px");
 
 

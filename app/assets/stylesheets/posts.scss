@@ -59,36 +59,41 @@ div.newsfeed{
             width:100%;
             image-resolution:snap;
         }
+
         p{
             padding: 6px 0 6px 3%;
             word-wrap: break-word;
-            font-size: 18px;
+            font-size: 19px;
             font-family: 'Jura', sans-serif;
             color: #4c4c4c;
             line-height: 24px;
-        }
-        div.user-response{
-            display: flex;
-            width: 60%;
-            padding: 7px 6px 7px 4%;
-            justify-content: space-between;
-            align-items: center;
-
-            .like{
-                width: 25%;
-            }
-            .dislike{
-                width: 25%;
-            }
-            .comment{
-                width: 25%;
-            }
-            .report{
-                width: 25%;
+            a{
+                color: #7e2444;
             }
         }
 
 
+
+    }
+    div.user-response{
+        display: flex;
+        width: 60%;
+        padding: 7px 6px 7px 4%;
+        justify-content: space-between;
+        align-items: center;
+
+        .like{
+            width: 25%;
+        }
+        .dislike{
+            width: 25%;
+        }
+        .comment{
+            width: 25%;
+        }
+        .report{
+            width: 25%;
+        }
     }
 
 }

@@ -1,3 +1,4 @@
+<div style="padding-left: 3%">
 <%=form_for @post,remote: true do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -15,13 +16,14 @@
     <%= form.text_field :content, id:"user_email" %>
   </div>
 
-       <h3 class="cancel_edit">cancel</h3>
-       <div class="actions">
-          <%= form.submit 'Update Post', :style => "border:2px solid black;padding:5px;float:right;border-radius:5px;margin-left:5px"   %>
-       </div>
+       <span class="cancel_edit">cancel</span>
+
+          <%= form.submit 'Update Post', :style => "padding:5px;margin-left:5px"   %>
+
 
 
 <% end %>
+</div>
 <script>
     $( ".cancel_edit" ).click(function() {
         console.log($("#post_orig_content_<%= @post.id %>").css("display","block"));
