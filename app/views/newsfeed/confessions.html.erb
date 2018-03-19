@@ -15,8 +15,8 @@
 
 
        <section>
-          <% if current_user.current_mode == 'open'%>       /Confessions are not for open mode
-              <h1> Ni bhai ni chalega </h1>
+          <% if current_user.current_mode == 'open'%>
+              <%= render 'mode/sign_out_section' %>
           <% else %>
           <div class="createPost">
              <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
