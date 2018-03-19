@@ -28,7 +28,9 @@ class Comment < ApplicationRecord
       current_user= self.user
       unless post_owner_id == current_user.id
           notification = Notification.where(noti_type_id: self.id,noti_type: "post-comment").first
+          if notification
           notification.destroy!
+          end
       end
       puts self.id
   end

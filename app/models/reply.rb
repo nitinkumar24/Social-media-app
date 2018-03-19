@@ -40,12 +40,16 @@ class Reply < ApplicationRecord
 
         unless comment_owner_id == current_user.id
             notification1 = Notification.where(noti_type_id: self.id,recipient_id: comment_owner_id,noti_type: "comment-reply").first
-            notification1.destroy!
+            if notification1
+                notification1.destroy!
+            end
         end
 
         unless  post_owner_id == current_user.id or comment_owner_id == post_owner_id
             notification2 = Notification.where(noti_type_id: self.id,recipient_id: post_owner_id,noti_type: "comment-reply").first
-            notification2.destroy!
+            if notification2
+                notification2.destroy!
+            end
         end
 
 

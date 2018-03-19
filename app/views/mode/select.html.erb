@@ -1,14 +1,25 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Which mode?</h1>
 
-<% @modes.each do |f| %>
-    <%= link_to f.mode,mode_set_mode_path(name: f.mode), method: :post  %>
-<% end %>
+<div class="modepage">
+   <div class="comm_select">
+   <h2>Which Community?</h2>
+   <span class="modelist">
 
-<% if @has_open_mode.length == 0  %>
-    <%= link_to "Add open Mode",mode_add_open_mode_path(name: "open"), method: :post %>
-<% end %>
+   <% @modes.each do |f| %>
+       <%= button_to f.mode,mode_set_mode_path(name: f.mode), method: :post ,:class=> 'sign_out_button' %>
+   <% end %>
+   </span>
+
+      <% if @has_open_mode.length == 0  %>
+          Make friends from other colleges or organiztions.
+          <%= button_to "Add open Community",mode_add_open_mode_path(name: "open"), method: :post,:class=> 'sign_out_button' %>
+      <% end %>
+   </div>
+
+<br>
+   <div class="out_section">
+      <h3 class="">Got college or organization email-id?</h3>
+      <p>Login with your college or organization email id and enjoy our closed community features.</p><br>
+      <p><%= button_to "Sign Out",destroy_user_session_path,method: :delete,:class=> 'sign_out_button' %>
+      </p>
+   </div>
+</div>

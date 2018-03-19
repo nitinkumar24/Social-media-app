@@ -1,0 +1,59 @@
+body{
+    background: #78181f;
+}
+.modepage{
+    width: 100%;
+    padding-left: 30%;
+    padding-right: 30%;
+    text-align: center;
+    height: 100%;
+    padding-top: 180px;
+    .comm_select{
+        box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+        border-radius: 14px;
+        padding: 18px;
+
+    }
+    h2{
+        font-family: 'Jura', sans-serif;
+
+    }
+    .modelist{
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+    }
+    .sign_out_button{
+        color: #7e2444;
+        padding: 6px;
+        font-size: 20px;
+        background-color:white;
+        border: 1px solid;
+        border-radius: 4px;
+        font-family: 'Jura', sans-serif;
+    }
+
+    .sign_out_button:hover{
+        background-color: #7e2444;
+        color: white;
+    }
+    .out_section{
+        padding: 20px;
+        border-radius: 14px;
+
+        box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.15);
+        h3,p{
+            font-family: 'Jura', sans-serif;
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .modepage {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        text-align: center;
+        height: 100%;
+        padding-top: 130px;
+    }
+}
