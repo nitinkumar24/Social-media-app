@@ -20,6 +20,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+
 <script>
     $( ".cancel_edit" ).click(function() {
         console.log($("#comment_orig_content_<%= @comment.id %>").css("display","block"));
