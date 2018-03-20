@@ -74,6 +74,7 @@
                    <%= current_user.name.capitalize %>
                    <i class="dropdown icon" style="margin-left: 0"></i>
                    <div class="menu">
+                      <div class="item"> <%=link_to 'Switch Community', mode_select_path %></div>
                       <div class="item"> <%=link_to "Edit Profile",edit_user_registration_path%></div>
                       <div class="item"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></div>
                    </div>
