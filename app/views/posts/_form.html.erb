@@ -1,29 +1,28 @@
 <div style="padding-left: 3%">
-<%=form_for @post,remote: true do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+   <%=form_for @post,remote: true do |form| %>
+       <% if post.errors.any? %>
+           <div id="error_explanation">
+              <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+              <ul>
+                 <% post.errors.full_messages.each do |message| %>
+                     <li><%= message %></li>
+                 <% end %>
+              </ul>
+           </div>
+       <% end %>
 
-  <div class="field">
-    <%= form.text_field :content, id:"user_email" %>
-  </div>
+       <div class="field">
+          <%= form.text_area :content, id:"user_email", :class=>"edit_form"%>
+       </div>
 
        <span class="cancel_edit">cancel</span>
-
-          <%= form.submit 'Update', :style => "padding:5px;margin-left:5px"   %>
-
-
-
-<% end %>
+       <%= form.submit 'Update', :style => "padding:5px;margin-left:5px"   %>
+       
+   <% end %>
 </div>
+
+
 <script>
     $( ".cancel_edit" ).click(function() {
         console.log($("#post_orig_content_<%= @post.id %>").css("display","block"));
@@ -31,3 +30,4 @@
         console.log($( this ).parent().remove());
     });
 </script>
+

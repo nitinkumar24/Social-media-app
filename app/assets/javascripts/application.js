@@ -22,7 +22,7 @@
 //= require social-share-button
 //= require papercrop
 //= require typeahead
-//= require jquery.atwho
+// = require jquery.atwho
 //= require jcrop
 //= require_tree .
 
@@ -46,3 +46,4 @@
 // textarea.addEventListener('keydown', autosize);
 //
 //
+

@@ -7,6 +7,7 @@ end
 
 
 gem "animate-rails"
+gem 'autosize-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'emojionearea-rails'
 gem 'devise'

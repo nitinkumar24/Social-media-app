@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.text_field :content, id: :comment_content %>
+    <%= form.text_area :content, id: :comment_content, :class=>"edit_form" %>
   </div>
     <span class="cancel_edit" style="color: black">cancel</span>
      <%= form.submit 'Update', :style => "padding:5px;margin-left:5px"   %>
