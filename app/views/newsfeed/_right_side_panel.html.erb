@@ -1,0 +1,27 @@
+<p>New to SocioGrams</p>
+
+<div class="ui feed divider new_users">
+   <% @new_users.each do |user| %>
+       <div class="event">
+          <div class="label">
+             <%= image_tag user.avatar.url(:medium) %>
+          </div>
+          <div class="content">
+             <div class="summary">
+                <a class="user">
+                   <%= render 'profile/profile_link' ,user: user %>
+                </a>@<%= user.username %>
+
+
+             </div>
+             <div class="meta">
+                <a class="like">
+                            <span>
+
+                            </span>
+                </a>
+             </div>
+          </div>
+       </div>
+   <% end %>
+</div>

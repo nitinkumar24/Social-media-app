@@ -25,6 +25,7 @@ class NewsfeedController < ApplicationController
                              .paginate(:page => params[:page], :per_page => 7)
                              .order(created_at: :desc)
 
+
             respond_to do |format|
                 format.html{
                 }
@@ -32,6 +33,7 @@ class NewsfeedController < ApplicationController
                 }
             end
         end
+        @new_users = User.where(current_mode: @current_mode).order(created_at: :desc).limit(6)
     end
 
     def memes
@@ -49,6 +51,8 @@ class NewsfeedController < ApplicationController
             format.js {
             }
         end
+        @new_users = User.where(current_mode: @current_mode).order(created_at: :desc).limit(6)
+
     end
 
     def friendrequests
