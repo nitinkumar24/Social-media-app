@@ -15,14 +15,27 @@
             </a>
             <div class="metadata">
                <span class="date"><%= reply.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
-               <% if reply.can_delete current_user %>
 
-                   <%= link_to 'Delete', reply, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+               <div class="ui dropdown">
+                  <i class="dropdown icon"></i>
+                  <div class="menu">
+                     <div class="item">
+                        <% if reply.can_delete current_user %>
 
-               <% end %>
-               <% if reply.can_update current_user %>
-                   <%= link_to 'Edit', edit_reply_path(reply), remote:true %>
-               <% end %>
+                            <%= link_to 'Delete', reply, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+
+                        <% end %>
+                     </div>
+                     <div class="item">
+                        <% if reply.can_update current_user %>
+                            <%= link_to 'Edit', edit_reply_path(reply), remote:true %>
+                        <% end %>
+                     </div>
+
+                  </div>
+               </div>
+
+
             </div>
 
 

@@ -1,5 +1,7 @@
 $('#post_form_<%= @post.id %>').find( "form" ).remove();
-$('#post_orig_content_<%= @post.id %>').css('display','block').html("<%= @post.content %>");
+$('#post_orig_content_<%= @post.id %>').css('display','block');
+$('#post_orig_content_<%= @post.id %>').find('p').html("<%= @post.content %>");
+
 noty({
     text: 'Post has been successfully updated',
     theme: 'metroui',

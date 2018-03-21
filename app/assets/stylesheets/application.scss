@@ -94,6 +94,24 @@ p {
 .ui.selection.dropdown{
     min-width: 0;
 }
+
+.ui.dropdown .menu > .item:hover {
+    background: rgb(125, 45, 118);
+    color: rgb(255, 255, 255);
+    z-index: 13;
+    a{
+        color: rgb(255, 255, 255);
+    }
+}
+.ui.dropdown .menu > .item {
+    a:hover {
+        background: rgb(125, 45, 118);
+        color: rgb(255, 255, 255);
+        z-index: 13;
+    }
+}
+
+
 * {
     padding: 0;
     margin:0;
@@ -113,7 +131,7 @@ a:hover {
     text-decoration: none;
 }
 a{
-    color:black;
+    color:#7d2d76;
 }
 input {
     border: none;

@@ -12,13 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
     <%= form.text_field :content, id: :comment_content %>
   </div>
-    <h3 class="cancel_edit">cancel</h3>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <span class="cancel_edit" style="color: black">cancel</span>
+     <%= form.submit 'Update', :style => "padding:5px;margin-left:5px"   %>
 <% end %>
 
 <script>

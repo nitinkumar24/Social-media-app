@@ -12,7 +12,7 @@
                <%= render 'profile/profile_link' ,user: user %>
             </a>
             <div class="metadata">
-               <!--<span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>-->
+              <span class="date"><%= comment.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
 
                <div class="ui dropdown">
                   <i class="dropdown icon"></i>
@@ -40,26 +40,26 @@
             <div id="comment_orig_content_<%= comment.id  %>">
                <%= markdown(comment.content) %>
 
-            <a class="reply">Reply</a>
-            <div style="display: none">
-               <%= render 'replies/reply_form', comment: comment %>
+               <a class="reply">View Replies</a>
+               <div style="display: none">
+                  <%= render 'replies/reply_form', comment: comment %>
 
-               <div id="replies_<%=comment.id%>" class="replies" >
+                  <div id="replies_<%=comment.id%>" class="replies" >
 
-                  <%  comment.replies.each do |reply| %>
-                      <%= render 'replies/reply', reply: reply %>
-                  <% end %>
+                     <%  comment.replies.each do |reply| %>
+                         <%= render 'replies/reply', reply: reply %>
+                     <% end %>
 
+                  </div>
                </div>
-            </div>
 
+            </div>
          </div>
+
       </div>
 
    </div>
-
-</div>
-<hr style="opacity:0.3;">
+   <hr style="opacity:0.3;">
 </div>
 
 <script>

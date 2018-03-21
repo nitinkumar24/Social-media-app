@@ -16,7 +16,9 @@
 
        <section>
           <% if current_user.current_mode == 'open'%>
+              <br>
               <div class="item" style="text-align: center;"> <%=link_to 'Switch Community', mode_select_path %></div>
+              <br>
 
               <%= render 'mode/sign_out_section' %>
           <% else %>

@@ -3,23 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.like-icon,.dislike-icon,.comment,.report{
-  font-size:24px;
-  color: white;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: grey;
+.like-icon,.dislike-icon,.comment_icon,.report{
+    font-size:24px;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: grey;
 }
 
 .like-icon-activated,.dislike-icon-activated{
-  font-size:24px;
-  color: #931743;
+    font-size:24px;
+    color: rgb(125, 45, 118);
+
 
 }
 .report{
-  -webkit-text-stroke-color: #0b1893;
+    -webkit-text-stroke-color: #0b1893;
 }
 
 .response-count{
-  font-size: 18px;
-  color: black;
+    font-size: 18px;
+    color: black;
 }

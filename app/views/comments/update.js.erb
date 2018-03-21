@@ -1,7 +1,8 @@
 $('#comment_form_<%= @comment.id %>').find( "form" ).remove();
-$('#comment_orig_content_<%= @comment.id %>').css('display','block').html('<%= @comment.content %>');
+$('#comment_orig_content_<%= @comment.id %>').css('display','block');
+$('#comment_orig_content_<%= @comment.id %>').find('p').html('<%= @comment.content %>');
 noty({
-    text: 'Comment has been successfully updated',
+text: 'Comment has been successfully updated',
     theme: 'metroui',
     type: 'alert',
     layout: 'topCenter',
