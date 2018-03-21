@@ -49,20 +49,20 @@
                          <%= f.text_field :name%>
                       </div>
 
-                      <%= f.radio_button(:sex,"male") %><i class="fa fa-male" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 10px;padding-bottom: 10px;color: #721615"></i>
-                      <%= f.radio_button(:sex,"female") %><i class="fa fa-female" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 14px;color: #721615"></i>
+                      <%= f.radio_button(:sex,"male") %><i class="fa fa-male" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 10px;padding-bottom: 10px;color: #7d2d76"></i>
+                      <%= f.radio_button(:sex,"female") %><i class="fa fa-female" aria-hidden="true" style="font-size: 42px;width: 40%;padding-left: 14px;color: #7d2d76"></i>
 
                       <div class="field">
                          <label>About Yourself</label>
                          <%= f.text_field :about%>
-
                       </div>
+
                       <div class="field">
                          <label>RelationShip Status</label>
                          <div class="ui selection dropdown">
-                            <input type="hidden" name="user[relationstatus]">
+                            <input type="hidden" name="user[relationstatus]" value="<%= f.object.relationstatus %>">
                             <i class="dropdown icon"></i>
-                            <div class="default text">Select</div>
+                            <div class="default text"><%= f.object.relationstatus %></div>
                             <div class="menu">
                                <div class="item" data-value="Single">SAKHT (Single)</div>
                                <div class="item" data-value="Taken">Taken</div>
@@ -70,13 +70,8 @@
                             </div>
                          </div>
                       </div>
-                      <div class="field">
-                         <label>Birthday</label>
-                         <%= date_select :user, :birthday,{:class => "input-mini"}  %>
-                      </div>
-                      <button class="ui button" style="background:#7e2444;color:white">
-                         Save Changes
-                      </button>
+
+                      <%= render "users/shared/button" %>
                    </div>
                 </div>
                 <div class="ui segment cb">
@@ -94,40 +89,46 @@
                          <label>Confirm New Password</label>
                          <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "6 characters minimum" %>
                       </div>
-                      <button class="ui button" style="background:#7e2444;color:white">
-                         Submit
-                      </button>
+                      <%= render "users/shared/button" %>
+
                    </div>
                 </div>
                 <div class="ui segment cc">
                    <div class="ui form">
-                      <div class="field">
-                         <label>College Name</label>
-                         <input type="text" name="" placeholder="Enter Your College Name">
-                      </div>
-                      <div class="field">
-                         <label>Department</label>
-                         <input type="text" name="" placeholder="Enter Department">
+                      <!--<div class="field">-->
+                      <!--<label>College Name</label>-->
+                      <!--<input type="text" name="" placeholder="Enter Your College Name">-->
+                      <!--</div>-->
+                      <label>Department</label><br><br>
+                      <div class="ui selection dropdown">
+                         <input type="hidden" name="user[department]" value="<%= f.object.department %>">
+                         <i class="dropdown icon"></i>
+                         <div class="default text"><%= f.object.department %></div>
+                         <div class="menu">
+                            <div class="item" data-value="CSE">CSE</div>
+                            <div class="item" data-value="ME">ME</div>
+                            <div class="item" data-value="ECE">ECE</div>
+                         </div>
                       </div>
 
-                      <button class="ui button" style="background:#7e2444;color:white">
-                         Submit
-                      </button>
+                      <%= render "users/shared/button" %>
+
                    </div>
                 </div>
                 <div class="ui segment cd">
                    <div class="ui form">
-                      <div class="field">
-                         <label>Current Address</label>
-                         <input type="text" name="" placeholder="Enter Current Address">
-                      </div>
-                      <div class="field">
-                         <label>Hometown</label>
-                         <input type="text" name="" placeholder="Enter Hometown">
-                      </div>
-                      <button class="ui button" style="background:#7e2444;color:white">
-                         Submit
-                      </button>
+                      <!--<div class="field">-->
+                      <!--<label>Current Address</label>-->
+                      <!--<input type="text" name="" placeholder="Enter Current Address">-->
+                      <!--</div>-->
+                      <!--<div class="field">-->
+                      <!--<label>Hometown</label>-->
+                      <!--<input type="text" name="" placeholder="Enter Hometown">-->
+                      <!--</div>-->
+                      <!--<button class="ui button" style="background:#7e2444;color:white">-->
+                      <!--Submit-->
+                      <!--</button>-->
+                      Coming Soon!
                    </div>
                 </div>
 
@@ -171,6 +172,13 @@
       .item{
          font-family: 'Quicksand', sans-serif;
 
+      }
+      .ui.vertical.tabular.menu .active.item {
+         background: none #7d2d76;
+         color: rgb(255, 255, 255);
+         border-color: #D4D4D5;
+         margin: 0px -1px 0px 0px;
+         border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
       }
 
 
