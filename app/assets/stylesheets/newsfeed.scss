@@ -1,6 +1,4 @@
-body{
-    //background-color:#f8f8f8; //#2e5b5b;
-}
+
 
 textarea{
     border: none;
@@ -18,58 +16,11 @@ main-page {
             width: 100%;
             height: 850px;
             .card{
-                box-shadow: 0px 0px 1px #d7d2d4
+                box-shadow: 0px 0px 1px #d7d2d4;
+                width: 250px;
+                float: right;
             }
 
-            div.home-profile {
-                //box-shadow: 0px 0px 3px #666666;
-                padding: 12px;
-                background-color: #fdfdfd;
-                background-image: linear-gradient(49deg,#6166ae, #eb4f6f);
-                color: #fff;
-                display: flex;
-                justify-content: space-between;
-                border: 1px solid grey;
-                img.h-pro-image {
-                    width: 80px;
-                    height: 80px;
-                    border-radius: 50%;
-                }
-                #contentbox{
-                    width: 60%;
-                    padding-top: 10px;
-                    color: black;
-                    letter-spacing: .04em;
-                    font-family: Lato,Helvetica,Arial,sans-serif;
-                    .bigme{
-                        font-size: 21px;
-                        font-family: 'Jura', sans-serif;
-
-
-                        }
-                    .bigme a {
-                        color: black;
-
-                    }
-                    .smallme{
-                        font-size: 10px;
-                    }
-                }
-            }
-            .home-profile:hover{
-                box-shadow: 0 0 30px 5px rgba(0,0,0,.22);
-            }
-            .trending-people{
-                //text-align: center;
-                margin-top: 50px;
-                height: 600px;
-                box-shadow: 0px 0px 3px #666666;
-                //padding: 20px;
-                background-color: white;
-            }
-            .trending-people:hover{
-                //box-shadow: 0 0 1px 2px ;
-            }
         }
     }
     section {

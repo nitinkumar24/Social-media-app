@@ -16,6 +16,8 @@
 
        <section>
           <% if current_user.current_mode == 'open'%>
+              <div class="item" style="text-align: center;"> <%=link_to 'Switch Community', mode_select_path %></div>
+
               <%= render 'mode/sign_out_section' %>
           <% else %>
           <div class="createPost">
@@ -95,19 +97,6 @@
         console.log("hi");
 
     });
-
-    $('.tooltip').tooltipster({
-        animation: 'grow',
-        delay: [900, 000],
-        trigger: 'click',
-        position: 'bottom',
-
-    });
-
-
-    //Move to top of the page
-
-    //End-Move to top of the page
 
 
 </script>
