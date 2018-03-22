@@ -18,6 +18,9 @@ class Comment < ApplicationRecord
                               noti_type: "post-comment",
                               noti_type_id: self.id,
                               mode:current_user.current_mode)
+          recipient_user = self.post.user
+          recipient_user.new_notifications += 1
+          recipient_user.save
       end
       puts self.id
   end

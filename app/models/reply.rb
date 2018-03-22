@@ -18,6 +18,9 @@ class Reply < ApplicationRecord
                                 noti_type: "comment-reply",
                                 noti_type_id: self.id,
                                 mode:current_user.current_mode)
+            recipient_user = self.comment.user
+            recipient_user.new_notifications += 1
+            recipient_user.save
 
 
         end
@@ -28,6 +31,9 @@ class Reply < ApplicationRecord
                                 noti_type: "comment-reply",
                                 noti_type_id: self.id,
                                 mode:current_user.current_mode)
+            recipient_user = self.comment.post.user
+            recipient_user.new_notifications += 1
+            recipient_user.save
         end
 
     end
