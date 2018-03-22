@@ -13,18 +13,21 @@
     text-align: center;
     .button{
         color: white;
-        border-radius: 4px;
-        background-color: #7e2444;
+        background-color: #7d2d76;
         text-align: center;
         width: 70%;
+        border: 1px solid #7d2d76;
+        border-radius: 4px;
         padding: 5px;
         margin-bottom: 21px;
-        font-size: 15px;
-        font-family: 'Jura', sans-serif;
+        font-size: 16px;
+        font-family: 'Poiret One',sans-serif;
         letter-spacing: 1px;
     }
     .button:hover{
-        background-color: #713c5e;
+        background-color: white;
+        color: #7d2d76;
+        font-size: 18px;
 
     }
 }

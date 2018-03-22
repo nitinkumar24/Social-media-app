@@ -13,7 +13,7 @@
                       <button class="ui button" style="background:none;color:black;padding: 10px">
                          <i class="search link icon"></i>
                       </button>
-                      <div class="" id="filter-toggle" style="    align-items: center;font-size: 24px;color: #232020;display: flex;padding-right: 11px;">
+                      <div class="" id="filter-toggle" style="    align-items: center;font-size: 24px;color: #7d2d76;display: flex;padding-right: 11px;">
                          <i class="fa fa-filter" aria-hidden="true"></i>
                       </div>
                    </div>
@@ -21,16 +21,14 @@
 
 
                    <div class="filters">
-
                       <div class="ui form">
-
                          <div class="ui selection dropdown">
                             <input type="hidden" name="gender">
                             <i class="dropdown icon"></i>
                             <div class="default text">Gender</div>
                             <div class="menu">
-                               <div class="item" data-value="M">Male</div>
-                               <div class="item" data-value="F">Female</div>
+                               <div class="item" data-value="male">Male</div>
+                               <div class="item" data-value="female">Female</div>
                             </div>
                          </div>
 
@@ -47,10 +45,28 @@
                             </div>
                          </div>
 
-                         <button class="ui button" style="background:#7e2444;color:white;font-family: 'Jura', sans-serif;
-                             letter-spacing: 1px;margin-top: 10px">
-                            Apply Filters
+                            <div class="ui selection dropdown">
+                               <input type="hidden" name="relationstatus">
+                               <i class="dropdown icon"></i>
+                               <div class="default text">Relation Status</div>
+                               <div class="menu">
+                                  <div class="item" data-value="single">SAKHT (Single)</div>
+                                  <div class="item" data-value="taken">Taken</div>
+                                  <div class="item" data-value="foreveralone">Forever Alone</div>
+                               </div>
+                            </div>
+
+                         <button class="ui button" style="color: white;
+                             font-size: 16px;
+                             background-color: #7d2d76;
+                             border: 1px solid;
+                             border-radius: 4px;
+                             font-family: 'Poiret One',sans-serif;">
+                            Search
                          </button>
+
+
+
 
                       </div>
                    </div>
@@ -83,6 +99,10 @@
 </main-page>
 
 <script>
+
+    $('.ui.dropdown')
+        .dropdown()
+    ;
     //For toogling the filter
     $("#filter-toggle").click(function(){
         $(".filters").slideToggle();
