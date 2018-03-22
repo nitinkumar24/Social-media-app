@@ -75,6 +75,18 @@ p {
 .ui.card > .image {
     background: white;
 }
+
+/*--------------
+  Rounded Edges
+---------------*/
+/* line 99, /Users/nitin/.rvm/gems/ruby-2.4.1/gems/semantic-ui-sass-2.2.12.1/app/assets/stylesheets/semantic-ui/views/_card.scss */
+.ui.cards > .card > :first-child,
+.ui.card > :first-child {
+    border-radius: 0.0rem 0.0rem 0em 0em !important;;
+    border-top: none !important;
+}
+
+
 .ui.cards > .card,
 .ui.card {
     box-shadow: 0px 0px 3px #d7d2d4;
