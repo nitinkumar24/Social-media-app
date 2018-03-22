@@ -32,12 +32,20 @@ class SearchController < ApplicationController
 
 
     def autocomplete
-        render json: User.search(params[:query], {
+        data =  User.search(params[:query], {
                 fields: ["name",],
                 limit: 10,
                 load: false,
                 misspellings: {below: 5}
-        })
+        }).map(&:name)
+        result = []
+        data.each { |x|
+        name = {}
+        name['name'] = x
+        result << name
+        }
+        render json: result
+
     end
 end
 
