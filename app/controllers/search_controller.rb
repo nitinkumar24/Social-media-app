@@ -12,6 +12,7 @@ class SearchController < ApplicationController
             uisc_ids = user_in_same_mode.pluck(:user_id)
             puts uisc_ids
             query = params[:query].presence || '*'
+
             conditions = {}
             conditions[:id] = uisc_ids
             conditions[:sex] = params[:gender] if params[:gender].present?

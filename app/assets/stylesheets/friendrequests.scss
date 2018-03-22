@@ -1,3 +1,78 @@
 // Place all the styles related to the friendrequests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.fr_page{
+
+    width: 44%;
+    margin-left: 8%;
+    margin-top: 90px;
+    .ui.grid{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .wrapper{
+        justify-content: space-between;
+        display: flex;
+        width: 100%;
+        padding-top: 13px;
+        padding-bottom: 26px;
+        .info{
+            width: 70%;
+            display: flex;
+            padding-left: 1%;
+            img{
+
+                width: 54px;
+                height: 54px;
+                border-radius: 50%;
+            }
+
+            .name{
+                display: flex;
+                flex-direction: column;
+                padding-left: 5%;
+            }
+        }
+        .buttons{
+            display: flex;
+            justify-content: space-evenly;
+            .accept{
+                color: white;
+                background-color: #7d2d76;
+                text-align: center;
+                border: 1px solid #7d2d76;
+                border-radius: 4px;
+                padding: 5px;
+                margin-bottom: 21px;
+                margin-right: 10px;
+                font-size: 16px;
+                font-family: 'Poiret One',sans-serif;
+                letter-spacing: 1px;
+            }
+            .reject{
+                color:#7d2d76;
+                background-color: white;
+                text-align: center;
+                border: 1px solid #7d2d76;
+                border-radius: 4px;
+                padding: 5px;
+                margin-bottom: 21px;
+                font-size: 16px;
+                font-family: 'Poiret One',sans-serif;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .fr_page{
+        width: 100%;
+        margin: 0;
+        .wrapper .buttons {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+}

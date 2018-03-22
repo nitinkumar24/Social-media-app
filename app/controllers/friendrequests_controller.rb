@@ -1,5 +1,12 @@
 class FriendrequestsController < ApplicationController
 
+    def requests
+        @received_requests=Friendrequest.where(receiver_id: current_user.id, :mode => @current_mode)
+        @sent_requests=Friendrequest.where(sender_id: current_user.id, :mode => @current_mode)
+    end
+
+
+
     def toggle_follow_request
         followee_id = params[:followee_id]
         @user = User.find(followee_id)
@@ -8,7 +15,7 @@ class FriendrequestsController < ApplicationController
             Friendrequest.create(:receiver_id => followee_id,:sender_id => current_user.id,:mode => @current_mode)
             @is_sent = true
         elsif current_user.can_delete_request followee_id
-            puts "can_delete_request"
+            puts 'can_delete_request'
             Friendrequest.where(:receiver_id => followee_id, :sender_id => current_user.id,:mode => @current_mode).first.destroy
             @is_sent = false
         elsif current_user.can_un_follow followee_id
@@ -26,10 +33,6 @@ class FriendrequestsController < ApplicationController
         @req_id = params[:req_id]
         FollowMapping.create(:followee_id => current_user.id, :follower_id => follower_id,:mode => @current_mode)
         Friendrequest.where(:receiver_id => current_user.id, :sender_id => follower_id,:mode => @current_mode).first.destroy
-        puts current_user.followers_count
-        current_user.followers_count += 1
-        current_user.save
-
         respond_to do |format|
             format.js
         end

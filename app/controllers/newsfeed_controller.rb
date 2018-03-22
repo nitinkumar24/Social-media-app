@@ -55,9 +55,6 @@ class NewsfeedController < ApplicationController
 
     end
 
-    def friendrequests
-        @friendrequests=Friendrequest.where(receiver_id: current_user.id)
-    end
 
 
     def ajax

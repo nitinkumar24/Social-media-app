@@ -1,0 +1,130 @@
+
+<div class="fr_page">
+   <div class="ui grid">
+
+      <div class="first_row">
+         <div class="ui horizontal fluid tabular menu">
+            <a class="item active a">
+               Received
+            </a>
+            <a class="item b">
+               Sent
+            </a>
+         </div>
+      </div>
+   </div>
+
+
+
+   <div class="content">
+      <div class="ui segment ca">
+         <div class="" >
+            <% if @received_requests.length == 0 %>
+                <%= "Kuch nahi hai Dost" %>
+            <% else %>
+                <% @received_requests.each do | req | %>
+                    <% user=User.where(id: req.sender_id).first%>
+                    <div class="wrapper" style="">
+                       <div class="info">
+                          <%= image_tag user.avatar.url(:medium) %>
+                          <div class="name">
+                             <%= render 'profile/profile_link' ,user: user %>
+                             <p><%=user.try(:about)  %></p>
+
+                          </div>
+                       </div>
+
+                       <div class="buttons" id="request_<%= req.id%>">
+                          <%= button_to "accept", url_for(controller: :friendrequests, action: :accept_request, follower_id: req.sender_id,req_id: req.id), method: :post,remote: true,class:"accept" %>
+                          <%= button_to "reject", url_for(controller: :friendrequests, action: :reject_request, follower_id: req.sender_id,req_id: req.id), method: :post, remote: true,class:"reject"  %>
+                       </div>
+
+                    </div>
+
+                <% end %>
+            <% end %>
+         </div>
+
+      </div>
+      <div class="ui segment cb">
+         <div class="" >
+            <% if @sent_requests.length == 0 %>
+                <%= "Kuch nahi hai Dost" %>
+            <% else %>
+                <% @sent_requests.each do | req | %>
+                    <% user=User.where(id: req.receiver_id).first%>
+                    <div class="wrapper" style="">
+                       <div class="info">
+                          <%= image_tag user.avatar.url(:medium) %>
+                          <div class="name">
+                             <%= render 'profile/profile_link' ,user: user %>
+                             <p><%=user.try(:about)  %></p>
+
+                          </div>
+                       </div>
+
+                       <div class="buttons" id="request_<%= req.id%>">
+                          <% if current_user.can_delete_request user.id %>
+                              <%= button_to 'Requested', url_for(controller: :friendrequests, action: :toggle_follow_request, followee_id: user.id), method: :post, id:"user_#{user.id}", class:"reject", remote: true  %>
+                          <% end %>
+                       </div>
+
+                    </div>
+
+                <% end %>
+            <% end %>
+
+         </div>
+
+      </div>
+   </div>
+</div>
+
+<style>
+   .ui.tabular.menu .active.item {
+      background: none #7d2d76;
+      color: rgb(255, 255, 255);
+      border-color: #D4D4D5;
+      margin: 0px -1px 0px 0px;
+      border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
+   }
+</style>
+
+<script>
+    $('document').ready(function(){
+        $('.ui .segment').hide();
+        $('.ca').show();
+        $('.cb').hide();
+
+    });
+    //end of it
+
+    // showing the individual elememnts
+    $('.a').click(function(){
+        $('.ui .segment').hide();
+        $('.ca').show();
+        $('.cb').hide();
+
+    });
+    //end of it
+
+    // showing the individual elememnts
+    $('.b').click(function(){
+        $('.ui .segment').hide();
+        $('.cb').show();
+        $('.ca').hide();
+
+    });
+</script>
+
+<script>
+    $('.ui .item').on('click', function() {
+        $('.ui .item').removeClass('active');
+        $(this).addClass('active');
+        $('.custom').removeClass('active');
+    });
+</script>
+
+
+
+

@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'mode/select'
   get 'notifications/show'
   get 'notifications/view'
-  get 'newsfeed/friendrequests'
+  get '/requests' => 'friendrequests#requests'
   get '/profile/show'
   get 'profile/edit_picture'
 
