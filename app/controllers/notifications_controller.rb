@@ -1,6 +1,8 @@
 class NotificationsController < ApplicationController
 
     def show
+        current_user.new_notifications = 0
+        current_user.save
         @notifications=Notification.where(:recipient_id => current_user.id,mode: @current_mode).reverse
     end
 

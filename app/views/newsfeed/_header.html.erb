@@ -55,6 +55,7 @@
                    <%= link_to notifications_show_path do%>
                        <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                            -webkit-text-stroke-color: grey;color: white"></i>
+                       <%= current_user.new_notifications if current_user.new_notifications > 0 %>
                    <% end %>
                 </li>
                 <li>
