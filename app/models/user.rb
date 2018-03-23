@@ -120,7 +120,7 @@ class User < ApplicationRecord
     end
 
     def followers user_id
-         FollowMapping.where(:followee_id => user_id,:mode => @current_mode).length
+         FollowMapping.where(:followee_id => user_id,:mode => @current_mode)
     end
 
     def followee user_id
