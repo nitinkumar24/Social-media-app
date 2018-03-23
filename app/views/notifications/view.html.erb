@@ -106,7 +106,7 @@
 
          </div>
 
-         <div style="display: none">
+         <div style="">
             <hr style="opacity: 0.2">
 
             <%= render 'comments/comment_form' ,post: post %>
@@ -136,24 +136,24 @@
     $('.ui.dropdown')
         .dropdown()
     ;
-
-    var acc = document.getElementsByClassName("comment");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function(){
-            this.classList.toggle("active");
-            var div = this.parentElement;
-            var comment_panel=div.nextElementSibling
-
-//            console.log(div.nextElementSibling);
-            if (comment_panel.style.display === "block") {
-                comment_panel.style.display = "none";
-            } else {
-                comment_panel.style.display = "block";
-            }
-        }
-    }
+//
+//    var acc = document.getElementsByClassName("comment");
+//    var i;
+//
+//    for (i = 0; i < acc.length; i++) {
+//        acc[i].onclick = function(){
+//            this.classList.toggle("active");
+//            var div = this.parentElement;
+//            var comment_panel=div.nextElementSibling
+//
+////            console.log(div.nextElementSibling);
+//            if (comment_panel.style.display === "block") {
+//                comment_panel.style.display = "none";
+//            } else {
+//                comment_panel.style.display = "block";
+//            }
+//        }
+//    }
 
     jQuery.each(jQuery('textarea[data-autoresize]'), function() {
         var offset = this.offsetHeight - this.clientHeight;

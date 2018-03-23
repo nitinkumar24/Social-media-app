@@ -29,7 +29,6 @@ headerbar{
         }
 
         nav.left-nav,nav.right-nav {
-            height: 56px;
             ul{
                 display: flex;
                 align-items: center;
@@ -44,8 +43,8 @@ headerbar{
                     text-align: center;
                     padding: 15px 8px;
                     text-decoration: none;
-                    font-family: 'Jura', sans-serif;
-                    letter-spacing: -0.05em;
+                    font-family: 'Poiret One', sans-serif
+
                 }
                 li a:hover{
                     border-bottom: 3px solid #7d2d76;

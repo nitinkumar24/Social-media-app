@@ -4,6 +4,10 @@ class ProfileController < ApplicationController
         @user = current_user
     end
 
+    def followers
+        @followers = current_user.followers(current_user.id)
+    end
+
     def show
         @user=User.find_by_username(params[:id])
         if @user
