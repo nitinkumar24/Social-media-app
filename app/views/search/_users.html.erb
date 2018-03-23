@@ -20,11 +20,13 @@
                  <div class="meta">
                     <%= user.email %>
                  </div>
-                 <div class="description">
-                    <%= user.about %>
-                 </div>
+
               </div>
+              <span class="follow_button">
+
+
               <%= render 'newsfeed/follow_link', user: user %>
+              </span>
            </div>
        <% end %>
    <% end %>

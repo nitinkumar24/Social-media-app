@@ -66,6 +66,16 @@ p {
 .ui.card {
     margin: 0em 0em;
 }
+.ui.four.cards > .card {
+    width: calc( 25%  -  1.5em );
+    margin-left: 0.75em;
+    margin-right: 0.75em;
+    padding-bottom: 20px;
+}
+.ui.six.cards > .card {
+    padding-bottom: 20px;
+}
+
 .ui.four.cards > .card:hover {
     box-shadow: 0px 0px 3px rgb(125, 45, 118);
     transition-delay: 0.2s;

@@ -1,12 +1,8 @@
-<br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %><br>
-<%= @followers %>
+<div class="followers_page">
+   <h1>Followers in <%= current_user.current_mode %> community</h1>
+   <div class="ui six doubling cards">
+      <%= render @followers %>
+
+      <%= will_paginate @followers  %>
+   </div>
+</div>

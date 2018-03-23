@@ -1,12 +1,12 @@
 <div style="other_info">
    <div class="flwlst">
       <div id="flw"><b>Followers</b>
-         <%= @user.followers(@user.id,current_user.current_mode) %>
+         <%= @user.followers(@user.id,current_user.current_mode).count %>
 
 
       </div>
       <div id="flwe"><b>Following</b>
-         <%= @user.followee(@user.id,current_user.current_mode) %>
+         <%= @user.followee(@user.id,current_user.current_mode).count %>
       </div>
    </div>
 

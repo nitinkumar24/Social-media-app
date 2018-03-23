@@ -18,10 +18,9 @@ body{
 }
 
 #mid-box{
-    margin-top:10px;
-    width:65%;
-    margin-left: 5%;
-    padding-top: 55px;
+    margin-top: 10px;
+    width: 100%;
+    padding: 55px 5% 0 5%;
     /*box-shadow: 0px 0px 3px #666666;*/
 }
 #right-box{
@@ -41,8 +40,8 @@ body{
 
 }
 #dp-box{
-    position:relative;
-    padding-left: 5%;
+    position: relative;
+    padding-left: 25%;
     display: flex;
     padding-bottom: 55px;
     /*border-bottom: 1px solid grey;*/
@@ -52,40 +51,65 @@ body{
 
 }
 .pp-info{
-    width: 85%;
-    padding-left: 7%;
+    width: 75%;
+    padding-left: 5%;
     padding-top: 15px;
-    div{
-        width: 50%;
+    div.pp-follow{
+        width: 70%;
         padding-top: 0px;
+        display: flex;
+        align-items: center;
     }
 }
 
 .pp-name{
-    font-family: 'Jura', sans-serif;
-    font-size: 36px;
+    font-size: 30px;
 }
 .pp-email{
-    font-size: 14px;
+    font-size: 16px;
+    padding-top: 10px;
 }
-.pp-follow{
 
-    font-size: 24px;
-    padding: 0 30px 0 30px;
-    /*background-color: #7e2444;*/
-    border: 1px solid #730E15;
-    border-radius: 4px;
-    /*color: #7e2444;*/
+.pp-follow {
+    margin-bottom: 20px;
+    margin-top: 4px;
+    p {
+        font-size: 17px;
+    }
 
+    a {
+        color: #7e2444;;
+    }
+    .button{
+        margin-left: 10px;
+        padding: 0 12px;
+        color: #7d2d76;
+        height: 28px;
+        font-size: 20px;
+        background-color: white;
+        border: 1px solid;
+        border-radius: 4px;
+        font-family: 'Poiret One',sans-serif;
+    }
+    .button:hover{
+        color: white;
+        background-color:  #7d2d76;
+    }
 }
-.pp-follow a{
-    color:  #7e2444;;
+
+div.flwlst{
+    background-color: white;
+    text-align: center;
+    font-weight:bold;
+    display:flex;
+    margin-bottom: 12px;
+    #flw{
+        margin-right: 30px;
+    }
 }
-.pp-follow:hover{
-    background-color: #7e2444;
-}
-.pp-follow a:hover{
-    color:  white;;
+
+#mob_view_info{
+    display: none;
 }
 
 .pro-image{
@@ -118,13 +142,13 @@ body{
     /*background-color: #730E15;*/
 }
 .pp-sidepanel{
-    width:38% ;
+    width:0% ;
     /*background-color: #730E15;*/
 
 }
 .pp-posts{
-    width: 60%;
-    margin-left: 2%;
+    width: 50%;
+    margin-left: 25%;
 }
 
 
@@ -138,18 +162,19 @@ body{
     #mid-box {
         margin-top: 10px;
         width: 100%;
-        margin-left: 5%;
-        padding-top: 10px;
+        padding: 16px 2% 0 2%;
     }
     #dp-box {
         position: relative;
         padding-left: 0%;
         display: flex;
-        padding-bottom: 35px;
+        padding-bottom: 10px;
+        margin-left: 16px;
+        margin-right: 16px;
         /*border-bottom: 1px solid grey;*/
         img {
-            height: 100px;
-            width: 100px;
+            height: 80px;
+            width: 80px;
             border-radius: 50%;
         }
     }
@@ -157,14 +182,23 @@ body{
         width: 90%;
         padding-left: 3%;
         padding-top: 0px;
-        div {
-            width: 80%;
+        div.pp-follow {
+            width: 100%;
             padding-top: 0px;
+            justify-content: space-between;
         }
     }
 
+    #web_view_info {
+        display: none;
+    }
+    #mob_view_info{
+        display: block;
+        margin-left: 16px;
+    }
+
     .pp-posts {
-        width: 96%;
-        margin-left: 2%;
+        width: 100%;
+        margin-left: 0%;
     }
 }

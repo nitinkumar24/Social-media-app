@@ -4,73 +4,52 @@
       <div id="dp-box">
          <%= image_tag @user.avatar.url(:medium),:class =>"pro-image" %>
          <div class="pp-info">
-            <p class="pp-name"><%=@user.name%>
-               <span class="pp-follow">
-                  <% if @user.id==current_user.id %>
-                      <%=link_to "Edit Profile",edit_user_registration_path%>
-                  <% else  %>
-                      <%= render 'newsfeed/follow_link', user: @user %>
-                  <%end  %>
-               </span>
-            </p>
-
-            <div style="">
-               <div id="probox">
-                  <div id="flw"><b>Followers</b><br>
-                     <%= @user.followers(@user.id) %>
-                  </div>
-                  <div id="flwe"><b>Following</b><br>
-                     <%= @user.followee(@user.id) %>
-                  </div>
-               </div>
-
+            <div class="pp-name">
+               <p><%=@user.name%></p>
+            </div>
+            <div class="pp-follow">
+               <p>@<%=@user.username%></p>
+               <% if @user.id==current_user.id %>
+                   <%=button_to 'Edit Profile', edit_user_registration_path ,method: :get, :class=>'button'%>
+               <% else  %>
+                   <%= render 'newsfeed/follow_link', user: @user %>
+               <%end  %>
             </div>
 
-            <hr style="opacity: 0.3">
+            <div id="web_view_info">
+               <%= render 'other_info' %>
+            </div>
 
-            <span class="pp-email" style="font-family: 'Jura', sans-serif">
-               <%=@user.email%>
-            </span>
-            <br>
-            <span class="pp-email" style="font-family: 'Jura', sans-serif">
-               <%=@user.department%>
-            </span>
-            <span class="pp-email" style="font-family: 'Jura', sans-serif">
-               <%=@user.about%>
-            </span>
 
 
          </div>
 
       </div>
+      <div id="mob_view_info">
+         <%= render 'other_info' %>
+         <!--#galat baat h ye extra req to db-->
+      </div>
+
       <hr style="opacity: 0.3">
       <div class="profile-posts">
 
          <div class="pp-sidepanel">
-            <div class="pictures" style="display: flex;width: 100%;text-align:center;flex-direction: column;box-shadow: 0px 0px 3px #666666;">
-               <h3 style="background-color: #efeeee;font-family: 'Jura', sans-serif;padding: 8px">Photos</h3>
-               <% unless @posts.nil? %>
-                   <% @posts.each do |pic|%>
-                       <div >
-                          <% if pic.avatar? %>
-                              <%= image_tag pic.avatar.url(:medium),:class =>"pic-gal-image" %>
-                          <% end  %>
-                       </div>
-                   <% end  %>
-                   </div>
-                   </div>
 
-                   <div class="pp-posts">
-                      <div id="posts">
+         </div>
 
-                         <%= render @posts %>
+         <div class="pp-posts">
+            <div id="posts">
+               <% if @posts.nil? %>
+                   <%= 'Because every account is private :)' %>
+                   <% else %>
+               <%= render @posts %>
 
-                         <%= will_paginate @posts  %>
+               <%= will_paginate @posts  %>
+                   <% end %>
 
-               <% end %>
-               </div>
-               </div>
-               </div>
+            </div>
+         </div>
+      </div>
 
 
    </div>

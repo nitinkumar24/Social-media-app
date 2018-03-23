@@ -91,7 +91,7 @@ class PostsController < ApplicationController
 
     def can_create
         result = true
-        user_followers =  current_user.followers(current_user.id).length
+        user_followers =  current_user.followers(current_user.id, current_user.current_mode).length
 
         if post_params['anonymous'] != "0"
             if user_followers < 5

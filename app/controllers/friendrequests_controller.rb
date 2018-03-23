@@ -55,4 +55,10 @@ class FriendrequestsController < ApplicationController
         end
     end
 
+    def remove_follower
+        follower_id = params[:follower_id]
+        @user = User.find(follower_id)
+        FollowMapping.where(:followee_id => current_user.id, :follower_id => follower_id,:mode => @current_mode).first.destroy
+    end
+
 end

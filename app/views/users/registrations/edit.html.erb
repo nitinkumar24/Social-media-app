@@ -161,6 +161,16 @@
 
       </div>
    </div>
+   <div class="loader">
+   </div>
+
+   <script>
+
+       $(document).on('turbolinks:load', function() {
+           $(".loader").fadeOut(900);
+       });
+
+   </script>
 
 
 
@@ -181,12 +191,6 @@
          border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
       }
 
-
-      @media only screen and (max-width: 500px) {
-
-
-
-      }
 
 
    </style>

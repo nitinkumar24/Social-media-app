@@ -5,24 +5,26 @@ class ProfileController < ApplicationController
     end
 
     def followers
-        @followers = current_user.followers(current_user.id)
+        @followers = current_user.followers(current_user.id, current_user.current_mode).paginate(:page => params[:page], :per_page =>7)
     end
 
     def show
         @user=User.find_by_username(params[:id])
         if @user
-            @new_users = User.all
-
             if @user.id == current_user.id
-                @posts = Post.where(user_id:@user.id).paginate(:page => params[:page], :per_page =>7).order(created_at: :desc)
+                @posts = Post.includes(:user, :likes, :dislikes, :comments).where(user_id:@user.id).paginate(:page => params[:page], :per_page =>7).order(created_at: :desc)
                 @comment=Comment.new
                 @reply=Reply.new
                 @comments = Comment.all
-            elsif current_user.is_following @user.id
-                @posts = Post.where(user_id:@user.id, anonymous:false).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
+
+            elsif current_user.can_un_follow @user.id        #means following
+                @posts = Post.includes(:user, :likes, :dislikes, :comments).where(user_id:@user.id, anonymous:false).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
                 @comment=Comment.new
                 @reply=Reply.new
                 @comments = Comment.all
+            else
+                @posts = nil
+
             end
         else
             render file: "#{Rails.root}/public/404", status: :not_found

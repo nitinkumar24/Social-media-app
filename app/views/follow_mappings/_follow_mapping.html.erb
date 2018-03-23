@@ -1,0 +1,39 @@
+<br>
+<br><br>
+<br><br>
+<br><br>
+
+
+
+
+<% user = User.find_by_id(follow_mapping.follower_id) %>
+
+<% if user.confirmed? %>
+    <div class="card">
+       <div class="image">
+          <%= image_tag user.avatar.url(:medium),:class =>"profile_image" %>
+       </div>
+       <div class="content">
+          <div class="header">
+             <%= render 'profile/profile_link' ,user: user %>
+
+          </div>
+          <div class="meta">
+             <%= user.email %>
+          </div>
+
+       </div>
+       <span class="follow_button">
+
+          <%= render 'newsfeed/follow_link', user: user %>
+          <br>
+          <%= button_to 'Remove', url_for(controller: :friendrequests, action: :remove_follower, follower_id: user.id), method: :post, id:"remove_#{user.id}",class:"button", remote: true  %>
+
+              </span>
+    </div>
+<% end %>
+
+
+
+
+

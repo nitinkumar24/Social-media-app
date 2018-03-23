@@ -1,7 +1,7 @@
 <main-page>
    <div class="users-page">
 
-      <%= form_tag search_users_path, :method => 'get' do %>
+      <%= form_tag search_users_path, :method => 'get',remote: true do %>
 
           <div class="search-bar" >
              <div class="wrap">

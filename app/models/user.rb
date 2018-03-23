@@ -129,13 +129,13 @@ class User < ApplicationRecord
         puts "in followers"
         puts self.id
         puts user_id
-        FollowMapping.where(:followee_id => user_id,:mode => mode).length
+        FollowMapping.where(:followee_id => user_id,:mode => mode)
     end
 
     def followee(user_id, mode)
         puts "in followee"
         puts user_id
-        FollowMapping.where(:follower_id => user_id,:mode => mode).length
+        FollowMapping.where(:follower_id => user_id,:mode => mode)
     end
 
     def is_following user_id

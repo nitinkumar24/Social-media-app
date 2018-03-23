@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   post 'newsfeed/delete_request'
   post 'friendrequests/accept_request'
   post 'friendrequests/reject_request'
+  post 'friendrequests/remove_follower'
+
+
 
   devise_for :users, :controllers => { :registrations => :registrations,  :omniauth_callbacks => "users/omniauth_callbacks"}
 
