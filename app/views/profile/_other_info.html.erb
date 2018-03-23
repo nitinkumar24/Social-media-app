@@ -1,13 +1,26 @@
 <div style="other_info">
    <div class="flwlst">
-      <div id="flw"><b>Followers</b>
-         <%= @user.followers(@user.id,current_user.current_mode).count %>
 
+      <% if @user.id == current_user.id %>
+          <div id="flw">
+             <b><%= link_to "Followers", profile_followers_path %></b>
+             <%= @user.followers(@user.id,current_user.current_mode).count %>
+          </div>
+          <div id="flwe"><b>Following</b>
+             <%= @user.followee(@user.id,current_user.current_mode).count %>
+          </div>
 
-      </div>
-      <div id="flwe"><b>Following</b>
-         <%= @user.followee(@user.id,current_user.current_mode).count %>
-      </div>
+      <% else %>
+
+          <div id="flw">
+             <b>Followers</b>
+             <%= @user.followers(@user.id,current_user.current_mode).count %>
+          </div>
+          <div id="flwe"><b>Following</b>
+             <%= @user.followee(@user.id,current_user.current_mode).count %>
+          </div>
+      <% end %>
+
    </div>
 
 
