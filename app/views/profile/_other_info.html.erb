@@ -1,0 +1,26 @@
+<div style="other_info">
+   <div class="flwlst">
+      <div id="flw"><b>Followers</b>
+         <%= @user.followers(@user.id,current_user.current_mode) %>
+
+
+      </div>
+      <div id="flwe"><b>Following</b>
+         <%= @user.followee(@user.id,current_user.current_mode) %>
+      </div>
+   </div>
+
+
+
+   <hr style="opacity: 0.3">
+   <div class="pp-email" >
+      <%=@user.about%>
+   </div>
+   <div class="pp-email">
+      <%=@user.email%>
+   </div>
+   <br>
+   <div class="pp-email" >
+      <%=@user.department%>
+   </div>
+</div>

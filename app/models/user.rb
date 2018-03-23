@@ -93,6 +93,9 @@ class User < ApplicationRecord
     end
 
     def can_follow user_id
+        puts "lol"
+        puts @current_mode
+        puts "loda"
         follow_relation(user_id) == UserRelations::NOTFOLLOWED
     end
 
@@ -119,15 +122,24 @@ class User < ApplicationRecord
         SENT =3
     end
 
-    def followers user_id
-         FollowMapping.where(:followee_id => user_id,:mode => @current_mode)
+    # @current_mode har user object k lie alag hoga.
+    # Agr @user.follwers type koi method call kr rhe hn to @current_mode nil hoga
+
+    def followers(user_id, mode)
+        puts "in followers"
+        puts self.id
+        puts user_id
+        FollowMapping.where(:followee_id => user_id,:mode => mode).length
     end
 
-    def followee user_id
-        count_followee=FollowMapping.where(:follower_id => user_id,:mode => @current_mode).length
+    def followee(user_id, mode)
+        puts "in followee"
+        puts user_id
+        FollowMapping.where(:follower_id => user_id,:mode => mode).length
     end
 
     def is_following user_id
+        puts "in is_following"
         FollowMapping.where(:followee_id => user_id, :follower_id => self.id,:mode => @current_mode).length > 0
     end
 
