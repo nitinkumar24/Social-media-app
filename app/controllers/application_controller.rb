@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
 
     private
 
+    def after_sign_out_path_for(resource_or_scope)
+        new_user_session_path
+    end
+
     # sentry
     def set_raven_context
         Raven.user_context(id: session[:current_user_id]) # or anything else in session
