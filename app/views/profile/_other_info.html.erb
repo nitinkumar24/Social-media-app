@@ -3,11 +3,12 @@
 
       <% if @user.id == current_user.id %>
           <div id="flw">
-             <% count = @user.followers(@user.id,current_user.current_mode).count %>
-             <%= link_to "Followers #{count}", profile_followers_path%>
+             <% count_flrs = @user.followers(@user.id,current_user.current_mode).count %>
+             <%= link_to "Followers #{count_flrs}", profile_followers_path%>
           </div>
           <div id="flwe">
-             <%= link_to "Following #{count}", profile_following_path%>
+             <% count_flwng = @user.followee(@user.id,current_user.current_mode).count %>
+             <%= link_to "Following #{count_flwng}", profile_following_path%>
           </div>
 
       <% else %>

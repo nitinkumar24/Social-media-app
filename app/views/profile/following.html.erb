@@ -1,7 +1,6 @@
 <div class="followers_page">
    <h1>You are following these in <%= current_user.current_mode %> community</h1>
    <div class="ui six doubling cards">
-
       <% @followee.each do |f| %>
           <% user = User.find_by_id(f.followee_id) %>
 
