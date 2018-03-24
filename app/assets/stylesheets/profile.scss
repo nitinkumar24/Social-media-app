@@ -64,6 +64,7 @@ body{
 
 .pp-name{
     font-size: 30px;
+    font-family: 'Poiret One', sans-serif;
 }
 .pp-email{
     font-size: 16px;
@@ -103,6 +104,9 @@ div.flwlst{
     font-weight:bold;
     display:flex;
     margin-bottom: 12px;
+    a{
+        font-size: 19px;
+    }
     #flw{
         margin-right: 30px;
     }

@@ -1,9 +1,9 @@
 <div class="followers_page">
-   <h1>Followers in <%= current_user.current_mode %> community</h1>
+   <h1>You are following in <%= current_user.current_mode %> community</h1>
    <div class="ui six doubling cards">
 
-      <% @followers.each do |f| %>
-          <% user = User.find_by_id(f.follower_id) %>
+      <% @followee.each do |f| %>
+          <% user = User.find_by_id(f.followee_id) %>
 
           <% if user.confirmed? %>
               <div class="card">
@@ -22,15 +22,13 @@
                  </div>
                  <span class="follow_button">
 
-          <%= render 'newsfeed/follow_link', user: user %>
-                    <br>
-                    <%= button_to 'Remove', url_for(controller: :friendrequests, action: :remove_follower, follower_id: user.id), method: :post, id:"remove_#{user.id}",class:"button", remote: true  %>
+                 <%= render 'newsfeed/follow_link', user: user %>
 
               </span>
               </div>
           <% end %>
       <% end %>
 
-      <%= will_paginate @followers  %>
+      <%= will_paginate @followee  %>
    </div>
 </div>

@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   get '/profile/show'
   get 'profile/edit_picture'
   get 'profile/followers'
+  get 'profile/following'
+
+
 
   get '/:id', :to => "profile#show"
   root to: 'newsfeed#index'
