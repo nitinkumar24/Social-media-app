@@ -29,6 +29,23 @@
 // Loads all Semantic javascripts
 //= require semantic-ui
 
+$(document).on('turbolinks:request-start', function(){
+        $('.logo').addClass('loader');
+        console.log("lawde")
+
+});
+document.addEventListener("turbolinks:request-end", function() {
+    $('.logo').removeClass('loader');
+});
+
+
+// import 'turbolinks-animate';
+//
+// document.addEventListener( 'turbolinks:load', function() {
+//     TurbolinksAnimate.init({ animation: 'fadeinright', duration: '1s', delay: 1000 });
+//     console.log(TurbolinksAnimate.appear());
+//
+// });
 //
 // $(function() {
 //     $("#users , #users .pagination ").on("click", 'th a' ,'a', function() {

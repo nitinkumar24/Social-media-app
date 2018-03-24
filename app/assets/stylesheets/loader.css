@@ -1,10 +1,26 @@
-.loader {
+.loader{
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    left: 50%;
+    top: 30px;
     z-index: 9999;
-    background: url('https://cdn.dribbble.com/users/682556/screenshots/2753197/rainbow_poop.gif') 50% 50% no-repeat rgb(249,249,249);
-    background-size: 50%;
+    border-bottom: 2px solid rgb(124, 45, 117);
+    border-radius: 50%;
+    width: 3em;
+    height: 3em;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    background: 50%;
+    margin-left: -1.5em;
+    margin-top: -1.5em;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
