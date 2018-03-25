@@ -39,6 +39,11 @@
                 <div class="ui segment ca">
                    <div class="ui form">
 
+                      <div class="field" style="">
+                         <label>Profile Picture</label>
+                         <%= f.file_field :avatar   %>
+                      </div>
+
                       <div class="field">
                          <label>Username</label>
                          <%= f.text_field :username%>
@@ -167,7 +172,7 @@
    <script>
 
        $(document).on('turbolinks:load', function() {
-           $(".loader").fadeOut(900);
+           $(".loader").fadeOut(2000);
        });
 
    </script>

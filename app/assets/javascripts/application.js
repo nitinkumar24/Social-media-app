@@ -41,6 +41,12 @@ $(document).on('turbolinks:load', function(){
         console.log("lawde")
 
 });
+$(document).on('load', function(){
+
+$('.ui.dropdown')
+    .dropdown()
+;
+});
 
 
 $(document).on('turbolinks:request-end', function(){

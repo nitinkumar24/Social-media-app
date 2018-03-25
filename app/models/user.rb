@@ -4,6 +4,9 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable, :omniauth_providers => [:google_oauth2]
     validates :name, presence: true
+    validates :username, presence: true,length: {minimum: 4, maximum: 15}, format: { with: /\A[a-zA-Z0-9_]+\z/ ,message: 'should only caontain a-z,A-Z,0-9 or _'}
+    validates_uniqueness_of :username
+
     # validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
     has_many :posts, dependent: :destroy
     has_many :user_modes, dependent: :destroy
@@ -67,7 +70,7 @@ class User < ApplicationRecord
     end
 
     def to_param  # overridden
-        username
+        id
     end
 
     def feed
