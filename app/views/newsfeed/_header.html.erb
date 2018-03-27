@@ -70,13 +70,18 @@
              </ul>
 
              <div class="" style="padding-left: 10px" >
-                <div class="ui dropdown pointing ">
+                <div class="ui dropdown  ">
                    <%= current_user.name.capitalize %>
                    <i class="dropdown icon" style="margin-left: 0"></i>
                    <div class="menu">
-                      <div class="item"> <%=link_to 'Switch Community', mode_select_path %></div>
-                      <div class="item"> <%=link_to "Edit Profile",edit_user_registration_path%></div>
-                      <div class="item"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></div>
+                      <div class="item my_link">
+                         <a style="display:block;padding: 10px" href="/mode/select">
+                            <div class="xyz">Switch Community</div>
+                         </a>
+                      </div>
+
+                      <div class="item my_link"> <%=link_to "Edit Profile",edit_user_registration_path%></div>
+                      <div class="item my_link"><%= link_to "Sign Out",destroy_user_session_path,method: :delete %></div>
                    </div>
                 </div>
 
