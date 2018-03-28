@@ -5,21 +5,23 @@ class Mention
 
 
     def self.create_from_text(object)               #object can be post ,comment or reply
-        puts object
-        current_user = object.user
-        @current_mode = current_user.current_mode               #this need to be solved
-        puts "in text"
-        potential_matches = object.content.scan(/@\w+/i)
-        puts potential_matches
-        potential_matches.uniq.map do |match|
-            mention = Mention.create_from_match(match,object.user_id)
-            recipient_user =  mention.mentionable                   #jisko mention kia h
-            next unless mention
-            object.update_attributes!(content: mention.markdown_string(object.content))
-            # You could fire an email to the user here with ActionMailer
-            Mention.send_notification(object, recipient_user, current_user)         #sending notification to mentioned user
-            mention
-        end.compact
+        if check_annonymous_post(object)
+            puts object
+            current_user = object.user
+            @current_mode = current_user.current_mode               #this need to be solved
+            puts "in text"
+            potential_matches = object.content.scan(/@\w+/i)
+            puts potential_matches
+            potential_matches.uniq.map do |match|
+                mention = Mention.create_from_match(match,object.user_id)
+                recipient_user =  mention.mentionable                   #jisko mention kia h
+                next unless mention
+                object.update_attributes!(content: mention.markdown_string(object.content))
+                # You could fire an email to the user here with ActionMailer
+                Mention.send_notification(object, recipient_user, current_user)         #sending notification to mentioned user
+                mention
+            end.compact
+        end
     end
 
     def self.create_from_match(match,current_user_id)
@@ -65,6 +67,21 @@ class Mention
 
     end
 
+    def self.check_annonymous_post(object)
+       if object.class.name == "Post"
+            if object.anonymous?
+                puts "false"
+                false
+            else
+                puts "true"
+                true
+            end
+       else
+           puts "true"
+           true
+       end
+
+    end
 
 
 
