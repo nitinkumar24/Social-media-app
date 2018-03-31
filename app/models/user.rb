@@ -96,12 +96,16 @@ class User < ApplicationRecord
         id
     end
 
-    def feed
+    def homefeed
         users = followee_ids
         users << id
-
         Post.includes(:user, :likes, :dislikes, :comments).where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc)
+    end
 
+    def memefeed
+        users = followee_ids
+        users << id
+        Post.includes(:user, :likes, :dislikes, :comments).where(user_id: users, flavour: "meme", mode: @current_mode).order(created_at: :desc)
     end
 
 

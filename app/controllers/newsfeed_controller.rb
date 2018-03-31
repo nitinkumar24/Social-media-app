@@ -5,7 +5,7 @@ class NewsfeedController < ApplicationController
         @post = Post.new
         @comment = Comment.new
         @reply = Reply.new
-        @posts = current_user.feed.paginate(:page => params[:page], :per_page => 6)
+        @posts = current_user.homefeed.paginate(:page => params[:page], :per_page => 6)
         @new_users = User.where(current_mode: @current_mode).order(created_at: :desc).limit(6)
         respond_to do |format|
             format.html{
@@ -40,11 +40,14 @@ class NewsfeedController < ApplicationController
         @post = Post.new
         @comment = Comment.new
         @reply = Reply.new
-        @posts = Post.includes(:user, :likes, :dislikes, :comments)
-                         .where(flavour: :meme,mode: @current_mode)
-                         .paginate(:page => params[:page], :per_page => 7)
-                         .order(created_at: :desc)
-
+        if @current_mode == 'open'
+            @posts = current_user.memefeed.paginate(:page => params[:page], :per_page => 6)
+        else
+            @posts = Post.includes(:user, :likes, :dislikes, :comments)
+                             .where(flavour: :meme,mode: @current_mode)
+                             .paginate(:page => params[:page], :per_page => 7)
+                             .order(created_at: :desc)
+        end
         respond_to do |format|
             format.html{
             }
