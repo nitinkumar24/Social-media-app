@@ -17,7 +17,6 @@ class User < ApplicationRecord
     devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
 
-
     searchkick word_start: [:name,:username]
 
     #searchkick for searching the user

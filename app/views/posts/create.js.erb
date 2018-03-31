@@ -31,3 +31,6 @@ $('#post_anonymous').attr('checked', false); // Unchecks it
 $('.anonymous').css("display", "block");
 $("#post_anonymous").attr("disabled", false);
 
+var create_post_submit = document.getElementById('create_post_submit');
+create_post_submit.setAttribute("disabled", "");
+console.log(create_post_submit.disabled);

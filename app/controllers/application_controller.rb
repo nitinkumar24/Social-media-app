@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :set_raven_context
     before_action :check_user_mode
+    before_action :set_paper_trail_whodunnit
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) do |user_params|

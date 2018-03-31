@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
 
     var char = document.getElementById('characters');
     var create_post_submit = document.getElementById('create_post_submit');
-
+    create_post_submit.disabled = true;
 
     if(textarea !== null) {
         textarea.addEventListener('input', function () {

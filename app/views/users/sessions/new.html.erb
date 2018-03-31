@@ -52,7 +52,8 @@
              <% end -%>
              <br>
 
-             <%= f.submit "Log in" ,class:"login-button"%><br>
+
+             <%= button_tag "Log in" ,class:"login-button", data: { disable_with: "<i class='fa fa-refresh fa-spin'></i> Wait"}%><br>
 
              <hr>
              <div style="padding-top: 10px;">
