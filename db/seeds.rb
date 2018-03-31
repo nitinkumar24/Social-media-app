@@ -9,13 +9,20 @@
 
     user = User.new
     a = SecureRandom.hex
-    user.name = Devise.friendly_token[0,10]
-    user.email = Devise.friendly_token[0,10] + "@kiet.edu"
+    user.name = Devise.friendly_token[0,5]
+    user.username = Devise.friendly_token[0,5]
+    user.email = Devise.friendly_token[0,5] + "@kiet.edu"
     password = Devise.friendly_token[0,20]
     user.password = password
     user.password_confirmation =  password
     user.skip_confirmation!
     user.save
+    UserMode.create(user_id: user.id, mode: "kiet.edu")
 
 
 end
+f= FollowMapping.new
+f.follower_id = 14
+f.followee_id = 1
+f.mode = "kiet.edu"
+f.save

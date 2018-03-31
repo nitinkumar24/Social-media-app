@@ -35,14 +35,18 @@ class RepliesController < ApplicationController
         @reply = Reply.new(reply_params)
         @reply.user_id = current_user.id
         @reply.comment_id=params[:comment_id]
-        respond_to do |format|
-            if @reply.save
-                format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
-                format.js {}
-                format.json { render :show, status: :created, location: @reply }
-            else
-                format.html { render :new }
-                format.json { render json: @reply.errors, status: :unprocessable_entity }
+        @comment = Comment.find(params[:comment_id])
+        @post = @comment.post
+        if current_user.authorized(@post)
+            respond_to do |format|
+                if @reply.save
+                    format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
+                    format.js {}
+                    format.json { render :show, status: :created, location: @reply }
+                else
+                    format.html { render :new }
+                    format.json { render json: @reply.errors, status: :unprocessable_entity }
+                end
             end
         end
     end

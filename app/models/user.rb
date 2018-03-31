@@ -46,6 +46,29 @@ class User < ApplicationRecord
         result
     end
 
+    def authorized(object)
+        type = object.class.name
+        if type == "Post"
+            if object.flavour == "confession"
+                return object.mode == @current_mode
+            elsif object.flavour == "feed"
+                if object.user_id == id or follow_relation(object.user_id) == UserRelations::FOLLOWED
+                    puts "in feed"
+                    return true
+                end
+            elsif object.flavour == "meme"
+                if object.mode == "open"
+                    if object.user_id == id or follow_relation(object.user_id) == UserRelations::FOLLOWED
+                        return true
+                    end
+                else
+                    return object.mode == @current_mode
+                end
+            end
+        end
+
+    end
+
 
     # DONT NEED PASSWORD FOR UPDATING PROFILE
     def update_with_password(params, *options)
