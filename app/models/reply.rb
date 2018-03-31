@@ -1,6 +1,7 @@
 class Reply < ApplicationRecord
     belongs_to :user
     belongs_to :comment
+    has_paper_trail
     after_create :add_mentions
     after_create :create_notification
     after_destroy :delete_notification

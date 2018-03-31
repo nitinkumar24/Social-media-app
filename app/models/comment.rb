@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post
   has_many :replies, dependent: :destroy
   validates :content, presence: true, length: {maximum: 400}
+  has_paper_trail
   after_create :add_mentions
   after_create :create_notification
   after_destroy :delete_notification
