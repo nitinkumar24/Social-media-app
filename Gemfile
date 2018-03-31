@@ -17,6 +17,7 @@ gem 'jquery-fileupload-rails'
 gem 'jquery-rails'
 gem 'jquery-atwho-rails'
 gem 'paperclip', '~> 4.1'
+gem 'paper_trail'
 gem 'pg'
 gem "puma"
 gem 'rails', '~> 5.1.2'
