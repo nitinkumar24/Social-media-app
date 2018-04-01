@@ -4,7 +4,8 @@
    </div>
    <div class="content">
       <a class="header">
-         <%= render 'profile/profile_link' ,user: current_user %>
+         <%= render 'profile/profile_link' ,user: current_user %><br><br>
+         <%=link_to "Edit Profile",edit_user_registration_path%>
       </a>
       <div class="meta">
          <span class="date">Joined on <%= current_user.created_at.strftime("%d %b ") %></span>

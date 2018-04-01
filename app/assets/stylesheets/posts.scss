@@ -38,7 +38,7 @@ div.newsfeed{
                     font-family: 'Jura', sans-serif;
                     padding-top: 0px;
                     font-size: 22px;
-                    color: black;//#434243;
+                    color:#7d2d76;
                     //color: #571743; // #162180;
                     letter-spacing: -.03em;
                     margin-left: 14px;
@@ -64,10 +64,9 @@ div.newsfeed{
         p{
             padding: 6px 0 6px 3%;
             word-wrap: break-word;
-            font-size: 20px;
-            //font-family: 'Poiret One', cursive;
-            color: #4c4c4c;
-            line-height: 24px;
+            font-size: 24px;
+            font-family: 'Harmattan', sans-serif;
+            color: #2b2a2a;
             a{
                 color: #7e2444;
             }
@@ -94,6 +93,7 @@ div.newsfeed{
         .report{
             width: 25%;
         }
+
     }
 
 }

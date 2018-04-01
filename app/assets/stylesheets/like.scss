@@ -4,14 +4,18 @@
 
 
 .like-icon,.dislike-icon,.comment_icon,.report{
-    font-size:24px;
+    font-size:26px;
     color: white;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: grey;
 }
+.like-icon:hover,.dislike-icon:hover,.comment_icon:hover,.report:hover{
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(125, 45, 118);
+}
 
 .like-icon-activated,.dislike-icon-activated{
-    font-size:24px;
+    font-size:28px;
     color: rgb(125, 45, 118);
 
 
