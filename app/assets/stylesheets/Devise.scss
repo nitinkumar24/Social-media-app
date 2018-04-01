@@ -9,7 +9,10 @@
     background: rgba(15, 13, 13, 0.4);
     height: 100%;
 }
-
+#signup-page{
+    height: auto;
+    padding-bottom: 30px;
+ }
 
 .signinPageLeft {
     width: 58%;
@@ -172,7 +175,7 @@
 
 .field_with_errors {
     width: 100%;
-    background-color: #fafbff;
+    //background-color: #fafbff;
     padding: 0;
     display: block;
     border: 1px solid rebeccapurple;

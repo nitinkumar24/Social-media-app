@@ -1,3 +1,6 @@
+mobile{
+    display: none;
+}
 headerbar{
     z-index: 1;
     position: fixed;
@@ -51,7 +54,7 @@ headerbar{
                     }
 
                 }
-                span{
+                .icon_descrip{
                     padding-left: 5px;
                 }
                 li a:hover{
@@ -137,21 +140,84 @@ headerbar{
 
 @media screen and (max-width: 1000px) {
 
-
     headerbar {
-        header {
-            .searchTerm {
-                display: none;
-            }
-            nav.right-nav {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                background:white;
-                box-shadow: 0 2px 4px 0 rgba(0,0,0,.07);
-                border-top: 2px solid #730E15;
-                display: none;
+        display: none;
+    }
+    mobile{
+        display: block;
+        nav.bottom {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background:white;
+            border-top: 1px solid #e4e4e4;
+            z-index: 1;
+            ul{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: space-around;
+
+                li{
+                    list-style: none;
+                    text-decoration: none;
+                }
+                li a {
+                    display: block;
+                    color: #7d2d76;
+                    font-size: 26px;
+                    text-align: center;
+                    padding: 12px 0px;
+                    text-decoration: none;
+                    font-family: 'Poiret One', sans-serif;
+                    letter-spacing: 1px;
+                    .header_icon{
+                        -webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: grey;color: white
+                    }
+
+                }
+
+
             }
         }
+
+        nav.top {
+
+            width: 100%;
+            display: flex;
+            position: fixed;
+            align-items: center;
+            top: 0;
+            right: 0;
+            justify-content: space-between;
+            padding: 0px 5% 0 5%;
+            background:white;
+            border-bottom: 1px solid #e4e4e4;
+            z-index: 1;
+
+            .mob_noti a{
+                display: block;
+                color: #7d2d76;
+                font-size: 26px;
+                text-align: center;
+                padding: 12px 0px;
+                text-decoration: none;
+                font-family: 'Poiret One', sans-serif;
+                letter-spacing: 1px;
+            }
+            .mob_logo{
+                font-size: 30px;
+                right: 25%;
+                position: absolute;
+                left: 25%;
+                width: 50%;
+                text-align: center;
+                font-family: 'Poiret One', sans-serif;
+            }
+
+        }
+
+
     }
 }

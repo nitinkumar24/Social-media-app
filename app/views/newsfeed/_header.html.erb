@@ -2,23 +2,23 @@
     <headerbar >
        <header>
           <div class="logo">
-           <%= link_to "",newsfeed_index_path,:class=>"animated rollIn"%>
+             <%= link_to "",newsfeed_index_path,:class=>"animated rollIn"%>
           </div>
           <nav class="left-nav">
 
              <ul>
                 <li>
                    <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                       -webkit-text-stroke-color: #7c2d75;color: white"></i><span>Home</span></a>
+                       -webkit-text-stroke-color: #7c2d75;color: white"></i><strong class="icon_descrip">Home</strong></a>
                 </li>
                 <li>
                    <%= link_to confessions_path do%>
                        <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                           -webkit-text-stroke-color: #7c2d75;color: white"></i><span>Confessions</span><% end %>
+                           -webkit-text-stroke-color: #7c2d75;color: white"></i><strong class="icon_descrip">Confessions</strong><% end %>
                 </li>
                 <li>
                    <%= link_to memes_path do %>
-                       <i class="fa fa-smile-o" aria-hidden="true "></i><span>Memes</span><%end%>
+                       <i class="fa fa-smile-o" aria-hidden="true "></i><strong class="icon_descrip">Memes</strong><%end%>
                 </li>
              </ul>
 
@@ -31,7 +31,7 @@
                 <li>
                    <%= form_tag search_users_path, :method => 'get' do %>
                        <div class="ui icon input"  style="">
-                          <input type="text" name="query" class="typeahead" style="width: 220px;border-radius:20px" placeholder="Search">
+                          <input type="text" name="query" class="typeahead" style="width: 220px;border-radius:20px;" placeholder="Search">
                           <button class="ui button" style="background:#7e2444;color:white;display: none">
                           </button>
                        </div>
@@ -76,7 +76,7 @@
                       </div>
 
                       <div class="item my_link">
-                        <%= link_to "Switch Community" , mode_select_path %>
+                         <%= link_to "Switch Community" , mode_select_path %>
                       </div>
                       <hr style="opacity: 0.3">
                       <div class="item my_link">
@@ -95,4 +95,91 @@
           </nav>
        </header>
     </headerbar>
+
+    <mobile>
+
+       <nav class="bottom">
+          <ul>
+             <li>
+                <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: #7c2d75;color: white"></i></a>
+             </li>
+             <li>
+                <%= link_to confessions_path do%>
+                    <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: #7c2d75;color: white"></i><% end %>
+             </li>
+             <li>
+                <%= link_to memes_path do %>
+                    <i class="fa fa-smile-o" aria-hidden="true "></i><%end%>
+             </li>
+             <li>
+                <%= link_to requests_path do%>
+                    <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: #7c2d75;color: white"></i>
+                <% end %>
+             </li>
+             <li>
+                <%= link_to search_users_path do %>
+                    <i class="fa fa-search" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: #7c2d75;color: white"></i>
+                <%end%>
+             </li>
+          </ul>
+
+       </nav>
+
+
+
+       <nav class="top">
+          <div class="mob_noti">
+          <%= link_to notifications_show_path do%>
+              <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                  -webkit-text-stroke-color: #7c2d75;;color: white"></i>
+              <%= current_user.new_notifications if current_user.new_notifications > 0 %>
+          <% end %>
+          </div>
+
+
+
+          <div class="mob_logo">
+             <%= link_to "Sociograms",newsfeed_index_path,:class=>"animated descrip123"%>
+          </div>
+
+
+          <div class="big_menu" style="padding-left: 10px" >
+             <div class="ui dropdown pointing top right ">
+                <%= image_tag current_user.avatar.url(:medium),:class =>"size-32" %>
+                <div class="menu">
+
+                   <div class="item my_link">
+                      <%= render 'profile/profile_link' ,user: current_user %>
+                   </div>
+                   <hr style="opacity: 0.3">
+                   <div class="item my_link">
+                      <%= link_to "Current: "+current_user.current_mode+" community", mode_select_path %>
+                   </div>
+
+                   <div class="item my_link">
+                      <%= link_to "Switch Community" , mode_select_path %>
+                   </div>
+                   <hr style="opacity: 0.3">
+                   <div class="item my_link">
+                      <%=link_to "Edit Profile",edit_user_registration_path%>
+                   </div>
+                   <hr style="opacity: 0.3">
+                   <div class="item my_link">
+                      <%= link_to "Sign Out",destroy_user_session_path,method: :delete %>
+                   </div>
+                </div>
+             </div>
+
+          </div>
+       </nav>
+
+
+
+
+    </mobile>
+
 <% end %>

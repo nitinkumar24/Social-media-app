@@ -86,7 +86,7 @@ main-page {
 
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
 
     div.newsfeed{
         margin-bottom: 10px;
@@ -100,6 +100,7 @@ main-page {
         }
     }
     main-page {
+        margin-top: 65px;
         aside {
             width: 0;
             display: none;
