@@ -81,6 +81,9 @@ p {
     margin-right: 0.75em;
     padding-bottom: 20px;
 }
+.ui.four.cards > .card:hover {
+  transform: scale(1.05);
+}
 .ui.six.cards > .card {
     padding-bottom: 20px;
 }
@@ -325,6 +328,26 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 div {
     animation-duration: 1s;
     animation-name: slidein;
+}
+
+//AT who
+.atwho-view ul {
+  display: flex;
+    align-items: center;
+}
+.atwho-view .cur {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    color: #7c2d75;
+    img{
+        width: 30px;
+        height: 30px;
+    }
+}
+.atwho-view .cur strong {
+    color: black;
+    font: bold;
 }
 
 

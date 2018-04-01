@@ -3,7 +3,7 @@ this.Post = class Post {
         return $('#post_content').atwho({
             at: '@',
             searchKey: 'real_name',
-            displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>" + "<span  data-value='(${name},${real_name},)'>${name}${real_name}" + "<br>",
+            displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>" + " "+ "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
             callbacks: {
                 remoteFilter: function(query, callback) {
                     if (query.length < 1) {
