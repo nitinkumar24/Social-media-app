@@ -58,10 +58,15 @@
     height:20px;
 
 }
+
+
 .ui.dropdown .menu > .item {
     padding: 0.0rem 0rem !important;
 }
-
+.ui.dropdown .menu > .item a {
+    padding: 10px 16px;
+    display: block;
+}
 /* line 78, /Users/nitin/.rvm/gems/ruby-2.4.1/gems/semantic-ui-sass-2.2.12.1/app/assets/stylesheets/semantic-ui/globals/_site.scss */
 
 h3:last-child,h3:First-child{
@@ -325,20 +330,25 @@ div {
 
 //AT who
 .atwho-view ul {
-  display: flex;
     align-items: center;
 }
-.atwho-view .cur {
+
+.atwho-view ul li {
     display: flex;
     align-items: center;
-    background: #ffffff;
-    color: #7c2d75;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    span{
+        padding-left: 10px;
+    }
     img{
         width: 30px;
         height: 30px;
     }
 }
-.atwho-view .cur strong {
+
+.atwho-view .item strong {
     color: black;
     font: bold;
 }

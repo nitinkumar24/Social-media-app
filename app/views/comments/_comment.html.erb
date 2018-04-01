@@ -16,7 +16,7 @@
 
                <div class="ui dropdown">
                   <i class="dropdown icon"></i>
-                  <div class="menu">
+                  <div class="menu left">
                      <div class="item">
                         <% if comment.can_delete current_user %>
                             <%= link_to 'Delete', comment, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
