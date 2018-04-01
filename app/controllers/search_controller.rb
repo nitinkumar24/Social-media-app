@@ -41,9 +41,13 @@ class SearchController < ApplicationController
         }).map(&:name)
         result = []
         data.each { |x|
-        name = {}
-        name['name'] = x
-        result << name
+            name = {}
+            name['name'] = x
+            result << name
+            puts result
+            result = result.uniq
+            puts result
+
         }
         render json: result
 
