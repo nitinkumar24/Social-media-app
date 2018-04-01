@@ -6,7 +6,7 @@ headerbar{
 
     header {
         width: 100%;
-        height: 54px;
+        height: 64px;
         display: flex;
         align-items: center;
         background:white;
@@ -41,10 +41,18 @@ headerbar{
                     color: #7d2d76;
                     font-size: 20px;
                     text-align: center;
-                    padding: 15px 8px;
+                    padding: 20px 8px;
                     text-decoration: none;
-                    font-family: 'Poiret One', sans-serif
+                    font-family: 'Poiret One', sans-serif;
+                    letter-spacing: 1px;
+                    .header_icon{
+                        -webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: grey;color: white
+                    }
 
+                }
+                span{
+                    padding-left: 5px;
                 }
                 li a:hover{
                     border-bottom: 3px solid #7d2d76;
@@ -52,6 +60,10 @@ headerbar{
                 }
                 li a:visited{
                 }
+                li a:active{
+                    border-bottom: 3px solid #7d2d76;
+                }
+
                 li.dropdown-option{
                     a{
                         display: block;

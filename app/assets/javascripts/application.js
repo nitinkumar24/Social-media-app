@@ -34,27 +34,17 @@ document.addEventListener("turbolinks:request-start", function() {
     $('.logo').addClass('loader');
     $('.logo').fadeOut(600);
 });
-//
-$(document).on('turbolinks:load', function(){
-
-        $('.logo').removeClass('loader');
-        console.log("lawde")
-
-});
-$(document).on('load', function(){
-
-$('.ui.dropdown')
-    .dropdown()
-;
-});
-
 
 $(document).on('turbolinks:request-end', function(){
     $('.logo').removeClass('loader');
-    // $('mainpage').addClass('animated zoomIn');
-    console.log("lawde")
-
 });
+
+$(document).on('load', function(){
+    $('.ui.dropdown')
+        .dropdown()
+    ;
+});
+
 // import 'turbolinks-animate';
 //
 // document.addEventListener( 'turbolinks:load', function() {
