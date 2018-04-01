@@ -25,7 +25,8 @@ this.Post = class Post {
 
 this.Comment = class Comment {
     static add_atwho() {
-        return $('#comment_form').atwho({
+        console.log($('.comment-input').length);
+        return $('.comment-input').atwho({
             at: '@',
             searchKey: 'real_name',
             displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
@@ -50,7 +51,8 @@ this.Comment = class Comment {
 
 this.Reply = class Reply {
     static add_atwho() {
-        return $('#reply_form').atwho({
+        console.log($('.reply-input').length);
+        return $('.reply-input').atwho({
             at: '@',
             searchKey: 'real_name',
             displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
