@@ -10,7 +10,7 @@ if ($('.pagination').length) {
     console.log(url);
     if (url) {
       x.push(url);
-      $('.pagination').text("").css("text-align", "center");
+      $('.pagination').text("Loading").css("text-align", "center");
       return $.getScript(url);
     }
   }

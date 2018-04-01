@@ -99,6 +99,22 @@ headerbar{
                 li a:visited{
                 }
             }
+            .ui.dropdown .menu{
+                min-width: 190px;
+            }
+            .ui.top.right.pointing.dropdown > .menu {
+                margin: 2em 0em 0em;
+            }
+
+            .ui.dropdown .menu > .item a {
+                padding: 14px 16px;
+                display: block;
+            }
+            .ui.dropdown .menu > .item a:hover {
+                background: #7d2d76;
+                color: white;
+                z-index: 13;
+            }
 
 
         }

@@ -150,6 +150,17 @@ p {
     margin: 0;
 }
 
+.ui.input input:focus {
+    border-color:  rgb(125, 45, 118);
+    background: #FFFFFF;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.ui.form textarea:focus {
+    color: rgba(0, 0, 0, 0.95);
+    border-color:rgb(125, 45, 118);
+}
+
 * {
     padding: 0;
     margin:0;
@@ -262,6 +273,14 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     width: 42px;
     height: 42px;
     border-radius: 21px;
+}
+
+.size-32{
+
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+
 }
 
 .emoji-picker-container {
