@@ -57,64 +57,67 @@
 
    </div>
 
+   <hr style="opacity: 0.2">
+   <div class="user-response" >
+
+      <!--like icon-->
+      <div class="like">
+         <% if post.like_string(current_user.id)=="Like" %>
+             <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id,  type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
+                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+             <% end %>
+         <%else  %>
+             <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
+                 <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+             <% end %>
+         <% end %>
+         <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
+      </div>
+
+      <!--Dislike icon-->
+      <div class="dislike">
+         <% if post.dislike_string(current_user.id)=="DisLike" %>
+             <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon-activated" do %>
+                 <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+             <% end %>
+         <% else  %>
+             <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon" do %>
+                 <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+             <% end %>
+         <% end %>
+         <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
+      </div>
+
+      <!--comment-icon-->
+      <div class="comment_icon">
+         <i class="fa fa-comments accordion" " aria-hidden="true"></i>
+         <span class="response-count total_comments" id="count_comments_<%=post.id%>"><%=post.comments.count %></span>
+         <span class="offset" style="visibility: hidden"></span>
+
+      </div>
+
+
+
+
+   </div>
+
+   <div style="display: none">
       <hr style="opacity: 0.2">
-      <div class="user-response" >
 
-         <!--like icon-->
-         <div class="like">
-            <% if post.like_string(current_user.id)=="Like" %>
-                <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id,  type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                <% end %>
-            <%else  %>
-                <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
-                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                <% end %>
-            <% end %>
-            <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
-         </div>
+      <%= render 'comments/comment_form' ,post: post %>
 
-         <!--Dislike icon-->
-         <div class="dislike">
-            <% if post.dislike_string(current_user.id)=="DisLike" %>
-                <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon-activated" do %>
-                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                <% end %>
-            <% else  %>
-                <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon" do %>
-                    <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                <% end %>
-            <% end %>
-            <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
-         </div>
+      <hr style="opacity: 0.2">
 
-         <!--comment-icon-->
-         <div class="comment_icon">
-            <i class="fa fa-comments accordion" " aria-hidden="true"></i>
-            <span class="response-count" id="count_comments_<%=post.id%>"><%=post.comments.count %></span>
-         </div>
+      <div id="comments_<%=post.id%>" class="comments" >
+         <%  post.comments.each do |comment| %>
 
+             <%= render 'comments/comment', comment: comment %>
 
-
-
+         <% end %>
       </div>
+      <a id="load_more_<%=post.id%>" style="cursor: pointer">Load More Comments</a>
 
-      <div style="display: none">
-         <hr style="opacity: 0.2">
-
-         <%= render 'comments/comment_form' ,post: post %>
-
-         <hr style="opacity: 0.2">
-
-         <div id="comments_<%=post.id%>" class="comments" >
-            <%  post.comments.each do |comment| %>
-
-                <%= render 'comments/comment', comment: comment %>
-
-            <% end %>
-         </div>
-
-      </div>
+   </div>
 
 
 </div>
@@ -181,3 +184,47 @@
 
 </script>
 
+<script>
+    //Hiding all extra comments on load of the page
+
+    var total_comments_<%=post.id%> = parseInt($("#count_comments_<%=post.id%>").html());
+    var start_<%=post.id%> = Math.round(total_comments_<%=post.id%>/4)+1;
+    for(var j =start_<%=post.id%>;j<=total_comments_<%=post.id%>;j++){
+        $('#comments_<%=post.id%>').children('.comments').eq(j).hide();
+    }
+    var showed_<%=post.id%> = start_<%=post.id%>;
+
+    //this code will show remaining comments on the click of the load more Comments
+
+
+    $('#load_more_<%=post.id%>').click(function(){
+
+        if($('#count_comments_<%=post.id%>').siblings('.offset').html()){
+            offset_<%=post.id%>  = parseInt($('#count_comments_<%=post.id%>').siblings('.offset').html());
+            start_<%=post.id%> =  offset_<%=post.id%> ;
+            for(j= start_<%=post.id%>;j<= offset_<%=post.id%> +3;j++){
+                $('#comments_<%=post.id%>').children('.comments').eq(j).show();
+                showed_<%=post.id%> += 1;
+                if(showed_<%=post.id%> == total_comments_<%=post.id%>+1){
+                    $('#load_more_<%=post.id%>').hide();
+                }
+            }
+            offset_<%=post.id%>  += 3;
+            $('#count_comments_<%=post.id%>').siblings('.offset').text( offset_<%=post.id%> );
+
+        }else{
+            console.log(start_<%=post.id%>);
+            console.log(total_comments_<%=post.id%>);
+            offset_<%=post.id%> = Math.round((start_<%=post.id%> +total_comments_<%=post.id%>)/2);
+
+            $('#count_comments_<%=post.id%>').siblings('.offset').text(offset_<%=post.id%> );
+            //start = Math.round(total_comments/4,0)+1;
+            for(j=start_<%=post.id%>;j<=offset_<%=post.id%>;j++){
+                $('#comments_<%=post.id%>').children('.comments').eq(j).show();
+                showed_<%=post.id%> += 1;
+            }
+        }
+
+    });
+
+</script>
