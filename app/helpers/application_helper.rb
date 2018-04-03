@@ -15,5 +15,22 @@ module ApplicationHelper
           lax_spacing: true }
     end
 
+    def time_conversion(time)
+        current_time = Time.now
+        dif = (current_time- time).to_i
+        if dif < 60
+            dif.to_s + "s"
 
+        elsif dif > 60 and dif < 3600
+            dif = dif/60
+            dif.to_s + "m"
+        elsif dif > 3600 and dif < 86400
+            dif = dif/3600
+            dif.to_s + "h"
+        elsif dif > 86400
+            dif = dif/86400
+            dif.to_s + "d"
+        end
+
+    end
 end

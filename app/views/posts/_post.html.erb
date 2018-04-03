@@ -9,6 +9,8 @@
              <div class="tooltip" data-tooltip-content="#tooltip_content">
                 <h2 style="width: 80%">
                    <%= render 'profile/profile_link' ,user: user %>
+
+
                 </h2>
              </div>
           </div>
@@ -50,13 +52,9 @@
          <%= markdown(post.content) %>
       </div>
       <% if post.avatar.file? %>
-          <%= image_tag post.avatar.url(:medium), :class => "style_image  modal-activate"  %>
+          <%= image_tag post.avatar.url(:medium), :class => "style_image  modal-activate"%>
       <% end %>
-
-
-
    </div>
-
    <hr style="opacity: 0.2">
    <div class="user-response" >
 
@@ -115,7 +113,7 @@
 
          <% end %>
       </div>
-      <span id="load_more_<%=post.id%>" style="text-decoration: underline;font-size: 14px;padding:5px 5%;cursor: pointer;display: block;">Load More Comments</span>
+      <span id="load_more_<%=post.id%>" style="color: #3e71a8;;font-size: 14px;padding:5px 5%;cursor: pointer;display: block;">Load More Comments</span>
 
    </div>
 
@@ -204,6 +202,9 @@
             for(j=start_<%=post.id%>;j<=offset_<%=post.id%>;j++){
                 $('#comments_<%=post.id%>').children('.comments').eq(j).show();
                 showed_<%=post.id%> += 1;
+                if(showed_<%=post.id%> === total_comments_<%=post.id%>+1){
+                    $('#load_more_<%=post.id%>').hide();
+                }
             }
         }
 

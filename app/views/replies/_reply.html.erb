@@ -14,7 +14,7 @@
 
             </a>
             <div class="metadata">
-               <span class="date"><%= reply.created_at.localtime.strftime("%d %b %I:%M%p") %></span>
+               <span class="date"><%= time_conversion(reply.created_at) %></span>
 
                <div class="ui dropdown">
                   <i class="dropdown icon"></i>

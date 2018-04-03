@@ -56,6 +56,7 @@ div.newsfeed{
         width: 100%;
         color: black;
         padding-top: 0;
+        line-height: 0;
         img.style_image {
             width:100%;
             image-resolution:snap;
@@ -131,3 +132,16 @@ div.newsfeed:hover{
   display: block;
 }
 
+@media screen and (max-width: 768px) {
+    div.newsfeed {
+        width: 100%;
+        margin-bottom: 10px;
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        padding-top: 15px;
+        box-shadow: none;
+        border-radius: 0px;
+        border: 0.03em solid #dcd7d7;
+    }
+}
