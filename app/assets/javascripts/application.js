@@ -30,10 +30,16 @@
 //= require semantic-ui
 
 
+document.addEventListener("turbolinks:load", function() {
+    $('.logo').addClass('loader');
+    $('.logo').fadeOut(600);
+});
+
 document.addEventListener("turbolinks:request-start", function() {
     $('.logo').addClass('loader');
     $('.logo').fadeOut(600);
 });
+
 
 $(document).on('turbolinks:request-end', function(){
     $('.logo').removeClass('loader');
