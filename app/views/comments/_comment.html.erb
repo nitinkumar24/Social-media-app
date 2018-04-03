@@ -39,8 +39,7 @@
             </div>
             <div id="comment_orig_content_<%= comment.id  %>">
                <%= markdown(comment.content) %>
-
-               <a class="reply">View Replies</a>
+               <span class="reply" style="cursor: pointer">Reply <strong>View Replies</strong></span>
                <div style="display: none">
                   <%= render 'replies/reply_form', comment: comment %>
 
