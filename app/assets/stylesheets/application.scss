@@ -18,7 +18,6 @@
  *= require jcrop
  *= require social-share-button
  *= require jquery.atwho
-
  *= require_self
  *= require animate
 
@@ -103,6 +102,13 @@ p {
     background: white;
 }
 
+.ui.comments .comment img.avatar, .ui.comments .comment .avatar img {
+    display: block;
+    margin: 0em auto;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
 /*--------------
   Rounded Edges
 ---------------*/
@@ -136,7 +142,7 @@ p {
 }
 
 .ui.selection.dropdown{
-    min-width: 0;
+    min-width: 30px;
 }
 
 .ui.dropdown .menu > .item:hover {

@@ -50,7 +50,7 @@
          <%= markdown(post.content) %>
       </div>
       <% if post.avatar.file? %>
-          <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
+          <%= image_tag post.avatar.url(:medium), :class => "style_image  modal-activate"  %>
       <% end %>
 
 
@@ -119,7 +119,29 @@
 
 </div>
 
+<div class="modal">
+   <span class="close">&times;</span>
 
+   <img class="content" src="">
+</div>
+
+<script>
+    $('.modal-activate').click(function(e){
+        e.stopPropagation();
+        image_src = $(this).attr('src');
+        $('.modal').find('img').attr('src',image_src);
+        $('.modal').show();
+    });
+    $('.close').click(function(){
+        $('.modal').hide();
+    });
+    $('.modal .content').click(function(e){
+        e.stopPropagation();
+    });
+    $(document).click(function(){
+        $('.modal').hide();
+    });
+</script>
 
 <script>
 
@@ -155,6 +177,7 @@
 
         jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
     });
+
 
 </script>
 
