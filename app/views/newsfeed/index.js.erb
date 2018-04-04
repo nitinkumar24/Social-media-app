@@ -1,12 +1,13 @@
 
 $('#posts').append('<%= j render(@posts)%>');
-console.log("g");
 <% if @posts.next_page %>
 $('.pagination').replaceWith('<%= j will_paginate(@posts) %>');
 $('.pagination').css("display","none");
+$('.loading_more').css("display","block");
 
 <% else %>
 $('.pagination').remove();
+$('.loading_more').css("display","none");
 <% end %>
 
 this.Post = class Post {
@@ -36,7 +37,6 @@ this.Post = class Post {
 
 this.Comment = class Comment {
     static add_atwho() {
-        console.log($('.comment-input').length);
         return $('.comment-input').atwho({
             at: '@',
             searchKey: 'real_name',
@@ -62,7 +62,6 @@ this.Comment = class Comment {
 
 this.Reply = class Reply {
     static add_atwho() {
-        console.log($('.reply-input').length);
         return $('.reply-input').atwho({
             at: '@',
             searchKey: 'real_name',

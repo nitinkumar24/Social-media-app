@@ -3,7 +3,91 @@ $('#posts').append('<%= j render(@posts)%>');
 <% if @posts.next_page %>
 $('.pagination').replaceWith('<%= j will_paginate(@posts) %>');
 $('.pagination').css("display","none");
+$('.loading_more').css("display","block");
 
 <% else %>
 $('.pagination').remove();
+$('.loading_more').css("display","none");
+console.log("nahi");
 <% end %>
+
+this.Post = class Post {
+    static add_atwho() {
+        return $('#post_content').atwho({
+            at: '@',
+            searchKey: 'real_name',
+            displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
+            callbacks: {
+                remoteFilter: function(query, callback) {
+                    if (query.length < 1) {
+                        return false;
+                    } else {
+                        return $.getJSON('/mentions', {
+                            q: query
+                        }, function(data) {
+                            console.log(data);
+                            return callback(data);
+                        });
+                    }
+                }
+            }
+        });
+    }
+
+};
+
+this.Comment = class Comment {
+    static add_atwho() {
+        console.log($('.comment-input').length);
+        return $('.comment-input').atwho({
+            at: '@',
+            searchKey: 'real_name',
+            displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
+            callbacks: {
+                remoteFilter: function(query, callback) {
+                    if (query.length < 1) {
+                        return false;
+                    } else {
+                        return $.getJSON('/mentions', {
+                            q: query
+                        }, function(data) {
+                            console.log(data);
+                            return callback(data);
+                        });
+                    }
+                }
+            }
+        });
+    }
+
+};
+
+this.Reply = class Reply {
+    static add_atwho() {
+        console.log($('.reply-input').length);
+        return $('.reply-input').atwho({
+            at: '@',
+            searchKey: 'real_name',
+            displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
+            callbacks: {
+                remoteFilter: function(query, callback) {
+                    if (query.length < 1) {
+                        return false;
+                    } else {
+                        return $.getJSON('/mentions', {
+                            q: query
+                        }, function(data) {
+                            console.log(data);
+                            return callback(data);
+                        });
+                    }
+                }
+            }
+        });
+    }
+
+};
+
+Post.add_atwho();
+Comment.add_atwho();
+Reply.add_atwho();

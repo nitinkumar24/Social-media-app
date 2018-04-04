@@ -25,7 +25,6 @@ this.Post = class Post {
 
 this.Comment = class Comment {
     static add_atwho() {
-        console.log($('.comment-input').length);
         return $('.comment-input').atwho({
             at: '@',
             searchKey: 'real_name',
@@ -51,7 +50,6 @@ this.Comment = class Comment {
 
 this.Reply = class Reply {
     static add_atwho() {
-        console.log($('.reply-input').length);
         return $('.reply-input').atwho({
             at: '@',
             searchKey: 'real_name',

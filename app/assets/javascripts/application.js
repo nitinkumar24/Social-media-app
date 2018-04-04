@@ -30,19 +30,24 @@
 //= require semantic-ui
 
 
-document.addEventListener("turbolinks:load", function() {
-    $('.logo').addClass('loader');
-    $('.logo').fadeOut(600);
-});
+// document.addEventListener("turbolinks:load", function() {
+//     $('.logo').addClass('loader');
+//     $('.logo').fadeOut(600);
+// });
 
 document.addEventListener("turbolinks:request-start", function() {
     $('.logo').addClass('loader');
+    $('.mob_logo').css('display',"none");
+    $('.mob_loader').css('display',"block");
     $('.logo').fadeOut(600);
+    $('.mob_logo').fadeOut(600);
 });
 
 
 $(document).on('turbolinks:request-end', function(){
     $('.logo').removeClass('loader');
+    $('.mob_logo').css('display',"block");
+    $('.mob_loader').css('display',"none");
 });
 
 $(document).on('load', function(){
