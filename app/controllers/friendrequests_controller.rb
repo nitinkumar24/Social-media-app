@@ -6,7 +6,6 @@ class FriendrequestsController < ApplicationController
     end
 
 
-
     def toggle_follow_request
         followee_id = params[:followee_id]
         @user = User.find(followee_id)

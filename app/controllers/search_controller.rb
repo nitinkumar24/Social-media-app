@@ -20,11 +20,8 @@ class SearchController < ApplicationController
 
             @users = User.search query,fields:[:name], where: conditions, page: params[:page], per_page: 12
             format.html{
-
             }
-
             format.js{
-
             }
 
         end
@@ -46,7 +43,6 @@ class SearchController < ApplicationController
             puts result
             result = result.uniq
             puts result
-
         }
         render json: result
 

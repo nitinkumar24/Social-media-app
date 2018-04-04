@@ -1,6 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
 
-
     #check user email and assign mode to user
     def create
         super

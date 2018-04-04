@@ -24,8 +24,6 @@ class NewsfeedController < ApplicationController
                              .where(flavour: :confession,mode: @current_mode)
                              .paginate(:page => params[:page], :per_page => 7)
                              .order(created_at: :desc)
-
-
             respond_to do |format|
                 format.html{
                 }
@@ -57,7 +55,6 @@ class NewsfeedController < ApplicationController
         @new_users = User.where(current_mode: @current_mode).order(created_at: :desc).limit(6)
 
     end
-
 
 
     def ajax

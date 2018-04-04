@@ -45,7 +45,7 @@ class User < ApplicationRecord
         result
     end
 
-    def authorized(object)
+    def authorized(object)          #check if user can like dislikie or comment
         type = object.class.name
         if type == "Post"
             if object.flavour == "confession"

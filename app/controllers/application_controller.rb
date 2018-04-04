@@ -7,6 +7,9 @@ class ApplicationController < ActionController::Base
     before_action :set_paper_trail_whodunnit
 
 
+
+    private
+
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) do |user_params|
             user_params.permit(:email, :password, :password_confirmation,:name, :username)
@@ -20,7 +23,6 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    private
 
     def after_sign_out_path_for(resource_or_scope)
         new_user_session_path

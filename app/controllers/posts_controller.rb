@@ -10,7 +10,6 @@ class PostsController < ApplicationController
             check_anonymous_avatar_create   #Check if user is uploading a pic annonymously
             @comment=Comment.new
             respond_to do |format|
-
                 if @post.save
                     format.html { redirect_to '/', notice: 'Post was successfully created.' }
                     format.js {   }
@@ -55,7 +54,6 @@ class PostsController < ApplicationController
         @comment = Comment.new
         @reply = Reply.new
     end
-
 
 
     def update

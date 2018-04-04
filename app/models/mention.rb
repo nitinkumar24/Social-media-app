@@ -68,7 +68,7 @@ class Mention
     end
 
     def self.check_annonymous_post(object)
-       if object.class.name == "Post"
+        if object.class.name == "Post"
             if object.anonymous?
                 puts "false"
                 false
@@ -76,10 +76,10 @@ class Mention
                 puts "true"
                 true
             end
-       else
-           puts "true"
-           true
-       end
+        else
+            puts "true"
+            true
+        end
 
     end
 

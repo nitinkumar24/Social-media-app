@@ -5,7 +5,7 @@ class ProfileController < ApplicationController
     end
 
     def followers
-            @followers = current_user.followers(current_user.id, current_user.current_mode).paginate(:page => params[:page], :per_page =>7)
+        @followers = current_user.followers(current_user.id, current_user.current_mode).paginate(:page => params[:page], :per_page =>7)
     end
 
     def following

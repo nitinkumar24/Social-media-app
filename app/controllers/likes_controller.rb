@@ -18,7 +18,6 @@ class LikesController < ApplicationController
                     @is_disliked = false
                 end
             end
-
         end
 
         respond_to do |format|
