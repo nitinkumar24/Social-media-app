@@ -19,7 +19,7 @@ class SearchController < ApplicationController
             conditions[:department] = params[:department] if params[:department].present?
             conditions[:relationstatus] = params[:relationstatus] if params[:relationstatus].present?
 
-            @users = User.search query,fields:[:name], where: conditions, page: params[:page], per_page: 10
+            @users = User.search query,fields:[:name], where: conditions, page: params[:page], per_page: 12
             format.html{
 
             }

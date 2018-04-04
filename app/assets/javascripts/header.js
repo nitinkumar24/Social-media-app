@@ -6,10 +6,10 @@ $(document).on('turbolinks:load', function() {
             var st = $(this).scrollTop();
             if (st > lastScrollTop) {
                 // downscroll code
-                $('mobile').hide();
+                $('mobile .top').hide();
             } else {
                 // upscroll code
-                $('mobile').show();
+                $('mobile .top').show();
             }
             lastScrollTop = st;
 

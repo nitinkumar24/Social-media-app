@@ -1,2 +1,12 @@
-$("#users").html("<%= escape_javascript(render("users")) %>");
-console.log("hi");
+
+
+$('#users').append('<%=j render :partial => 'search/users' %>');
+<% if @users.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@users) %>');
+$('.pagination').css("display","none");
+$('.loading_more').css("display","block");
+
+<% else %>
+$('.pagination').remove();
+$('.loading_more').css("display","none");
+<% end %>
