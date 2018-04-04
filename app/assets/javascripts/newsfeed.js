@@ -1,3 +1,20 @@
+$(document).on('turbolinks:load', function() {
+    jQuery(function() {
+        if ($('.pagination').length) {
+            $(window).scroll(function() {
+                var url;
+                url = $('.pagination .next_page').attr('href');
+                if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 125) {
+                    $('.pagination').text("Loading");
+                    return $.getScript(url);
+                }
+            });
+            return $(window).scroll();
+        }
+    });
+});
+
+
 //
 // $(document).on('turbolinks:load', function() {
 //     var x;

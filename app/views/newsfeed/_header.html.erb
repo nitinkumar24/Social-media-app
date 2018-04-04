@@ -51,9 +51,12 @@
                    <% end %>
                 </li>
                 <li>
+                   <% fr_count = current_user.friend_requests(current_user.id,current_user.current_mode).count %>
                    <%= link_to requests_path do%>
                        <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                            -webkit-text-stroke-color: grey;color: white"></i>
+
+                       <%= fr_count if fr_count > 0 %>
                    <% end %>
                 </li>
 
@@ -117,6 +120,7 @@
                 <%= link_to requests_path do%>
                     <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                         -webkit-text-stroke-color: #7c2d75;color: white"></i>
+                    <strong style="margin-left: 0"><%= fr_count if fr_count > 0 %></strong>
                 <% end %>
              </li>
              <li>
