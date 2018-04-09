@@ -29,6 +29,15 @@
     height: 2px;
     background: rgb(125, 45, 118);
 }
+
+.social-share-button {
+    .ssb-icon {
+        background-size: 24px;
+        height: 24px;
+        width: 24px;
+    }
+}
+
 .ui.comments .comment{
     font-size: 16px;
     -webkit-text-stroke-width: 0px;

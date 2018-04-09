@@ -19,7 +19,10 @@
             <div id="web_view_info">
                <%= render 'other_info' %>
             </div>
-            <%= social_share_button_tag("Follow me on Sociograms", :allow_sites => %w(twitter facebook)) %>
+            <% if @user.id == current_user.id %>
+                <%= social_share_button_tag("Follow me on Sociograms", desc: ("Follow me on Sociograms"),:allow_sites => %w(twitter facebook linkedin)) %>
+
+         <% end %>
 
 
          </div>
@@ -41,11 +44,11 @@
             <div id="posts">
                <% if @posts.nil? %>
                    <%= 'Because every account is private :)' %>
-                   <% else %>
-               <%= render @posts %>
+               <% else %>
+                   <%= render @posts %>
 
-               <%= will_paginate @posts  %>
-                   <% end %>
+                   <%= will_paginate @posts  %>
+               <% end %>
 
             </div>
          </div>

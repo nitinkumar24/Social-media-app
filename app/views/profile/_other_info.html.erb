@@ -27,14 +27,13 @@
 
 
    <hr style="opacity: 0.3">
-   <div class="pp-email" >
-      <%=@user.about%>
-   </div>
    <div class="pp-email">
       <%=@user.email%>
    </div>
-   <br>
    <div class="pp-email" >
-      <%=@user.department%>
+      <%=@user.about if @user.about%>
+   </div>
+   <div class="pp-email" >
+      <%=@user.department if @user.department%>
    </div>
 </div>
