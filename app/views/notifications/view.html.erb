@@ -1,132 +1,135 @@
 <p id="notice"><%= notice %></p>
 
 
-<div style="width: 40%;margin-left: 30%;margin-top: 80px;">
+<div class="noti_post_view">
    <%  post = @post_to_show %>
+   <% if post %>
+       <div class="newsfeed" id="post_<%= post.id %>">
+
+          <% user=post.user %>
+          <div class="user-detail">
+             <% if not post.anonymous %>
+                 <%= image_tag user.avatar.url(:medium),:class =>"profile_image modal-activate",:alt=>"" %>
+                 <div class="username">
+                    <div class="tooltip" data-tooltip-content="#tooltip_content">
+                       <h2 style="width: 80%">
+                          <%= render 'profile/profile_link' ,user: user %>
 
 
-   <div class="newsfeed" id="post_<%= post.id %>">
+                       </h2>
+                    </div>
+                 </div>
 
-      <% user=post.user %>
-      <div class="user-detail">
-         <% if not post.anonymous %>
-             <%= image_tag user.avatar.url(:medium),:class =>"profile_image",:alt=>"" %>
-             <div class="username">
-                <div class="tooltip" data-tooltip-content="#tooltip_content">
-                   <h2 style="width: 80%">
-                      <%= render 'profile/profile_link' ,user: user %>
-                   </h2>
-                </div>
+             <% else %>
+                 <div class="username">
+                    <div class="tooltip" data-tooltip-content="#tooltip_content">
+                       <h2 class="user-annonymous" style="width: 60%">Anonymous</h2>
+                    </div>
+                 </div>
+             <%end %>
+
+             <% if post.can_update_or_delete current_user %>
+
+                 <div class="ui dropdown">
+                    <i class="dropdown icon"></i>
+                    <div class="menu left">
+                       <div class="item">
+                          <%= link_to 'Delete', post, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
+                       </div>
+                       <div class="item">
+                          <%= link_to 'Edit', edit_post_path(post),remote:true %>
+                       </div>
+
+                    </div>
+                 </div>
+             <% end %>
+
+          </div>
+
+
+
+
+          <div class="post-box">
+
+             <div id="post_form_<%= post.id  %>">
+             </div>
+             <div id="post_orig_content_<%= post.id  %>">
+                <%= markdown(post.content) %>
+             </div>
+             <% if post.avatar.file? %>
+                 <%= image_tag post.avatar.url(:medium), :class => "style_image  modal-activate"%>
+             <% end %>
+          </div>
+          <hr style="opacity: 0.2">
+          <div class="user-response" >
+
+             <!--like icon-->
+             <div class="like">
+                <% if post.like_string(current_user.id)=="Like" %>
+                    <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id,  type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    <% end %>
+                <%else  %>
+                    <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    <% end %>
+                <% end %>
+                <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
              </div>
 
-         <% else %>
-             <div class="username">
-                <div class="tooltip" data-tooltip-content="#tooltip_content">
-                   <h2 class="user-annonymous" style="width: 60%">Anonymous</h2>
-                </div>
+             <!--Dislike icon-->
+             <div class="dislike">
+                <% if post.dislike_string(current_user.id)=="DisLike" %>
+                    <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon-activated" do %>
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                    <% end %>
+                <% else  %>
+                    <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon" do %>
+                        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                    <% end %>
+                <% end %>
+                <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
              </div>
-         <%end %>
 
-         <% if post.can_update_or_delete current_user %>
-             <div class="ui dropdown">
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                   <div class="item">
-                      <%= link_to 'Delete', post, method: :delete, remote:true, data: { confirm: 'Are you sure?' } %>
-                   </div>
-                   <div class="item">
-                      <%= link_to 'Edit', edit_post_path(post),remote:true %>
-                   </div>
+             <!--comment-icon-->
+             <div class="comment_icon">
+                <i class="fa fa-comments accordion" " aria-hidden="true"></i>
+                <span class="response-count total_comments" id="count_comments_<%=post.id%>"><%=post.comments.count %></span>
+                <span class="offset" style="visibility: hidden"></span>
 
-                </div>
              </div>
-         <% end %>
-
-      </div>
 
 
 
 
-      <div class="post-box">
+          </div>
 
-         <% if post.avatar.file? %>
-             <%= image_tag post.avatar.url(:medium), :class => "style_image"  %>
-         <% end %>
+          <div style="">
+             <hr style="opacity: 0.2">
 
+             <%= render 'comments/comment_form' ,post: post %>
 
-         <div id="post_form_<%= post.id  %>">
-         </div>
-         <div id="post_orig_content_<%= post.id  %>">
-            <%= markdown(post.content) %>
-         </div>
+             <hr style="opacity: 0.2">
 
+             <div id="comments_<%=post.id%>" class="comments" >
 
-
-
-
-         <hr style="opacity: 0.2">
-         <div class="user-response" >
-
-            <!--like icon-->
-            <div class="like">
-               <% if post.like_string(current_user.id)=="Like" %>
-                   <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id,  type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon-activated" do %>
-                       <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                   <% end %>
-               <%else  %>
-                   <%= link_to likes_toggle_like_path(controller: 'likes', action: 'toggle_like', post_id: post.id, type:"post"), method: :post,id: "like_#{post.id}" ,remote: true ,:class => "like-icon" do %>
-                       <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                   <% end %>
-               <% end %>
-               <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
-            </div>
-
-            <!--Dislike icon-->
-            <div class="dislike">
-               <% if post.dislike_string(current_user.id)=="DisLike" %>
-                   <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon-activated" do %>
-                       <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                   <% end %>
-               <% else  %>
-                   <%= link_to dislikes_toggle_dislike_path(controller: 'dislikes', action: 'toggle_dislike', post_id: post.id, type:"post"), method: :post,id: "dislike_#{post.id}" ,remote: true ,:class => "dislike-icon" do %>
-                       <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-                   <% end %>
-               <% end %>
-               <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
-            </div>
-
-            <!--comment-icon-->
-            <div class="comment">
-               <i class="fa fa-comments accordion" " aria-hidden="true"></i>
-               <span class="response-count" id="count_comments_<%=post.id%>"><%=post.comments.count %></span>
-            </div>
+                <% @comment_to_show.flatten.each do |comment| %>
+                    <%= render 'comments/comment', comment: comment %>
+                <% end %>
 
 
+             </div>
+
+          </div>
 
 
-         </div>
-
-         <div style="">
-            <hr style="opacity: 0.2">
-
-            <%= render 'comments/comment_form' ,post: post %>
-
-            <hr style="opacity: 0.2">
-
-            <div id="comments_<%=post.id%>" class="comments" >
+       </div>
 
 
-                   <% @comment_to_show.flatten.each do |comment| %>
-                       <%= render 'comments/comment', comment: comment %>
-                   <% end %>
+       <% else %>
+       <h3>This content has been moved or deleted.</h3>
+   <% end %>
 
-
-            </div>
-
-         </div>
-      </div>
-
-   </div>
 </div>
 
 
@@ -136,24 +139,24 @@
     $('.ui.dropdown')
         .dropdown()
     ;
-//
-//    var acc = document.getElementsByClassName("comment");
-//    var i;
-//
-//    for (i = 0; i < acc.length; i++) {
-//        acc[i].onclick = function(){
-//            this.classList.toggle("active");
-//            var div = this.parentElement;
-//            var comment_panel=div.nextElementSibling
-//
-////            console.log(div.nextElementSibling);
-//            if (comment_panel.style.display === "block") {
-//                comment_panel.style.display = "none";
-//            } else {
-//                comment_panel.style.display = "block";
-//            }
-//        }
-//    }
+    //
+    //    var acc = document.getElementsByClassName("comment");
+    //    var i;
+    //
+    //    for (i = 0; i < acc.length; i++) {
+    //        acc[i].onclick = function(){
+    //            this.classList.toggle("active");
+    //            var div = this.parentElement;
+    //            var comment_panel=div.nextElementSibling
+    //
+    ////            console.log(div.nextElementSibling);
+    //            if (comment_panel.style.display === "block") {
+    //                comment_panel.style.display = "none";
+    //            } else {
+    //                comment_panel.style.display = "block";
+    //            }
+    //        }
+    //    }
 
     jQuery.each(jQuery('textarea[data-autoresize]'), function() {
         var offset = this.offsetHeight - this.clientHeight;

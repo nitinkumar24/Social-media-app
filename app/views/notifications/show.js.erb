@@ -1,0 +1,13 @@
+
+$('#notifications').append('<%= j render(@notifications)%>');
+console.log($('#notifications'));
+console.log("in ");
+
+<% if @notifications.next_page %>
+$('.pagination').replaceWith('<%= j will_paginate(@notifications) %>');
+$('.pagination').css("display","none");
+$('.loading_more').css("display","block");
+<% else %>
+$('.pagination').remove();
+$('.loading_more').css("display","none");
+<% end %>

@@ -4,23 +4,14 @@
    </div>
    <div class="noti_panel">
       <h3 style="color: #362121;">Notifications</h3>
-      <hr style="opacity: 0.3">
-
 
       <%  if @notifications.length == 0 %>
           <p>No Notifications yet</p>
       <% end %>
-      <% @notifications.each do |n| %>
-
-          <span>
-             <%=  markdown(n.message)%>
-             <% unless n.noti_type == 'request accept' %>
-               <%= link_to 'View', notifications_view_path(noti_type: n.noti_type, noti_type_id: n.noti_type_id) %>
-             <% end %>
-          </span>
-          <br>
-
-      <% end %>
+      <div id="notifications">
+         <%= render @notifications %>
+         <%= will_paginate @notifications %>
+      </div>
 
 
    </div>

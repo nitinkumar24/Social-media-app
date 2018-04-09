@@ -1,0 +1,22 @@
+<div class="indi_noti">
+   <div class="noti_img">
+      <% username = notification.user.username %>
+      <% url = "/" +username %>
+      <%= link_to url do  %>
+          <%=  image_tag notification.user.avatar.url(:medium),:class =>"profile_image",:alt=>"" %>
+      <% end %>
+   </div>
+
+   <div class="noti_msg">
+      <% if notification.noti_type == 'request accept' %>
+          <a>
+          <%= notification.message %>
+          </a>
+      <% else %>
+          <%= link_to notification.message,notifications_view_path(noti_type: notification.noti_type, noti_type_id: notification.noti_type_id) %>
+          <%= time_conversion(notification.created_at) + "  ago" %>
+
+      <% end %>
+   </div>
+
+</div>
