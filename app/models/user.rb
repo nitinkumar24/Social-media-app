@@ -18,7 +18,6 @@ class User < ApplicationRecord
 
 
     searchkick word_start: [:name,:username]
-    serialize :new_notifications
 
     #searchkick for searching the user
     def self.aggs_search(params,uisc_ids)
@@ -35,16 +34,7 @@ class User < ApplicationRecord
         @geometry ||= {}
         @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
     end
-
-    def profile_link user
-        puts user
-        puts "lol"
-        host = Rails.env.development? ? 'http://localhost:3000' : 'sociograms.in'
-
-        link_to_user_profile = host + "/" + user.username + "/"      #hard_coded
-        result = "[**@#{user.username}**](#{link_to_user_profile})"
-        result
-    end
+    
 
     def authorized(object)          #check if user can like dislikie or comment
         type = object.class.name

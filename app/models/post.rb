@@ -17,7 +17,7 @@ class Post < ApplicationRecord
         self.user_id == user.id
     end
 
-    def liked_by user_id
+    def liked_by(user_id)
         Like.where(post_id: id, user_id: user_id).length > 0
     end
 

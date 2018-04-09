@@ -36,7 +36,6 @@ class Mention
 
     def self.send_notification(object, recipient_user, current_user)
         object_name =  object.class.name
-        link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
 
         if object_name == "Post"
             puts "lasd"

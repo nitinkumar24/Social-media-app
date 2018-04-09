@@ -13,7 +13,6 @@ class Comment < ApplicationRecord
         post_owner_id = self.post.user_id
         current_user= self.user
         unless post_owner_id == current_user.id
-            link_to_actor_profile = current_user.profile_link current_user
             Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
                                 message: current_user.name.capitalize + " commented on your post",
                                 noti_type: "post-comment",
@@ -40,11 +39,11 @@ class Comment < ApplicationRecord
         Mention.create_from_text(self)
     end
 
-    def can_delete user
+    def can_delete(user)
         self.user_id == user.id or self.post.user_id == user.id
     end
 
-    def can_update user
+    def can_update(user)
         self.user_id == user.id
     end
 end

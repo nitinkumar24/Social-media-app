@@ -11,19 +11,12 @@ class Reply < ApplicationRecord
         comment_owner_id = self.comment.user_id
         post_owner_id = self.comment.post.user_id
         current_user= self.user
-        link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
-
         unless comment_owner_id == current_user.id
             Notification.create(user_id: current_user.id, recipient_id: comment_owner_id,
                                 message: current_user.name.capitalize + " replied on your comment",
                                 noti_type: "comment-reply",
                                 noti_type_id: self.id,
                                 mode:current_user.current_mode)
-            recipient_user = self.comment.user
-            recipient_user.new_notifications += 1
-            recipient_user.save
-
-
         end
 
         unless  post_owner_id == current_user.id or comment_owner_id == post_owner_id
@@ -32,9 +25,6 @@ class Reply < ApplicationRecord
                                 noti_type: "comment-reply",
                                 noti_type_id: self.id,
                                 mode:current_user.current_mode)
-            recipient_user = self.comment.post.user
-            recipient_user.new_notifications += 1
-            recipient_user.save
         end
 
     end
