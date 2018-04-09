@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+    <% new_noti_count = Notification.new_count(current_user.id,current_user.current_mode)%>
     <headerbar >
        <header>
           <div class="logo">
@@ -25,7 +26,6 @@
           </nav>
 
 
-
           <nav class="right-nav">
              <ul>
                 <li>
@@ -47,7 +47,7 @@
                    <%= link_to notifications_show_path do%>
                        <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                            -webkit-text-stroke-color: grey;color: white"></i>
-                       <%= current_user.new_notifications if current_user.new_notifications > 0 %>
+                       <%= new_noti_count if new_noti_count > 0 %>
                    <% end %>
                 </li>
                 <li>
@@ -75,7 +75,9 @@
                       </div>
                       <hr style="opacity: 0.3">
                       <div class="item my_link">
-                         <%= link_to "Current: "+current_user.current_mode+" community", mode_select_path %>
+                         <% unless current_user.current_mode.nil? %>
+                             <%= link_to "Current: "+current_user.current_mode+" community", mode_select_path %>
+                         <% end %>
                       </div>
 
                       <div class="item my_link">
@@ -133,18 +135,17 @@
 
        </nav>
 
-
+<!--MOBILE KA VIEW-->
 
        <nav class="top">
           <div class="mob_noti">
-          <%= link_to notifications_show_path do%>
-              <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                  -webkit-text-stroke-color: #7c2d75;;color: white"></i>
-              <%= current_user.new_notifications if current_user.new_notifications > 0 %>
+             <%= link_to notifications_show_path do%>
+                 <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                     -webkit-text-stroke-color: #7c2d75;;color: white"></i>
+                 <span style="font-size: 20px"><%= new_noti_count if new_noti_count > 0 %></span>
+
           <% end %>
           </div>
-
-
 
           <div class="mob_logo">
              <%= link_to "Sociograms",newsfeed_index_path,:class=>"animated descrip123"%>
@@ -167,7 +168,9 @@
                    </div>
                    <hr style="opacity: 0.3">
                    <div class="item my_link">
-                      <%= link_to "Current: "+current_user.current_mode+" community", mode_select_path %>
+                      <% unless current_user.current_mode.nil? %>
+                          <%= link_to "Current: "+current_user.current_mode+" community", mode_select_path %>
+                      <% end %>
                    </div>
 
                    <div class="item my_link">

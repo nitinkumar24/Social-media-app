@@ -37,9 +37,6 @@ class FriendrequestsController < ApplicationController
                             message: current_user.name.capitalize + " Accepted your follow request",
                             noti_type: 'request accept',
                             mode:current_user.current_mode)
-        u = User.find_by_id(follower_id)
-        u.new_notifications += 1
-        u.save
         respond_to do |format|
             format.js
         end

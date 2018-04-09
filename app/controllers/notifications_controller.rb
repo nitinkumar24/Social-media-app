@@ -1,11 +1,14 @@
 class NotificationsController < ApplicationController
 
     def show
-        current_user.new_notifications = 0
-        current_user.save
+        Notification.where(:recipient_id => current_user.id,mode: @current_mode,seen: false).update_all(seen: true)
         @notifications=Notification.includes(:user).where(:recipient_id => current_user.id,mode: @current_mode)
                                .paginate(:page => params[:page], :per_page => 15)
                                .order(created_at: :desc)
+        # @notifications.each do |n|
+        #     n.seen = true unless n.seen
+        #     n.save
+        # end
         respond_to do |format|
             format.html{
             }

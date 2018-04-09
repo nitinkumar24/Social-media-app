@@ -18,6 +18,7 @@ class User < ApplicationRecord
 
 
     searchkick word_start: [:name,:username]
+    serialize :new_notifications
 
     #searchkick for searching the user
     def self.aggs_search(params,uisc_ids)
