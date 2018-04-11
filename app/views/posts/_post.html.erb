@@ -69,7 +69,7 @@
                  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
              <% end %>
          <% end %>
-         <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.count %></span>
+         <span class="response-count" id="count_like_<%=post.id%>"><%=post.likes.length %></span>
       </div>
 
       <!--Dislike icon-->
@@ -83,13 +83,13 @@
                  <i class="fa fa-thumbs-down" aria-hidden="true"></i>
              <% end %>
          <% end %>
-         <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.count %></span>
+         <span class="response-count" id="count_dislike_<%=post.id%>"><%=post.dislikes.length %></span>
       </div>
 
       <!--comment-icon-->
       <div class="comment_icon">
-         <i class="fa fa-comments accordion" " aria-hidden="true"></i>
-         <span class="response-count total_comments" id="count_comments_<%=post.id%>"><%=post.comments.count %></span>
+         <i class="fa fa-comments accordion" aria-hidden="true"></i>
+         <span class="response-count total_comments" id="count_comments_<%=post.id%>"><%=post.comments.length %></span>
          <span class="offset" style="visibility: hidden"></span>
 
       </div>

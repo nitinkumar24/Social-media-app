@@ -30,7 +30,6 @@ gem 'semantic-ui-sass'
 gem "sentry-raven"
 gem 'social-share-button'
 gem 'sqlite3'
-gem 'sweet-alert-confirm'
 gem 'rails-assets-sweetalert2', source: 'https://rails-assets.org'
 gem 'therubyracer'
 gem 'tooltipster-rails'

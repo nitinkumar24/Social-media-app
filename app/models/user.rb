@@ -34,7 +34,7 @@ class User < ApplicationRecord
         @geometry ||= {}
         @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
     end
-    
+
 
     def authorized(object)          #check if user can like dislikie or comment
         type = object.class.name

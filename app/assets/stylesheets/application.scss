@@ -67,6 +67,16 @@
     height:20px;
 
 }
+.ui.menu .active.item:hover, .ui.vertical.menu .active.item:hover {
+    background-color: rgb(124, 45, 117);
+    color: rgb(255, 255, 255);
+}
+.ui.menu .active.item {
+    background: rgb(124, 45, 117);
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    box-shadow: none;
+}
 
 
 .ui.dropdown .menu > .item {

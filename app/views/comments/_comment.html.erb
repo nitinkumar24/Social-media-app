@@ -12,8 +12,7 @@
                <%= render 'profile/profile_link' ,user: user %>
             </a>
             <div class="metadata">
-              <span class="date"><%= time_conversion(comment.created_at) %></span>
-
+               <span class="date"><%= time_conversion(comment.created_at) %></span>
 
                <div class="ui dropdown">
                   <i class="dropdown icon"></i>
@@ -28,11 +27,8 @@
                             <%= link_to 'Edit', edit_comment_path(comment),remote:true %>
                         <% end %>
                      </div>
-
                   </div>
                </div>
-
-
 
             </div>
 
