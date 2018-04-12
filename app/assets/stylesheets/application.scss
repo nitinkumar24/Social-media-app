@@ -96,6 +96,12 @@ p {
     margin: 0em 0em 0em;
     line-height: 1.4285em;
 }
+
+.ui.grid > * {
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
 .ui.card {
     margin: 0em 0em;
 }

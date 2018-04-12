@@ -101,6 +101,8 @@
        </header>
     </headerbar>
 
+    <!--MOBILE KA VIEW-->
+
     <mobile>
 
        <nav class="bottom">
@@ -108,43 +110,45 @@
              <li>
                 <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                     -webkit-text-stroke-color: #7c2d75;color: white"></i></a>
+                Home
              </li>
              <li>
                 <%= link_to confessions_path do%>
                     <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                        -webkit-text-stroke-color: #7c2d75;color: white"></i><% end %>
+                        -webkit-text-stroke-color: #7c2d75;color: white"></i>
+                <% end %>Confessions
              </li>
              <li>
                 <%= link_to memes_path do %>
-                    <i class="fa fa-smile-o" aria-hidden="true "></i><%end%>
+                    <i class="fa fa-smile-o" aria-hidden="true "></i>
+                <%end%>Memes
+             </li>
+             <li>
+                <%= link_to notifications_show_path do%>
+                    <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: #7c2d75;;color: white"></i>
+                    <span style="font-size: 20px"><%= new_noti_count if new_noti_count > 0 %></span>
+                <% end %>Notifications
              </li>
              <li>
                 <%= link_to requests_path do%>
                     <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                         -webkit-text-stroke-color: #7c2d75;color: white"></i>
                     <strong style="margin-left: 0"><%= fr_count if fr_count > 0 %></strong>
-                <% end %>
-             </li>
-             <li>
-                <%= link_to search_users_path do %>
-                    <i class="fa fa-search" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                        -webkit-text-stroke-color: #7c2d75;color: white"></i>
-                <%end%>
+                <% end %>Requests
              </li>
           </ul>
 
        </nav>
 
-<!--MOBILE KA VIEW-->
 
        <nav class="top">
           <div class="mob_noti">
-             <%= link_to notifications_show_path do%>
-                 <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
-                     -webkit-text-stroke-color: #7c2d75;;color: white"></i>
-                 <span style="font-size: 20px"><%= new_noti_count if new_noti_count > 0 %></span>
+             <%= link_to search_users_path do %>
+                 <i class="fa fa-search" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                     -webkit-text-stroke-color: #7c2d75;color: white"></i>
+             <%end%>
 
-          <% end %>
           </div>
 
           <div class="mob_logo">

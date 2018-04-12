@@ -32,7 +32,7 @@ class FriendrequestsController < ApplicationController
         @req_id = params[:req_id]
         FollowMapping.create(:followee_id => current_user.id, :follower_id => follower_id,:mode => @current_mode)
         Friendrequest.where(:receiver_id => current_user.id, :sender_id => follower_id,:mode => @current_mode).first.destroy
-        link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
+        # link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
         Notification.create(user_id: current_user.id, recipient_id: follower_id,
                             message: current_user.name.capitalize + " Accepted your follow request",
                             noti_type: 'request accept',

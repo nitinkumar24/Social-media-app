@@ -9,7 +9,7 @@ class Like < ApplicationRecord
         post_owner_id = self.post.user_id
         current_user= self.user
         unless post_owner_id == current_user.id
-            link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
+            # link_to_actor_profile = current_user.profile_link current_user                     #actor is current_user
             Notification.create(user_id: current_user.id, recipient_id: post_owner_id,
                                 message: current_user.name.capitalize + ' liked your post',
                                 noti_type: 'post-like',
