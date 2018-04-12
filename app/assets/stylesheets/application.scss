@@ -43,7 +43,7 @@
     -webkit-text-stroke-width: 0px;
 }
 .ui.comments .comment .comments {
-   margin: 0;
+    margin: 0;
     padding: 0;
 }
 .ui.comments .comment .metadata {
@@ -112,7 +112,7 @@ p {
     padding-bottom: 20px;
 }
 .ui.four.cards > .card:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 .ui.six.cards > .card {
     padding-bottom: 20px;
@@ -135,6 +135,11 @@ p {
     height: 32px;
     border-radius: 50%;
 }
+
+.ui.tabular.fluid.menu {
+    width: calc(100% +  0px ) !important;
+}
+
 /*--------------
   Rounded Edges
 ---------------*/
@@ -186,6 +191,14 @@ p {
         z-index: 13;
     }
 }
+
+.ui.dropdown.selected, .ui.dropdown .menu .selected.item {
+    background: rgba(0, 0, 0, 0.03);
+}
+.ui.dropdown.selected, .ui.dropdown .menu .selected.item {
+    background: rgba(255, 255, 255, 0.03);
+}
+
 .ui.menu {
     margin: 0;
 }
@@ -239,10 +252,16 @@ textarea {
 
 }
 
-input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
-    background-color: transparent;
-    background-image: none;
-    color: rgb(0, 0, 0);
+@-webkit-keyframes autofill {
+    to {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
 }
 #search{
     border: 1px solid black;
@@ -310,9 +329,9 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 .size-32{
 
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
 
 }
 
@@ -332,7 +351,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 }
 
-.post-input, {
+.post-input{
     width: 94%;
     resize: none;
     font-family: sans-serif;
