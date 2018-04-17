@@ -50,6 +50,10 @@
                  <%= f.label :remember_me,class:"remember_me" %>
 
              <% end -%>
+
+             <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                 <%= link_to "Forgot your Password", new_password_path(resource_name) ,class:"link-forgot-password"%><br />
+             <% end -%>
              <br>
 
 

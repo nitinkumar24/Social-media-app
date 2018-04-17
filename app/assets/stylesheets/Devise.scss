@@ -11,7 +11,7 @@
 }
 #signup-page{
     height: auto;
-    padding-bottom: 30px;
+    padding-bottom: 300px;
 }
 
 .signinPageLeft {
@@ -23,7 +23,7 @@
         color: white ;
 
         font-size:53px;
-        font-family: 'Jura', sans-serif;
+        font-family: 'Poiret One', sans-serif;
     }
 }
 
@@ -33,7 +33,7 @@
     padding-right: 13%;
     opacity: 1;
     a:hover{
-        color: #adb4ff;
+        color: #ffadc6;
     }
 }
 
@@ -47,7 +47,7 @@
     margin-bottom:10px;
     padding-top:10px;
     font-size:25px;
-    font-family: 'jura', sans-serif;
+    font-family: 'Poiret One', sans-serif;
     color:white;
 }
 
@@ -63,6 +63,8 @@
     input{
         padding-left: 10px;
         color: white;
+        font-family: 'Poiret One', sans-serif;
+
     }
 }
 
@@ -76,36 +78,14 @@
     width: 100%;
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
+    font-family: 'Poiret One', sans-serif;
 
-}
-
-#user_password,#user_password_confirmation,#user_about,#user_current_password{
-    //letter-spacing: 1px;
-    //font-size: 16px;
-    //padding: 3% 0 3% 2%;
-    //border-radius: 3px;
-    //border: 2px solid black;
-    //margin-bottom: 10px;
-    //width: 100%;
-    //background-color: white;
-}
-
-#user_name{
-    //font-size: 16px;
-    //padding: 3% 0 3% 2%;
-    //margin-top: 12px;
-    //border-radius: 3px;
-    //border: 2px solid black;
-    //margin-bottom: 12px;
-    //width: 100%;
-    //background-color: white;
 }
 
 .login-button{
-    margin-top: 25px;
-    font-family: 'Jura', sans-serif;
+    margin: 15px 0;
+    font-family: 'Poiret One', sans-serif;
     width: 100%;
-    margin-bottom: 15px;
     font-size: 22px;
     padding: 3% 0 3% 0%;
     background-color: rgba(0,0,0,0.4);
@@ -116,9 +96,11 @@
 }
 
 .remember_me{
-    font-family: 'Jura', sans-serif;
-    font-size: 14px;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
     color: white;
+    padding-left: 6px;
 }
 
 .input-mini{
@@ -129,15 +111,17 @@
     text-decoration:none;
     color:white;
     font-weight:bold;
-    font-family: 'Jura', sans-serif;
+    font-family: 'Poiret One', sans-serif;
     line-height: 1.5em;
+    letter-spacing: 1px;
 }
 
 .link-forgot-password{
-    font-size: 14px;
+    font-size: 16px;
+    float: right;
 }
 .link-confirmation-ins{
-    font-size: 14px;
+    font-size: 16px;
 }
 .link-sign-up{
     font-size:23px;
@@ -202,7 +186,7 @@
     background-color: white;
 
 }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1000px) {
 
     .edit-profile-page{
@@ -221,8 +205,8 @@
             margin-left: 0;
             margin-right: 0;
             .stretched {
-                 padding-left: 0;
-                 padding-right: 0;
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     }
@@ -230,7 +214,7 @@
     #signin-page{
         flex-direction: column;
         justify-content: flex-start;
-        height: auto;
+        height: 700px;
         padding-top: 0;
         padding-bottom: 100px;
 
@@ -240,6 +224,8 @@
         flex-direction: column;
         height: auto;
         padding-top: 0;
+        padding-bottom: 200px;
+
 
     }
 

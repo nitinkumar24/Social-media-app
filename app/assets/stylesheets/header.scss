@@ -156,6 +156,7 @@ headerbar{
                 display: flex;
                 align-items: center;
                 width: 100%;
+                padding-left: 2%;
                 justify-content: space-around;
 
                 li{
@@ -166,9 +167,9 @@ headerbar{
                 li a {
                     display: block;
                     color: #7d2d76;
-                    font-size: 24px;
+                    font-size: 18px;
                     text-align: center;
-                    padding: 12px 0px 2px 0;
+                    padding: 8px 0px 2px 0;
                     text-decoration: none;
                     font-family: 'Poiret One', sans-serif;
                     letter-spacing: 1px;

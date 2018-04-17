@@ -35,7 +35,7 @@
 .loading_more{
     display: none;
     margin-left: 47%;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
     bottom: 26px;
     z-index: 9999;
     border-bottom: 2px solid rgb(124, 45, 117);
