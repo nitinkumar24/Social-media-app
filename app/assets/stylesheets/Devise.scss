@@ -25,6 +25,10 @@
         font-size:53px;
         font-family: 'Poiret One', sans-serif;
     }
+    h3:hover{
+        color: #ffadc6;
+        cursor: pointer;
+    }
 }
 
 #sign-in-form-section {
@@ -64,7 +68,10 @@
         padding-left: 10px;
         color: white;
         font-family: 'Poiret One', sans-serif;
-
+    }
+    input:hover{
+        color: #ffadc6;
+        cursor: pointer;
     }
 }
 
@@ -93,6 +100,11 @@
     text-decoration: none;
     text-align: center;
     border: solid 1px #000000;
+}
+
+.login-button:hover {
+    color: #ffadc6;
+    cursor: pointer;
 }
 
 .remember_me{
@@ -230,13 +242,20 @@
     }
 
     .signinPageLeft{
-        display: none;
+        padding-left:0 ;
+        text-align: center;
+        width: 100%;
+        h3{
+            font-size: 35px;
+            padding-top: 10px;
+        }
     }
+
     #sign-in-form-section {
         width: 100%;
         padding-left: 4%;
         padding-right: 4%;
-        margin-top: 50px;
+        margin-top: 25px;
         opacity: 1;
         height: auto;
 
