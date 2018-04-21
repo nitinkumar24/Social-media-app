@@ -137,6 +137,14 @@
                     <strong style="margin-left: 0"><%= fr_count if fr_count > 0 %></strong>
                 <% end %>
              </li>
+             <li>
+                <% username = current_user.username %>
+                <% url = "/" +username %>
+                <%= link_to url do  %>
+                    <i class="fa fa-user" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
+                        -webkit-text-stroke-color: #7c2d75;;color: white"></i>
+                <% end %>
+             </li>
           </ul>
 
        </nav>
