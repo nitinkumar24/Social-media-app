@@ -110,32 +110,32 @@
              <li>
                 <a href="/"><i class="fa fa-home" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                     -webkit-text-stroke-color: #7c2d75;color: white"></i></a>
-                <span>Home</span>
+
              </li>
              <li>
                 <%= link_to confessions_path do%>
                     <i class="fa fa-heart" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                         -webkit-text-stroke-color: #7c2d75;color: white"></i>
-                <% end %>Confessions
+                <% end %>
              </li>
              <li>
                 <%= link_to memes_path do %>
                     <i class="fa fa-smile-o" aria-hidden="true "></i>
-                <%end%>Memes
+                <%end%>
              </li>
              <li>
                 <%= link_to notifications_show_path do%>
                     <i class="fa fa-bell" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                         -webkit-text-stroke-color: #7c2d75;;color: white"></i>
                     <span style="font-size: 20px"><%= new_noti_count if new_noti_count > 0 %></span>
-                <% end %>Notifications
+                <% end %>
              </li>
              <li>
                 <%= link_to requests_path do%>
                     <i class="fa fa-arrow-down" aria-hidden="true" style="-webkit-text-stroke-width: 1px;
                         -webkit-text-stroke-color: #7c2d75;color: white"></i>
                     <strong style="margin-left: 0"><%= fr_count if fr_count > 0 %></strong>
-                <% end %>Requests
+                <% end %>
              </li>
           </ul>
 
