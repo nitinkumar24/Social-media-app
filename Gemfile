@@ -9,7 +9,6 @@ end
 gem "animate-rails"
 gem 'autosize-rails'
 gem 'coffee-rails', '~> 4.2'
-gem 'emojionearea-rails'
 gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
 gem 'jbuilder', '~> 2.5'
@@ -22,7 +21,6 @@ gem 'pg'
 gem "puma"
 gem 'rails', '~> 5.1.2'
 gem 'rails_autolink'
-gem 'rails_emoji_picker'
 gem 'redcarpet'
 gem 'searchkick'
 gem 'sass-rails', '~> 5.0'

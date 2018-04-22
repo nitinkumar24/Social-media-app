@@ -277,8 +277,6 @@
        });
 
 
-
-
        $('.a').click(function(){
            $('.ui .segment').hide();
            $('.ca').show();
@@ -346,6 +344,12 @@
 
                $('.go_back').show();
                $('.ca').hide();
+
+               $('document').ready(function(){
+                   $('.ui .segment').hide();
+                   $('.ca').hide();
+               });
+
 
 
            }
