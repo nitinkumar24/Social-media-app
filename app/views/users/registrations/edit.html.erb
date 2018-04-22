@@ -21,24 +21,25 @@
                    <a class="item c">
                       Education
                    </a>
-
-                </div>
-                <div class="ui vertical fluid tabular menu first_row_menu">
                    <a class="item d">
                       Address
                    </a>
                    <a class="item e">
                       Delete Account
                    </a>
+
                 </div>
+
              </div>
 
 
 
              <div class="eight wide stretched column content">
-                <div class="ui segment ca">
-                   <div class="ui form">
 
+                <div class="ui segment ca">
+                   <%= render 'users/shared/goback' %>
+
+                   <div class="ui form">
                       <div class="field" style="">
                          <label>Profile Picture</label>
                          <%= f.file_field :avatar   %>
@@ -81,6 +82,8 @@
                 </div>
                 <div class="ui segment cb">
                    <div class="ui form">
+                      <%= render 'users/shared/goback' %>
+
                       <div class="field">
                          <label>Old Password</label>
                          <i>(we need your current password to confirm your changes)</i><br />
@@ -100,6 +103,8 @@
                 </div>
                 <div class="ui segment cc">
                    <div class="ui form">
+                      <%= render 'users/shared/goback' %>
+
                       <!--<div class="field">-->
                       <!--<label>College Name</label>-->
                       <!--<input type="text" name="" placeholder="Enter Your College Name">-->
@@ -129,6 +134,8 @@
                    </div>
                 </div>
                 <div class="ui segment cd">
+                   <%= render 'users/shared/goback' %>
+
                    <div class="ui form">
                       <!--<div class="field">-->
                       <!--<label>Current Address</label>-->
@@ -157,11 +164,18 @@
       <% end %>
 
       <div class="ui segment ce">
+         <%= render 'users/shared/goback' %>
+
          <div class="ui form">
             <div class="field">
                <label>Delete your account permanently</label>
 
-               <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class => "ui button",:style=>"background:#7e2444;color:white" %>
+               <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class => "ui button",:style=>"color: white;
+                   font-size: 16px;
+                   background-color: #7d2d76;
+                   border: 1px solid;
+                   border-radius: 4px;
+                   font-family: 'Poiret One',sans-serif;" %>
 
             </div>
          </div>
@@ -220,7 +234,17 @@
                var i = first_row.removeClass('four wide column')
                var i = first_row_menu.removeClass('vertical tabular ').css('margin', '0');
 
-               $('.content').removeClass('eight wide column').css('margin-top', '10px').css('width', '100%');
+               $('.content').removeClass('eight wide column').css('width', '100%');
+               $('.item').click(function(){
+                   $('.first_row').hide();
+               });
+               $('.go_back').click(function(){
+                   $('.ui .segment').hide();
+                   $('.first_row').show();
+               });
+               $('.fa-search').hide();
+               $('.go_back_button').show();
+               $(".descrip123").html('Edit Profile');
 
            }
        }
@@ -242,17 +266,19 @@
        });
    </script>
    <script>
-       //On document show the first tabular
-       $('document').ready(function(){
-           $('.ui .segment').hide();
-           $('.ca').show();
-       });
-       //end of it
 
        // showing the individual elememnts
+       $('document').ready(function(){
+           $('.ui .segment').hide();
+           $('.ca').hide();
+       });
+
+
        $('.a').click(function(){
            $('.ui .segment').hide();
            $('.ca').show();
+           $('.go_back_text').html("Basic Info");
+
        });
        //end of it
 
@@ -260,6 +286,7 @@
        $('.b').click(function(){
            $('.ui .segment').hide();
            $('.cb').show();
+           $('.go_back_text').html("Password");
        });
        //end of it
 
@@ -267,6 +294,8 @@
        $('.c').click(function(){
            $('.ui .segment').hide();
            $('.cc').show();
+           $('.go_back_text').html("Education");
+
        });
        //end of it
 
@@ -274,6 +303,8 @@
        $('.d').click(function(){
            $('.ui .segment').hide();
            $('.cd').show();
+           $('.go_back_text').html("Address");
+
        });
        //end of it
 
@@ -281,6 +312,8 @@
        $('.e').click(function(){
            $('.ui .segment').hide();
            $('.ce').show();
+           $('.go_back_text').html("Account");
+
        });
        //end of it
    </script>

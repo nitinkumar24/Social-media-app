@@ -427,4 +427,13 @@ div {
         margin-left: 1em;
         margin-right: 0em;
     }
+
+    .ui.menu .active.item {
+        background: white;
+        color: black;
+        font-weight: normal;
+        box-shadow: none;
+    }
+
+
 }
