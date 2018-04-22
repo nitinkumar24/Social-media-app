@@ -198,6 +198,9 @@
     background-color: white;
 
 }
+.go_back{
+    display: none;
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1000px) {
 
@@ -244,6 +247,10 @@
             }
 
         }
+    }
+
+    .go_back{
+        display: block;
     }
 
     #signin-page{

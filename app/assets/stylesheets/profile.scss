@@ -193,7 +193,20 @@ div.flwlst{
         }
     }
 
-    #web_view_info {
+    .pp-follow {
+        margin-bottom: 20px;
+        margin-top: 4px;
+        p {
+           display: none;
+        }
+        .button{
+            width: 100%;
+            margin-left: 0;
+            text-align: center;
+        }
+    }
+
+        #web_view_info {
         display: none;
     }
     #mob_view_info{
