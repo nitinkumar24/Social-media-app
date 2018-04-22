@@ -156,7 +156,6 @@ headerbar{
                 display: flex;
                 align-items: center;
                 width: 100%;
-                padding-left: 2%;
                 justify-content: space-around;
 
                 li{
@@ -167,7 +166,7 @@ headerbar{
                 li a {
                     display: block;
                     color: #7d2d76;
-                    font-size: 24px;
+                    font-size: 26px;
                     text-align: center;
                     padding: 8px 0px 8px 0;
                     text-decoration: none;
@@ -178,6 +177,9 @@ headerbar{
                         -webkit-text-stroke-color: grey;color: white
                     }
 
+                }
+                li a:active{
+                    background: #f5f8fa;
                 }
 
 
@@ -201,7 +203,7 @@ headerbar{
             .mob_noti a{
                 display: block;
                 color: #7d2d76;
-                font-size: 26px;
+                font-size: 24px;
                 text-align: center;
                 text-decoration: none;
                 font-family: 'Poiret One', sans-serif;

@@ -47,15 +47,20 @@
 </head>
 
 <body>
+<script>
+    $('.ui.dropdown')
+        .dropdown();
+
+</script>
 <% if notice %>
     <script type="text/javascript">
         noty({text: '<%= notice %>',
             type: 'alert',
             theme: 'metroui',
             layout: 'topCenter',
-            timeout: 1000,
+            timeout: 200000,
             animation: {
-                open : 'animated fadeInRight',
+                open : 'animated fadeInLeft',
                 close: 'animated fadeOutRight'
             }
         });
@@ -70,20 +75,16 @@
             type: 'alert',
             theme: 'metroui',
             layout: 'topCenter',
-            timeout: 1000,
+            timeout: 200000,
             animation: {
-                open : 'animated fadeInRight',
+                open : 'animated fadeInLeft',
                 close: 'animated fadeOutRight'
             }
         });
     </script>
 <% end %>
 
-<script>
-    $('.ui.dropdown')
-        .dropdown();
 
-</script>
 
 <script>
 
