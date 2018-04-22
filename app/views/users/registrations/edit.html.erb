@@ -247,6 +247,7 @@
                $(".descrip123").html('Edit Profile');
 
                $('.go_back').show();
+               $('.ca').hide();
 
 
            }
@@ -320,6 +321,40 @@
 
        });
        //end of it
+       function myFunction(x) {
+           if (x.matches) { // If media query matches
+
+           } else {
+
+               var first_row = $('.first_row');
+               var first_row_menu = $('.first_row_menu');
+
+               var i = first_row.removeClass('four wide column')
+               var i = first_row_menu.removeClass('vertical tabular ').css('margin', '0');
+
+               $('.content').removeClass('eight wide column').css('width', '100%');
+               $('.item').click(function(){
+                   $('.first_row').hide();
+               });
+               $('.go_back').click(function(){
+                   $('.ui .segment').hide();
+                   $('.first_row').show();
+               });
+               $('.fa-search').hide();
+               $('.go_back_button').show();
+               $(".descrip123").html('Edit Profile');
+
+               $('.go_back').show();
+               $('.ca').hide();
+
+
+           }
+       }
+
+       var x = window.matchMedia("(min-width: 700px)")
+       myFunction(x) // Call listener function at run time
+       x.addListener(myFunction) // Attach listener function on state changes
+
    </script>
    <script>
        //check checkbox

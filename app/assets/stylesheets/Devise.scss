@@ -201,6 +201,10 @@
 .go_back{
     display: none;
 }
+.ca{
+    display: block;
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 @media screen and (max-width: 1000px) {
 
@@ -249,6 +253,9 @@
         }
     }
 
+    .ca{
+        display: block;
+    }
     .go_back{
         display: block;
     }
