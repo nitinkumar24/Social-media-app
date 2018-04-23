@@ -1,48 +1,29 @@
 
 <div class="edit-profile-page">
-
    <br>
-
-
    <div style="" class="edit-profile">
-      <!--<h3 style="text-align: center">Edit Your Profile</h3>-->
       <%= form_for(@user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= devise_error_messages! %>
           <div class="ui grid">
 
              <div class="four wide column first_row">
                 <div class="ui vertical fluid tabular menu first_row_menu">
-                   <a class="item active a">
-                      Basic Info
-                   </a>
-                   <a class="item b">
-                      Password
-                   </a>
-                   <a class="item c">
-                      Education
-                   </a>
-                   <a class="item d">
-                      Address
-                   </a>
-                   <a class="item e">
-                      Delete Account
-                   </a>
-
+                   <a class="item active a">Basic Info</a>
+                   <a class="item b">Password</a>
+                   <a class="item c">Education</a>
+                   <a class="item d">Address</a>
+                   <a class="item e">Delete Account</a>
                 </div>
-
              </div>
 
-
-
              <div class="eight wide stretched column content">
-
+                <!--FIRST SEGMENT-->
                 <div class="ui segment ca">
                    <%= render 'users/shared/goback' %>
-
                    <div class="ui form">
                       <div class="field" style="">
                          <label>Profile Picture</label>
-                         <%= f.file_field :avatar   %>
+                         <%= f.file_field :avatar %>
                       </div>
 
                       <div class="field">
@@ -78,12 +59,13 @@
                       </div>
 
                       <%= render "users/shared/button" %>
+
                    </div>
                 </div>
+                <!--2nd SEGMENT-->
                 <div class="ui segment cb">
                    <div class="ui form">
                       <%= render 'users/shared/goback' %>
-
                       <div class="field">
                          <label>Old Password</label>
                          <i>(we need your current password to confirm your changes)</i><br />
@@ -98,17 +80,11 @@
                          <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "6 characters minimum" %>
                       </div>
                       <%= render "users/shared/button" %>
-
                    </div>
                 </div>
                 <div class="ui segment cc">
                    <div class="ui form">
                       <%= render 'users/shared/goback' %>
-
-                      <!--<div class="field">-->
-                      <!--<label>College Name</label>-->
-                      <!--<input type="text" name="" placeholder="Enter Your College Name">-->
-                      <!--</div>-->
                       <label>Department</label><br><br>
                       <div class="ui selection dropdown">
                          <input type="hidden" name="user[department]" value="<%= f.object.department %>">
@@ -122,254 +98,190 @@
                             <div class="item" data-value="ECE">ECE</div>
                             <div class="item" data-value="EN">EN</div>
                             <div class="item" data-value="EI">EI</div>
-
-
-
-
                          </div>
                       </div>
-
                       <%= render "users/shared/button" %>
-
                    </div>
                 </div>
+
                 <div class="ui segment cd">
                    <%= render 'users/shared/goback' %>
-
                    <div class="ui form">
-                      <!--<div class="field">-->
-                      <!--<label>Current Address</label>-->
-                      <!--<input type="text" name="" placeholder="Enter Current Address">-->
-                      <!--</div>-->
-                      <!--<div class="field">-->
-                      <!--<label>Hometown</label>-->
-                      <!--<input type="text" name="" placeholder="Enter Hometown">-->
-                      <!--</div>-->
-                      <!--<button class="ui button" style="background:#7e2444;color:white">-->
-                      <!--Submit-->
-                      <!--</button>-->
                       Coming Soon!
                    </div>
                 </div>
 
-
-                <div class="field" style="display: none">
-                   <%= f.file_field :avatar   %>
-                </div>
-
-
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                    Currently waiting confirmation for: <%= resource.unconfirmed_email %>
                 <% end %>
       <% end %>
-
       <div class="ui segment ce">
          <%= render 'users/shared/goback' %>
-
          <div class="ui form">
             <div class="field">
                <label>Delete your account permanently</label>
-
                <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class => "ui button",:style=>"color: white;
                    font-size: 16px;
                    background-color: #7d2d76;
                    border: 1px solid;
                    border-radius: 4px;
                    font-family: 'Poiret One',sans-serif;" %>
-
             </div>
          </div>
       </div>
       </div>
 
-
-
-
-
       </div>
    </div>
+</div>
+<script>
 
-
-   <script>
-
-       $(document).on('load', function() {
-           $(".loader").fadeOut(2000);
-       });
-
-   </script>
+</script>
 
 
 
-   <style type="text/css">
-      body{
-         font-family: 'Quicksand', sans-serif;
-         letter-spacing: 1px;
-      }
-      .item{
-         font-family: 'Quicksand', sans-serif;
+<style type="text/css">
+   body{
+      font-family: 'Quicksand', sans-serif;
+      letter-spacing: 1px;
+   }
+   .item{
+      font-family: 'Quicksand', sans-serif;
+   }
+   .ui.vertical.tabular.menu .active.item {
+      background: none #7d2d76;
+      color: rgb(255, 255, 255);
+      border-color: #D4D4D5;
+      margin: 0px -1px 0px 0px;
+      border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
+   }
 
-      }
-      .ui.vertical.tabular.menu .active.item {
-         background: none #7d2d76;
-         color: rgb(255, 255, 255);
-         border-color: #D4D4D5;
-         margin: 0px -1px 0px 0px;
-         border-radius: 0.28571429rem 0px 0px 0.28571429rem !important;
-      }
-
-
-
-   </style>
+</style>
 
 
-   <script>
-       function myFunction(x) {
-           if (x.matches) { // If media query matches
+<script>
+    $('document').ready(function(){
+        $('.me').hide();
+    });
+</script>
+<script>
+    $('.ui .item').on('click', function() {
+        $('.ui .item').removeClass('active');
+        $(this).addClass('active');
+        $('.custom').removeClass('active');
+    });
+</script>
+<script>
+    // showing the individual elememnts
+    $('window').load(function(){
+        $('.ui .segment').hide();
+        $('.ca').show();
+    });
 
-           } else {
-
-               var first_row = $('.first_row');
-               var first_row_menu = $('.first_row_menu');
-
-               var i = first_row.removeClass('four wide column')
-               var i = first_row_menu.removeClass('vertical tabular ').css('margin', '0');
-
-               $('.content').removeClass('eight wide column').css('width', '100%');
-               $('.item').click(function(){
-                   $('.first_row').hide();
-               });
-               $('.go_back').click(function(){
-                   $('.ui .segment').hide();
-                   $('.first_row').show();
-               });
-               $('.fa-search').hide();
-               $('.go_back_button').show();
-               $(".descrip123").html('Edit Profile');
-
-               $('.go_back').show();
-               $('.ca').hide();
+    $('document').ready(function(){
+        $('.ui .segment').hide();
+        $('.ca').show();
+    });
 
 
-           }
-       }
+    $('.a').click(function(){
+        $('.ui .segment').hide();
+        $('.ca').show();
+        $('.go_back_text').html("Basic Info");
 
-       var x = window.matchMedia("(min-width: 700px)")
-       myFunction(x) // Call listener function at run time
-       x.addListener(myFunction) // Attach listener function on state changes
+    });
+    //end of it
 
+    // showing the individual elememnts
+    $('.b').click(function(){
+        $('.ui .segment').hide();
+        $('.cb').show();
+        $('.go_back_text').html("Password");
+    });
+    //end of it
 
-       $('document').ready(function(){
-           $('.me').hide();
-       });
-   </script>
-   <script>
-       $('.ui .item').on('click', function() {
-           $('.ui .item').removeClass('active');
-           $(this).addClass('active');
-           $('.custom').removeClass('active');
-       });
-   </script>
-   <script>
-       // showing the individual elememnts
-       $('document').ready(function(){
-           $('.ui .segment').hide();
-           $('.ca').show();
-       });
+    // showing the individual elememnts
+    $('.c').click(function(){
+        $('.ui .segment').hide();
+        $('.cc').show();
+        $('.go_back_text').html("Education");
 
+    });
+    //end of it
 
-       $('.a').click(function(){
-           $('.ui .segment').hide();
-           $('.ca').show();
-           $('.go_back_text').html("Basic Info");
+    // showing the individual elememnts
+    $('.d').click(function(){
+        $('.ui .segment').hide();
+        $('.cd').show();
+        $('.go_back_text').html("Address");
 
-       });
-       //end of it
+    });
+    //end of it
 
-       // showing the individual elememnts
-       $('.b').click(function(){
-           $('.ui .segment').hide();
-           $('.cb').show();
-           $('.go_back_text').html("Password");
-       });
-       //end of it
+    // showing the individual elememnts
+    $('.e').click(function(){
+        $('.ui .segment').hide();
+        $('.ce').show();
+        $('.go_back_text').html("Account");
 
-       // showing the individual elememnts
-       $('.c').click(function(){
-           $('.ui .segment').hide();
-           $('.cc').show();
-           $('.go_back_text').html("Education");
+    });
+    //end of it
+    function myFunction(x) {
+        if (x.matches) { // If media query matches
 
-       });
-       //end of it
+        } else {
 
-       // showing the individual elememnts
-       $('.d').click(function(){
-           $('.ui .segment').hide();
-           $('.cd').show();
-           $('.go_back_text').html("Address");
+            var first_row = $('.first_row');
+            var first_row_menu = $('.first_row_menu');
 
-       });
-       //end of it
+            var i = first_row.removeClass('four wide column')
+            var i = first_row_menu.removeClass('vertical tabular ').css('margin', '0');
 
-       // showing the individual elememnts
-       $('.e').click(function(){
-           $('.ui .segment').hide();
-           $('.ce').show();
-           $('.go_back_text').html("Account");
+            $('.content').removeClass('eight wide column').css('width', '100%');
+            $('.item').click(function(){
+                $('.first_row').hide();
+            });
+            $('.go_back').click(function(){
+                $('.ui .segment').hide();
+                $('.first_row').show();
+            });
+            $('.fa-search').hide();
+            $('.go_back_button').show();
+            $(".descrip123").html('Edit Profile');
 
-       });
-       //end of it
-       function myFunction(x) {
-           if (x.matches) { // If media query matches
+            $('.go_back').show();
+            $('.ca').hide();
 
-           } else {
+            $('document').ready(function(){
+                $('.ui .segment').hide();
+                $('.ca').hide();
+            });
 
-               var first_row = $('.first_row');
-               var first_row_menu = $('.first_row_menu');
+            $('.item').click(function(){
+                $('.edit-profile .ui.grid .stretched').css('position','absolute').css('padding-bottom','300px');
+            });
+            $('.go_back').click(function(){
+                $('.edit-profile .ui.grid .stretched').css('position','fixed').css('padding-bottom','0');;
+            });
 
-               var i = first_row.removeClass('four wide column')
-               var i = first_row_menu.removeClass('vertical tabular ').css('margin', '0');
+        }
+    }
 
-               $('.content').removeClass('eight wide column').css('width', '100%');
-               $('.item').click(function(){
-                   $('.first_row').hide();
-               });
-               $('.go_back').click(function(){
-                   $('.ui .segment').hide();
-                   $('.first_row').show();
-               });
-               $('.fa-search').hide();
-               $('.go_back_button').show();
-               $(".descrip123").html('Edit Profile');
+    var x = window.matchMedia("(min-width: 700px)")
+    myFunction(x) // Call listener function at run time
+    x.addListener(myFunction) // Attach listener function on state changes
 
-               $('.go_back').show();
-               $('.ca').hide();
-
-               $('document').ready(function(){
-                   $('.ui .segment').hide();
-                   $('.ca').hide();
-               });
-
-
-
-           }
-       }
-
-       var x = window.matchMedia("(min-width: 700px)")
-       myFunction(x) // Call listener function at run time
-       x.addListener(myFunction) // Attach listener function on state changes
-
-   </script>
-   <script>
-       //check checkbox
-       $('.ui.radio.checkbox').checkbox();
-   </script>
-   <script>
-       //Dropdown
-       $('.ui.dropdown')
-           .dropdown();
-   </script>
-   <script>
-       $('.ui.checkbox').checkbox();
-   </script>
+</script>
+<script>
+    //check checkbox
+    $('.ui.radio.checkbox').checkbox();
+</script>
+<script>
+    //Dropdown
+    $('.ui.dropdown')
+        .dropdown();
+</script>
+<script>
+    $('.ui.checkbox').checkbox();
+</script>
 
