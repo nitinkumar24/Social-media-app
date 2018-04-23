@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'user_block/blockkarnahai'
+
   resources :replies
   get 'mentions', to: 'search#mentions'
 

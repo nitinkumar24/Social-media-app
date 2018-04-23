@@ -24,3 +24,4 @@
 .rbenv-vars
 sociograms_development
 Gemfile.lock
+/public/system/

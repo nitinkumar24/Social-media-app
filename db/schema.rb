@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409175824) do
+ActiveRecord::Schema.define(version: 20180423164514) do
 
   create_table "colleges", force: :cascade do |t|
     t.string "name"
@@ -110,6 +110,12 @@ ActiveRecord::Schema.define(version: 20180409175824) do
     t.datetime "updated_at", null: false
     t.index ["comment_id"], name: "index_replies_on_comment_id"
     t.index ["user_id"], name: "index_replies_on_user_id"
+  end
+
+  create_table "user_blocks", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "user_modes", force: :cascade do |t|

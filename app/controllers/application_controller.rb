@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authenticate_user!
     before_action :set_raven_context
+    before_action :check_user_blocked
     before_action :check_user_mode
     before_action :set_paper_trail_whodunnit
 
@@ -29,6 +30,17 @@ class ApplicationController < ActionController::Base
     def set_raven_context
         Raven.user_context(id: session[:current_user_id]) # or anything else in session
         Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+    end
+
+    def check_user_blocked
+            puts "in check"
+            allowed_controllers = ["sessions","registrations","confirmations","passwords","omniauth_callbacks"]
+            puts controller_name
+            unless allowed_controllers.include? controller_name
+               if UserBlock.where(email: current_user.email).length > 0
+                   render 'newsfeed/blocked_user_message'
+               end
+            end
     end
 
     def check_user_mode
