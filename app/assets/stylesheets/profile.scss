@@ -45,6 +45,16 @@ body{
     display: flex;
     padding-bottom: 55px;
     /*border-bottom: 1px solid grey;*/
+    .image-portion{
+        width: 200px;
+        text-align: center;
+        .upload-pic{
+            position: absolute;
+        }
+        #imgInp{
+            opacity: 0;
+        }
+    }
 }
 #dp-box img{
 
@@ -166,7 +176,7 @@ div.flwlst{
     #mid-box {
         margin-top: 10px;
         width: 100%;
-        padding: 16px 2% 0 2%;
+        padding: 16px 0% 0 0%;
     }
     #dp-box {
         position: relative;
@@ -176,6 +186,9 @@ div.flwlst{
         margin-left: 16px;
         margin-right: 16px;
         /*border-bottom: 1px solid grey;*/
+        .image-portion{
+            width: 80px;
+        }
         img {
             height: 80px;
             width: 80px;
@@ -183,8 +196,8 @@ div.flwlst{
         }
     }
     .pp-info {
-        width: 90%;
-        padding-left: 3%;
+        width: 99%;
+        padding-left: 10%;
         padding-top: 0px;
         div.pp-follow {
             width: 100%;
@@ -218,5 +231,6 @@ div.flwlst{
         width: 100%;
         margin-left: 0%;
         margin-bottom: 100px;
+        padding: 0 1%;
     }
 }

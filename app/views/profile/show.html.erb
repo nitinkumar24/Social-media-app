@@ -2,7 +2,24 @@
 <div id="wrapper">
    <div id="mid-box">
       <div id="dp-box">
-         <%= image_tag @user.avatar.url(:medium),:class =>"pro-image modal-activate" %>
+         <div class="image-portion">
+            <%= image_tag @user.avatar.url(:medium),:class =>"pro-image modal-activate" %>
+            <% if @user == current_user %>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                    <div id="upload-pic-dummy">
+                       <div class="upload-pic">
+                          <%= f.file_field :avatar ,id: "imgInp" %><br>
+                       </div>
+                       <span class="choose-file"> Change</span>
+                    </div>
+                    <div class="actions" id="update_dp_but" style="display: none">
+                       <%= f.submit "Update" %>
+                    </div>
+
+
+                <% end %>
+            <% end %>
+         </div>
          <div class="pp-info">
             <div class="pp-name">
                <p><%=@user.name%></p>
@@ -22,7 +39,7 @@
             <% if @user.id == current_user.id %>
                 <%= social_share_button_tag("Follow me on Sociograms", desc: ("Follow me on Sociograms"),:allow_sites => %w(twitter facebook linkedin)) %>
 
-         <% end %>
+            <% end %>
 
 
          </div>
@@ -61,3 +78,23 @@
 
 </div>
 
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.pro-image').attr('src', e.target.result);
+                $('#update_dp_but').css('display', 'block'); // Unchecks it
+            }
+            reader.readAsDataURL(input.files[0]);
+            $(".dup-pic").css("display","block");
+            $('#post_anonymous').attr('checked', false); // Unchecks it
+            $("#post_anonymous").attr("disabled", true);
+
+        }
+    }
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+
+</script>
