@@ -7,9 +7,16 @@ class User < ApplicationRecord
     validates :username, presence: true,length: {minimum: 4, maximum: 15}, format: { with: /\A[a-zA-Z0-9_]+\z/ ,message: 'should only caontain a-z,A-Z,0-9 or _'}
     validates_uniqueness_of :username
 
-    # validates_format_of :email, with: /\.edu/, message: 'Your email should contain .edu '
     has_many :posts, dependent: :destroy
     has_many :user_modes, dependent: :destroy
+    has_many :notifications, dependent: :destroy
+    has_many :friendrequests1, :class_name => "Friendrequest", :foreign_key => "sender_id",dependent: :destroy
+    has_many :friendrequests2, :class_name => "Friendrequest", :foreign_key => "receiver_id",dependent: :destroy
+    has_many :follow_mappings1, :class_name => "FollowMapping", :foreign_key => "follower_id",dependent: :destroy
+    has_many :follow_mappings2, :class_name => "FollowMapping", :foreign_key => "followee_id", dependent: :destroy
+
+
+
 
     has_attached_file :avatar, :styles => { :thumb => '50x50', :medium => '1000x1000', :small => '500x500'}, :default_url => "https://png.icons8.com/dusk/100/000000/gender-neutral-user.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
@@ -89,13 +96,13 @@ class User < ApplicationRecord
     def homefeed
         users = followee_ids
         users << id
-        Post.includes(:user, :likes, :dislikes, :comments).where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc)
+        Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc)
     end
 
     def memefeed
         users = followee_ids
         users << id
-        Post.includes(:user, :likes, :dislikes, :comments).where(user_id: users, flavour: "meme", mode: @current_mode).order(created_at: :desc)
+        Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id: users, flavour: "meme", mode: @current_mode).order(created_at: :desc)
     end
 
 
