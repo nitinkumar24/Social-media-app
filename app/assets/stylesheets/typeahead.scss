@@ -5,7 +5,19 @@
 }
 
 .tt-hint {
-    color: #999
+    color: #999;
+    padding: 8px;
+    border: 0.13em solid rgb(125, 45, 118);
+    border-radius: 30px;
+    padding-left: 15px;
+
+}
+.tt-input{
+    padding: 8px;
+    border: 0.13em solid rgb(125, 45, 118);
+    border-radius: 30px;
+    width: 100%;
+    padding-left: 15px;
 }
 
 .tt-menu {    /* used to be tt-dropdown-menu in older versions */

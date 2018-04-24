@@ -16,16 +16,14 @@ class ProfileController < ApplicationController
         @user=User.find_by_username(params[:id])
         if @user
             if @user.id == current_user.id
-                @posts = Post.includes(:user, :likes, :dislikes, :comments).where(user_id:@user.id).paginate(:page => params[:page], :per_page =>7).order(created_at: :desc)
+                @posts = Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id:@user.id,mode: @current_mode).paginate(:page => params[:page], :per_page =>7).order(created_at: :desc)
                 @comment=Comment.new
                 @reply=Reply.new
-                @comments = Comment.all
 
             elsif current_user.can_un_follow @user.id        #means following
-                @posts = Post.includes(:user, :likes, :dislikes, :comments).where(user_id:@user.id, anonymous:false).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
+                @posts = Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id:@user.id, anonymous:false, mode: @current_mode).paginate(:page => params[:page], :per_page => 7).order(created_at: :desc)
                 @comment=Comment.new
                 @reply=Reply.new
-                @comments = Comment.all
             else
                 @posts = nil
 

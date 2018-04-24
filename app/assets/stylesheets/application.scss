@@ -193,10 +193,12 @@ p {
 }
 
 .ui.dropdown.selected, .ui.dropdown .menu .selected.item {
-    background: rgba(0, 0, 0, 0.03);
+    background: rgb(125, 45, 118);
+    color: white;
 }
 .ui.dropdown.selected, .ui.dropdown .menu .selected.item {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgb(125, 45, 118);
+    color: white;
 }
 
 .ui.menu {

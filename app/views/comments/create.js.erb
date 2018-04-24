@@ -2,5 +2,43 @@ $('#count_comments_<%=@comment.post.id%>').html(<%=@comment.post.comments.count%
 $('#comments_<%=@comment.post.id%>').prepend("<%= escape_javascript (render 'comments/comment', comment: @comment) %>");
 $('.comment-input').val("").css("height","30px");
 
+$('.comment-input').atwho({
+    at: '@',
+    searchKey: 'real_name',
+    displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
+    callbacks: {
+        remoteFilter: function(query, callback) {
+            if (query.length < 1) {
+                return false;
+            } else {
+                return $.getJSON('/mentions', {
+                    q: query
+                }, function(data) {
+                    console.log(data);
+                    return callback(data);
+                });
+            }
+        }
+    }
+});
 
-console.log("hello comment");
+
+$('.reply-input').atwho({
+    at: '@',
+    searchKey: 'real_name',
+    displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
+    callbacks: {
+        remoteFilter: function(query, callback) {
+            if (query.length < 1) {
+                return false;
+            } else {
+                return $.getJSON('/mentions', {
+                    q: query
+                }, function(data) {
+                    console.log(data);
+                    return callback(data);
+                });
+            }
+        }
+    }
+});

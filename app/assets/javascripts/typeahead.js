@@ -1127,6 +1127,8 @@
                     opacity: "1"
                 },
                 input: {
+                    width: "240",
+                    marginLeft: "15",
                     position: "relative",
                     verticalAlign: "top",
                     backgroundColor: "transparent"

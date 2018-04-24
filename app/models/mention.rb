@@ -14,7 +14,9 @@ class Mention
             puts potential_matches
             potential_matches.uniq.map do |match|
                 mention = Mention.create_from_match(match,object.user_id)
-                recipient_user =  mention.mentionable                   #jisko mention kia h
+                unless mention.nil?
+                    recipient_user =  mention.mentionable                   #jisko mention kia h
+                end
                 next unless mention
                 object.update_attributes!(content: mention.markdown_string(object.content))
                 # You could fire an email to the user here with ActionMailer
@@ -29,9 +31,10 @@ class Mention
         puts "hi"
         puts @current_mode
 
-        is_follower = FollowMapping.where(:followee_id => current_user_id, :follower_id => user.id,:mode => @current_mode).length > 0     #this need to be accessed form user class
-
-        UserMention.new(user) if user.present? and is_follower
+        unless user.nil?
+            is_follower = FollowMapping.where(:followee_id => current_user_id, :follower_id => user.id,:mode => @current_mode).length > 0     #this need to be accessed form user class
+            UserMention.new(user) if user.present? and is_follower
+        end
     end
 
     def self.send_notification(object, recipient_user, current_user)

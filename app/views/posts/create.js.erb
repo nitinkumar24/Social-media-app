@@ -34,3 +34,45 @@ $("#post_anonymous").attr("disabled", false);
 var create_post_submit = document.getElementById('create_post_submit');
 create_post_submit.setAttribute("disabled", "");
 console.log(create_post_submit.disabled);
+
+
+$('.comment-input').atwho({
+    at: '@',
+    searchKey: 'real_name',
+    displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
+    callbacks: {
+        remoteFilter: function(query, callback) {
+            if (query.length < 1) {
+                return false;
+            } else {
+                return $.getJSON('/mentions', {
+                    q: query
+                }, function(data) {
+                    console.log(data);
+                    return callback(data);
+                });
+            }
+        }
+    }
+});
+
+
+$('.reply-input').atwho({
+    at: '@',
+    searchKey: 'real_name',
+    displayTpl: "<li class='mention-item' </li>" + "<img class=\"h-pro-image\" alt=\"\" src=${image}>"  + "<span  data-value='(${real_name},)'>${real_name}" + "<br>",
+    callbacks: {
+        remoteFilter: function(query, callback) {
+            if (query.length < 1) {
+                return false;
+            } else {
+                return $.getJSON('/mentions', {
+                    q: query
+                }, function(data) {
+                    console.log(data);
+                    return callback(data);
+                });
+            }
+        }
+    }
+});

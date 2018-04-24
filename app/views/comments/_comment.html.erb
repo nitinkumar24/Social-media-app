@@ -36,7 +36,15 @@
             </div>
             <div id="comment_orig_content_<%= comment.id  %>">
                <%= markdown(comment.content) %>
-               <span class="reply" style="cursor: pointer">Reply <strong>View Replies</strong></span>
+               <span class="reply" style="cursor: pointer">Reply
+                  <% if  comment.replies.length > 0 %>
+                    <% if  comment.replies.length ==  1 %>
+                        <strong>  View <%=  comment.replies.length  %> Reply</strong>
+                      <% else %>
+                          <strong>  View <%=  comment.replies.length  %> Replies</strong>
+                      <% end %>
+                  <% end %>
+                      </span>
                <div style="display: none">
                   <%= render 'replies/reply_form', comment: comment %>
 

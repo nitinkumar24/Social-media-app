@@ -20,7 +20,7 @@ class NewsfeedController < ApplicationController
             @post = Post.new
             @comment = Comment.new
             @reply = Reply.new
-            @posts = Post.includes(:user, :likes, :dislikes, :comments)
+            @posts = Post.includes(:user, :likes, :dislikes, comments: [:replies])
                              .where(flavour: :confession,mode: @current_mode)
                              .paginate(:page => params[:page], :per_page => 7)
                              .order(created_at: :desc)
@@ -41,7 +41,7 @@ class NewsfeedController < ApplicationController
         if @current_mode == 'open'
             @posts = current_user.memefeed.paginate(:page => params[:page], :per_page => 6)
         else
-            @posts = Post.includes(:user, :likes, :dislikes, :comments)
+            @posts = Post.includes(:user, :likes, :dislikes,comments: [:replies])
                              .where(flavour: :meme,mode: @current_mode)
                              .paginate(:page => params[:page], :per_page => 7)
                              .order(created_at: :desc)

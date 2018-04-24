@@ -21,15 +21,19 @@ main-page {
             display: flex;
             width: 64%;
             border: 0.13em solid rgb(125, 45, 118);
-            border-radius: 5px;
+            border-radius: 25px;
             justify-content: space-between;
             margin-bottom: 10px;
+            padding-left: 15px;
             span {
                 position: relative;
                 display: inline-block;
                 width: 100%;
                 .typeahead {
                     width: 100%;
+                    padding: 8px;
+                    border-radius: 5px;
+
                 }
                 input {
                     border: none;
