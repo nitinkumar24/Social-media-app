@@ -10,9 +10,11 @@
                    <div class="ui icon input"  style="">
                       <input type="text" name="query" class="typeahead" placeholder="Search">
 
-                      <button class="ui button" style="background:none;color:black;padding: 10px">
-                         <i class="search link icon"></i>
-                      </button>
+
+                      <%=  button_tag "Search", class: "ui button",style: "background:none;color:black;padding: 10px;",'data-disable-with' => "<i class='fa fa-spinner fa-spin'></i> ".html_safe  do%>
+                          <i class="search link icon"></i>
+                      <% end %>
+
                       <div class="" id="filter-toggle" style="    align-items: center;font-size: 24px;color: #7d2d76;display: flex;padding-right: 11px;">
                          <i class="fa fa-filter" aria-hidden="true"></i>
                       </div>
@@ -60,14 +62,14 @@
                                </div>
                             </div>
 
-                         <button class="ui button" style="color: white;
+
+                         <%= button_tag "Search", class: "ui button",style: "color: white;
                              font-size: 16px;
                              background-color: #7d2d76;
                              border: 1px solid;
                              border-radius: 4px;
-                             font-family: 'Poiret One',sans-serif;">
-                            Search
-                         </button>
+                             font-family: 'Poiret One',sans-serif;" ,'data-disable-with' => "<i class='fa fa-spinner fa-spin'></i> Searching...".html_safe %>
+
 
 
 

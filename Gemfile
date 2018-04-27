@@ -8,6 +8,8 @@ end
 
 gem "animate-rails"
 gem 'autosize-rails'
+gem 'aws-sdk-v1'
+gem 'aws-sdk', '~> 2'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'friendly_id', '~> 5.1.0'

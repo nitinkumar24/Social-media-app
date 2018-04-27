@@ -8,7 +8,7 @@ class SearchController < ApplicationController
 
     def users
         respond_to do |format|
-            user_in_same_mode =  UserMode.search @current_mode,fields: [:mode]
+            user_in_same_mode =  UserMode.where(mode: @current_mode)
             uisc_ids = user_in_same_mode.pluck(:user_id)
             puts uisc_ids
             query = params[:query].presence || '*'

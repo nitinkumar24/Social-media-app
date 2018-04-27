@@ -118,11 +118,12 @@ p {
     padding-bottom: 20px;
 }
 
-.ui.four.cards > .card:hover {
-    box-shadow: 0px 0px 3px rgb(125, 45, 118);
-    transition-delay: 0.2s;
-    transition-timing-function: ease;
-}
+//   BADA KARO CARD KO HOVER KARNE PAR
+//.ui.four.cards > .card:hover {
+//    box-shadow: 0px 0px 3px rgb(125, 45, 118);
+//    transition-delay: 0.2s;
+//    transition-timing-function: ease;
+//}
 .ui.cards > .card > .image,
 .ui.card > .image {
     background: white;

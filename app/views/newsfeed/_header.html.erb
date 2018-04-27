@@ -32,8 +32,9 @@
                    <%= form_tag search_users_path, :method => 'get' do %>
                        <div class="ui icon input"  style="">
                           <input type="text" name="query" class="typeahead" style="width: 220px;border-radius:20px;" placeholder="Search">
-                          <button class="ui button" style="background:#7e2444;color:white;display: none">
-                          </button>
+                          <%=  button_tag "Search", class: "ui button",style: "background:none;color:black;padding: 10px;",'data-disable-with' => "<i class='fa fa-spinner fa-spin'></i> ".html_safe  do%>
+                              <i class="search link icon"></i>
+                          <% end %>
                        </div>
                    <% end %>
                 </li>

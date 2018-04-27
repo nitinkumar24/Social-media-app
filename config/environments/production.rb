@@ -101,5 +101,15 @@ Rails.application.configure do
 
 
   }
+  config.paperclip_defaults = {
+          storage: :s3,
+          :s3_host_name => 's3-us-east-2.amazonaws.com',
+          :preserve_files => true,
+          s3_credentials: {
+                  bucket: 'sociograms-files',
+                  access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+                  secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+          }
+  }
 
 end

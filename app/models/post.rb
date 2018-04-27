@@ -4,7 +4,7 @@ class Post < ApplicationRecord
     has_many :dislikes, dependent: :destroy
     has_many :comments, dependent: :destroy
     validates :content, presence: true, length: {maximum: 400}
-    has_attached_file :avatar, styles: { medium: "1920x1080>", thumb: "420x200>" }, default_url: "/images/:style/missing.png"
+    has_attached_file :avatar, styles: { original: "960x960>", thumb: "50x50>" }, default_url: "/images/:style/missing.png"
     validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
     has_paper_trail
     after_create :add_mentions

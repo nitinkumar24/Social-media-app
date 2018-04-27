@@ -96,6 +96,10 @@ headerbar{
                     list-style: none;
                     text-decoration: none;
                     padding-left: 10px;
+                    .ui.icon.input{
+                        border: 0.13em solid #eaeaea;
+                        border-radius: 30px;
+                    }
                 }
                 li a {
                     display: block;
