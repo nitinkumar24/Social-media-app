@@ -52,7 +52,7 @@
          <%= markdown(post.content) %>
       </div>
       <% if post.avatar.file? %>
-          <%= image_tag post.avatar.url(:medium), :class => "style_image  modal-activate"%>
+          <%= image_tag post.avatar.url(:original), :class => "style_image  modal-activate"%>
       <% end %>
    </div>
    <hr style="opacity: 0.2">
