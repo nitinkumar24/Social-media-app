@@ -3,7 +3,7 @@
       <% username = notification.user.username %>
       <% url = "/" +username %>
       <%= link_to url do  %>
-          <%=  image_tag notification.user.avatar.url(:medium),:class =>"profile_image",:alt=>"" %>
+          <%=  image_tag notification.user.avatar.url(:thumb),:class =>"profile_image",:alt=>"" %>
       <% end %>
    </div>
 

@@ -17,7 +17,7 @@
    <section>
 
           <div class="createPost">
-             <%= image_tag current_user.avatar.url(:medium),:class =>"createpost_image" ,:alt=>""%>
+             <%= image_tag current_user.avatar.url(:thumb),:class =>"createpost_image" ,:alt=>""%>
              <div class="input-post">
                 <%= form_for @post,remote: true do |form| %>
                     <div class="">

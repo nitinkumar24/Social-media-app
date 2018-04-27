@@ -3,7 +3,7 @@
    <div id="mid-box">
       <div id="dp-box">
          <div class="image-portion">
-            <%= image_tag @user.avatar.url(:medium),:class =>"pro-image modal-activate" %>
+            <%= image_tag @user.avatar.url(:original),:class =>"pro-image modal-activate" %>
             <% if @user == current_user %>
                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                     <div id="upload-pic-dummy">

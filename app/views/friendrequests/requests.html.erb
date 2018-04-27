@@ -26,7 +26,7 @@
                     <% user=User.where(id: req.sender_id).first%>
                     <div class="wrapper" style="">
                        <div class="info">
-                          <%= image_tag user.avatar.url(:medium) %>
+                          <%= image_tag user.avatar.url(:thumb) %>
                           <div class="name">
                              <%= render 'profile/profile_link' ,user: user %>
                              <p><%=user.try(:about)  %></p>
@@ -55,7 +55,7 @@
                     <% user=User.where(id: req.receiver_id).first%>
                     <div class="wrapper" style="">
                        <div class="info">
-                              <%= image_tag user.avatar.url(:medium) %>
+                              <%= image_tag user.avatar.url(:thumb) %>
                           <div class="name">
                              <%= render 'profile/profile_link' ,user: user %>
                              <p><%=user.try(:about)  %></p>

@@ -4,7 +4,7 @@
    <% user=post.user %>
    <div class="user-detail">
       <% if not post.anonymous %>
-          <%= image_tag user.avatar.url(:medium),:class =>"profile_image modal-activate",:alt=>"" %>
+          <%= image_tag user.avatar.url(:thumb),:class =>"profile_image modal-activate",:alt=>"" %>
           <div class="username">
              <div class="tooltip" data-tooltip-content="#tooltip_content">
                 <h2 style="width: 80%">
