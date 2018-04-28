@@ -10,7 +10,7 @@
        <% if user.confirmed? %>
            <div class="card">
               <div class="image">
-                     <%= image_tag user.avatar.url(:thumb),:class =>"profile_image" %>
+                     <%= image_tag user.avatar.url(:original),:class =>"profile_image" %>
               </div>
               <div class="content">
                  <div class="header">

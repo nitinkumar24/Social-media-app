@@ -42,7 +42,7 @@
 
                     <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirm-password",required: true,class:"user_password_field" %>
 
-                    <%= f.submit "Create Account" ,class:"login-button" %>
+                    <%= f.submit "Create Account" ,class:"login-button", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Wait"} %>
             <% end %>
 
 

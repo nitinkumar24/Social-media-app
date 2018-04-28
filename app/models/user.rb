@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
 
 
-    has_attached_file :avatar, :styles => { :thumb => '160x160', :original => '960x960>'}, :default_url => "https://png.icons8.com/dusk/100/000000/gender-neutral-user.png"
+    has_attached_file :avatar, :styles => { :thumb => '200x200>', :original => '700x700>'}, :default_url => "https://png.icons8.com/dusk/100/000000/gender-neutral-user.png"
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     crop_attached_file :avatar
     devise :omniauthable, :omniauth_providers => [:google_oauth2]

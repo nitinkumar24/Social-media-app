@@ -17,7 +17,7 @@
        </div>
 
        <span class="cancel_edit">cancel</span>
-       <%= form.submit 'Update', :style => "padding:5px;margin-left:5px"   %>
+       <%= form.submit 'Update', :style => "padding:5px;margin-left:5px" , data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>"}  %>
 
    <% end %>
 </div>
