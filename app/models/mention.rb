@@ -97,7 +97,7 @@ class Mention
             # Don't forget to add your app's host here for production code!
             host = Rails.env.development? ? 'http://localhost:3000' : 'sociograms.in'
             puts mentionable
-            link_to_user_profile = host + "/" + mentionable.username + "/"      #hard_coded
+            link_to_user_profile =   "/" + mentionable.username + "/"      #hard_coded
             text.gsub(/@#{mentionable.username}/i,
                       "[**@#{mentionable.username}**](#{link_to_user_profile})")
         end
