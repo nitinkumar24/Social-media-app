@@ -26,7 +26,6 @@ ready = function() {
 
     });
     });
-    console.log("sjkdfbjew");
 }
 
 $(document).on('ready', ready);

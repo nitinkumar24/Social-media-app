@@ -151,6 +151,13 @@ p {
     border-top: none !important;
 }
 
+/* line 77, /Users/nitin/.rvm/gems/ruby-2.4.1/gems/semantic-ui-sass-2.3.1.2/app/assets/stylesheets/semantic-ui/views/_feed.scss */
+.ui.feed > .event > .label img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
 
 .ui.cards > .card,
 .ui.card {

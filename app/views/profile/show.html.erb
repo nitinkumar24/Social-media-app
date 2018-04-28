@@ -11,9 +11,15 @@
                           <%= f.file_field :avatar ,id: "imgInp" %><br>
                        </div>
                        <span class="choose-file"> Change</span>
+                       <div class="extra content crop_pic" data-turbolinks="false">
+                          <a><%if  current_user.avatar? %>
+                                 <%= link_to "Crop",profile_edit_picture_path%>
+                             <% end %>
+                          </a>
+                       </div>
                     </div>
                     <div class="actions" id="update_dp_but" style="display: none">
-                       <%= f.submit "Update" %>
+                       <%= f.submit "Update",  data: { disable_with: "uploading" } %>
                     </div>
 
 
@@ -85,6 +91,8 @@
             reader.onload = function (e) {
                 $('.pro-image').attr('src', e.target.result);
                 $('#update_dp_but').css('display', 'block'); // Unchecks it
+                $('.crop_pic').css('display', 'none'); // Unchecks it
+
             }
             reader.readAsDataURL(input.files[0]);
             $(".dup-pic").css("display","block");

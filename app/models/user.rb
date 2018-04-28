@@ -239,11 +239,13 @@ class User < ApplicationRecord
                 UserMode.create(user_id: user.id, mode: user_mail_domain)
             end
 
-            if data.image?
+            if data.image? and data.image != "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+                puts data.image
                 user.avatar = URI.parse(data.image)
                 user.avatar_file_name = "photo"
                 user.avatar_content_type = "image/jpeg"
             end
+
 
         end
         user
