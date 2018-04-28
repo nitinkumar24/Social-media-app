@@ -41,8 +41,8 @@
                <%= f.password_field :password, autocomplete: "off",placeholder:"Password",required: true,class:"user_password_field" %>
 
                     <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Confirm-password",required: true,class:"user_password_field" %>
-
-                    <%= f.submit "Create Account" ,class:"login-button", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Wait"} %>
+               <span style="font-size: 15px">A confirmation email will be sent to your email</span>
+                    <%= f.submit "Create Account" ,class:"login-button" %>
             <% end %>
 
 

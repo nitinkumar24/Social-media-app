@@ -96,7 +96,11 @@ class User < ApplicationRecord
     def homefeed
         users = followee_ids
         users << id
-        Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc)
+        if followee_ids.count > 5
+            Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc)
+        else
+            Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id: users, flavour: "feed", mode: @current_mode,anonymous:false).order(created_at: :desc)
+        end
     end
 
     def memefeed
