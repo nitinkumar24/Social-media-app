@@ -1,16 +1,27 @@
+
 class ApiController < ActionController::API
 
-	def response_data data,message,status,disabled: false, update: false
+    def authenticate_user_api
+        current_user_api
+        true
+    end
 
-		data = {
-			data: data,
-			message: message,
-			disabled: disabled,
-			update: update
-		}
+    def current_user_api
+        user = User.find_by_email("nitin.1510092@kiet.edu")
+        @current_mode = user.current_mode            #for accesing current_mode in controllers
+        user.set_mode_for_model @current_mode           #for accesing current_mode in models
+        user
+    end
 
-		render json: data, status: status
-
-	end
+    def response_data(data, message, status, error: nil, disabled: false, update: false, params: {})
+        result = Hash.new
+        result[:data]  = data
+        result[:message] = message
+        result[:status] = status
+        result[:error] = error
+        result[:disabled] = disabled
+        result[:update] = update
+        render json: result, params: params, status: status
+    end
 
 end

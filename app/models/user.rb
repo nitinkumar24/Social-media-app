@@ -94,12 +94,14 @@ class User < ApplicationRecord
     end
 
     def homefeed
+
         users = followee_ids
         users << id
-        if followee_ids.count > 5
+         if followee_ids.count > 5
             Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc)
-        else
-            Post.includes(:user, :likes, :dislikes, comments: [:replies]).where(user_id: users, flavour: "feed", mode: @current_mode,anonymous:false).order(created_at: :desc)
+         else
+             # Post.where(user_id: users, flavour: "feed", mode: @current_mode).order(created_at: :desc).as_json(include: :user)
+            Post.where(user_id: users, flavour: "feed", mode: @current_mode,anonymous:false).order(created_at: :desc)
         end
     end
 

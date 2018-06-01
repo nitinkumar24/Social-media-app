@@ -5,7 +5,7 @@ class NewsfeedController < ApplicationController
         @post = Post.new
         @comment = Comment.new
         @reply = Reply.new
-        @posts = current_user.homefeed.paginate(:page => params[:page], :per_page => 6)
+        @posts = current_user.homefeed.includes(:user, :likes, :dislikes, comments: [:replies]).paginate(:page => params[:page], :per_page => 6)
         @new_users = User.where(current_mode: @current_mode).order(created_at: :desc).limit(6)
         respond_to do |format|
             format.html{
@@ -54,11 +54,6 @@ class NewsfeedController < ApplicationController
         end
         @new_users = User.where(current_mode: @current_mode).order(created_at: :desc).limit(6)
 
-    end
-
-
-    def ajax
-        render :json => {text: "text"}
     end
 
 end
