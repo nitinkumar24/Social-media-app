@@ -5,7 +5,7 @@ module Api
 
             def create
                 build_resource(sign_up_params)
-                resource.accesstoken = "hello"
+                resource.accesstoken = SecureRandom.hex
                 print resource.accesstoken
                 resource.save
                 yield resource if block_given?
@@ -16,7 +16,7 @@ module Api
                     else
                         puts "6"
                         expire_data_after_sign_in!
-                        return response_data(params, status, 200)
+                        return response_data(params, "signed up", 200)
                     end
                 else
                     return response_data(resource.errors, "Error", 200)
