@@ -9,8 +9,8 @@ module Api
             end
 
             def create
-                email = params["email"]
-                password = params["password"]
+                email = params["user"]["email"]
+                password = params["user"]["password"]
                 user = User.find_by_email(email)
                 if user
                     data = Hash.new
@@ -20,12 +20,9 @@ module Api
                     if user.valid_password? password
                         data["access_token"] = user.accesstoken
                         return response_data(data, "Signed In", 200)
-
                     else
                         return response_data({}, "Password Invalid", 200)
-
                     end
-
                 else
                     return response_data({}, "Sign Up first", 200)
                 end
