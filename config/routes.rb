@@ -60,6 +60,7 @@ Rails.application.routes.draw do
                 post '/sign_in' => 'sessions#create'
                 get '/newsfeed' => 'newsfeed#home'
                 post '/sign_up' => 'registrations#create'
+                post 'forgot_password' => 'passwords#create'
             end
 
 
