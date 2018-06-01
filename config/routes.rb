@@ -61,6 +61,7 @@ Rails.application.routes.draw do
                 get '/newsfeed' => 'newsfeed#home'
                 post '/sign_up' => 'registrations#create'
                 post 'forgot_password' => 'passwords#create'
+                post 'resend_confirmations' => 'confirmations#create'
             end
 
 
