@@ -23,10 +23,23 @@ class User < ApplicationRecord
     crop_attached_file :avatar
     devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
+    after_create :add_mode
+
 
     searchkick word_start: [:name,:username]
 
     #searchkick for searching the user
+
+    def add_mode
+        open_emails = ["gmail.com","outlook.com","yahoo.com","hotmail.com"]
+        user_mail_domain = self.email.split("@").last
+        if open_emails.include? user_mail_domain
+            UserMode.create(user_id: self.id, mode: "open")
+        else
+            UserMode.create(user_id: self.id, mode: user_mail_domain)
+        end
+    end
+
     def self.aggs_search(params,uisc_ids)
         query = params[:query].presence || '*'
         conditions = {}
@@ -235,16 +248,6 @@ class User < ApplicationRecord
             user.password_confirmation =  password
             user.skip_confirmation!
             user.save
-
-            open_emails = ["gmail.com","outlook.com","yahoo.com","hotmail.com"]
-            user_mail_domain = user.email.split("@").last
-
-            if open_emails.include? user_mail_domain
-                UserMode.create(user_id: user.id, mode: "open")
-            else
-                UserMode.create(user_id: user.id, mode: user_mail_domain)
-            end
-
             if data.image? and data.image != "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
                 puts data.image
                 user.avatar = URI.parse(data.image)
