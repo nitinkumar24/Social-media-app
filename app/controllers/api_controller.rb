@@ -2,12 +2,12 @@
 class ApiController < ActionController::API
 
     def authenticate_user_api
-        current_user_api
+        current_user
         true
     end
 
-    def current_user_api
-        user = User.find_by_email("nitin.1510092@kiet.edu")
+    def current_user
+        user = User.find_by_email("test@gmail.com")
         @current_mode = user.current_mode            #for accesing current_mode in controllers
         user.set_mode_for_model @current_mode           #for accesing current_mode in models
         user

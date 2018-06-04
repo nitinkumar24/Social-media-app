@@ -12,11 +12,11 @@ module Api
                 if resource.persisted?
                     if resource.active_for_authentication?
                         sign_up(resource_name, resource)
-                        return response_data(params, "Confirmed", 200)
+                        return response_data({}, "Confirmed", 200)
                     else
                         puts "6"
                         expire_data_after_sign_in!
-                        return response_data(params, "signed up", 200)
+                        return response_data({}, "signed up", 200)
                     end
                 else
                     return response_data(resource.errors, "Error", 200)

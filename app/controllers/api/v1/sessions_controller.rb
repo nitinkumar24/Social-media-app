@@ -15,7 +15,7 @@ module Api
                 if user
                     data = Hash.new
                     unless user.confirmed?
-                        return response_data(data, "Confirm your email first", 200)
+                        return response_data({}, "Confirm your email first", 200)
                     end
                     if user.valid_password? password
                         data["access_token"] = user.accesstoken
@@ -24,7 +24,7 @@ module Api
                         return response_data({}, "Password Invalid", 200)
                     end
                 else
-                    return response_data({}, "Sign Up first", 200)
+                    return response_data({}, "Please Sign Up first", 200)
                 end
             end
 

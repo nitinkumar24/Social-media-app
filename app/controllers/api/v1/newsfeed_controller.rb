@@ -1,7 +1,7 @@
 module Api
     module V1
         class NewsfeedController < ::ApiController
-            before_action :authenticate_user_api, except: [:authenticate_user]
+            before_action :authenticate_user_api, except: [:authenticate_user_api]
 
             def home
                 data = current_user_api.homefeed.as_json(include: :user)

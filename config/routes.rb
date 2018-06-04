@@ -62,6 +62,7 @@ Rails.application.routes.draw do
                 post '/sign_up' => 'registrations#create'
                 post 'forgot_password' => 'passwords#create'
                 post 'resend_confirmations' => 'confirmations#create'
+                get 'get_mode' => 'mode#select'
             end
 
 

@@ -21,6 +21,7 @@ gem 'paperclip', '~> 4.1'
 gem 'paper_trail'
 gem 'pg'
 gem "puma"
+gem 'rack-cors', require: 'rack/cors'
 gem 'rails', '~> 5.1.2'
 gem 'rails_autolink'
 gem 'redcarpet'
